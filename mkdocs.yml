@@ -1,0 +1,27 @@
+site_name: DWES
+
+theme: 
+  name: material
+  palette:
+    primary: blue grey
+  language: ca
+  font:
+    text: Lato
+  logo: assets/logo.png
+
+   
+markdown_extensions:
+  - admonition
+  - pymdownx.inlinehilite:
+  - pymdownx.superfences:  
+  - pymdownx.highlight:
+      extend_pygments_lang:
+        - name: php-inline
+          lang: php
+          options:
+            startinline: true
+        - name: php
+          lang: php
+          options:
+            startinline: true
+      linenums_style: pymdownx-inline
