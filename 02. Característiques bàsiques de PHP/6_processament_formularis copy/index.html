@@ -1,0 +1,1177 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+    
+    
+      
+        <title>6. Processament de formularis - DWES</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#processament-de-formularis" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DWES" class="md-header__button md-logo" aria-label="DWES">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DWES
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Processament de formularis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DWES" class="md-nav__button md-logo" aria-label="DWES">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    DWES
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Desenvolupament Web en Entorn Servidor
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        01. Introducció a la programació web
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="01. Introducció a la programació web" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          01. Introducció a la programació web
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/00_index/" class="md-nav__link">
+        Introducció
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/1_arquitectura_duna_aplicaci_web/" class="md-nav__link">
+        1. Arquitectura d'una aplicació web
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/2_tecnologies_per_a_programaci_web_del_costat_del_servidor.html/" class="md-nav__link">
+        2. Tecnologies per a programació web del costat del servidor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/3_llenguatges.html/" class="md-nav__link">
+        3. Llenguatges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/4_preparant_lentorn_de_desenvolupament.html/" class="md-nav__link">
+        4. Preparant l'entorn de desenvolupament
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/5_eines_de_desenvolupament.html/" class="md-nav__link">
+        5. Eines de desevolupament
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/6_eines_per_a_depuraci_de_codi/" class="md-nav__link">
+        6. Eines per a la depuració de codi
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        02. Característiques bàsiques de PHP
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="02. Característiques bàsiques de PHP" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          02. Característiques bàsiques de PHP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0_index/" class="md-nav__link">
+        0. Introducció
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_programaci_web_amb_php/" class="md-nav__link">
+        1. Programació web amb PHP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_maneig_de_cadenes_de_text_i_dates/" class="md-nav__link">
+        2. Maneig de cades de text i dates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_maneig_darrays/" class="md-nav__link">
+        3. Maneig d'arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_funcions/" class="md-nav__link">
+        4. Funcions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_noves%20caracteristiques_php/" class="md-nav__link">
+        5. Noves característiques PHP 7
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          6. Processament de formularis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        6. Processament de formularis
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#taula-de-continguts" class="md-nav__link">
+    Taula de continguts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio" class="md-nav__link">
+    Introducció
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducció">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-una-peticio-http" class="md-nav__link">
+    Què és una petició HTTP?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodes-get-i-post" class="md-nav__link">
+    Mètodes GET i POST
+  </a>
+  
+    <nav class="md-nav" aria-label="Mètodes GET i POST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metode-get" class="md-nav__link">
+    Mètode GET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accedir-a-les-dades-de-la-peticio-get" class="md-nav__link">
+    Accedir a les dades de la petició GET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metode-post" class="md-nav__link">
+    Mètode POST
+  </a>
+  
+    <nav class="md-nav" aria-label="Mètode POST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evitar-el-csrf" class="md-nav__link">
+    Evitar el CSRF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicio-de-formularis" class="md-nav__link">
+    Definició de formularis
+  </a>
+  
+    <nav class="md-nav" aria-label="Definició de formularis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accedir-a-les-dades-de-la-peticio-post" class="md-nav__link">
+    Accedir a les dades de la petició POST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accedir-a-parametres-no-existents" class="md-nav__link">
+    Accedir a paràmetres no existents
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacio-de-formularis" class="md-nav__link">
+    Validació de formularis
+  </a>
+  
+    <nav class="md-nav" aria-label="Validació de formularis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valors-buits" class="md-nav__link">
+    Valors buits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#espais-en-blanc" class="md-nav__link">
+    Espais en blanc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escapar-lentrada" class="md-nav__link">
+    Escapar l'entrada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovar-lemail" class="md-nav__link">
+    Comprovar l'email
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprovar l'email">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter_input" class="md-nav__link">
+    filter_input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovar-la-data" class="md-nav__link">
+    Comprovar la data
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprovar la data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    Exemple
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bones-practiques-en-lobtencio-de-dades-des-de-lexterior" class="md-nav__link">
+    Bones pràctiques en l’obtenció de dades des de l’exterior
+  </a>
+  
+    <nav class="md-nav" aria-label="Bones pràctiques en l’obtenció de dades des de l’exterior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formularis-en-html5" class="md-nav__link">
+    Formularis en HTML5
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_pujada_fitxers/" class="md-nav__link">
+        7. Pujada de fitxers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#taula-de-continguts" class="md-nav__link">
+    Taula de continguts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio" class="md-nav__link">
+    Introducció
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducció">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-una-peticio-http" class="md-nav__link">
+    Què és una petició HTTP?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodes-get-i-post" class="md-nav__link">
+    Mètodes GET i POST
+  </a>
+  
+    <nav class="md-nav" aria-label="Mètodes GET i POST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metode-get" class="md-nav__link">
+    Mètode GET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accedir-a-les-dades-de-la-peticio-get" class="md-nav__link">
+    Accedir a les dades de la petició GET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metode-post" class="md-nav__link">
+    Mètode POST
+  </a>
+  
+    <nav class="md-nav" aria-label="Mètode POST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evitar-el-csrf" class="md-nav__link">
+    Evitar el CSRF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicio-de-formularis" class="md-nav__link">
+    Definició de formularis
+  </a>
+  
+    <nav class="md-nav" aria-label="Definició de formularis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accedir-a-les-dades-de-la-peticio-post" class="md-nav__link">
+    Accedir a les dades de la petició POST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accedir-a-parametres-no-existents" class="md-nav__link">
+    Accedir a paràmetres no existents
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacio-de-formularis" class="md-nav__link">
+    Validació de formularis
+  </a>
+  
+    <nav class="md-nav" aria-label="Validació de formularis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valors-buits" class="md-nav__link">
+    Valors buits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#espais-en-blanc" class="md-nav__link">
+    Espais en blanc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escapar-lentrada" class="md-nav__link">
+    Escapar l'entrada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovar-lemail" class="md-nav__link">
+    Comprovar l'email
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprovar l'email">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter_input" class="md-nav__link">
+    filter_input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovar-la-data" class="md-nav__link">
+    Comprovar la data
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprovar la data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    Exemple
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bones-practiques-en-lobtencio-de-dades-des-de-lexterior" class="md-nav__link">
+    Bones pràctiques en l’obtenció de dades des de l’exterior
+  </a>
+  
+    <nav class="md-nav" aria-label="Bones pràctiques en l’obtenció de dades des de l’exterior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formularis-en-html5" class="md-nav__link">
+    Formularis en HTML5
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="processament-de-formularis">Processament de formularis</h1>
+<p>{: .no_toc }</p>
+<h2 id="taula-de-continguts">Taula de continguts</h2>
+<p>{: .no_toc .text-delta  .nocount }</p>
+<ol>
+<li>TOC
+{:toc}</li>
+</ol>
+<h2 id="introduccio">Introducció</h2>
+<h3 id="que-es-una-peticio-http">Què és una petició HTTP?</h3>
+<p>Una petició HTTP és una sol·licitud d'un recurs a un servidor. La petició es realitza a través d'una URL. Amb la petició s'envien també paràmetres.</p>
+<p>Hi ha diferents mètodes (METHOD) per a realitzar una petició (GET, POST, PUT, DELETE, PATCH, etc.). Els més habituals són GET i POST. La resta són més utilitzats en les RESTful API.</p>
+<p><img alt="Sol·licitud HTTP" src="images/http-request.png" /></p>
+<h3 id="metodes-get-i-post">Mètodes GET i POST</h3>
+<h4 id="metode-get">Mètode GET</h4>
+<p>S'utilitza per a sol·licitar dades d'un recurs. Mostren els paràmetres que s'envien en la url. Es poden utilitzar directament en enllaços. El resultat es pot emmagatzemar en cache. Romanen en l'historial del navegador. La grandària dels paràmetres està limitat a 255 caràcters.</p>
+<p><em>Exemple de petició GET</em>
+<img alt="Petició GET" src="images/get-example.png" /></p>
+<p><em>Inspecció de la petició</em>
+<img alt="Inspecció del petició GET: Capçaleres" src="images/get-inspect-headers.png" /></p>
+<p><em>Inspecció de la petició</em>
+<img alt="Inspecció del petició GET: Paràmeters" src="images/get-inspect-parameters.png" /></p>
+<h4 id="accedir-a-les-dades-de-la-peticio-get">Accedir a les dades de la petició GET</h4>
+<p>Per a accedir a les dades usem la variable superglobal <code>$_GET</code>.</p>
+<p><code>$_GET</code> és un array associatiu les claus del qual coincidiran amb els noms que li hem donat als paràmetres.</p>
+<p>Per a accedir als paràmetres de la petició anterior:</p>
+<div class="highlight"><pre><span></span><code><span class="k">echo</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cognom&#39;</span><span class="p">];</span> <span class="c1">// Homer Simpson</span>
+</code></pre></div>
+<div markdown="1" class="alert-activity alert">
+
+### Exercici
+{: .nocount .no_toc }
+
+Crea una pàgina que reba com a paràmetre un nom i mostre el text ‘Benvingut [nom]!!!’ sent [nom] el nom has 
+passat com a paràmetre.
+
+Guarda-la amb el nom `exemple_get.php`.
+</div>
+
+<h4 id="metode-post">Mètode POST</h4>
+<p>El mètode POST té les següents característiques:</p>
+<ul>
+<li>S'utilitza per a enviar dades a un recurs.</li>
+<li>Els paràmetres van en el cos de la petició, no són visibles per a l'usuari.</li>
+<li>La petició no es guarda en cache.</li>
+<li>No es pot utilitzar en un enllaç.</li>
+<li>No roman en l'historial.</li>
+<li>No tenim la limitació de grandària dels paràmetres.</li>
+<li>Es solen utilitzar en els formularis.</li>
+</ul>
+<h5 id="evitar-el-csrf">Evitar el CSRF</h5>
+<p>En tota pàgina que reba paràmetres GET has de comprovar el <strong>HTTP referer</strong> del navegador, i que aquest siga de dins de la teua web. En php el referer que envia el navegador s'emmagatzema en $_*SERVER['HTTP_REFERER']</p>
+<p>Seria tal com:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span> <span class="nb">parse_url</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_REFERER&#39;</span><span class="p">],</span> <span class="nx">PHP_URL_HOST</span><span class="p">)</span> <span class="o">!=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">])</span> <span class="k">die</span><span class="p">(</span><span class="s1">&#39;Anti-CSRF&#39;</span><span class="p">);</span> 
+</code></pre></div>
+<p>NOTA IMPORTANT
+Amb aquest codi estem obligant al fet que el navegador envie un referer si o sí. Per tant només ha d'utilitzar-se en pàgines a les quals el navegador accedisca des d'una altra pàgina de la nostra web.
+Òbviament no podem col·locar-ho en la primera pàgina a la qual s'accedeix a la nostra web (index.php o similar), ja que si l'usuari a escrit l'adreça a mà en la barra del navegador no s'enviarà referer cap i saltarà el sistema.</p>
+<h2 id="definicio-de-formularis">Definició de formularis</h2>
+<p>Com hem dit abans el mètode POST s'empra en els formularis. El formulari següent enviarà les dades a la pàgina <code>index.php</code> (atribut <code>action</code> de l'element <code>form</code>).</p>
+<p>Utilitza el mètode <code>post</code> indicat en l'atribut <code>method</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;index.php&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nom&quot;</span><span class="p">&gt;</span>Nom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nom&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;cognom&quot;</span><span class="p">&gt;</span>Cognom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;cognom&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Enviar&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><em>Inspecció de la petició: Headers</em>
+<img alt="Inspecció del petició POST" src="images/post-inspect-headers.png" /></p>
+<p><em>Inspecció de la petició: Paramètres</em>
+<img alt="Inspecció del petició POST" src="images/post-inspect-parameters.png" /></p>
+<h3 id="accedir-a-les-dades-de-la-peticio-post">Accedir a les dades de la petició POST</h3>
+<p>Usem la variable superglobal <code>$_POST</code>. Funciona igual que <code>$_GET</code>, però amb els noms (atribut <code>name</code>) que li hem donat als camps del formulari.</p>
+<p>En depuració podem mostar totes les dades rebudes:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">var_dump</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">)</span>
+</code></pre></div>
+<p>Per a mostrar les dades individualment:</p>
+<div class="highlight"><pre><span></span><code><span class="k">echo</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;cognom&#39;</span><span class="p">];</span>
+</code></pre></div>
+<div markdown="1" class="alert-activity alert">
+
+### Activitat 12 A: Creació d'un formulari
+{: .nocount .no_toc }
+
+Crea un formulari que tinga els següents camps:
+
+* Nom i cognoms
+* Data de naixement
+* Correu electrònic
+* Assumpte
+* Missatge
+
+En l'atribut `action` del formulari posarem el següent:
+
+<div class="highlight"><pre><span></span><code><span class="nx">action</span><span class="o">=</span><span class="s2">&quot;&lt;?= </span><span class="si">$_SERVER[&#39;PHP_SELF&#39;]</span><span class="s2">; ?&gt;&quot;</span>
+</code></pre></div>
+
+Açò farà que siga la pròpia pàgina del formulari la que processe les dades del mateix.
+
+En prémer `Enviar` han d'aparèixer sota el formulari les dades que s'han introduït en el mateix.
+</div>
+
+<h3 id="accedir-a-parametres-no-existents">Accedir a paràmetres no existents</h3>
+<p>Errors del tipus  </p>
+<p><div class="highlight"><pre><span></span><code>Notice: Undefined index: nom in /home/ubuntu/index.php on line 6
+</code></pre></div>
+ens indiquen que la clau <code>nom</code>  no existeix en l'array <code>$_POST</code>. La variable supergloblal <code>$_POST</code> està buida si no s'ha
+enviat el formulari.</p>
+<p>Per a evitar aquest tipus d'errors és important verificar que s'haja enviat el formulari prèviament:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>{: .alert .alert-activity}</p>
+<div markdown="1">
+
+### Activitat 12 B: Creació d'un formulari
+{: .nocount .no_toc }
+
+Soluciona el problema dels paràmetres no enviats de l'exercici anterior.
+</div>
+
+<h2 id="validacio-de-formularis">Validació de formularis</h2>
+<p>Hem de comprovar que les dades que envia el formulari són correctes.</p>
+<p>Les validacions a realitzar són les següents:</p>
+<ol>
+<li>Els camps requerits no han de quedar buits. Ni contenir espais en blanc a l'inici i al final.</li>
+<li>Els camps email i data han de tenir el format esperat.</li>
+<li>Tots els camps s'han de filtrar amb <code>htmlspecialchars</code> per a evitar atacs de <em>Cross-site Scripting</em> (XSS).</li>
+</ol>
+<h3 id="valors-buits">Valors buits</h3>
+<ol>
+<li>Els camps requerits no deurien quedar-se buits.</li>
+<li>Per a verificar que un valor no queda buit podem utilitzar la funció <code>empty()</code> de PHP.</li>
+</ol>
+<h3 id="espais-en-blanc">Espais en blanc</h3>
+<ol>
+<li>Hem d'eliminar els espais en blanc del principi i final dels camps.</li>
+<li>S'utilitza la funció <code>trim</code></li>
+</ol>
+<h3 id="escapar-lentrada">Escapar l'entrada</h3>
+<p>Sempre hem de filtrar l'entrada amb <code>htmlspecialchars</code> abans de mostrar el camp amb <code>echo</code> o similar. Acò convertirà
+qualsevol caràcter especial d'html en la entitat, així no interferirà en el el programa.</p>
+<h3 id="comprovar-lemail">Comprovar l'email</h3>
+<p>Per a verificar si un email és correcte podem utilitzar la funció <code>filter_var</code> </p>
+<p><div class="highlight"><pre><span></span><code><span class="nb">filter_var</span><span class="p">(</span><span class="nv">$email</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span>
+</code></pre></div>
+o la funció <code>filter_input</code> quan obtenin les dades directament d'una variable extern.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// suposem que rebem les dades d&#39;un formulari que té un quadre de text de nom &#39;email&#39;</span>
+<span class="nv">$email</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_POST</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="filter_input">filter_input</h4>
+<p><div class="highlight"><pre><span></span><code><span class="nb">filter_input</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$type</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$variable_name</span><span class="p">[,</span> <span class="nx">int</span> <span class="nv">$filter</span><span class="o">=</span><span class="nx">FILTER_DEFAULT</span><span class="p">[,</span> <span class="nx">mixed</span> <span class="nv">$options</span><span class="p">]])</span><span class="o">:</span><span class="nx">mixed</span>
+</code></pre></div>
+La funció <code>filter_input</code> agafa una variable externa (<code>$_GET</code>, <code>$_POST</code>, etc) concreta pel seu nom i aplica el filtre indicat.</p>
+<p>Els filtres poden <a href="https://www.php.net/manual/es/filter.filters.validate.php">sanejar</a> o <a href="https://www.php.net/manual/es/filter.filters.sanitize.php">validar</a> les variables externes.</p>
+<p>Per exemple, si volem agafar el valor del paràmetre <em>nom</em>  del querystring (http://localhost/index.php?nom=<h1>Homer</h1>) usarem el tipus INPUT_GET.</p>
+<p>El fltre FILTER_SANITIZE_STRING elimina etiquetes, i opcionalment elimina o codifica caracters especials.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$nom</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_GET</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_STRING</span><span class="p">)</span><span class="o">.</span>  <span class="c1">// $nom = Homer</span>
+</code></pre></div>
+<p>Més informació en:</p>
+<ul>
+<li><a href="http://php.net/manual/es/function.filter-var.php">filter_var</a></li>
+<li><a href="http://php.net/manual/es/function.filter-input.php">filter_input</a></li>
+</ul>
+<h3 id="comprovar-la-data">Comprovar la data</h3>
+<ul>
+<li>Per a comprovar la data hem de crear una funció a aquest efecte.</li>
+<li>Podem utilitzar el mètode estàtic <code>createFromFormat</code> de la classe <code>DateTime</code></li>
+</ul>
+<p>Més informació: <a href="http://php.net/manual/es/datetime.createfromformat.php">http://php.net/manual/es/datetime.createfromformat.php</a></p>
+<h4 id="exemple">Exemple</h4>
+<div class="highlight"><pre><span></span><code><span class="nv">$data1</span> <span class="o">=</span> <span class="s2">&quot;2001-05-02&quot;</span><span class="p">;</span> <span class="c1">// Data és de tipus string</span>
+<span class="c1">// DateTime::createFromFormat converteix una cadena de text a on objecte DateTime</span>
+<span class="c1">// ens tornarà una instància de DateTime o FALSE en cas d&#39;error.</span>
+
+<span class="nv">$dt1</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">,</span> <span class="nv">$data1</span><span class="p">);</span>  
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$dt1</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;La data d&#39;inici és incorrecta&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>https://www.php.net/manual/es/function.strtotime.php</p>
+<p>També és habitual trobar els controls de data separats en 3 elements input. Un per a l’any, l’altre per a mes i l’altre per al dia.</p>
+<div markdown="1" class="alert-activity alert">
+
+### Activitat 12 C: Validació d'un formulari
+{: .nocount .no_toc }
+
+Modifica l'exercici anterior realitzant les validacions oportunes.
+</div>
+
+<h2 id="bones-practiques-en-lobtencio-de-dades-des-de-lexterior">Bones pràctiques en l’obtenció de dades des de l’exterior</h2>
+<p>Cal seguir les següents bones pràctiques:</p>
+<ol>
+<li>No confieu mai (mai) en l’entrada des de l’exterior del vostre PHP.</li>
+<li>Sanegeu i valideu l’entrada de dades sempre.</li>
+<li>Les funcions <code>filter_var()</code> i <code>filter_input()</code> poden sanejar el text i validar els formats de text (per exemple, adreces de correu electrònic, enters).</li>
+<li>Recordeu que l’entrada de dades no es limita a formularis enviats per l’usuari. Els fitxers carregats i descarregats, els valors de sessió, les dades de galetes i les dades de serveis web de tercers també són d’entrada estrangera.</li>
+</ol>
+<p>A mode de resum podíem resumir la gestió de formularis en el següent diagrama de flux.</p>
+<p><img alt="Form handle" src="images/form-handle.png" /></p>
+<h3 id="formularis-en-html5">Formularis en HTML5</h3>
+<p>{: .nocount .no_toc }</p>
+<p>En els següents recursos trobaràs informació addicional sobre els controls de formularis en HTML5:
+* <a href="https://developer.mozilla.org/es/docs/Learn/HTML/Forms">Formularios en HTML</a> en MDN web docs.
+* <a href="https://developer.mozilla.org/es/docs/HTML/HTML5/Forms_in_HTML5">Formularios en HTML5</a> en MDN web docs.
+* <a href="https://www.w3schools.com/html/html_forms.asp">HTML Forms</a> en W3CSchools.
+</div></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../5_noves%20caracteristiques_php/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              5. Noves característiques PHP 7
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../7_pujada_fitxers/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Següent
+              </span>
+              7. Pujada de fitxers
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      
+    
+  </body>
+</html>

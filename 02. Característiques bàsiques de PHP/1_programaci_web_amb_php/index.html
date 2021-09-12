@@ -1,0 +1,1177 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+    
+    
+      
+        <title>1. Programació web amb PHP - DWES</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-programacio-web-amb-php" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DWES" class="md-header__button md-logo" aria-label="DWES">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DWES
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Programació web amb PHP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DWES" class="md-nav__button md-logo" aria-label="DWES">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    DWES
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Desenvolupament Web en Entorn Servidor
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        01. Introducció a la programació web
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="01. Introducció a la programació web" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          01. Introducció a la programació web
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/00_index/" class="md-nav__link">
+        Introducció
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/1_arquitectura_duna_aplicaci_web/" class="md-nav__link">
+        1. Arquitectura d'una aplicació web
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/2_tecnologies_per_a_programaci_web_del_costat_del_servidor.html/" class="md-nav__link">
+        2. Tecnologies per a programació web del costat del servidor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/3_llenguatges.html/" class="md-nav__link">
+        3. Llenguatges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/4_preparant_lentorn_de_desenvolupament.html/" class="md-nav__link">
+        4. Preparant l'entorn de desenvolupament
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/5_eines_de_desenvolupament.html/" class="md-nav__link">
+        5. Eines de desevolupament
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01.%20Introducci%C3%B3%20a%20la%20programaci%C3%B3%20web/6_eines_per_a_depuraci_de_codi/" class="md-nav__link">
+        6. Eines per a la depuració de codi
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        02. Característiques bàsiques de PHP
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="02. Característiques bàsiques de PHP" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          02. Característiques bàsiques de PHP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0_index/" class="md-nav__link">
+        0. Introducció
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          1. Programació web amb PHP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        1. Programació web amb PHP
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#funcionament-i-estructura-basica" class="md-nav__link">
+    Funcionament i estructura bàsica
+  </a>
+  
+    <nav class="md-nav" aria-label="Funcionament i estructura bàsica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-nostre-primer-codi-php" class="md-nav__link">
+    El nostre primer codi PHP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comentaris" class="md-nav__link">
+    Comentaris
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codi-incrustat" class="md-nav__link">
+    Codi incrustat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-i-tipus-de-dades" class="md-nav__link">
+    Variables i tipus de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables i tipus de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declaracio" class="md-nav__link">
+    Declaració
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-les-variables" class="md-nav__link">
+    Tipus de les variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipus de les variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-no-inicialitzades" class="md-nav__link">
+    Variable no inicialitzades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-dades-en-php" class="md-nav__link">
+    Tipus de dades en PHP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ambit-de-les-variables" class="md-nav__link">
+    Àmbit de les variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-predefinides" class="md-nav__link">
+    Variables predefinides
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-i-operadors" class="md-nav__link">
+    Expressions i operadors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadors" class="md-nav__link">
+    Operadors
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadors-aritmetics" class="md-nav__link">
+    Operadors Aritmètics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-de-cadena" class="md-nav__link">
+    Operadors de Cadena
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-dasignacio" class="md-nav__link">
+    Operadors d'asignació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-de-comparacio" class="md-nav__link">
+    Operadors de comparació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-logics" class="md-nav__link">
+    Operadors lògics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-ternari" class="md-nav__link">
+    Operador ternari
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructures-de-control" class="md-nav__link">
+    Estructures de control
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructures-de-control-de-flux" class="md-nav__link">
+    Estructures de control de flux
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructures de control de flux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentencies-per-a-incloure-fitxers" class="md-nav__link">
+    Sentències per a incloure Fitxers
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentències per a incloure Fitxers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expansio-de-variables" class="md-nav__link">
+    Expansió de variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_maneig_de_cadenes_de_text_i_dates/" class="md-nav__link">
+        2. Maneig de cades de text i dates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_maneig_darrays/" class="md-nav__link">
+        3. Maneig d'arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_funcions/" class="md-nav__link">
+        4. Funcions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_noves%20caracteristiques_php/" class="md-nav__link">
+        5. Noves característiques PHP 7
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_processament_formularis%20copy/" class="md-nav__link">
+        6. Processament de formularis
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_pujada_fitxers/" class="md-nav__link">
+        7. Pujada de fitxers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#funcionament-i-estructura-basica" class="md-nav__link">
+    Funcionament i estructura bàsica
+  </a>
+  
+    <nav class="md-nav" aria-label="Funcionament i estructura bàsica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-nostre-primer-codi-php" class="md-nav__link">
+    El nostre primer codi PHP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comentaris" class="md-nav__link">
+    Comentaris
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codi-incrustat" class="md-nav__link">
+    Codi incrustat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-i-tipus-de-dades" class="md-nav__link">
+    Variables i tipus de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables i tipus de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declaracio" class="md-nav__link">
+    Declaració
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-les-variables" class="md-nav__link">
+    Tipus de les variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipus de les variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-no-inicialitzades" class="md-nav__link">
+    Variable no inicialitzades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-dades-en-php" class="md-nav__link">
+    Tipus de dades en PHP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ambit-de-les-variables" class="md-nav__link">
+    Àmbit de les variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-predefinides" class="md-nav__link">
+    Variables predefinides
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-i-operadors" class="md-nav__link">
+    Expressions i operadors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadors" class="md-nav__link">
+    Operadors
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadors-aritmetics" class="md-nav__link">
+    Operadors Aritmètics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-de-cadena" class="md-nav__link">
+    Operadors de Cadena
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-dasignacio" class="md-nav__link">
+    Operadors d'asignació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-de-comparacio" class="md-nav__link">
+    Operadors de comparació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-logics" class="md-nav__link">
+    Operadors lògics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-ternari" class="md-nav__link">
+    Operador ternari
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructures-de-control" class="md-nav__link">
+    Estructures de control
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructures-de-control-de-flux" class="md-nav__link">
+    Estructures de control de flux
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructures de control de flux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentencies-per-a-incloure-fitxers" class="md-nav__link">
+    Sentències per a incloure Fitxers
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentències per a incloure Fitxers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expansio-de-variables" class="md-nav__link">
+    Expansió de variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="1-programacio-web-amb-php">1. Programació web amb PHP</h1>
+<h2 id="funcionament-i-estructura-basica">Funcionament i estructura bàsica</h2>
+<h3 id="el-nostre-primer-codi-php">El nostre primer codi PHP</h3>
+<ul>
+<li>El codi php sempre va entre els simbolos <strong>&lt;?php</strong> y <strong>?&gt;</strong>.</li>
+<li>Les instruccions php acaben sempre amb ;</li>
+<li>Per a generar codi html des de php podem utilitzar el mètode echo passant-li el text del codi que volem generar.</li>
+<li>El codi pot anar entre les etiquetes de \<html></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="s1">&#39;Hola món&#39;</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
+<span class="x">&lt;body&gt;</span>
+</code></pre></div>
+<ul>
+<li>També podem utilitzar l'etiqueta <strong>&lt;?=</strong> fa el echo al mateix temps.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;&lt;?=</span> <span class="nx">Hola</span> <span class="nx">món</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
+<span class="x">&lt;body&gt;</span>
+</code></pre></div>
+<h3 id="comentaris">Comentaris</h3>
+<ul>
+<li>De bloc entre /<em> i </em>/</li>
+<li>De linea començant per // o per #</li>
+</ul>
+<h3 id="codi-incrustat">Codi incrustat</h3>
+<p>El documents que contenen codi php s'han d'anomenar amb l'extensió <strong>.php</strong></p>
+<h2 id="variables-i-tipus-de-dades">Variables i tipus de dades</h2>
+<p>Una de les característiques de php és que és un llenguatge <strong>no fortament tipat</strong>. De fet no cal declarar la variable ni indicar el tipus de dades si la declare. Encara que si volem codi de qualitat ho hauriem de fer.</p>
+<h4 id="declaracio">Declaració</h4>
+<ul>
+<li>Els noms de les variables sempre comencen per <strong>$</strong> </li>
+<li>Després del $ els noms de les variables han d'anar seguits per una lletra o el caràcter _ i poden contenir també números. </li>
+<li>No és necessari declarar una variable ni especificar-li un tipus (sencer, cadena,...) concret.</li>
+</ul>
+<p>Per crear una variable que continga el text a generar i mostrar-la:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span>
+    <span class="o">&lt;?</span><span class="nx">php</span> 
+        <span class="nv">$salutacio</span> <span class="o">=</span> <span class="s1">&#39;Hola món&#39;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="nv">$salutacio</span><span class="p">;</span> 
+    <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;/h1&gt;</span>
+<span class="x">&lt;body&gt;</span>
+</code></pre></div>
+<h4 id="tipus-de-les-variables">Tipus de les variables</h4>
+<ul>
+<li>El tipus de la variable es decideix en funció del context en què s'utilitze.</li>
+<li>En assignar-li el valor 7, la variable és de tipus “sencer” </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nv">$la_meua_variable</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>  <span class="c1">// ara és un número</span>
+<span class="nv">$la_meua_variable</span> <span class="o">=</span> <span class="s2">&quot;set&quot;</span><span class="p">;</span> <span class="c1">// ara és cadena</span>
+</code></pre></div>
+<p>Si li canviem el contingut passa a ser de tipus “cadena”</p>
+<h5 id="variable-no-inicialitzades">Variable no inicialitzades</h5>
+<p>Si s'intenta utilitzar una variable abans d'assignar-li un valor, es genera un error de tipus <strong>E_NOTICE</strong> però no s'interromp l'execusió de l'script. L'eixida mostrarà un avís cada volta que s'intente.</p>
+<h4 id="tipus-de-dades-en-php">Tipus de dades en PHP</h4>
+<ul>
+<li>booleà (<strong>boolean</strong>). Els seus possibles valors són true i false. A més, qualsevol nombre enter es considera com true, excepte el 0 que és false.</li>
+<li>sencer (<strong>integer</strong>). Qualsevol nombre sense decimals. Es poden representar en format decimal, octal (començant per un 0), o hexadecimal (començant per 0x).</li>
+<li>real (<strong>float</strong>). Qualsevol nombre amb decimals. Es poden representar també en notació científica.</li>
+<li>cadena (<strong>string</strong>). Conjunts de caràcters delimitats per cometes simples o dobles.</li>
+<li>vector (<strong>array</strong>). Conjunt de variables del mateix tipus ordenades.</li>
+<li>Objecte (<strong>object</strong>). Utilitzat per les instàncies de classes.</li>
+<li><strong>null</strong>. És un tipus de dades especial, que s'usa per a indicar que la variable no té valor. (<a href="http://php.net/manual/es/language.types.null.php">http://php.net/manual/es/language.types.null.php</a>)</li>
+</ul>
+<h4 id="ambit-de-les-variables">Àmbit de les variables</h4>
+<p>L'àmbit d'una variable és la part del codi en que és visible. Una variable declarada en un fitxer de PHP està disponible en eixe fitxer i en els que l'incloguen.
+Les funcions definixen un àmbit local, separat de la resta del codi.
+Es poden definir variables globlals amb la paraula reservada <strong>global</strong>, encara que no són aconsellables.</p>
+<h4 id="variables-predefinides">Variables predefinides</h4>
+<p>Són variables internes predefinides de PHP que poden usar-se des de qualsevol àmbit. Tomem forma <strong>d'arrays associatius</strong> que contenen un conjunt de valors.</p>
+<ul>
+<li><strong>$_SERVER</strong>. Conté informació sobre l'entorn del servidor web i d'execució.</li>
+<li><strong>$_GET, $_POST i $_COOKIE</strong> contenen les variables que s'han passat al
+script actual utilitzant, respectivament, els mètodes GET (paràmetres en la URL), HTTP POST i Cookies HTTP </li>
+<li><strong>$_REQUEST</strong> junta en un solament el contingut dels tres *arrays anteriors,
+$_GET, $_POST i $_COOKIE. </li>
+<li><strong>$_ENV</strong> conté les variables que es puguen haver passat a PHP des de l'entorn en què s'executa. </li>
+<li><strong>$_FILES</strong> conté els fitxers que es puguen haver pujat al servidor
+utilitzant el mètode POST. </li>
+<li><strong>$_SESSION</strong> conté les variables de sessió disponibles per al guió
+actual.</li>
+</ul>
+<p><a href="http://es.php.net/manual/es/language.variables.superglobals.php">http://es.php.net/manual/es/language.variables.superglobals.php</a></p>
+<h2 id="constants">Constants</h2>
+<p>Per a definir variables utilitze <strong>define()</strong>, que reb el nom de la constant i el valor que li volem donar</p>
+<div class="highlight"><pre><span></span><code><span class="nb">define</span><span class="p">(</span><span class="s2">&quot;LIMITE&quot;</span><span class="p">,</span><span class="mi">1000</span><span class="p">);</span>
+</code></pre></div>
+<p>És habitual utilitzar identificadors en majuscules per a les constants.</p>
+<h2 id="expressions-i-operadors">Expressions i operadors</h2>
+<h2 id="operadors">Operadors</h2>
+<h4 id="operadors-aritmetics">Operadors Aritmètics</h4>
+<p><img alt="" src="../img/t201.png" /></p>
+<h4 id="operadors-de-cadena">Operadors de Cadena</h4>
+<p>El <strong>.</strong> concatena dos cadenes</p>
+<h4 id="operadors-dasignacio">Operadors d'asignació</h4>
+<p>El <strong>=</strong> s'utilitza per asignar un valor a una variable. També es poden combinar amb els operadors aritmètics com l'exemple</p>
+<p><strong>$a += $b</strong> equival a <strong>$a = $a + $b</strong></p>
+<p><strong>$a -= $b</strong> equival a <strong>$a = $a - $b</strong></p>
+<h4 id="operadors-de-comparacio">Operadors de comparació</h4>
+<p><img alt="" src="../img/t202.png" /></p>
+<h4 id="operadors-logics">Operadors lògics</h4>
+<p><img alt="" src="../img/t203.png" /></p>
+<h4 id="operador-ternari">Operador ternari</h4>
+<p>Funciona com un condicional <strong>condició ? valor si true : valor si false</strong> i que es pot simplificar ** condició  </p>
+<p><a href="https://www.php.net/manual/es/language.operators.php">https://www.php.net/manual/es/language.operators.php</a></p>
+<p>Farem alguns <strong>exercicis</strong>: <a href="2.0.Activitat.md">Exercisi 2.0 Conceptes bàsics</a></p>
+<h2 id="estructures-de-control">Estructures de control</h2>
+<h2 id="estructures-de-control-de-flux">Estructures de control de flux</h2>
+<ul>
+<li>
+<p>Les instruccions de control de flux en PHP funcionen exactament igual que en altres llenguatges de programació.</p>
+</li>
+<li>
+<p>Les més habituals són:</p>
+</li>
+<li>
+<p>Condicionals: if, if else, switch </p>
+</li>
+<li>Bucles: while, do while, for</li>
+</ul>
+<p>seguint les estructures:</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">condició</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// instruccions</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// instruccions</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">switch</span> <span class="p">(</span><span class="nv">$variable</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">valor</span><span class="o">:</span>
+        <span class="c1">//instruccio1</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nx">valor</span><span class="o">:</span>
+        <span class="c1">//instruccio1</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="c1">//instruccio1</span>
+<span class="p">}</span>           
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="nx">condició</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//instruccions</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
+    <span class="c1">//instruccions</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">condició</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nv">$i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">//instruccions</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><a href="http://php.net/manual/es/language.control-structures.php">http://php.net/manual/es/language.control-structures.php</a></p>
+<p>Farem alguns <em>exercicis</em>: <a href="2.1.Activitat.md">Exercisi 2.1 Cadenes</a></p>
+<p>És el moment de fer alguns <em>exercicis</em>: <a href="2.2.Activitat.md">Exercisi 2.2 Arrays</a></p>
+<h3 id="sentencies-per-a-incloure-fitxers">Sentències per a incloure Fitxers</h3>
+<p>Les sentències <strong>include()</strong> i <strong>include_once()</strong> i <strong>require()</strong> i <strong>require_once()</strong> inclouen i avaluen l'artxiu especificat. <strong>include_once()</strong> i <strong>require_once()</strong>  verifica que l'arxiu no haja sigut inclòs abans i és preferible a include. Cal ser curòs amb el path de l'arxiu a incloure. La diferència entre require i include és el tractament de l'error quan el fitxer no existeix.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">fruites</span><span class="o">.</span><span class="nx">php</span>
+<span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$color</span> <span class="o">=</span> <span class="s1">&#39;verde&#39;</span><span class="p">;</span>
+<span class="nv">$fruta</span> <span class="o">=</span> <span class="s1">&#39;manzana&#39;</span><span class="p">;</span>
+<span class="k">include</span><span class="p">(</span><span class="s1">&#39;fruite.view.php&#39;</span><span class="p">)</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>fruites.view.php
+
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Fruites<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>
+        <span class="cp">&lt;?= &quot;Una $fruta $color&quot; ?&gt;</span> 
+    <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>       
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="expansio-de-variables">Expansió de variables</h4>
+<ul>
+<li>Podem introduir una variable dins d'un text sempre que usem les cometes dobles per a delimitar el text. Açò farà que el contingut de la variable s'expandisca i es concatene amb el text existent en la cadena.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;Mòdul: </span><span class="si">$module</span><span class="s2">&lt;/p&gt;&quot;</span>
+</code></pre></div>
+<ul>
+<li>A voltes, és necessari envoltar-la entre claus</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;Mòdul: </span><span class="si">{</span><span class="nv">$module</span><span class="si">}</span><span class="s2">DAW&lt;/p&gt;&quot;</span>
+</code></pre></div>
+<ul>
+<li>Si no posàrem les claus l'intèrpret cercaria una variable que es cride $moduleDAW</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../0_index/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              0. Introducció
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../2_maneig_de_cadenes_de_text_i_dates/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Següent
+              </span>
+              2. Maneig de cades de text i dates
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      
+    
+  </body>
+</html>
