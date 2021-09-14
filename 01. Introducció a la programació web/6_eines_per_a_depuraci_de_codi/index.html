@@ -34,8 +34,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -539,8 +539,8 @@ a seleccionar tots els continguts d'aquesta pàgina i els anem a copiar.</p>
 <li>
 <p>En aquesta pàgina podrem comprovar quins mòduls tenim instal·lats en
 nostre mòdul PHP. Per a això, enganxarem els continguts que hem copiat
-prèviament a la caixa de text que apareix i premerem Analyse
-mi phpinfo () output.</p>
+prèviament a la caixa de text que apareix i premerem <code>Analyse
+mi phpinfo() output</code>.</p>
 </li>
 <li>
 <p>Ens apareixeran un resultats semblants a aquests:</p>
@@ -572,10 +572,10 @@ modificacions:</p>
 <p>Executar: <code>/opt/lampp/bin/phpize</code> (hem canviat la ruta perquè
     execute el phpize de XAMPP).</p>
 <p>Com a part de la seva eixida hauria de mostrar:</p>
-<div class="highlight"><pre><span></span><code>Configuring for:
-...
-Zend Module Api No: ########
-Zend Extension Api No: #########
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Configuring for:
+<span class="linenos" data-linenos="2 "></span>...
+<span class="linenos" data-linenos="3 "></span>Zend Module Api No: ########
+<span class="linenos" data-linenos="4 "></span>Zend Extension Api No: #########
 </code></pre></div>
 <p>Si no és així, estàs utilitzant phpize incorrecta. Seguiu aquesta
 entrada de FAQ i passeu al pas següent.</p>
@@ -590,11 +590,12 @@ entrada de FAQ i passeu al pas següent.</p>
 <li>
 <p>Edita <code>/opt/lampp/etc/php.ini</code> i afegeix les següents línies al
     final</p>
-<div class="highlight"><pre><span></span><code>[xdebug]
-zend_extension = /opt/lampp/lib/php/extensions/no-debug-non-zts-########/xdebug.so
-xdebug.remote_enable=1
-xdebug.remote_host=&quot;localhost&quot;
-xdebug.remote_port=9000
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>[xdebug]
+<span class="linenos" data-linenos="2 "></span>zend_extension = /opt/lampp/lib/php/extensions/no-debug-non-zts-########/xdebug.so
+<span class="linenos" data-linenos="3 "></span>xdebug.mode=develop
+<span class="linenos" data-linenos="4 "></span>xdebug.client_port=9003
+<span class="linenos" data-linenos="5 "></span>xdebug.start_upon_error=yes
+<span class="linenos" data-linenos="6 "></span>xdebug.start_with_request=yes
 </code></pre></div>
 </li>
 <li>
@@ -660,6 +661,10 @@ instal·lat.</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

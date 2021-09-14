@@ -34,8 +34,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -908,7 +908,7 @@
 <p>Per a accedir a les dades usem la variable superglobal <code>$_GET</code>.</p>
 <p><code>$_GET</code> és un array associatiu les claus del qual coincidiran amb els noms que li hem donat als paràmetres.</p>
 <p>Per a accedir als paràmetres de la petició anterior:</p>
-<div class="highlight"><pre><span></span><code><span class="k">echo</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cognom&#39;</span><span class="p">];</span> <span class="c1">// Homer Simpson</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cognom&#39;</span><span class="p">];</span> <span class="c1">// Homer Simpson</span>
 </code></pre></div>
 <div markdown="1" class="alert-activity alert">
 
@@ -935,7 +935,7 @@ Guarda-la amb el nom `exemple_get.php`.
 <h5 id="evitar-el-csrf">Evitar el CSRF</h5>
 <p>En tota pàgina que reba paràmetres GET has de comprovar el <strong>HTTP referer</strong> del navegador, i que aquest siga de dins de la teua web. En php el referer que envia el navegador s'emmagatzema en $_*SERVER['HTTP_REFERER']</p>
 <p>Seria tal com:</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span> <span class="nb">parse_url</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_REFERER&#39;</span><span class="p">],</span> <span class="nx">PHP_URL_HOST</span><span class="p">)</span> <span class="o">!=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">])</span> <span class="k">die</span><span class="p">(</span><span class="s1">&#39;Anti-CSRF&#39;</span><span class="p">);</span> 
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span><span class="p">(</span> <span class="nb">parse_url</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_REFERER&#39;</span><span class="p">],</span> <span class="nx">PHP_URL_HOST</span><span class="p">)</span> <span class="o">!=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">])</span> <span class="k">die</span><span class="p">(</span><span class="s1">&#39;Anti-CSRF&#39;</span><span class="p">);</span> 
 </code></pre></div>
 <p>NOTA IMPORTANT
 Amb aquest codi estem obligant al fet que el navegador envie un referer si o sí. Per tant només ha d'utilitzar-se en pàgines a les quals el navegador accedisca des d'una altra pàgina de la nostra web.
@@ -943,15 +943,15 @@ Amb aquest codi estem obligant al fet que el navegador envie un referer si o sí
 <h2 id="definicio-de-formularis">Definició de formularis</h2>
 <p>Com hem dit abans el mètode POST s'empra en els formularis. El formulari següent enviarà les dades a la pàgina <code>index.php</code> (atribut <code>action</code> de l'element <code>form</code>).</p>
 <p>Utilitza el mètode <code>post</code> indicat en l'atribut <code>method</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;index.php&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nom&quot;</span><span class="p">&gt;</span>Nom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nom&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;cognom&quot;</span><span class="p">&gt;</span>Cognom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;cognom&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Enviar&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;index.php&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nom&quot;</span><span class="p">&gt;</span>Nom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nom&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;cognom&quot;</span><span class="p">&gt;</span>Cognom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;cognom&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Enviar&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <p><em>Inspecció de la petició: Headers</em>
 <img alt="Inspecció del petició POST" src="images/post-inspect-headers.png" /></p>
@@ -960,12 +960,12 @@ Amb aquest codi estem obligant al fet que el navegador envie un referer si o sí
 <h3 id="accedir-a-les-dades-de-la-peticio-post">Accedir a les dades de la petició POST</h3>
 <p>Usem la variable superglobal <code>$_POST</code>. Funciona igual que <code>$_GET</code>, però amb els noms (atribut <code>name</code>) que li hem donat als camps del formulari.</p>
 <p>En depuració podem mostar totes les dades rebudes:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">var_dump</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">);</span>
-<span class="nb">print_r</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">var_dump</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">)</span>
 </code></pre></div>
 <p>Per a mostrar les dades individualment:</p>
-<div class="highlight"><pre><span></span><code><span class="k">echo</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">];</span>
-<span class="k">echo</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;cognom&#39;</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;cognom&#39;</span><span class="p">];</span>
 </code></pre></div>
 <div markdown="1" class="alert-activity alert">
 
@@ -982,7 +982,7 @@ Crea un formulari que tinga els següents camps:
 
 En l'atribut `action` del formulari posarem el següent:
 
-<div class="highlight"><pre><span></span><code><span class="nx">action</span><span class="o">=</span><span class="s2">&quot;&lt;?= </span><span class="si">$_SERVER[&#39;PHP_SELF&#39;]</span><span class="s2">; ?&gt;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">action</span><span class="o">=</span><span class="s2">&quot;&lt;?= </span><span class="si">$_SERVER[&#39;PHP_SELF&#39;]</span><span class="s2">; ?&gt;&quot;</span>
 </code></pre></div>
 
 Açò farà que siga la pròpia pàgina del formulari la que processe les dades del mateix.
@@ -992,15 +992,15 @@ En prémer `Enviar` han d'aparèixer sota el formulari les dades que s'han intro
 
 <h3 id="accedir-a-parametres-no-existents">Accedir a paràmetres no existents</h3>
 <p>Errors del tipus  </p>
-<p><div class="highlight"><pre><span></span><code>Notice: Undefined index: nom in /home/ubuntu/index.php on line 6
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Notice: Undefined index: nom in /home/ubuntu/index.php on line 6
 </code></pre></div>
 ens indiquen que la clau <code>nom</code>  no existeix en l'array <code>$_POST</code>. La variable supergloblal <code>$_POST</code> està buida si no s'ha
 enviat el formulari.</p>
 <p>Per a evitar aquest tipus d'errors és important verificar que s'haja enviat el formulari prèviament:</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span>
-<span class="p">{</span>
-
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
 </code></pre></div>
 <p>{: .alert .alert-activity}</p>
 <div markdown="1">
@@ -1034,20 +1034,20 @@ Soluciona el problema dels paràmetres no enviats de l'exercici anterior.
 qualsevol caràcter especial d'html en la entitat, així no interferirà en el el programa.</p>
 <h3 id="comprovar-lemail">Comprovar l'email</h3>
 <p>Per a verificar si un email és correcte podem utilitzar la funció <code>filter_var</code> </p>
-<p><div class="highlight"><pre><span></span><code><span class="nb">filter_var</span><span class="p">(</span><span class="nv">$email</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">filter_var</span><span class="p">(</span><span class="nv">$email</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span>
 </code></pre></div>
 o la funció <code>filter_input</code> quan obtenin les dades directament d'una variable extern.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// suposem que rebem les dades d&#39;un formulari que té un quadre de text de nom &#39;email&#39;</span>
-<span class="nv">$email</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_POST</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// suposem que rebem les dades d&#39;un formulari que té un quadre de text de nom &#39;email&#39;</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$email</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_POST</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="filter_input">filter_input</h4>
-<p><div class="highlight"><pre><span></span><code><span class="nb">filter_input</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$type</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$variable_name</span><span class="p">[,</span> <span class="nx">int</span> <span class="nv">$filter</span><span class="o">=</span><span class="nx">FILTER_DEFAULT</span><span class="p">[,</span> <span class="nx">mixed</span> <span class="nv">$options</span><span class="p">]])</span><span class="o">:</span><span class="nx">mixed</span>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">filter_input</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$type</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$variable_name</span><span class="p">[,</span> <span class="nx">int</span> <span class="nv">$filter</span><span class="o">=</span><span class="nx">FILTER_DEFAULT</span><span class="p">[,</span> <span class="nx">mixed</span> <span class="nv">$options</span><span class="p">]])</span><span class="o">:</span><span class="nx">mixed</span>
 </code></pre></div>
 La funció <code>filter_input</code> agafa una variable externa (<code>$_GET</code>, <code>$_POST</code>, etc) concreta pel seu nom i aplica el filtre indicat.</p>
 <p>Els filtres poden <a href="https://www.php.net/manual/es/filter.filters.validate.php">sanejar</a> o <a href="https://www.php.net/manual/es/filter.filters.sanitize.php">validar</a> les variables externes.</p>
 <p>Per exemple, si volem agafar el valor del paràmetre <em>nom</em>  del querystring (http://localhost/index.php?nom=<h1>Homer</h1>) usarem el tipus INPUT_GET.</p>
 <p>El fltre FILTER_SANITIZE_STRING elimina etiquetes, i opcionalment elimina o codifica caracters especials.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$nom</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_GET</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_STRING</span><span class="p">)</span><span class="o">.</span>  <span class="c1">// $nom = Homer</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$nom</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_GET</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_STRING</span><span class="p">)</span><span class="o">.</span>  <span class="c1">// $nom = Homer</span>
 </code></pre></div>
 <p>Més informació en:</p>
 <ul>
@@ -1061,15 +1061,15 @@ La funció <code>filter_input</code> agafa una variable externa (<code>$_GET</co
 </ul>
 <p>Més informació: <a href="http://php.net/manual/es/datetime.createfromformat.php">http://php.net/manual/es/datetime.createfromformat.php</a></p>
 <h4 id="exemple">Exemple</h4>
-<div class="highlight"><pre><span></span><code><span class="nv">$data1</span> <span class="o">=</span> <span class="s2">&quot;2001-05-02&quot;</span><span class="p">;</span> <span class="c1">// Data és de tipus string</span>
-<span class="c1">// DateTime::createFromFormat converteix una cadena de text a on objecte DateTime</span>
-<span class="c1">// ens tornarà una instància de DateTime o FALSE en cas d&#39;error.</span>
-
-<span class="nv">$dt1</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">,</span> <span class="nv">$data1</span><span class="p">);</span>  
-
-<span class="k">if</span> <span class="p">(</span><span class="nv">$dt1</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">echo</span> <span class="s2">&quot;La data d&#39;inici és incorrecta&quot;</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$data1</span> <span class="o">=</span> <span class="s2">&quot;2001-05-02&quot;</span><span class="p">;</span> <span class="c1">// Data és de tipus string</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// DateTime::createFromFormat converteix una cadena de text a on objecte DateTime</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// ens tornarà una instància de DateTime o FALSE en cas d&#39;error.</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$dt1</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">,</span> <span class="nv">$data1</span><span class="p">);</span>  
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$dt1</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;La data d&#39;inici és incorrecta&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
 </code></pre></div>
 <p>https://www.php.net/manual/es/function.strtotime.php</p>
 <p>També és habitual trobar els controls de data separats en 3 elements input. Un per a l’any, l’altre per a mes i l’altre per al dia.</p>
@@ -1151,6 +1151,10 @@ Modifica l'exercici anterior realitzant les validacions oportunes.
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

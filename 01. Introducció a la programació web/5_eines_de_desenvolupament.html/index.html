@@ -34,8 +34,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -632,12 +632,12 @@ executem PHPStorm ho fem amb l'usuari <code>dwes</code>, per tant, l'usuari
 <code>dwes</code> necessita poder escriure en aquest directori.</p>
 <p>Per a assegurar-nos que tenim permisos, anirem amb una finestra de
 terminal al directori <code>/opt/lampp</code> i executarem la següent ordre:</p>
-<div class="highlight"><pre><span></span><code>ls –la htdocs
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>ls –la htdocs
 </code></pre></div>
 <p>Aquesta ordre ens dirà qui és el propietari de la carpeta i quins
 permisos té.</p>
 <p>En el cas que el propietari siga root executarem la seguent ordre:</p>
-<div class="highlight"><pre><span></span><code>sudo chown -hR dwes htdocs/
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo chown -hR dwes htdocs/
 </code></pre></div>
 <p>Açò canviarà el propietari a l'usuari <code>dwes</code>, amb el que tindrem permís
 d'escriptura en aquest directori des de PHPStorm.</p>
@@ -664,20 +664,20 @@ d'escriptura en aquest directori des de PHPStorm.</p>
 </li>
 <li>
 <p>En el fitxer creat introduïm les següents línies de codi:
-    <div class="highlight"><pre><span></span><code>   <span class="o">&lt;!</span><span class="nx">doctype</span> <span class="nx">html</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&quot;es&quot;</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Desenvolupament</span> <span class="nx">web</span> <span class="nx">en</span> <span class="nx">entorn</span> <span class="nx">servidor</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;description&quot;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&quot;PHP, PHPStorm&quot;</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;author&quot;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&quot;Homer Simpson&quot;</span><span class="o">&gt;</span>
-            <span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
-            <span class="o">&lt;?</span><span class="nx">php</span>
-                <span class="nb">phpinfo</span><span class="p">();</span>
-            <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">        &lt;/body&gt;</span>
-<span class="x">        &lt;/html&gt;</span>
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>   <span class="o">&lt;!</span><span class="nx">doctype</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>        <span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&quot;es&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>            <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>                <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Desenvolupament</span> <span class="nx">web</span> <span class="nx">en</span> <span class="nx">entorn</span> <span class="nx">servidor</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;description&quot;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&quot;PHP, PHPStorm&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;author&quot;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&quot;Homer Simpson&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>            <span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="11 "></span>                <span class="nb">phpinfo</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="13 "></span><span class="x">        &lt;/body&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">        &lt;/html&gt;</span>
 </code></pre></div></p>
 <ol>
 <li>Canviem l'autor del document al nostre nom.</li>
@@ -744,6 +744,10 @@ d'escriptura en aquest directori des de PHPStorm.</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

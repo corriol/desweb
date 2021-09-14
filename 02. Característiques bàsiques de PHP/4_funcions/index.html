@@ -34,8 +34,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -671,30 +671,30 @@
 </ul>
 <h4 id="funcions-definides-per-lusuari">Funcions definides per l'usuari</h4>
 <p>Per a crear les teues pròpies funcions, hauràs d'usar la paraula <strong>function</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">){</span> <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">){</span> <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
 </code></pre></div>
 <p>Per tal d'invocar la funció:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$resultat</span> <span class="o">=</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$resultat</span> <span class="o">=</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
 </code></pre></div>
 <p>Si una funció no té una sentència <strong>return</strong>, retorna <strong>null</strong> en finalitzar.</p>
 <h4 id="valors-per-defecte-en-els-parametres">Valors per defecte en els paràmetres</h4>
 <ul>
 <li>Podem indicar valors per defecte per als paràmetres. Si quan cridem a la funció no indiquem el valor d'un paràmetre es prendrà el valor per defecte indicat.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="nf">preuAmbIva</span><span class="p">(</span><span class="nv">$preu</span><span class="p">,</span> <span class="nv">$iva</span><span class="o">=</span><span class="mf">0.21</span><span class="p">){</span>
-    <span class="k">return</span> <span class="nv">$preu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nv">$iva</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nv">$preu</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="nv">$pIva</span> <span class="o">=</span> <span class="nx">preuAmbIva</span><span class="p">(</span><span class="nv">$preu</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">preuAmbIva</span><span class="p">(</span><span class="nv">$preu</span><span class="p">,</span> <span class="nv">$iva</span><span class="o">=</span><span class="mf">0.21</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="nv">$preu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nv">$iva</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$preu</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$pIva</span> <span class="o">=</span> <span class="nx">preuAmbIva</span><span class="p">(</span><span class="nv">$preu</span><span class="p">);</span>
 </code></pre></div>
 <ul>
 <li>Pot haver-hi més d'un paràmetre amb valor per defecte, però sempre han d'estar al final.</li>
 </ul>
 <h4 id="pas-de-parametres-per-referencia">Pas de paràmetres per referència</h4>
 <p>Per defecte els paràmetres es passen per valor. Per a passar un paràmetre per referència afegirem el símbol <strong>&amp;</strong> davant del seu nom.</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="nf">preuAmbIva</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$preu</span><span class="p">,</span> <span class="nv">$iva</span><span class="o">=</span><span class="mf">0.18</span><span class="p">){</span>
-    <span class="nv">$preu</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nv">$iva</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">preuAmbIva</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$preu</span><span class="p">,</span> <span class="nv">$iva</span><span class="o">=</span><span class="mf">0.18</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$preu</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nv">$iva</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
 </code></pre></div>
 <h4 id="declaracions-de-tipus-type-hinting">Declaracions de tipus (Type Hinting)</h4>
 <p>Les funcions obliguen al fet que els paràmetres siguen de cert tipus. Si el valor donat és d'un tipus incorrecte, es generarà un error. Per això s'ha d'anteposar-se el nom del tipus al nom del paràmetre. Es pot fer que una declaració accepte valors <strong>NULL</strong> si el valor predeterminat del
@@ -702,23 +702,23 @@ paràmetre s'estableix a NULL.</p>
 <h4 id="tipus-valids">Tipus vàlids</h4>
 <p><img alt="" src="../img/t212.png" /></p>
 <h4 id="exemple">Exemple</h4>
-<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nx">int</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">int</span> <span class="nx">b</span><span class="p">)</span><span class="o">:</span><span class="nx">int</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nv">$resultado</span> <span class="o">=</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nx">int</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">int</span> <span class="nx">b</span><span class="p">)</span><span class="o">:</span><span class="nx">int</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$resultado</span> <span class="o">=</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="funcions-com-a-parametres">Funcions com a paràmetres</h4>
 <p>En PHP és possible passar funcions com a paràmetres a altres funcions. Només cal passar el nom de la funció entre cometes. 
 Exemple:</p>
-<div class="highlight"><pre><span></span><code> <span class="k">function</span> <span class="nf">calculator</span><span class="p">(</span><span class="nv">$operation</span><span class="p">,</span><span class="nv">$numA</span><span class="p">,</span><span class="nv">$numB</span><span class="p">){</span>
-    <span class="k">return</span> <span class="nv">$operation</span><span class="p">(</span><span class="nv">$numA</span><span class="p">,</span><span class="nv">$numB</span><span class="p">);</span> <span class="p">}</span>
-<span class="k">function</span> <span class="nf">sumar</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nv">$a</span><span class="o">+</span><span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
-<span class="k">function</span> <span class="nf">restar</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="nv">$a</span><span class="o">-</span><span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
-
-<span class="nv">$a</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="nv">$b</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nx">calculator</span><span class="p">(</span><span class="s1">&#39;sumar&#39;</span><span class="p">,</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">);</span>
-<span class="k">echo</span> <span class="nx">calculator</span><span class="p">(</span><span class="s1">&#39;restar&#39;</span><span class="p">,</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="k">function</span> <span class="nf">calculator</span><span class="p">(</span><span class="nv">$operation</span><span class="p">,</span><span class="nv">$numA</span><span class="p">,</span><span class="nv">$numB</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="nv">$operation</span><span class="p">(</span><span class="nv">$numA</span><span class="p">,</span><span class="nv">$numB</span><span class="p">);</span> <span class="p">}</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">function</span> <span class="nf">sumar</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nv">$a</span><span class="o">+</span><span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">function</span> <span class="nf">restar</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="nv">$a</span><span class="o">-</span><span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="nv">$a</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="nv">$b</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nx">calculator</span><span class="p">(</span><span class="s1">&#39;sumar&#39;</span><span class="p">,</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="k">echo</span> <span class="nx">calculator</span><span class="p">(</span><span class="s1">&#39;restar&#39;</span><span class="p">,</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="funcions-anonimes-closures">Funcions anònimes (<strong>closures</strong>)</h4>
 <ul>
@@ -728,29 +728,29 @@ Exemple:</p>
 * Exemple</li>
 </ul>
 <p>Sense paràmetres:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-<span class="k">echo</span> <span class="s2">&quot;Hola&quot;</span><span class="p">;</span> 
-<span class="p">};</span> 
-<span class="nv">$anonima</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="s2">&quot;Hola&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">};</span> 
+<span class="linenos" data-linenos="4 "></span><span class="nv">$anonima</span><span class="p">();</span>
 </code></pre></div>
 <p>Amb paràmetres:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">echo</span> <span class="s2">&quot;Hola </span><span class="si">{</span><span class="nv">$nom</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> 
-<span class="p">};</span> 
-<span class="nv">$anonima</span><span class="p">(</span><span class="s1">&#39;Álex&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="s2">&quot;Hola </span><span class="si">{</span><span class="nv">$nom</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">};</span> 
+<span class="linenos" data-linenos="4 "></span><span class="nv">$anonima</span><span class="p">(</span><span class="s1">&#39;Álex&#39;</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="usar-variables-de-lambit-superior">Usar variables de l'àmbit superior</h4>
 <ul>
 <li>Una funció anònima pot usar variables de l'àmbit superior mitjançant la paraula reservada <strong>use</strong>: </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="nf">saluda</span><span class="p">(</span><span class="nx">callable</span> <span class="nv">$fnSaluda</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$fnSaluda</span><span class="p">(</span><span class="s1">&#39;Álex&#39;</span><span class="p">);</span> 
-<span class="p">}</span> 
-<span class="nv">$salutació</span> <span class="o">=</span> <span class="s1">&#39;Hola&#39;</span><span class="p">;</span> 
-<span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$salutació</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$salutació</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nv">$nom</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> 
-<span class="p">};</span> 
-<span class="nx">saluda</span><span class="p">(</span><span class="nv">$anonima</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">saluda</span><span class="p">(</span><span class="nx">callable</span> <span class="nv">$fnSaluda</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$fnSaluda</span><span class="p">(</span><span class="s1">&#39;Álex&#39;</span><span class="p">);</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span> 
+<span class="linenos" data-linenos="4 "></span><span class="nv">$salutació</span> <span class="o">=</span> <span class="s1">&#39;Hola&#39;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="5 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$salutació</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$salutació</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nv">$nom</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="7 "></span><span class="p">};</span> 
+<span class="linenos" data-linenos="8 "></span><span class="nx">saluda</span><span class="p">(</span><span class="nv">$anonima</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="llibreries">Llibreries</h4>
 <p>Podem fer llibreries de funcions guardant-les en un fitxer que desprès importem des d'on les utilitzem. Ho podem fer amb include, o utilitzant composer per a fer-ho.</p>
@@ -819,7 +819,7 @@ Per a açò la funció rebrà dos paràmetres:
 
 La sentència resultant tindrà la següent forma: 
 
-<div class="highlight"><pre><span></span><code>“INSERT INTO nom_taula (nom dels camps separats per comes) VALUES (noms dels camps separats per comes amb el caràcter “:” davant)  
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>“INSERT INTO nom_taula (nom dels camps separats per comes) VALUES (noms dels camps separats per comes amb el caràcter “:” davant)  
 </code></pre></div>
 De moment, no farem res amb els valors dels camps. 
 
@@ -839,8 +839,8 @@ El paràmetre tindrà el valor `true` per defecte.
 
 Si el seu valor és `true` generarà la consulta igual que en l'exercici anterior, però si és `false` la generarà així: 
 
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">nom_taula</span> 
-  <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span> <span class="n">dels</span> <span class="n">camps</span> <span class="n">separats</span> <span class="n">per</span> <span class="n">comes</span> <span class="n">amb</span> <span class="n">el</span> <span class="n">caràcter</span> <span class="err">‘</span><span class="p">:</span><span class="err">’</span> <span class="n">davant</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">nom_taula</span> 
+<span class="linenos" data-linenos="2 "></span>  <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span> <span class="n">dels</span> <span class="n">camps</span> <span class="n">separats</span> <span class="n">per</span> <span class="n">comes</span> <span class="n">amb</span> <span class="n">el</span> <span class="n">caràcter</span> <span class="err">‘</span><span class="p">:</span><span class="err">’</span> <span class="n">davant</span><span class="p">)</span>
 </code></pre></div>
 </div>
 
@@ -855,7 +855,7 @@ La cadena resultant es passarà per referència.
 
 Passarem la cadena de la següent forma: 
 
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">taula</span> <span class="p">(</span><span class="n">camps</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span><span class="p">)</span> 
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">taula</span> <span class="p">(</span><span class="n">camps</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span><span class="p">)</span> 
 </code></pre></div>
 
 Dins de la funció substituirem el següent: 
@@ -918,6 +918,10 @@ Dins de la funció substituirem el següent:
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

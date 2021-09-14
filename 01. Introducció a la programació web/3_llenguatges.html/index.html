@@ -34,8 +34,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -593,26 +593,26 @@ manté gràcies a una comunitat de desenvolupadors, i és codi obert.</p>
 <p><img alt="Python" src="../assets/django_apache.png" /></p>
 <p>Exemple de codi escrit amb Python. En aquest cas utilitzant el framework
 Django per al desenvolupament d'aplicacions web:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Mis</span> <span class="n">películas</span><span class="o">&lt;</span><span class="sr">/h1&gt; &lt;a href=&quot;#&quot;&gt;+&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">lista_peliculas</span> <span class="sx">%}</span>
-<span class="sx">  &lt;ul&gt;</span>
-<span class="sx">    {% for pelicula in lista_peliculas %}</span>
-    <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;{% url &#39;pelicula&#39; pelicula.id %}&quot;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">pelicula</span><span class="o">.</span><span class="n">titulo</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span>   <span class="sx">%}</span>
-<span class="sx">    &lt;/ul&gt;</span>
-<span class="sx">    {% else %}</span>
-    <span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="no">No</span> <span class="n">hay</span> <span class="n">películas</span> <span class="n">disponibles</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
-<span class="sr">    {% endif %}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Mis</span> <span class="n">películas</span><span class="o">&lt;</span><span class="sr">/h1&gt; &lt;a href=&quot;#&quot;&gt;+&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">lista_peliculas</span> <span class="sx">%}</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sx">  &lt;ul&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="sx">    {% for pelicula in lista_peliculas %}</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;{% url &#39;pelicula&#39; pelicula.id %}&quot;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">pelicula</span><span class="o">.</span><span class="n">titulo</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span>   <span class="sx">%}</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="sx">    &lt;/ul&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="sx">    {% else %}</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="no">No</span> <span class="n">hay</span> <span class="n">películas</span> <span class="n">disponibles</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="sr">    {% endif %}</span>
 </code></pre></div>
 <p>Separada del controlador:</p>
-<div class="highlight"><pre><span></span><code>    <span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
-
-    <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
-
-    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="n">lista_peliculas</span> <span class="o">=</span> <span class="n">Pelicula</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lista_peliculas&#39;</span><span class="p">:</span> <span class="n">lista_peliculas</span><span class="p">}</span>
-    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;mispeliculas/index.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="n">lista_peliculas</span> <span class="o">=</span> <span class="n">Pelicula</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lista_peliculas&#39;</span><span class="p">:</span> <span class="n">lista_peliculas</span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;mispeliculas/index.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="aspnet">ASP.NET</h2>
 <p>ASP.NET és una tecnologia, creada per Microsoft, per al desenvolupament
@@ -629,43 +629,43 @@ Microsoft, IIS (Internet Information Server).</p>
 (desenvolupada en llenguatge C #) programant l'acció que passa en
 prémer un botó (apareix el text d'un formulari a la part final del
 web):</p>
-<div class="highlight"><pre><span></span><code>protected void Button1_Click(object sender, EventArgs e)
-{
-    string buf = TextBox1.Text;
-    changed_text.InnerHtml = buf.ToUpper();
-}
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>protected void Button1_Click(object sender, EventArgs e)
+<span class="linenos" data-linenos="2 "></span>{
+<span class="linenos" data-linenos="3 "></span>    string buf = TextBox1.Text;
+<span class="linenos" data-linenos="4 "></span>    changed_text.InnerHtml = buf.ToUpper();
+<span class="linenos" data-linenos="5 "></span>}
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="err">&lt;</span>%@ Page Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;Default.aspx.cs&quot;
-    Inherits=&quot;firstexample._Default&quot; %&gt;
-
-<span class="cp">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; </span>
-<span class="cp">    &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="p">&gt;</span>
-
-    <span class="p">&lt;</span><span class="nt">head</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>
-            Untitled Page
-        <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-
-    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;form1&quot;</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">asp:TextBox</span> <span class="na">ID</span><span class="o">=</span><span class="s">&quot;TextBox1&quot;</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:224px&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">asp:TextBox</span><span class="p">&gt;</span>
-
-            <span class="p">&lt;</span><span class="nt">asp:Button</span> <span class="na">ID</span><span class="o">=</span><span class="s">&quot;Button1&quot;</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span> <span class="na">Text</span><span class="o">=</span><span class="s">&quot;Enter...&quot;</span> 
-                <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:85px&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;Button1_Click&quot;</span> <span class="p">/&gt;</span>
-            <span class="p">&lt;</span><span class="nt">hr</span> <span class="p">/&gt;</span>
-
-            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span> Results: <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;changed_text&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-
-    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="err">&lt;</span>%@ Page Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;Default.aspx.cs&quot;
+<span class="linenos" data-linenos=" 2 "></span>    Inherits=&quot;firstexample._Default&quot; %&gt;
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cp">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; </span>
+<span class="linenos" data-linenos=" 5 "></span><span class="cp">    &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">head</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>            Untitled Page
+<span class="linenos" data-linenos="12 "></span>        <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;form1&quot;</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="p">&lt;</span><span class="nt">asp:TextBox</span> <span class="na">ID</span><span class="o">=</span><span class="s">&quot;TextBox1&quot;</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:224px&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="p">&lt;/</span><span class="nt">asp:TextBox</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>            <span class="p">&lt;</span><span class="nt">asp:Button</span> <span class="na">ID</span><span class="o">=</span><span class="s">&quot;Button1&quot;</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span> <span class="na">Text</span><span class="o">=</span><span class="s">&quot;Enter...&quot;</span> 
+<span class="linenos" data-linenos="22 "></span>                <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:85px&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;Button1_Click&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="23 "></span>            <span class="p">&lt;</span><span class="nt">hr</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span>            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span> Results: <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="26 "></span>            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;changed_text&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="27 "></span>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="28 "></span>
+<span class="linenos" data-linenos="29 "></span>    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
                 
               
@@ -718,6 +718,10 @@ web):</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

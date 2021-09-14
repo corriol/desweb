@@ -34,8 +34,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -747,40 +747,40 @@
 <ul>
 <li>Podem crear un array buit de dues formes:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nv">$noms</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
-<span class="nv">$noms</span> <span class="o">=</span> <span class="p">[];</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="p">[];</span>
 </code></pre></div>
 <ul>
 <li>Si volem assignar valors al array en el moment de crear-ho: </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nv">$noms</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Sandra&#39;</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrea&#39;</span><span class="p">);</span> 
-<span class="nv">$noms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sandra&#39;</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrea&#39;</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Sandra&#39;</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrea&#39;</span><span class="p">);</span> 
+<span class="linenos" data-linenos="2 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sandra&#39;</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrea&#39;</span><span class="p">];</span>
 </code></pre></div>
 <h4 id="mostrar-el-contingut-dun-array">Mostrar el contingut d'un array</h4>
 <p>Si intentem mostrar el contingut d'un array amb <strong>echo</strong> no obtindrem  les dades que hi ha dins del array. En lloc d'açò podem utilitzar la funció print_r: </p>
-<div class="highlight"><pre><span></span><code><span class="nb">print_r</span><span class="p">(</span><span class="nv">$noms</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$noms</span><span class="p">);</span>
 </code></pre></div>
 <p>Però si necessitem donar-li format als continguts del array, haurem de recórrer-ho amb un bucle i anar mostrant element a element.</p>
 <h4 id="afegint-elements-al-array">Afegint elements al array</h4>
 <p>Podem afegir elements al array utilitzant claudàtors buits. La clau d'aquests elements serà el següent índex numèric disponible.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$noms</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Raul&#39;</span><span class="p">;</span> <span class="nv">$noms</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Marta&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Raul&#39;</span><span class="p">;</span> <span class="nv">$noms</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Marta&#39;</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="accedir-als-elements-del-array">Accedir als elements del array</h4>
 <p>Accedirem als elements del array indicant la clau de l'element entre claudàtors:</p>
-<div class="highlight"><pre><span></span><code><span class="k">echo</span> <span class="nv">$noms</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$noms</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 </code></pre></div>
 <p>També podem modificar el seu valor:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$noms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Sara&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Sara&#39;</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="recorrer-arrays">Recórrer arrays</h4>
 <p><img alt="" src="../img/t204.png" /></p>
 <h3 id="arrays-associatius">Arrays associatius</h3>
 <p><a href="https://youtu.be/FIUBcebp2vQ"><img alt="" src="../img/ull.png" />Video</a></p>
 <p>Si el array conté dades diverses i/o ens interessa accedir a ells amb claus més específiques que un simple índex numèric podem utilitzar arrays associatius: </p>
-<div class="highlight"><pre><span></span><code><span class="nv">$alumne</span>  <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;nom&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;cognom&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;García&#39;</span><span class="p">,</span> <span class="s1">&#39;edat&#39;</span> <span class="o">=&gt;</span> <span class="mi">22</span> <span class="p">);</span>
-<span class="nv">$alumne</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nom&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;cognom&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;García&#39;</span><span class="p">,</span> <span class="s1">&#39;edat&#39;</span> <span class="o">=&gt;</span> <span class="mi">22</span> <span class="p">];</span>
-<span class="nv">$alumne</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Verónica&#39;</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nv">$alumne</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$alumne</span>  <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;nom&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;cognom&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;García&#39;</span><span class="p">,</span> <span class="s1">&#39;edat&#39;</span> <span class="o">=&gt;</span> <span class="mi">22</span> <span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$alumne</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nom&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;cognom&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;García&#39;</span><span class="p">,</span> <span class="s1">&#39;edat&#39;</span> <span class="o">=&gt;</span> <span class="mi">22</span> <span class="p">];</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$alumne</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Verónica&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="nv">$alumne</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">];</span>
 </code></pre></div>
 <h4 id="recorrer-arrays-associatius">Recórrer arrays associatius</h4>
 <p><img alt="" src="../img/t205.png" /></p>
@@ -788,10 +788,10 @@
 <p><img alt="" src="../img/t206.png" /></p>
 <h4 id="arrays-multidimensionals">Arrays multidimensionals</h4>
 <p>Imagina que volem tenir un array els elements del qual són noms d'esports. Volem dividir-los en esports d'hivern i esports d'estiu. Podem crear un array esports que continga dos elements que al seu torn també seran arrays.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$esports</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hivern&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;esquí de fons&#39;</span><span class="p">,</span> <span class="s1">&#39;hoquei sobre gel&#39;</span><span class="p">],</span> <span class="s1">&#39;estiu&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s1">&#39;natació&#39;</span><span class="p">,</span> <span class="s1">&#39;voley platja&#39;</span><span class="p">]</span> <span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$esports</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hivern&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;esquí de fons&#39;</span><span class="p">,</span> <span class="s1">&#39;hoquei sobre gel&#39;</span><span class="p">],</span> <span class="s1">&#39;estiu&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s1">&#39;natació&#39;</span><span class="p">,</span> <span class="s1">&#39;voley platja&#39;</span><span class="p">]</span> <span class="p">];</span>
 </code></pre></div>
 <p>Per a accedir al primer esport d'hivern:</p>
-<div class="highlight"><pre><span></span><code><span class="k">echo</span> <span class="nv">$esports</span><span class="p">[</span><span class="s1">&#39;hivern&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$esports</span><span class="p">[</span><span class="s1">&#39;hivern&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
 </code></pre></div>
 <h4 id="funcions-darrays">Funcions d'arrays</h4>
 <ul>
@@ -935,6 +935,10 @@ Dades: [Municipis de España](https://es.wikipedia.org/wiki/Anexo:Municipios_de_
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

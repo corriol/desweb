@@ -34,8 +34,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -445,13 +445,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#treballar-amb-dates" class="md-nav__link">
-    Treballar amb dates
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -619,13 +612,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#treballar-amb-dates" class="md-nav__link">
-    Treballar amb dates
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -651,48 +637,43 @@
 <li>Podem utilitzar tant cometes simples com a cometes dobles.</li>
 <li>Per a concatenar cadenes utilitzarem l'operador punt (.)</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code> <span class="nv">$fullName</span> <span class="o">=</span> <span class="nv">$name</span><span class="o">.</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="nv">$surnames</span><span class="p">;</span>
-
-<span class="p">[</span><span class="nx">Funcions</span> <span class="nx">de</span> <span class="nx">cadena</span><span class="p">](</span><span class="nx">https</span><span class="o">://</span><span class="nx">www</span><span class="o">.</span><span class="nx">php</span><span class="o">.</span><span class="nx">net</span><span class="o">/</span><span class="nx">manual</span><span class="o">/</span><span class="nx">es</span><span class="o">/</span><span class="nx">ref</span><span class="o">.</span><span class="nx">strings</span><span class="o">.</span><span class="nx">php</span><span class="p">)</span>
-
-
-<span class="c1">### Activitat 1</span>
-<span class="p">{</span><span class="o">:.</span><span class="nx">nocount</span> <span class="o">.</span><span class="nx">no_toc</span><span class="p">}</span>
-<span class="nx">Crea</span> <span class="nx">una</span> <span class="nx">pàgina</span> <span class="nx">anomenada</span> <span class="sb">`cadenes.php`</span><span class="p">,</span> <span class="nx">copia</span> <span class="nx">el</span> <span class="nx">contingut</span> <span class="nx">de</span> <span class="nx">la</span> <span class="nx">pàgina</span> <span class="sb">`index.php`</span><span class="p">,</span> <span class="nx">activa</span> <span class="nx">la</span> <span class="nx">directiva</span>
- <span class="nx">de</span> <span class="nx">tipus</span> <span class="nx">estricta</span> <span class="p">(</span><span class="sb">`declare( strict_types = 1 );`</span><span class="p">)</span> <span class="nx">i</span> <span class="nx">mostra</span> <span class="nx">el</span> <span class="nx">següent</span><span class="o">:</span> 
-
-<span class="mf">1.</span> <span class="nx">Elimina</span> <span class="nx">els</span> <span class="nx">espais</span> <span class="nx">del</span> <span class="nx">principi</span> <span class="nx">i</span> <span class="nx">el</span> <span class="k">final</span> <span class="nx">del</span> <span class="nx">nom</span> <span class="nx">si</span> <span class="nx">els</span> <span class="nx">hi</span> <span class="nx">haguera</span> <span class="p">(</span><span class="nx">_trim_</span><span class="p">)</span><span class="o">.</span> 
-<span class="mf">2.</span> <span class="nx">Elimina</span> <span class="nx">la</span> <span class="nx">lletra</span> <span class="nx">a</span> <span class="nx">del</span> <span class="nx">principi</span> <span class="nx">i</span> <span class="nx">el</span> <span class="k">final</span> <span class="nx">del</span> <span class="nx">nom</span> <span class="nx">si</span> <span class="nx">els</span> <span class="nx">hi</span> <span class="nx">haguera</span> <span class="p">(</span><span class="nx">_trim_</span><span class="p">)</span><span class="o">.</span> 
-<span class="mf">3.</span> <span class="nx">Mostra</span> <span class="nx">la</span> <span class="nx">variable</span> <span class="nx">nom</span> <span class="nx">en</span> <span class="nx">majúscules</span><span class="p">,</span> <span class="nx">minúscules</span> <span class="nx">i</span> <span class="nx">amb</span> <span class="nx">la</span> <span class="nx">primera</span> <span class="nx">lletra</span> <span class="nx">en</span> <span class="nx">majúscula</span> <span class="nx">i</span> <span class="nx">les</span> <span class="nx">altres</span> <span class="nx">en</span> <span class="nx">minúscules</span> 
-<span class="p">(</span><span class="nx">_strtoupper_</span><span class="p">,</span> <span class="nx">_strtolower_</span><span class="p">,</span> <span class="nx">_ucfirst_</span><span class="p">)</span><span class="o">.</span> 
-<span class="mf">4.</span> <span class="nx">Mostra</span> <span class="nx">el</span> <span class="nx">codi</span> <span class="nx">ascii</span> <span class="nx">de</span> <span class="nx">la</span> <span class="nx">primera</span> <span class="nx">lletra</span> <span class="nx">del</span> <span class="nx">nom</span> <span class="p">(</span><span class="nx">_ord_</span><span class="p">)</span><span class="o">.</span> 
-<span class="mf">5.</span> <span class="nx">Mostra</span> <span class="nx">la</span> <span class="nx">longitud</span> <span class="nx">del</span> <span class="nx">nom</span> <span class="p">(</span><span class="nx">_strlen_</span><span class="p">)</span><span class="o">.</span> 
-<span class="mf">6.</span> <span class="nx">Mostra</span> <span class="nx">el</span> <span class="nx">nombre</span> <span class="nx">de</span> <span class="nx">vegades</span> <span class="nx">que</span> <span class="nx">apareix</span> <span class="nx">la</span> <span class="nx">lletra</span> <span class="nx">a</span> <span class="p">(</span><span class="nx">majúscula</span> <span class="nx">o</span> <span class="nx">minúscula</span><span class="p">,</span> <span class="nx">_substr_count_</span><span class="p">)</span><span class="o">.</span> 
-<span class="mf">7.</span> <span class="nx">Mostra</span> <span class="nx">la</span> <span class="nx">posició</span> <span class="nx">de</span> <span class="nx">la</span> <span class="nx">primera</span> <span class="sb">`a`</span> <span class="nx">existent</span> <span class="nx">en</span> <span class="nx">el</span> <span class="nx">nom</span><span class="p">,</span> <span class="nx">siga</span> <span class="nx">majúscula</span> <span class="nx">o</span> <span class="nx">minúscula</span> <span class="p">(</span><span class="nx">_strpos_</span><span class="p">)</span><span class="o">.</span> <span class="nx">Si</span> <span class="nx">no</span> <span class="nx">hi</span> <span class="nx">ha</span> <span class="nx">cap</span> <span class="nx">mostrarà</span> <span class="o">-</span><span class="mf">1.</span> 
-<span class="mf">8.</span> <span class="nx">El</span> <span class="nx">mateix</span><span class="p">,</span> <span class="nx">però</span> <span class="nx">amb</span> <span class="nx">l</span><span class="s1">&#39;última a. </span>
-<span class="s1">9. Mostra el nom substituint la lletr o pel número zero, siga majúscula o minúscula (_str_replace_). </span>
-<span class="s1">10. Indica si el nom comença per `al` o no. </span>
-
-
-<span class="s1">### Activitat 2</span>
-
-
-<span class="s1">En el mateix document `cadenes.php` i a partir d&#39;</span><span class="nx">una</span> <span class="nx">variable</span> <span class="nx">que</span> <span class="nx">continga</span> <span class="nx">una</span> <span class="nx">url</span><span class="o">:</span> 
-<span class="sb">``</span><span class="err">`</span><span class="nx">php</span>
-<span class="nv">$url</span><span class="o">=</span><span class="s1">&#39;http://username:password@hostname:9090/path?arg=value#anchor&#39;</span><span class="p">;</span>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$fullName</span> <span class="o">=</span> <span class="nv">$name</span><span class="o">.</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="nv">$surname</span><span class="p">;</span>
+</code></pre></div>
+<a href="https://www.php.net/manual/es/ref.strings.php">Funcions de cadena</a></p>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 1</p>
+<p>Crea una pàgina anomenada <code>cadenes.php</code>, copia el contingut de la pàgina <code>index.php</code>, activa la directiva de tipus estricta (<code>declare( strict_types = 1 );</code>) i mostra el següent: </p>
+<ol>
+<li>Elimina els espais del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
+<li>Elimina la lletra a del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
+<li>Mostra la variable nom en majúscules, minúscules i amb la primera lletra en majúscula i les altres en minúscules (<em>strtoupper</em>, <em>strtolower</em>, <em>ucfirst</em>). </li>
+<li>Mostra el codi ascii de la primera lletra del nom (<em>ord</em>). </li>
+<li>Mostra la longitud del nom (<em>strlen</em>). </li>
+<li>Mostra el nombre de vegades que apareix la lletra a (majúscula o minúscula, <em>substr_count</em>). </li>
+<li>Mostra la posició de la primera <code>a</code> existent en el nom, siga majúscula o minúscula (<em>strpos</em>). Si no hi ha cap mostrarà -1. </li>
+<li>El mateix, però amb l''última a. </li>
+<li>Mostra el nom substituint la lletr o pel número zero, siga majúscula o minúscula (<em>str_replace</em>). </li>
+<li>Indica si el nom comença per <code>al</code> o no. </li>
+</ol>
+</div>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 2</p>
+<p>En el mateix document <code>cadenes.php</code> i a partir d'una variable que continga una url: 
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$url</span><span class="o">=</span><span class="s1">&#39;http://username:password@hostname:9090/path?arg=value#anchor&#39;</span><span class="p">;</span>
 </code></pre></div>
 Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts:<br />
-1. El protocol utilitzat (en l'exemple http).<br />
-2. El nom d'usuari (en l'exemple username). 
-3. El path de la url (en l'exemple /path). 
-4. El querystring de la url (en l'exemple arg=value).</p>
+    1. El protocol utilitzat (en l'exemple "http").<br />
+    2. El nom d'usuari (en l'exemple "username"). 
+    3. El path de la url (en l'exemple "/path"). 
+    4. El querystring de la url (en l'exemple "arg=value").</p>
+</div>
 <h2 id="maneig-de-dates">Maneig de dates</h2>
 <h3 id="funcio-time">Funció <code>time()</code></h3>
 <p>En PHP les dates s'emmagatzemen com a números enters. La funció <code>time()</code> retorna el nombre de segons transcorreguts 
 des de l'1 de gener de 1970 (instant conegut com a època Unix). 
 A aquesta forma d'expressar data i hora se li denomina <strong>timestamp</strong>.</p>
 <h3 id="funcio-date">Funció <code>date()</code></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">date</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$format</span> <span class="p">[,</span> <span class="nx">int</span> <span class="nv">$timestamp</span> <span class="o">=</span> <span class="nb">time</span><span class="p">()</span> <span class="p">]</span> <span class="p">)</span> <span class="o">:</span> <span class="nx">string</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">date</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$format</span> <span class="p">[,</span> <span class="nx">int</span> <span class="nv">$timestamp</span> <span class="o">=</span> <span class="nb">time</span><span class="p">()</span> <span class="p">]</span> <span class="p">)</span> <span class="o">:</span> <span class="nx">string</span>
 </code></pre></div>
 <p>La funció <code>date</code> retorna una cadena formatada segons els codi de format. Si no li passem la variable <code>timestamp</code> 
 ens retorna la cadena formatada per a la data i l'hora actual.</p>
@@ -773,47 +754,46 @@ ens retorna la cadena formatada per a la data i l'hora actual.</p>
 </table>
 <p>La informació completa la pots trobar en el <a href="https://www.php.net/manual/es/function.date.php">manual oficial de PHP: date</a></p>
 <p>Suposant que hui és 15 de setembre de 2019 i les 19 hores 20 minuts i 23 segons et mostrem alguns exemples:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;d-m-Y&quot;</span><span class="p">);</span> <span class="c1">// 15-09-2019</span>
-<span class="nb">date</span><span class="p">(</span><span class="s2">&quot;H:i:s&quot;</span><span class="p">);</span>  <span class="c1">//  19:20:23</span>
-<span class="nb">date</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">);</span> <span class="c1">// 2019</span>
-<span class="nb">date</span><span class="p">(</span><span class="s2">&quot;YmdHis&quot;</span><span class="p">);</span> <span class="c1">// 20190915192023</span>
-<span class="nb">date</span><span class="p">(</span><span class="s2">&quot;d/m/y H:i a&quot;</span><span class="p">);</span> <span class="c1">// 15/09/19 19:20 pm</span>
-<span class="nb">date</span><span class="p">(</span><span class="s2">&quot;d-m-Y H:i&quot;</span><span class="p">,</span> <span class="nb">time</span><span class="p">());</span> <span class="c1">// Moment actual</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;d-m-Y&quot;</span><span class="p">);</span> <span class="c1">// 15-09-2019</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;H:i:s&quot;</span><span class="p">);</span>  <span class="c1">//  19:20:23</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">);</span> <span class="c1">// 2019</span>
+<span class="linenos" data-linenos="4 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;YmdHis&quot;</span><span class="p">);</span> <span class="c1">// 20190915192023</span>
+<span class="linenos" data-linenos="5 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;d/m/y H:i a&quot;</span><span class="p">);</span> <span class="c1">// 15/09/19 19:20 pm</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;d-m-Y H:i&quot;</span><span class="p">,</span> <span class="nb">time</span><span class="p">());</span> <span class="c1">// Moment actual</span>
 </code></pre></div>
 <h3 id="funcio-mktimehora-min-seg-mes-dia-any">Funció <code>mktime(hora, min, seg, mes, dia, any)</code></h3>
 <p>La funció mktime permet obtenir la marca de temps Unix (<em>timestamp</em>) d'una data.</p>
 <p>Per exemple:</p>
-<p><div class="highlight"><pre><span></span><code><span class="nv">$data</span> <span class="o">=</span> <span class="nb">mktime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2020</span><span class="p">);</span>
-<span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;d-m-Y&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span> <span class="c1">// mostrarà 01-01-2020</span>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$data</span> <span class="o">=</span> <span class="nb">mktime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2020</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;d-m-Y&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span> <span class="c1">// mostrarà 01-01-2020</span>
 </code></pre></div>
 Més informació en <a href="https://www.php.net/manual/es/function.mktime.php">https://www.php.net/manual/es/function.mktime.php</a></p>
 <p>Un altra forma de crear dates és mitjançant la funció <code>strtotime()</code> on podem indicar les dates mitjançant una cadena de text. Per exemple:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// posarem la data en el format any-mes-dia per a evitar confusions.</span>
-<span class="nv">$date</span> <span class="o">=</span><span class="nb">strtotime</span><span class="p">(</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">);</span> 
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// posarem la data en el format any-mes-dia per a evitar confusions.</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$date</span> <span class="o">=</span><span class="nb">strtotime</span><span class="p">(</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">);</span> 
 </code></pre></div>
 <h3 id="operar-amb-dates">Operar amb dates</h3>
 <p>Com hem dit al principi les dates s'emmagatzem com a enters on cada unitat representa un segon. Així podem sumar i restar dates (<em>timestamp</em>) per a afegir, llevar o calcular diferències entre ells.</p>
 <p>Per exemple, per poder determinar els dies que falten per a l'1 de gener de 2020 faríem:</p>
-<div class="highlight"><pre><span></span><code>   <span class="nv">$data</span> <span class="o">=</span> <span class="nb">mktime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2020</span><span class="p">);</span> <span class="c1">// timestamp que representa l&#39;1 de gener de 2020</span>
-   <span class="nv">$diferencia</span> <span class="o">=</span> <span class="nv">$data</span> <span class="o">-</span> <span class="nb">time</span><span class="p">();</span> <span class="c1">// restem a l&#39;1 de gener de 2020 el temps actual, </span>
-                                 <span class="c1">// el resultat estarà en segons.</span>
-   <span class="nv">$diferenciaEnDies</span> <span class="o">=</span><span class="p">(((</span> <span class="nv">$diferencia</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">24</span> <span class="p">);</span>
-   <span class="cm">/*  </span>
-<span class="cm">       dividim els segons entre 60 i obtenim els minuts,</span>
-<span class="cm">       els dividim entre 60 i obtenim les hores,</span>
-<span class="cm">       els dividim entre 24 i obtenim els dies </span>
-
-<span class="cm">   */</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$data</span><span class="o">=</span><span class="nb">mktime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2020</span><span class="p">);</span> <span class="c1">// timestamp que representa l&#39;1 de gener de 2020</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$diferencia</span><span class="o">=</span><span class="nv">$data</span> <span class="o">-</span> <span class="nb">time</span><span class="p">();</span> <span class="c1">// restem a l&#39;1 de gener de 2020 el temps actual, </span>
+<span class="linenos" data-linenos="3 "></span>                                <span class="c1">// el resultat estarà en segons.</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$diferenciaEnDies</span> <span class="o">=</span><span class="p">(((</span> <span class="nv">$diferencia</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">24</span> <span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="cm">/*  </span>
+<span class="linenos" data-linenos="6 "></span><span class="cm">    dividim els segons entre 60 i obtenim els minuts,</span>
+<span class="linenos" data-linenos="7 "></span><span class="cm">    els dividim entre 60 i obtenim les hores,</span>
+<span class="linenos" data-linenos="8 "></span><span class="cm">    els dividim entre 24 i obtenim els dies </span>
+<span class="linenos" data-linenos="9 "></span><span class="cm">*/</span>
 </code></pre></div>
 <h3 id="validar-dates">Validar dates</h3>
 <p>En la funció <code>checkdate</code> podem validar una data.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nb">checkdate</span> <span class="p">(</span><span class="nx">int</span> <span class="nv">$month</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$day</span> <span class="p">,</span><span class="nx">int</span> <span class="nv">$year</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">checkdate</span> <span class="p">(</span><span class="nx">int</span> <span class="nv">$month</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$day</span> <span class="p">,</span><span class="nx">int</span> <span class="nv">$year</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
 </code></pre></div>
 La funció torna <code>true</code> si la data es vàlida, si no, torna  <code>false</code>. </p>
 <h3 id="classe-datetime">Classe DateTime</h3>
 <p>PHP disposa també de la classe <code>DateTime</code> per a representar les dates, la veurem més avant.</p>
-<h3 id="treballar-amb-dates">Treballar amb dates</h3>
-<p>{:.nocount .no_toc}</p>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 3: Treballar amb dates</p>
 <p>Crea un fitxer anomenat dates.php i realitza les següents tasques:</p>
 <ol>
 <li>Mostra la data i hora actuals amb el format: <code>dd/mm/yyyy hh:mm:ss</code></li>
@@ -824,6 +804,7 @@ La funció torna <code>true</code> si la data es vàlida, si no, torna  <code>fa
 <li>Mostra el dia de la setmana que era l'1 de gener d'enguany.</li>
 </ol>
 <p>En acabar penja el document a Aules.</p>
+</div>
                 
               
               
@@ -875,6 +856,10 @@ La funció torna <code>true</code> si la data es vàlida, si no, torna  <code>fa
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
