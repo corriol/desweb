@@ -14,7 +14,7 @@
     
     
       
-        <title>2. Maneig de cades de text i dates - DWES</title>
+        <title>2. Maneig de cadenes de text i dates - DWES</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2-maneig-de-cades-de-text-i-dates" class="md-skip">
+        <a href="#2-maneig-de-cadenes-de-text-i-dates" class="md-skip">
           Salta el contingut
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2. Maneig de cades de text i dates
+              2. Maneig de cadenes de text i dates
             
           </span>
         </div>
@@ -360,12 +360,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2. Maneig de cades de text i dates
+          2. Maneig de cadenes de text i dates
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2. Maneig de cades de text i dates
+        2. Maneig de cadenes de text i dates
       </a>
       
         
@@ -630,14 +630,14 @@
               
                 
                 
-                <h1 id="2-maneig-de-cades-de-text-i-dates">2. Maneig de cades de text i dates</h1>
+                <h1 id="2-maneig-de-cadenes-de-text-i-dates">2. Maneig de cadenes de text i dates</h1>
 <h2 id="maneig-de-cadenes-de-text">Maneig de cadenes de text</h2>
 <h2 id="cadenes-de-text">Cadenes de text</h2>
 <ul>
 <li>Podem utilitzar tant cometes simples com a cometes dobles.</li>
 <li>Per a concatenar cadenes utilitzarem l'operador punt (.)</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$fullName</span> <span class="o">=</span> <span class="nv">$name</span><span class="o">.</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="nv">$surname</span><span class="p">;</span>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$fullName = $name.&#39; &#39;.$surname;
 </code></pre></div>
 <a href="https://www.php.net/manual/es/ref.strings.php">Funcions de cadena</a></p>
 <div class="admonition todo">
@@ -673,7 +673,7 @@ Utilitza la funció <code>parse_url</code> per a extraure de la url les següent
 des de l'1 de gener de 1970 (instant conegut com a època Unix). 
 A aquesta forma d'expressar data i hora se li denomina <strong>timestamp</strong>.</p>
 <h3 id="funcio-date">Funció <code>date()</code></h3>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">date</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$format</span> <span class="p">[,</span> <span class="nx">int</span> <span class="nv">$timestamp</span> <span class="o">=</span> <span class="nb">time</span><span class="p">()</span> <span class="p">]</span> <span class="p">)</span> <span class="o">:</span> <span class="nx">string</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">date</span> <span class="p">(</span><span class="nx">string</span> <span class="nv">$format</span> <span class="p">[,</span> <span class="nx">int</span> <span class="nv">$timestamp</span><span class="o">=</span><span class="nb">time</span><span class="p">()])</span><span class="o">:</span> <span class="nx">string</span>
 </code></pre></div>
 <p>La funció <code>date</code> retorna una cadena formatada segons els codi de format. Si no li passem la variable <code>timestamp</code> 
 ens retorna la cadena formatada per a la data i l'hora actual.</p>
@@ -804,6 +804,48 @@ La funció torna <code>true</code> si la data es vàlida, si no, torna  <code>fa
 <li>Mostra el dia de la setmana que era l'1 de gener d'enguany.</li>
 </ol>
 <p>En acabar penja el document a Aules.</p>
+</div>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 4</p>
+<p><code>200dadesPersonals.php</code>: Escriu un programa que emmagatzeme en variables teu nom, primer cognom, segon cognom, email, any de naixement i telèfon. Després mostra'ls per pantalla dins d'una taula.     </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nom</td>
+<td>Bruce</td>
+<td></td>
+</tr>
+<tr>
+<td>Cognoms</td>
+<td>Wayne</td>
+<td></td>
+</tr>
+<tr>
+<td>Email</td>
+<td>batman@dccomics.com</td>
+<td></td>
+</tr>
+<tr>
+<td>Any de naixement</td>
+<td>1939</td>
+<td></td>
+</tr>
+<tr>
+<td>Telèfon</td>
+<td>555666777</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>206anyos.php</code>: Després de llegir l'edat d'una persona, mostrar l'edat que tindrà d'aquí a 10 anys i fa 10 anys. A més, mostra quin any serà en cada un dels casos. Finalment, mostra l'any de jubilació suposant que treballaràs fins als 65 anys.</p>
+<p>Tip: <code>$anyoActual = date("Y")</code>;</p>
 </div>
                 
               
