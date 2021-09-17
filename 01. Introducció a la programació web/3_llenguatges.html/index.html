@@ -1,554 +1,223 @@
 
-<!doctype html>
-<html lang="ca" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
-    
-    
-      
-        <title>3. Llenguatges - DWES</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#ff6e42">
-        
-      
-    
-    
-    
-      
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
-      
-    
-    
-    
-    
-      
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
-      
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#3-llenguatges" class="md-skip">
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>3. Llenguatges - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<meta content="#ff6e42" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+</head>
+<body data-md-color-accent="" data-md-color-primary="deep-orange" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#3-llenguatges">
           Salta el contingut
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-      
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="DWES" class="md-header__button md-logo" aria-label="DWES">
-      
-  <img src="../../assets/logo.png" alt="logo">
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             DWES
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               3. Llenguatges
             
           </span>
-        </div>
-      </div>
-    </div>
-    <div class="md-header__options">
-      
-    </div>
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-    
-    
-  </nav>
+</div>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="DWES" class="md-nav__button md-logo" aria-label="DWES">
-      
-  <img src="../../assets/logo.png" alt="logo">
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
     DWES
   </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
         Desenvolupament Web en Entorn Servidor
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      <label class="md-nav__link" for="__nav_2">
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
         01. Introducció a la programació web
         <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="01. Introducció a la programació web" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="01. Introducció a la programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
           01. Introducció a la programació web
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../00_index/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../00_index/">
         Introducció
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../1_arquitectura_duna_aplicaci_web/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1_arquitectura_duna_aplicaci_web/">
         1. Arquitectura d'una aplicació web
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2_tecnologies_per_a_programaci_web_del_costat_del_servidor.html/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2_tecnologies_per_a_programaci_web_del_costat_del_servidor.html/">
         2. Tecnologies per a programació web del costat del servidor
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
           3. Llenguatges
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         3. Llenguatges
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Taula de continguts
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#php" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#php">
     PHP
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#jsp-servlets" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jsp-servlets">
     JSP / Servlets
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python">
     Python
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#aspnet" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aspnet">
     ASP.NET
   </a>
-  
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../4_preparant_lentorn_de_desenvolupament.html/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../4_preparant_lentorn_de_desenvolupament.html/">
         4. Preparant l'entorn de desenvolupament
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../5_eines_de_desenvolupament.html/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../5_eines_de_desenvolupament.html/">
         5. Eines de desevolupament
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../6_eines_per_a_depuraci_de_codi/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../6_eines_per_a_depuraci_de_codi/">
         6. Eines per a la depuració de codi
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      <label class="md-nav__link" for="__nav_3">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
         02. Característiques bàsiques de PHP
         <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="02. Característiques bàsiques de PHP" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="02. Característiques bàsiques de PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
           02. Característiques bàsiques de PHP
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/0_index/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/0_index/">
         0. Introducció
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/1_programaci_web_amb_php/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/1_programaci_web_amb_php/">
         1. Programació web amb PHP
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/2_maneig_de_cadenes_de_text_i_dates/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/2_maneig_de_cadenes_de_text_i_dates/">
         2. Maneig de cadenes de text i dates
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/3_maneig_darrays/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/3_maneig_darrays/">
         3. Maneig d'arrays
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/4_funcions/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/4_funcions/">
         4. Funcions
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/5_noves%20caracteristiques_php/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/5_noves%20caracteristiques_php/">
         5. Noves característiques PHP 7
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/6_processament_formularis%20copy/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/6_processament_formularis%20copy/">
         6. Processament de formularis
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/7_pujada_fitxers/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.%20Caracter%C3%ADstiques%20b%C3%A0siques%20de%20PHP/7_pujada_fitxers/">
         7. Pujada de fitxers
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Taula de continguts
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#php" class="md-nav__link">
-    PHP
-  </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#jsp-servlets" class="md-nav__link">
-    JSP / Servlets
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aspnet" class="md-nav__link">
-    ASP.NET
-  </a>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                
-                <h1 id="3-llenguatges">3. Llenguatges</h1>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="3-llenguatges">3. Llenguatges</h1>
 <h2 id="php">PHP</h2>
 <p>PHP (PHP Hypertext Preprocessor) és un llenguatge de programació de
 costat servidor dissenyat principalment per al desenvolupament web.</p>
@@ -565,7 +234,7 @@ habitual és veure-ho formant el que es coneix com una arquitectura LAMP
 operatiu Linux, executant-com un mòdul del servidor web Apache i
 utilitzant a MySQL com SGBD per emmagatzemar la informació en cas que es
 requereixi una base de dades.</p>
-<p><img alt="**Arquitectura LAMP Arquitectura LAMP**" src="../assets/lamp.jpg" /></p>
+<p><img alt="**Arquitectura LAMP Arquitectura LAMP**" src="../assets/lamp.jpg"/></p>
 <p>El llenguatge PHP va ser dissenyat per Rasmus Lerdorf i ara es manté per
 una comunitat de desenvolupadors, a més és de codi obert.</p>
 <p>A continuació, un fragment d'una pàgina web dinàmica escrita amb PHP on
@@ -586,18 +255,18 @@ s'utilitza juntament amb JSP per crear aplicacions web més complexes.</p>
 propietat ara d'Oracle, després d'adquirir aquesta última a la primera
 fa ja alguns anys.</p>
 <p><img alt="**Arquitectura habitual JSP /
-Servlets**" src="../assets/jsp.gif" title="Arquitectura habitual JSP / Servlets" /></p>
+Servlets**" src="../assets/jsp.gif" title="Arquitectura habitual JSP / Servlets"/></p>
 <h2 id="python">Python</h2>
 <p>El llenguatge Python va ser dissenyat per Guido van Rossum i ara es
 manté gràcies a una comunitat de desenvolupadors, i és codi obert.</p>
-<p><img alt="Python" src="../assets/django_apache.png" /></p>
+<p><img alt="Python" src="../assets/django_apache.png"/></p>
 <p>Exemple de codi escrit amb Python. En aquest cas utilitzant el framework
 Django per al desenvolupament d'aplicacions web:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Mis</span> <span class="n">películas</span><span class="o">&lt;</span><span class="sr">/h1&gt; &lt;a href=&quot;#&quot;&gt;+&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Mis</span> <span class="n">películas</span><span class="o">&lt;</span><span class="sr">/h1&gt; &lt;a href="#"&gt;+&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">lista_peliculas</span> <span class="sx">%}</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="sx">  &lt;ul&gt;</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="sx">    {% for pelicula in lista_peliculas %}</span>
-<span class="linenos" data-linenos=" 5 "></span>    <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;{% url &#39;pelicula&#39; pelicula.id %}&quot;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">pelicula</span><span class="o">.</span><span class="n">titulo</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{% url 'pelicula' pelicula.id %}"</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">pelicula</span><span class="o">.</span><span class="n">titulo</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
 <span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span>   <span class="sx">%}</span>
 <span class="linenos" data-linenos=" 7 "></span><span class="sx">    &lt;/ul&gt;</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="sx">    {% else %}</span>
@@ -611,8 +280,8 @@ Django per al desenvolupament d'aplicacions web:</p>
 <span class="linenos" data-linenos="4 "></span>
 <span class="linenos" data-linenos="5 "></span>    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="n">lista_peliculas</span> <span class="o">=</span> <span class="n">Pelicula</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-<span class="linenos" data-linenos="7 "></span>    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lista_peliculas&#39;</span><span class="p">:</span> <span class="n">lista_peliculas</span><span class="p">}</span>
-<span class="linenos" data-linenos="8 "></span>    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;mispeliculas/index.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'lista_peliculas'</span><span class="p">:</span> <span class="n">lista_peliculas</span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">'mispeliculas/index.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="aspnet">ASP.NET</h2>
 <p>ASP.NET és una tecnologia, creada per Microsoft, per al desenvolupament
@@ -624,7 +293,7 @@ pugui desenvolupar en qualsevol dels llenguatges de programació
 d'aquesta plataforma, Visual Basic .NET o C#.</p>
 <p>El més habitual és veure-ho funcionar juntament amb el lloc web de
 Microsoft, IIS (Internet Information Server).</p>
-<p><img alt="ASP.NET" src="../assets/asp_iis.png" /></p>
+<p><img alt="ASP.NET" src="../assets/asp_iis.png"/></p>
 <p>A continuació, un exemple de pàgina web dinàmica amb ASP.NET
 (desenvolupada en llenguatge C #) programant l'acció que passa en
 prémer un botó (apareix el text d'un formulari a la part final del
@@ -635,114 +304,91 @@ web):</p>
 <span class="linenos" data-linenos="4 "></span>    changed_text.InnerHtml = buf.ToUpper();
 <span class="linenos" data-linenos="5 "></span>}
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="err">&lt;</span>%@ Page Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;Default.aspx.cs&quot;
-<span class="linenos" data-linenos=" 2 "></span>    Inherits=&quot;firstexample._Default&quot; %&gt;
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="err">&lt;</span>%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs"
+<span class="linenos" data-linenos=" 2 "></span>    Inherits="firstexample._Default" %&gt;
 <span class="linenos" data-linenos=" 3 "></span>
-<span class="linenos" data-linenos=" 4 "></span><span class="cp">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; </span>
-<span class="linenos" data-linenos=" 5 "></span><span class="cp">    &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cp">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" </span>
+<span class="linenos" data-linenos=" 5 "></span><span class="cp">    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>
 <span class="linenos" data-linenos=" 6 "></span>
-<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">"http://www.w3.org/1999/xhtml"</span> <span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 8 "></span>
-<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">head</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">head</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="11 "></span>            Untitled Page
 <span class="linenos" data-linenos="12 "></span>        <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="14 "></span>
 <span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="16 "></span>        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;form1&quot;</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">"form1"</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="17 "></span>        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="18 "></span>            <span class="p">&lt;</span><span class="nt">asp:TextBox</span> <span class="na">ID</span><span class="o">=</span><span class="s">&quot;TextBox1&quot;</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:224px&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="p">&lt;</span><span class="nt">asp:TextBox</span> <span class="na">ID</span><span class="o">=</span><span class="s">"TextBox1"</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span> <span class="na">style</span><span class="o">=</span><span class="s">"width:224px"</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="19 "></span>            <span class="p">&lt;/</span><span class="nt">asp:TextBox</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="20 "></span>
-<span class="linenos" data-linenos="21 "></span>            <span class="p">&lt;</span><span class="nt">asp:Button</span> <span class="na">ID</span><span class="o">=</span><span class="s">&quot;Button1&quot;</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span> <span class="na">Text</span><span class="o">=</span><span class="s">&quot;Enter...&quot;</span> 
-<span class="linenos" data-linenos="22 "></span>                <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:85px&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;Button1_Click&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="21 "></span>            <span class="p">&lt;</span><span class="nt">asp:Button</span> <span class="na">ID</span><span class="o">=</span><span class="s">"Button1"</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span> <span class="na">Text</span><span class="o">=</span><span class="s">"Enter..."</span> 
+<span class="linenos" data-linenos="22 "></span>                <span class="na">style</span><span class="o">=</span><span class="s">"width:85px"</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"Button1_Click"</span> <span class="p">/&gt;</span>
 <span class="linenos" data-linenos="23 "></span>            <span class="p">&lt;</span><span class="nt">hr</span> <span class="p">/&gt;</span>
 <span class="linenos" data-linenos="24 "></span>
 <span class="linenos" data-linenos="25 "></span>            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span> Results: <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="26 "></span>            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">runat</span><span class="o">=</span><span class="s">&quot;server&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;changed_text&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="26 "></span>            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">runat</span><span class="o">=</span><span class="s">"server"</span> <span class="na">id</span><span class="o">=</span><span class="s">"changed_text"</span> <span class="p">/&gt;</span>
 <span class="linenos" data-linenos="27 "></span>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="28 "></span>
 <span class="linenos" data-linenos="29 "></span>    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="30 "></span>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="31 "></span>    <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
+</article>
+</div>
+</div>
+</main>
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../2_tecnologies_per_a_programaci_web_del_costat_del_servidor.html/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: 2. Tecnologies per a programació web del costat del servidor" class="md-footer__link md-footer__link--prev" href="../2_tecnologies_per_a_programaci_web_del_costat_del_servidor.html/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
                 Anterior
               </span>
               2. Tecnologies per a programació web del costat del servidor
             </div>
-          </div>
-        </a>
-      
-      
-        <a href="../4_preparant_lentorn_de_desenvolupament.html/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
+</div>
+</a>
+<a aria-label="Següent: 4. Preparant l'entorn de desenvolupament" class="md-footer__link md-footer__link--next" href="../4_preparant_lentorn_de_desenvolupament.html/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
                 Següent
               </span>
               4. Preparant l'entorn de desenvolupament
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
             2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
           </div>
         
         Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
           Material for MkDocs
         </a>
-        
-      </div>
-      
-    </div>
-  </div>
+ ... <a class="link--pdf-download" download href="../../pdf/document.pdf" title="PDF">download PDF</a></div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+</body>
 </html>
