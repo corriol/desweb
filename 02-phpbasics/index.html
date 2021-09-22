@@ -642,6 +642,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cadenes" class="md-nav__link">
+    Cadenes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#arrays-indexats" class="md-nav__link">
     Arrays indexats
   </a>
@@ -1153,33 +1160,6 @@ Més informació a <a href="https://www.php.net/manual/es/language.operators.pre
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$fullName = $name.&#39; &#39;.$surname;
 </code></pre></div>
 <a href="https://www.php.net/manual/es/ref.strings.php">Funcions de cadena</a></p>
-<div class="admonition todo">
-<p class="admonition-title">Activitat 1</p>
-<p>Crea una pàgina anomenada <code>cadenes.php</code>, copia el contingut de la pàgina <code>index.php</code>, activa la directiva de tipus estricta (<code>declare( strict_types = 1 );</code>) i mostra el següent: </p>
-<ol>
-<li>Elimina els espais del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
-<li>Elimina la lletra a del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
-<li>Mostra la variable nom en majúscules, minúscules i amb la primera lletra en majúscula i les altres en minúscules (<em>strtoupper</em>, <em>strtolower</em>, <em>ucfirst</em>). </li>
-<li>Mostra el codi ascii de la primera lletra del nom (<em>ord</em>). </li>
-<li>Mostra la longitud del nom (<em>strlen</em>). </li>
-<li>Mostra el nombre de vegades que apareix la lletra a (majúscula o minúscula, <em>substr_count</em>). </li>
-<li>Mostra la posició de la primera <code>a</code> existent en el nom, siga majúscula o minúscula (<em>strpos</em>). Si no hi ha cap mostrarà -1. </li>
-<li>El mateix, però amb l''última a. </li>
-<li>Mostra el nom substituint la lletr o pel número zero, siga majúscula o minúscula (<em>str_replace</em>). </li>
-<li>Indica si el nom comença per <code>al</code> o no. </li>
-</ol>
-</div>
-<div class="admonition todo">
-<p class="admonition-title">Activitat 2</p>
-<p>En el mateix document <code>cadenes.php</code> i a partir d'una variable que continga una url: 
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$url</span><span class="o">=</span><span class="s1">&#39;http://username:password@hostname:9090/path?arg=value#anchor&#39;</span><span class="p">;</span>
-</code></pre></div>
-Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts:<br />
-    1. El protocol utilitzat (en l'exemple "http").<br />
-    2. El nom d'usuari (en l'exemple "username"). 
-    3. El path de la url (en l'exemple "/path"). 
-    4. El querystring de la url (en l'exemple "arg=value").</p>
-</div>
 <h2 id="maneig-de-dates">Maneig de dates</h2>
 <h3 id="funcio-time">Funció <code>time()</code></h3>
 <p>En PHP les dates s'emmagatzemen com a números enters. La funció <code>time()</code> retorna el nombre de segons transcorreguts 
@@ -1935,6 +1915,34 @@ Les claus més importants són:
 <span class="linenos" data-linenos="10 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="activitats">Activitats</h2>
+<h3 id="cadenes">Cadenes</h3>
+<ol>
+<li>
+<p><code>221Cadenes.php</code>: Copia el contingut de la pàgina <code>index.php</code>, activa la directiva de tipus estricta (<code>declare( strict_types = 1 );</code>) i mostra el següent: </p>
+<ol>
+<li>Elimina els espais del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
+<li>Elimina la lletra a del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
+<li>Mostra la variable nom en majúscules, minúscules i amb la primera lletra en majúscula i les altres en minúscules (<em>strtoupper</em>, <em>strtolower</em>, <em>ucfirst</em>). </li>
+<li>Mostra el codi ascii de la primera lletra del nom (<em>ord</em>). </li>
+<li>Mostra la longitud del nom (<em>strlen</em>). </li>
+<li>Mostra el nombre de vegades que apareix la lletra a (majúscula o minúscula, <em>substr_count</em>). </li>
+<li>Mostra la posició de la primera <code>a</code> existent en el nom, siga majúscula o minúscula (<em>strpos</em>). Si no hi ha cap mostrarà -1. </li>
+<li>El mateix, però amb l''última a. </li>
+<li>Mostra el nom substituint la lletr o pel número zero, siga majúscula o minúscula (<em>str_replace</em>). </li>
+<li>Indica si el nom comença per <code>al</code> o no. </li>
+</ol>
+</li>
+<li>
+<p><code>222Cadenes.php</code>: En el mateix document <code>cadenes.php</code> i a partir d'una variable que continga una url:<br />
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$url</span><span class="o">=</span><span class="s1">&#39;http://username:password@hostname:9090/path?arg=value#anchor&#39;</span><span class="p">;</span>
+</code></pre></div>
+      Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts:<br />
+        1. El protocol utilitzat (en l'exemple "http").<br />
+        2. El nom d'usuari (en l'exemple "username").
+        3. El path de la url (en l'exemple "/path").
+        4. El querystring de la url (en l'exemple "arg=value").</p>
+</li>
+</ol>
 <h3 id="arrays-indexats">Arrays indexats</h3>
 <ol>
 <li>
@@ -1972,17 +1980,13 @@ Modifica la solució de l’anterior exercici perquè mostre les ciutats ordenad
 <h3 id="arrays-multidimensionals_1">Arrays multidimensionals</h3>
 <ol>
 <li>
-<p><code>233Alumnes.php</code>: Crea una pàgina anomenada <code>arrays2.php</code>, copia el contingut de la pàgina index.php i resol els exercicis següents utilitzant funcions d'arrays: </p>
+<p><code>233Alumnes.php</code>: Resol els exercicis següents utilitzant funcions d'arrays: </p>
 <ol>
 <li>Crea un array d'alumnes on cada element siga un altre array que continga nom i edat de l'alumne. </li>
 <li>Crea una taula HTML en la qual es mostren totes les dades dels alumnes. </li>
-<li>Utilitza la funció <code>array_column</code> per a obtenir un array indexat que continga únicament els noms dels alumnes i  mostra’ls per pantalla. </li>
-<li>
-<p>Crea un array amb 10 números : </p>
-</li>
-<li>
-<p>utilitza la funció <code>array_sum</code> per a obtenir la suma dels 10 nombres. </p>
-</li>
+<li>Utilitza la funció <code>array_column</code> per a obtenir un array indexat que continga únicament els noms dels alumnes i mostra’ls per pantalla.    </li>
+<li>Crea un array amb 10 números i utilitza la funció <code>array_sum</code> per a obtenir la suma dels 10 nombres. </li>
+<li>Sense usar bucles for calcula la mitjana d'edat de l'alumnat.     </li>
 </ol>
 </li>
 <li>
