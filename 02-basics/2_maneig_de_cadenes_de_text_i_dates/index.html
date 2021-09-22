@@ -1,0 +1,510 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>2. Maneig de cadenes de text i dates - DWES</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-maneig-de-cadenes-de-text-i-dates" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DWES" class="md-header__button md-logo" aria-label="DWES" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DWES
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Maneig de cadenes de text i dates
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DWES" class="md-nav__button md-logo" aria-label="DWES" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    DWES
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Inici
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-intro/" class="md-nav__link">
+        1.- Introducció a la programació Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-phpbasics/" class="md-nav__link">
+        2.- El llenguatge PHP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-phpoo/" class="md-nav__link">
+        3.- PHP Orientat a Objectes
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="2-maneig-de-cadenes-de-text-i-dates">2. Maneig de cadenes de text i dates</h1>
+<h2 id="maneig-de-cadenes-de-text">Maneig de cadenes de text</h2>
+<h2 id="cadenes-de-text">Cadenes de text</h2>
+<ul>
+<li>Podem utilitzar tant cometes simples com a cometes dobles.</li>
+<li>Per a concatenar cadenes utilitzarem l'operador punt (.)</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$fullName = $name.&#39; &#39;.$surname;
+</code></pre></div>
+<a href="https://www.php.net/manual/es/ref.strings.php">Funcions de cadena</a></p>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 1</p>
+<p>Crea una pàgina anomenada <code>cadenes.php</code>, copia el contingut de la pàgina <code>index.php</code>, activa la directiva de tipus estricta (<code>declare( strict_types = 1 );</code>) i mostra el següent: </p>
+<ol>
+<li>Elimina els espais del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
+<li>Elimina la lletra a del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
+<li>Mostra la variable nom en majúscules, minúscules i amb la primera lletra en majúscula i les altres en minúscules (<em>strtoupper</em>, <em>strtolower</em>, <em>ucfirst</em>). </li>
+<li>Mostra el codi ascii de la primera lletra del nom (<em>ord</em>). </li>
+<li>Mostra la longitud del nom (<em>strlen</em>). </li>
+<li>Mostra el nombre de vegades que apareix la lletra a (majúscula o minúscula, <em>substr_count</em>). </li>
+<li>Mostra la posició de la primera <code>a</code> existent en el nom, siga majúscula o minúscula (<em>strpos</em>). Si no hi ha cap mostrarà -1. </li>
+<li>El mateix, però amb l''última a. </li>
+<li>Mostra el nom substituint la lletr o pel número zero, siga majúscula o minúscula (<em>str_replace</em>). </li>
+<li>Indica si el nom comença per <code>al</code> o no. </li>
+</ol>
+</div>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 2</p>
+<p>En el mateix document <code>cadenes.php</code> i a partir d'una variable que continga una url: 
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$url</span><span class="o">=</span><span class="s1">&#39;http://username:password@hostname:9090/path?arg=value#anchor&#39;</span><span class="p">;</span>
+</code></pre></div>
+Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts:<br />
+    1. El protocol utilitzat (en l'exemple "http").<br />
+    2. El nom d'usuari (en l'exemple "username"). 
+    3. El path de la url (en l'exemple "/path"). 
+    4. El querystring de la url (en l'exemple "arg=value").</p>
+</div>
+<h2 id="maneig-de-dates">Maneig de dates</h2>
+<h3 id="funcio-time">Funció <code>time()</code></h3>
+<p>En PHP les dates s'emmagatzemen com a números enters. La funció <code>time()</code> retorna el nombre de segons transcorreguts 
+des de l'1 de gener de 1970 (instant conegut com a època Unix). 
+A aquesta forma d'expressar data i hora se li denomina <strong>timestamp</strong>.</p>
+<h3 id="funcio-date">Funció <code>date()</code></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">date</span> <span class="p">(</span><span class="nx">string</span> <span class="nv">$format</span> <span class="p">[,</span> <span class="nx">int</span> <span class="nv">$timestamp</span><span class="o">=</span><span class="nb">time</span><span class="p">()])</span><span class="o">:</span> <span class="nx">string</span>
+</code></pre></div>
+<p>La funció <code>date</code> retorna una cadena formatada segons els codi de format. Si no li passem la variable <code>timestamp</code> 
+ens retorna la cadena formatada per a la data i l'hora actual.</p>
+<p>Els codis de format més habituals  per a la funció <code>date</code> són:</p>
+<table>
+<thead>
+<tr>
+<th>CODI</th>
+<th>DESCRIPCIÓ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>am o pm</td>
+</tr>
+<tr>
+<td>A</td>
+<td>AM o PM</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Dia del mes amb zeros</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Abreviatura del dia de la setmana (en anglès)</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Nom del mes (en anglès)</td>
+</tr>
+<tr>
+<td>h</td>
+<td>Hora en format 1-12</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Hora en format 0-23</td>
+</tr>
+<tr>
+<td>i</td>
+<td>Minuts</td>
+</tr>
+<tr>
+<td>j</td>
+<td>Dia del mes sense zeros</td>
+</tr>
+<tr>
+<td>l</td>
+<td>Dia de la setmana</td>
+</tr>
+<tr>
+<td>m</td>
+<td>Número de mes (1-12)</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Abreviatura del mes (en anglès)</td>
+</tr>
+<tr>
+<td>s</td>
+<td>Segons</td>
+</tr>
+<tr>
+<td>y</td>
+<td>Any amb 2 dígits</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Any amb 4 dígits</td>
+</tr>
+<tr>
+<td>z</td>
+<td>Dia de l'any (1-365)</td>
+</tr>
+</tbody>
+</table>
+<p>La informació completa la pots trobar en el <a href="https://www.php.net/manual/es/function.date.php">manual oficial de PHP: date</a></p>
+<p>Suposant que hui és 15 de setembre de 2019 i les 19 hores 20 minuts i 23 segons et mostrem alguns exemples:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;d-m-Y&quot;</span><span class="p">);</span> <span class="c1">// 15-09-2019</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;H:i:s&quot;</span><span class="p">);</span>  <span class="c1">//  19:20:23</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">);</span> <span class="c1">// 2019</span>
+<span class="linenos" data-linenos="4 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;YmdHis&quot;</span><span class="p">);</span> <span class="c1">// 20190915192023</span>
+<span class="linenos" data-linenos="5 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;d/m/y H:i a&quot;</span><span class="p">);</span> <span class="c1">// 15/09/19 19:20 pm</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;d-m-Y H:i&quot;</span><span class="p">,</span> <span class="nb">time</span><span class="p">());</span> <span class="c1">// Moment actual</span>
+</code></pre></div>
+<h3 id="funcio-mktimehora-min-seg-mes-dia-any">Funció <code>mktime(hora, min, seg, mes, dia, any)</code></h3>
+<p>La funció mktime permet obtenir la marca de temps Unix (<em>timestamp</em>) d'una data.</p>
+<p>Per exemple:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$data</span> <span class="o">=</span> <span class="nb">mktime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2020</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;d-m-Y&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span> <span class="c1">// mostrarà 01-01-2020</span>
+</code></pre></div>
+Més informació en <a href="https://www.php.net/manual/es/function.mktime.php">https://www.php.net/manual/es/function.mktime.php</a></p>
+<p>Un altra forma de crear dates és mitjançant la funció <code>strtotime()</code> on podem indicar les dates mitjançant una cadena de text. Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// posarem la data en el format any-mes-dia per a evitar confusions.</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$date</span> <span class="o">=</span><span class="nb">strtotime</span><span class="p">(</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">);</span> 
+</code></pre></div>
+<h3 id="operar-amb-dates">Operar amb dates</h3>
+<p>Com hem dit al principi les dates s'emmagatzem com a enters on cada unitat representa un segon. Així podem sumar i restar dates (<em>timestamp</em>) per a afegir, llevar o calcular diferències entre ells.</p>
+<p>Per exemple, per poder determinar els dies que falten per a l'1 de gener de 2020 faríem:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$data</span><span class="o">=</span><span class="nb">mktime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2020</span><span class="p">);</span> <span class="c1">// timestamp que representa l&#39;1 de gener de 2020</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$diferencia</span><span class="o">=</span><span class="nv">$data</span> <span class="o">-</span> <span class="nb">time</span><span class="p">();</span> <span class="c1">// restem a l&#39;1 de gener de 2020 el temps actual, </span>
+<span class="linenos" data-linenos="3 "></span>                                <span class="c1">// el resultat estarà en segons.</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$diferenciaEnDies</span> <span class="o">=</span><span class="p">(((</span> <span class="nv">$diferencia</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">24</span> <span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="cm">/*  </span>
+<span class="linenos" data-linenos="6 "></span><span class="cm">    dividim els segons entre 60 i obtenim els minuts,</span>
+<span class="linenos" data-linenos="7 "></span><span class="cm">    els dividim entre 60 i obtenim les hores,</span>
+<span class="linenos" data-linenos="8 "></span><span class="cm">    els dividim entre 24 i obtenim els dies </span>
+<span class="linenos" data-linenos="9 "></span><span class="cm">*/</span>
+</code></pre></div>
+<h3 id="validar-dates">Validar dates</h3>
+<p>En la funció <code>checkdate</code> podem validar una data.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">checkdate</span> <span class="p">(</span><span class="nx">int</span> <span class="nv">$month</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$day</span> <span class="p">,</span><span class="nx">int</span> <span class="nv">$year</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+</code></pre></div>
+La funció torna <code>true</code> si la data es vàlida, si no, torna  <code>false</code>. </p>
+<h3 id="classe-datetime">Classe DateTime</h3>
+<p>PHP disposa també de la classe <code>DateTime</code> per a representar les dates, la veurem més avant.</p>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 3: Treballar amb dates</p>
+<p>Crea un fitxer anomenat dates.php i realitza les següents tasques:</p>
+<ol>
+<li>Mostra la data i hora actuals amb el format: <code>dd/mm/yyyy hh:mm:ss</code></li>
+<li>Mostra el nom de la zona horària que s'utilitza per defecte.</li>
+<li>Mostra la data de que serà d’ací 45 dies.</li>
+<li>Mostra el nombre de dies que han passat des de l'1 de gener.</li>
+<li>Mostra la data i hora actuals de Nova York.</li>
+<li>Mostra el dia de la setmana que era l'1 de gener d'enguany.</li>
+</ol>
+<p>En acabar penja el document a Aules.</p>
+</div>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 4</p>
+<p><code>200dadesPersonals.php</code>: Escriu un programa que emmagatzeme en variables teu nom, primer cognom, segon cognom, email, any de naixement i telèfon. Després mostra'ls per pantalla dins d'una taula.     </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nom</td>
+<td>Bruce</td>
+<td></td>
+</tr>
+<tr>
+<td>Cognoms</td>
+<td>Wayne</td>
+<td></td>
+</tr>
+<tr>
+<td>Email</td>
+<td>batman@dccomics.com</td>
+<td></td>
+</tr>
+<tr>
+<td>Any de naixement</td>
+<td>1939</td>
+<td></td>
+</tr>
+<tr>
+<td>Telèfon</td>
+<td>555666777</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>206anyos.php</code>: Després de llegir l'edat d'una persona, mostrar l'edat que tindrà d'aquí a 10 anys i fa 10 anys. A més, mostra quin any serà en cada un dels casos. Finalment, mostra l'any de jubilació suposant que treballaràs fins als 65 anys.</p>
+<p>Tip: <code>$anyoActual = date("Y")</code>;</p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

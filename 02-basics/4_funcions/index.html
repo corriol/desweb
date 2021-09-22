@@ -1,0 +1,517 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>4. Funcions - DWES</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-funcions" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DWES" class="md-header__button md-logo" aria-label="DWES" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DWES
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Funcions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DWES" class="md-nav__button md-logo" aria-label="DWES" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    DWES
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Inici
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-intro/" class="md-nav__link">
+        1.- Introducció a la programació Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-phpbasics/" class="md-nav__link">
+        2.- El llenguatge PHP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-phpoo/" class="md-nav__link">
+        3.- PHP Orientat a Objectes
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="4-funcions">4. Funcions</h1>
+<h2 id="funcions-predefinides">Funcions predefinides</h2>
+<p>Algunes de les funcions predefinides en PHP són les següents, però hi ha moltíssimes més 
+vinculades als diferents mòduls que podem instal·lar.</p>
+<ul>
+<li><strong>is_null($var)</strong> determina si una variable és nula o no.</li>
+<li><strong>isset($var)</strong> determina si una variable estan definida i no és NULL.</li>
+<li><strong>unset($var)</strong> destrueix les variables especificades.</li>
+<li><strong>empty($var)</strong> torna <strong>true</strong> si no existeix o és <strong>FALSE</strong></li>
+<li><strong>is_int($var)</strong>, <strong>is_float()</strong>, <strong>is_bool()</strong>, <strong>is_array()</strong></li>
+<li><strong>var_dump($var)</strong> mostra informació de la variable.</li>
+</ul>
+<h2 id="funcions-definides-per-lusuari">Funcions definides per l'usuari</h2>
+<p>Per a crear les teues pròpies funcions, hauràs d'usar la paraula <strong>function</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span> 
+<span class="linenos" data-linenos="2 "></span><span class="p">{</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span> 
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Per tal d'invocar la funció:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$resultat</span> <span class="o">=</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+</code></pre></div>
+<p>Si una funció no té una sentència <strong>return</strong>, retorna <strong>null</strong> en finalitzar.</p>
+<h2 id="valors-per-defecte-en-els-parametres">Valors per defecte en els paràmetres</h2>
+<ul>
+<li>Podem indicar valors per defecte per als paràmetres. Si quan cridem a la funció no indiquem el valor d'un paràmetre es prendrà el valor per defecte indicat.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">preuAmbIva</span><span class="p">(</span><span class="nv">$preu</span><span class="p">,</span> <span class="nv">$iva</span><span class="o">=</span><span class="mf">0.21</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="nv">$preu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nv">$iva</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$preu</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$pIva</span> <span class="o">=</span> <span class="nx">preuAmbIva</span><span class="p">(</span><span class="nv">$preu</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>Pot haver-hi més d'un paràmetre amb valor per defecte, però sempre han d'estar al final.</li>
+</ul>
+<h2 id="pas-de-parametres-per-referencia">Pas de paràmetres per referència</h2>
+<p>Per defecte els paràmetres es passen per valor. Per a passar un paràmetre per referència afegirem el símbol <strong>&amp;</strong> davant del seu nom.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">preuAmbIva</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$preu</span><span class="p">,</span> <span class="nv">$iva</span><span class="o">=</span><span class="mf">0.18</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$preu</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nv">$iva</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<h4 id="declaracions-de-tipus-type-hinting">Declaracions de tipus (Type Hinting)</h4>
+<p>Les funcions obliguen a que els paràmetres siguen de cert tipus. Si el valor donat és d'un tipus incorrecte, es generarà un error. Per això s'ha d'anteposar-se el nom del tipus al nom del paràmetre. Es pot fer que una declaració accepte valors <strong>NULL</strong> si el valor predeterminat del
+paràmetre s'estableix a NULL.</p>
+<h4 id="tipus-valids">Tipus vàlids</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Type</th>
+<th align="center">Description</th>
+<th align="center">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Class/interface name</td>
+<td align="center">The value must be an instanceof the given class or interface.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">self</td>
+<td align="center">The value must be an instanceof the same class as the one in which the type declaration is used. Can only be used in classes.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">parent</td>
+<td align="center">The value must be an instanceof the parent of the class in which the type declaration is used. Can only be used in classes.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">array</td>
+<td align="center">The value must be an array.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">callable</td>
+<td align="center">The value must be a valid callable. Cannot be used as a class property type declaration.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">bool</td>
+<td align="center">The value must be a boolean value.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">The value must be a floating point number.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">The value must be an integer.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">string</td>
+<td align="center">The value must be a string.</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">iterable</td>
+<td align="center">The value must be either an array or an instanceof Traversable.</td>
+<td align="center">PHP 7.1.0</td>
+</tr>
+<tr>
+<td align="center">object</td>
+<td align="center">The value must be an object.</td>
+<td align="center">PHP 7.2.0</td>
+</tr>
+<tr>
+<td align="center">mixed</td>
+<td align="center">The value can be any value.</td>
+<td align="center">PHP 8.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="exemple">Exemple</h4>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nx">int</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">int</span> <span class="nx">b</span><span class="p">)</span><span class="o">:</span><span class="nx">int</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$resultado</span> <span class="o">=</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="funcions-com-a-parametres">Funcions com a paràmetres</h4>
+<p>En PHP és possible passar funcions com a paràmetres a altres funcions. Només cal passar el nom de la funció entre cometes. 
+Exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="k">function</span> <span class="nf">calculator</span><span class="p">(</span><span class="nv">$operation</span><span class="p">,</span><span class="nv">$numA</span><span class="p">,</span><span class="nv">$numB</span><span class="p">){</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="nv">$operation</span><span class="p">(</span><span class="nv">$numA</span><span class="p">,</span><span class="nv">$numB</span><span class="p">);</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">function</span> <span class="nf">sumar</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nv">$a</span><span class="o">+</span><span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">function</span> <span class="nf">restar</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="nv">$a</span><span class="o">-</span><span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="nv">$a</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="nv">$b</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span><span class="k">echo</span> <span class="nx">calculator</span><span class="p">(</span><span class="s1">&#39;sumar&#39;</span><span class="p">,</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">);</span>
+<span class="linenos" data-linenos="9 "></span><span class="k">echo</span> <span class="nx">calculator</span><span class="p">(</span><span class="s1">&#39;restar&#39;</span><span class="p">,</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$b</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="funcions-anonimes-closures">Funcions anònimes (<strong>closures</strong>)</h4>
+<ul>
+<li>Estan implementades usant la classe <strong>Closure</strong></li>
+<li>Permeten la creació de funcions que no tenen un nom específic</li>
+<li>Podem assignar la funció a una variable o passar-la com a paràmetre a una altra funció.</li>
+<li>Exemple</li>
+</ul>
+<p>Sense paràmetres:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">echo</span> <span class="s2">&quot;Hola&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">};</span> 
+<span class="linenos" data-linenos="4 "></span><span class="nv">$anonima</span><span class="p">();</span>
+</code></pre></div>
+<p>Amb paràmetres:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">echo</span> <span class="s2">&quot;Hola </span><span class="si">{</span><span class="nv">$nom</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">};</span> 
+<span class="linenos" data-linenos="4 "></span><span class="nv">$anonima</span><span class="p">(</span><span class="s1">&#39;Vicent&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="usar-variables-de-lambit-superior">Usar variables de l'àmbit superior</h4>
+<ul>
+<li>Una funció anònima pot usar variables de l'àmbit superior mitjançant la paraula reservada <strong>use</strong>: </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">function</span> <span class="nf">saluda</span><span class="p">(</span><span class="nx">callable</span> <span class="nv">$fnSaluda</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$fnSaluda</span><span class="p">(</span><span class="s1">&#39;Vicent&#39;</span><span class="p">);</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span> 
+<span class="linenos" data-linenos="4 "></span><span class="nv">$salutacio</span> <span class="o">=</span> <span class="s1">&#39;Hola&#39;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="5 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$salutacio</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$salutacio</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nv">$nom</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="7 "></span><span class="p">};</span> 
+<span class="linenos" data-linenos="8 "></span><span class="nx">saluda</span><span class="p">(</span><span class="nv">$anonima</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="llibreries">Llibreries</h4>
+<p>Podem fer llibreries de funcions guardant-les en un fitxer que desprès importem des d'on les utilitzem. Ho podem fer amb include, o utilitzant composer per a fer-ho.</p>
+<h3 id="activitat-241-funcio-imatge">Activitat 241: funció imatge</h3>
+<p>Crea el fitxer funcions.php</p>
+<p>Escriviu una funció per retornar una etiqueta HTML <code>&lt;img /&gt;</code>. </p>
+<p>La funció hauria d’acceptar com a argument obligatori l’URL de la imatge i arguments opcionals per a un text 
+alternatiu, alçada i amplada.</p>
+<h3 id="activitat-242-funcio-imatge-local">Activitat 242: funció imatge local</h3>
+<p>Copieu la funció de l’exercici anterior i modifiqueu-la de manera que només es passe el nom de fitxer a la funció en
+ lloc de l’URL completa. Dins de la funció, farem ús d’una variable global per fer l’URL completa.</p>
+<p>Per exemple, si passem <code>photo.png</code> a la funció, i la variable global conté <code>/images</code>, llavors l’atribut <code>src</code> de 
+l'etiqueta <img> retornada serà <code>/images/photo.png</code>. </p>
+<p>Una funció com aquesta és una forma senzilla de mantenir correctes les vostres etiquetes d’imatges, fins i tot si les
+ imatges es mouen a un nou camí o servidor. Només cal canviar la variable global, per exemple, de <code>/images</code> a 
+ <code>http://images.example.com/.</code></p>
+<h3 id="activitat-243-funcions">Activitat 243: Funcions</h3>
+<p>Els colors web com <code>#ffffff</code> i <code>#cc3399</code> es realitzen concatenant els valors hexadecimals de color per a vermell, 
+verd i blau. </p>
+<p>Escriu una funció que accepte 3 arguments: roig, verd i blau, i que retorne un string que conté el color adequat per
+ utilitzar-lo en una pàgina web. </p>
+<p>Per exemple, si els arguments són 255, 0, i 255, llavors la cadena retornada hauria de ser #FF00FF.</p>
+<p>Pot resultar útil utilitzeu la funció <code>dechex()</code> integrada, que es troba documentada a <a href="http://www.php.net/">http://www.php.net/</a></p>
+<p>Assegureu-vos que els paràmetres reben valors enters i que són colors vàlids.</p>
+<p>Implementa 3 exemples d’ús.</p>
+<h3 id="activitat-244-sql">Activitat 244: SQL</h3>
+<p>Crea un fitxer anomenat <code>funcions_sql.php</code>.</p>
+<p>Crea una funció anomenada <code>insert</code>  que ens genere una sentència INSERT INTO en SQL.  </p>
+<p>Per a açò la funció rebrà dos paràmetres:<br />
+1. El nom de la taula<br />
+2. Un array associatiu que contindrà els noms i valors dels camps de la taula.</p>
+<p>La sentència resultant tindrà la següent forma: </p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>“INSERT INTO nom_taula (nom dels camps separats per comes) VALUES (noms dels camps separats per comes amb el caràcter “:” davant)  
+</code></pre></div>
+De moment, no farem res amb els valors dels camps. </p>
+<p>Ajuda: utilitza les funcions <code>sprintf</code>, <code>implode</code> i <code>array_keys</code></p>
+<h3 id="activitat-245-sql">Activitat 245: SQL</h3>
+<p>A partir de l'exercici anterior crea una altra funció que reba els mateixos paràmetres més un paràmetre booleà 
+per a indicar si volem generar la query amb els noms dels camps o no. </p>
+<p>El paràmetre tindrà el valor <code>true</code> per defecte.</p>
+<p>Si el seu valor és <code>true</code> generarà la consulta igual que en l'exercici anterior, però si és <code>false</code> la generarà així: </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">nom_taula</span> 
+<span class="linenos" data-linenos="2 "></span>  <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span> <span class="n">dels</span> <span class="n">camps</span> <span class="n">separats</span> <span class="n">per</span> <span class="n">comes</span> <span class="n">amb</span> <span class="n">el</span> <span class="n">caràcter</span> <span class="err">‘</span><span class="p">:</span><span class="err">’</span> <span class="n">davant</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="activitat-246-sql">Activitat 246: SQL</h3>
+<p>Repeteix l'exercici anterior amb els següents canvis: </p>
+<p>La cadena resultant es passarà per referència.</p>
+<p>Passarem la cadena de la següent forma: </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">taula</span> <span class="p">(</span><span class="n">camps</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span><span class="p">)</span> 
+</code></pre></div>
+<p>Dins de la funció substituirem el següent: </p>
+<ol>
+<li>El text taula pel nom de la taula. </li>
+<li>El text camps pels noms dels camps separats per comes</li>
+<li>El text valors pels noms dels camps separats per comes i el caràcter ‘:’ davant. </li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>
