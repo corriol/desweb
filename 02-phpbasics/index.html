@@ -683,6 +683,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#inclusio-de-fitxers" class="md-nav__link">
+    Inclusió de fitxers
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2086,28 +2093,44 @@ passat com a paràmetre.</p>
 <li>
 <p><code>262Formulari.php</code>: Crea un formulari que tinga els següents camps:</p>
 <ul>
-<li>Nom i cognoms</li>
-<li>Data de naixement</li>
-<li>Correu electrònic</li>
-<li>Assumpte</li>
-<li>Missatge</li>
+<li><code>firstname</code></li>
+<li><code>lastname</code></li>
+<li><code>phone</code></li>
+<li><code>email</code></li>
 </ul>
+<p>Tots els camps són obligatoris excepte <code>zipcode</code>.</p>
 <p>En l'atribut <code>action</code> del formulari posarem el següent:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;262Formulari.php&quot;</span> <span class="err">...</span><span class="p">/&gt;</span>
 </code></pre></div>
 <p>Açò farà que siga la pròpia pàgina del formulari la que processe les dades del mateix.</p>
-<p>En prémer <code>Enviar</code> han d'aparèixer sota el formulari les dades que s'han introduït en el mateix.</p>
+<p>En prémer <code>Enviar</code> han d'aparèixer sota el formulari les dades que s'han introduït en el mateix en format de 
+taula.</p>
 </li>
 <li>
 <p><code>263FormulariReparat.php</code>: Soluciona el problema dels paràmetres no enviats de l'exercici anterior.</p>
 </li>
 <li>
-<p><code>264FormulariValidat.php</code>: Modifica l'exercici anterior realitzant les validacions oportunes.</p>
+<p><code>264FormulariValidat.php</code>: Modifica l'exercici anterior realitzant les següents validacions:</p>
+<ul>
+<li>Tots els camps són obligatoris.</li>
+<li><code>firstname</code>, no pot superar els 25 caracters.</li>
+<li><code>lastname</code>, no pot superar els 50 caracters.</li>
+<li><code>phone</code>, ha de contenir 9 digits (expressió regular: <code>^\d{9}$</code>).</li>
+<li><code>email</code>, ha de ser una adreça electrònica correcta.</li>
+</ul>
+<p>S'avaluaran tots els camps i si hi ha error/s caldrà mostrar-lo/s. Si no hi ha errors es mostraran les dades introduïdes per l'usuari.</p>
 </li>
 </ol>
 <h3 id="pujada-de-fitxers_1">Pujada de fitxers</h3>
 <ol>
-<li><code>271Formularimatge.php</code>: Modifica l'activitat <code>264FormulariValidat.php</code> afegint un camp de tipus <code>FILE</code> per a pujar una imatge al servidor. Es guardarà en la carpeta <code>uploads</code> i es mostrarà amb la resta de dades. </li>
+<li><code>271FormularImatge.php</code>: Modifica l'activitat <code>264FormulariValidat.php</code> afegint un camp de tipus <code>FILE</code> per a pujar una imatge al servidor. Es guardarà en la carpeta <code>uploads</code> i es mostrarà amb la resta de dades. </li>
+</ol>
+<h3 id="inclusio-de-fitxers">Inclusió de fitxers</h3>
+<ol>
+<li>
+<p><code>281Formulari.php</code>: Basant-te en l'activitat <code>271FormulariImatge.php</code> modifica les validacions perquè es facen mitjançant funcions. </p>
+<p>Les funcions es guardaran en el fitxer <code>helpers.php</code> i s'hauran d'incloure en fitxer <code>281Formulari.php</code>.</p>
+</li>
 </ol>
 <h2 id="credits">Crèdits</h2>
 <ul>
