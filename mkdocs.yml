@@ -3,14 +3,25 @@ site_name: DWES
 theme: 
   name: material
   palette:
-    primary: blue grey
+    primary: deep orange
   language: ca
-  font:
-    text: Lato
+  
   logo: assets/logo.png
 
-   
+  include_sidebar: false 
+  features:
+    - toc.integrate
+
+nav:
+  - "Inici": "index.md"
+  - "1.- Introducció a la programació Web": "01-intro.md"    
+  - "2.- El llenguatge PHP": "02-phpbasics.md"
+  - "3.- PHP Orientat a Objectes": "03-phpoo.md"
+
 markdown_extensions:
+  - toc:
+      toc_depth: 3
+  - pymdownx.tabbed
   - admonition
   - pymdownx.inlinehilite:
   - pymdownx.superfences:  
@@ -25,3 +36,8 @@ markdown_extensions:
           options:
             startinline: true
       linenums_style: pymdownx-inline
+      linenums: true
+      
+plugins:
+  
+copyright: 2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
