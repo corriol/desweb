@@ -823,13 +823,13 @@ Exemple:
 ```php
 // Fetches the value of $_GET['user'] and returns 'nobody'
 // if it does not exist.
-$username = $_GET['user'] ?? 'nobody';
+$username = $_GET['user']??'nobody';
 
 // This is equivalent to:
-$username = isset($_GET['user']) ? $_GET['user'] : 'nobody';
+$username = isset($_GET['user'])?$_GET['user']:'nobody';
 ```
 
-### Més recursos:
+**Més recursos:**
 
 * [Noves característiques PHP 7.0](https://www.php.net/manual/es/migration70.new-features.php)
 * [Noves característiques PHP 7.1](https://www.php.net/manual/es/migration71.new-features.php)
@@ -849,15 +849,14 @@ Hi ha diferents mètodes (METHOD) per a realitzar una petició (GET, POST, PUT, 
 
 ![Sol·licitud HTTP](assets/http-request.png)
 
+### Mètode GET
 
-### Mètodes GET i POST
+El mètodo de sol·licitud GET té les següents característiques:
 
-#### Mètode GET
-
-S'utilitza per a sol·licitar dades d'un recurs. Mostren els paràmetres que 
-s'envien en la url. Es poden utilitzar directament en enllaços. 
-El resultat es pot emmagatzemar en cache. Romanen en l'historial del navegador. 
-La grandària dels paràmetres està limitat a 255 caràcters.
+* S'utilitza per a sol·licitar dades d'un recurs. Mostren els paràmetres que 
+* s'envien en la url. Es poden utilitzar directament en enllaços. 
+* El resultat es pot emmagatzemar en cache. Romanen en l'historial del navegador. 
+* La grandària dels paràmetres està limitat a 2048 caràcters.
 
 *Exemple de petició GET*
 ![Petició GET](assets/get-example.png)
@@ -869,7 +868,7 @@ La grandària dels paràmetres està limitat a 255 caràcters.
 ![Inspecció del petició GET: Paràmeters](assets/get-inspect-parameters.png)
 
 
-##### Accedir a les dades de la petició GET
+#### Accedir a les dades de la petició GET
 
 Per a accedir a les dades usem la variable superglobal `$_GET`.
     
@@ -895,7 +894,11 @@ El mètode POST té les següents característiques:
 
 ##### Evitar el CSRF
 
-En tota pàgina que reba paràmetres GET has de comprovar el **HTTP referer** del navegador, i que aquest siga de dins de la teua web. En php el referer que envia el navegador s'emmagatzema en `$_SERVER['HTTP_REFERER']`.
+En tota pàgina que reba paràmetres POST has de comprovar el **HTTP referer** del navegador, i que aquest siga de dins de la teua web. En PHP el referer que envia el navegador s'emmagatzema en `$_SERVER['HTTP_REFERER']`. És a dir, sols processarem peticions 
+que vinguen del teu lloc web.
+
+!!! note "Més informació"
+    En el següent enllaç trobareu més informació relativa als atacs CSRF [CSRF: explicación del ataque Cross Site Request Forgery](https://www.ionos.es/digitalguide/servidores/seguridad/cross-site-request-forgery/)
 
 Seria tal com:
 
@@ -905,7 +908,7 @@ Seria tal com:
  ```
 
 !!! important
-    Amb aquest codi estem obligant al fet que el navegador envie un _referer_ si o sí. Per tant només ha d'utilitzar-se en pàgines a les quals el navegador accedisca des d'una altra pàgina de la nostra web.
+    Amb aquest codi estem obligant que el navegador envie un _referer_ si o sí. Per tant només ha d'utilitzar-se en pàgines a les quals el navegador accedisca des d'una altra pàgina de la nostra web.
 
     Òbviament no podem col·locar-ho en la primera pàgina a la qual s'accedeix a la nostra web (`index.php` o similar), ja que si l'usuari a escrit l'adreça a mà en la barra del navegador no s'enviarà referer cap i saltarà el sistema.
 
@@ -983,6 +986,8 @@ Les validacions a realitzar són les següents:
 2. Els camps email i data han de tenir el format esperat.
 3. Tots els camps s'han de filtrar amb `htmlspecialchars` per a evitar atacs de _Cross-site Scripting_ (XSS).
 
+Aquest article sobre _Cross-site Scripting_ és molt il·lustratiu: [PHP Form Validation](https://www.w3schools.com/php/php_form_validation.asp)
+
 #### Valors buits
 
 1. Els camps requerits no deurien quedar-se buits.
@@ -996,7 +1001,7 @@ Les validacions a realitzar són les següents:
 #### Escapar l'entrada
 
 Sempre hem de filtrar l'entrada amb `htmlspecialchars` abans de mostrar el camp amb `echo` o similar. Acò convertirà
-qualsevol caràcter especial d'html en la entitat, així no interferirà en el el programa.
+qualsevol caràcter especial d'html en la entitat corresponent, així no interferirà en el el programa.
 
 #### Comprovar l'email
 
@@ -1022,9 +1027,9 @@ La funció `filter_input` agafa una variable externa (`$_GET`, `$_POST`, etc) co
 
 Els filtres poden [sanejar](https://www.php.net/manual/es/filter.filters.validate.php) o [validar](https://www.php.net/manual/es/filter.filters.sanitize.php) les variables externes.
 
-Per exemple, si volem agafar el valor del paràmetre *nom*  del querystring (http://localhost/index.php?nom=<h1>Homer</h1>) usarem el tipus INPUT_GET.
+Per exemple, si volem agafar el valor del paràmetre *nom*  del querystring (`http://localhost/index.php?nom=<h1>Homer</h1>`) usarem el tipus `INPUT_GET`.
 
-El fltre FILTER_SANITIZE_STRING elimina etiquetes, i opcionalment elimina o codifica caracters especials.
+El filtre `FILTER_SANITIZE_STRING` elimina etiquetes, i opcionalment elimina o codifica caracters especials.
 
 ```php
 $nom = filter_input(INPUT_GET, 'nom', FILTER_SANITIZE_STRING).  // $nom = Homer
@@ -1068,18 +1073,63 @@ Cal seguir les següents bones pràctiques:
 1. No confieu mai (mai) en l’entrada des de l’exterior del vostre PHP.
 2. Sanegeu i valideu l’entrada de dades sempre.
 3. Les funcions `filter_var()` i `filter_input()` poden sanejar el text i validar els formats de text (per exemple, adreces de correu electrònic, enters).
-4. Recordeu que l’entrada de dades no es limita a formularis enviats per l’usuari. Els fitxers carregats i descarregats, els valors de sessió, les dades de galetes i les dades de serveis web de tercers també són d’entrada estrangera.
+4. Recordeu que l’entrada de dades no es limita a formularis enviats per l’usuari. Els fitxers carregats i descarregats, els valors de sessió, les dades de galetes i les dades de serveis web de tercers també són dades que venen de l'exterior.
 
 A mode de resum podíem resumir la gestió de formularis en el següent diagrama de flux.
 
-![Form handle](images/form-handle.png)
-
-### Formularis en HTML5  
+![Form handle](assets/form-handle.png)
 
 En els següents recursos trobaràs informació addicional sobre els controls de formularis en HTML5:
+
 * [Formularios en HTML](https://developer.mozilla.org/es/docs/Learn/HTML/Forms) en MDN web docs.
 * [Formularios en HTML5](https://developer.mozilla.org/es/docs/HTML/HTML5/Forms_in_HTML5) en MDN web docs.
 * [HTML Forms](https://www.w3schools.com/html/html_forms.asp) en W3CSchools.
+
+
+## Sentències per a incloure Fitxers
+
+Les sentències `include()` i `include_once()` i `require()` i `require_once()` inclouen i avaluen el fitxeru especificat. 
+
+`include_once()` i `require_once()` a més verifique que el fitxer no haja sigut inclòs abans i és preferible a `include`. Cal ser curòs amb el `path` de l'arxiu a incloure. 
+
+La diferència entre `require` i `include` és el tractament de l'error quan el fitxer no existeix. Mentre `include` mostra un avís, `require` mostra una error fatal que para l'execució de l'script.
+
+
+### Àmbit de les variables
+Com s'observa en l'exemple següent, les variables creades abans de cridar l'include, estaran disponibles en el fitxer inclòs. 
+És a dir, com si tot fora un únic document.
+
+=== "fruits.php"
+```php
+<?php
+$color = 'green';
+$fruit = 'apple';
+include 'fruit.view.php'
+```
+
+=== "fruits.view.php"
+```html+php
+
+
+<html>
+<head>
+<title>Fruites</title>
+</head>
+<body>
+	<h3>
+ 		<?= "A $color $fruit" ?> 
+ 	</h3>		
+</body>
+</html>
+```
+### Rutes
+En l'exemple anterior `include "fruit.view.php"` la ruta s'especifica de forma relativa, és a dir, la ruta es calcularà a 
+partir de l'execució del fitxer principal. A mesura que les aplicacions van creixent aquest tipus de rutes acaben sent un mal de cap.
+Per això és recomanable escriure les inclusions de forma relativa però fixant prèviament el directori actual.
+
+```xml
+require __DIR__ . '/fruits.view.php';
+```
 
 ## Pujada de fitxers
 
@@ -1133,35 +1183,6 @@ Els missates d'error més importants són:
 * `UPLOAD_ERR_NO_FILE`: No s'ha enviat cap fitxer.
 
 En [Explicació dels missatges d'error](https://www.php.net/manual/es/features.file-upload.errors.php) teniu més informació.
-
-## Sentències per a incloure Fitxers
-
-Les sentències **include()** i **include_once()** i **require()** i **require_once()** inclouen i avaluen l'arxiu especificat. **include_once()** i **require_once()**  verifica que l'arxiu no haja sigut inclòs abans i és preferible a include. Cal ser curòs amb el path de l'arxiu a incloure. La diferència entre `require` i `include` és el tractament de l'error quan el fitxer no existeix.
-
-=== "fruits.php"
-```php
-<?php
-$color = 'green';
-$fruta = 'apple';
-include('fruit.view.php')
-```
-
-=== "fruits.view.php"
-```html+php
-
-
-<html>
-<head>
-<title>Fruites</title>
-</head>
-<body>
-	<h3>
- 		<?= "Una $fruta $color" ?> 
- 	</h3>		
-</body>
-</html>
-```
-
 
 ## Activitats
 
@@ -1360,16 +1381,19 @@ passat com a paràmetre.
     S'avaluaran tots els camps i si hi ha error/s caldrà mostrar-lo/s. Si no hi ha errors es mostraran les dades introduïdes per l'usuari.
 
 
-### Pujada de fitxers
-
-1.   `271FormularImatge.php`: Modifica l'activitat `264FormulariValidat.php` afegint un camp de tipus `FILE` per a pujar una imatge al servidor. Es guardarà en la carpeta `uploads` i es mostrarà amb la resta de dades. 
 
 ### Inclusió de fitxers
 
-1.   `281Formulari.php`: Basant-te en l'activitat `271FormulariImatge.php` modifica les validacions perquè es facen mitjançant funcions. 
+1.   `271Formulari.php`: Basant-te en l'activitat `264FormulariValidat.php` modifica les validacions perquè es facen mitjançant funcions. 
      
-     Les funcions es guardaran en el fitxer `helpers.php` i s'hauran d'incloure en fitxer `281Formulari.php`.
+     Les funcions es guardaran en el fitxer `helpers.php` i s'hauran d'incloure en fitxer `271Formulari.php`.
 
+2.  `272Formulari.php`: Basant-te en l'activitat `271Formulari.php` separa la part de codi de la presentació de forma que tota la lògica estiga en un fitxer i la part de presentació en altre fitxer `271Formulari.view.php`.
+  
+
+### Pujada de fitxers
+
+1.   `281FormularImatge.php`: Modifica l'activitat `272Formulari.php` afegint un camp de tipus `FILE` per a pujar una imatge al servidor. Es guardarà en la carpeta `uploads` i es mostrarà amb la resta de dades. 
 
 ## Crèdits
 
