@@ -504,13 +504,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#mes-recursos" class="md-nav__link">
-    Més recursos:
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -532,8 +525,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#metodes-get-i-post" class="md-nav__link">
-    Mètodes GET i POST
+  <a href="#metode-get" class="md-nav__link">
+    Mètode GET
   </a>
   
 </li>
@@ -573,9 +566,29 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentencies-per-a-incloure-fitxers" class="md-nav__link">
+    Sentències per a incloure Fitxers
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentències per a incloure Fitxers">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#formularis-en-html5" class="md-nav__link">
-    Formularis en HTML5
+  <a href="#ambit-de-les-variables_1" class="md-nav__link">
+    Àmbit de les variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rutes" class="md-nav__link">
+    Rutes
   </a>
   
 </li>
@@ -627,13 +640,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sentencies-per-a-incloure-fitxers" class="md-nav__link">
-    Sentències per a incloure Fitxers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#activitats" class="md-nav__link">
     Activitats
   </a>
@@ -677,15 +683,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pujada-de-fitxers_1" class="md-nav__link">
-    Pujada de fitxers
+  <a href="#inclusio-de-fitxers" class="md-nav__link">
+    Inclusió de fitxers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#inclusio-de-fitxers" class="md-nav__link">
-    Inclusió de fitxers
+  <a href="#pujada-de-fitxers_1" class="md-nav__link">
+    Pujada de fitxers
   </a>
   
 </li>
@@ -1689,12 +1695,12 @@ Exemple:</p>
 <p>Exemple:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Fetches the value of $_GET[&#39;user&#39;] and returns &#39;nobody&#39;</span>
 <span class="linenos" data-linenos="2 "></span><span class="c1">// if it does not exist.</span>
-<span class="linenos" data-linenos="3 "></span><span class="nv">$username</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="s1">&#39;nobody&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$username</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span><span class="o">??</span><span class="s1">&#39;nobody&#39;</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span>
 <span class="linenos" data-linenos="5 "></span><span class="c1">// This is equivalent to:</span>
-<span class="linenos" data-linenos="6 "></span><span class="nv">$username</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;nobody&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="nv">$username</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">])</span><span class="o">?</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span><span class="o">:</span><span class="s1">&#39;nobody&#39;</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="mes-recursos">Més recursos:</h3>
+<p><strong>Més recursos:</strong></p>
 <ul>
 <li><a href="https://www.php.net/manual/es/migration70.new-features.php">Noves característiques PHP 7.0</a></li>
 <li><a href="https://www.php.net/manual/es/migration71.new-features.php">Noves característiques PHP 7.1</a></li>
@@ -1708,19 +1714,21 @@ Exemple:</p>
 <p>Una petició HTTP és una sol·licitud d'un recurs a un servidor. La petició es realitza a través d'una URL. Amb la petició s'envien també paràmetres.</p>
 <p>Hi ha diferents mètodes (METHOD) per a realitzar una petició (GET, POST, PUT, DELETE, PATCH, etc.). Els més habituals són GET i POST. La resta són més utilitzats en les RESTful API.</p>
 <p><img alt="Sol·licitud HTTP" src="../assets/http-request.png" /></p>
-<h3 id="metodes-get-i-post">Mètodes GET i POST</h3>
-<h4 id="metode-get">Mètode GET</h4>
-<p>S'utilitza per a sol·licitar dades d'un recurs. Mostren els paràmetres que 
-s'envien en la url. Es poden utilitzar directament en enllaços. 
-El resultat es pot emmagatzemar en cache. Romanen en l'historial del navegador. 
-La grandària dels paràmetres està limitat a 255 caràcters.</p>
+<h3 id="metode-get">Mètode GET</h3>
+<p>El mètodo de sol·licitud GET té les següents característiques:</p>
+<ul>
+<li>S'utilitza per a sol·licitar dades d'un recurs. Mostren els paràmetres que </li>
+<li>s'envien en la url. Es poden utilitzar directament en enllaços. </li>
+<li>El resultat es pot emmagatzemar en cache. Romanen en l'historial del navegador. </li>
+<li>La grandària dels paràmetres està limitat a 2048 caràcters.</li>
+</ul>
 <p><em>Exemple de petició GET</em>
 <img alt="Petició GET" src="../assets/get-example.png" /></p>
 <p><em>Inspecció de la petició</em>
 <img alt="Inspecció del petició GET: Capçaleres" src="../assets/get-inspect-headers.png" /></p>
 <p><em>Inspecció de la petició</em>
 <img alt="Inspecció del petició GET: Paràmeters" src="../assets/get-inspect-parameters.png" /></p>
-<h5 id="accedir-a-les-dades-de-la-peticio-get">Accedir a les dades de la petició GET</h5>
+<h4 id="accedir-a-les-dades-de-la-peticio-get">Accedir a les dades de la petició GET</h4>
 <p>Per a accedir a les dades usem la variable superglobal <code>$_GET</code>.</p>
 <p><code>$_GET</code> és un array associatiu les claus del qual coincidiran amb els noms que li hem donat als paràmetres.</p>
 <p>Per a accedir als paràmetres de la petició anterior:</p>
@@ -1738,14 +1746,19 @@ La grandària dels paràmetres està limitat a 255 caràcters.</p>
 <li>Es solen utilitzar en els formularis.</li>
 </ul>
 <h5 id="evitar-el-csrf">Evitar el CSRF</h5>
-<p>En tota pàgina que reba paràmetres GET has de comprovar el <strong>HTTP referer</strong> del navegador, i que aquest siga de dins de la teua web. En php el referer que envia el navegador s'emmagatzema en <code>$_SERVER['HTTP_REFERER']</code>.</p>
+<p>En tota pàgina que reba paràmetres POST has de comprovar el <strong>HTTP referer</strong> del navegador, i que aquest siga de dins de la teua web. En PHP el referer que envia el navegador s'emmagatzema en <code>$_SERVER['HTTP_REFERER']</code>. És a dir, sols processarem peticions 
+que vinguen del teu lloc web.</p>
+<div class="admonition note">
+<p class="admonition-title">Més informació</p>
+<p>En el següent enllaç trobareu més informació relativa als atacs CSRF <a href="https://www.ionos.es/digitalguide/servidores/seguridad/cross-site-request-forgery/">CSRF: explicación del ataque Cross Site Request Forgery</a></p>
+</div>
 <p>Seria tal com:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span><span class="p">(</span><span class="nb">parse_url</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_REFERER&#39;</span><span class="p">],</span> <span class="nx">PHP_URL_HOST</span><span class="p">)</span><span class="o">!=</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">])</span> 
 <span class="linenos" data-linenos="2 "></span>   <span class="k">die</span><span class="p">(</span><span class="s1">&#39;Anti-CSRF&#39;</span><span class="p">);</span> 
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Amb aquest codi estem obligant al fet que el navegador envie un <em>referer</em> si o sí. Per tant només ha d'utilitzar-se en pàgines a les quals el navegador accedisca des d'una altra pàgina de la nostra web.</p>
+<p>Amb aquest codi estem obligant que el navegador envie un <em>referer</em> si o sí. Per tant només ha d'utilitzar-se en pàgines a les quals el navegador accedisca des d'una altra pàgina de la nostra web.</p>
 <p>Òbviament no podem col·locar-ho en la primera pàgina a la qual s'accedeix a la nostra web (<code>index.php</code> o similar), ja que si l'usuari a escrit l'adreça a mà en la barra del navegador no s'enviarà referer cap i saltarà el sistema.</p>
 </div>
 <h3 id="definicio-de-formularis">Definició de formularis</h3>
@@ -1795,6 +1808,7 @@ enviat el formulari.</p>
 <li>Els camps email i data han de tenir el format esperat.</li>
 <li>Tots els camps s'han de filtrar amb <code>htmlspecialchars</code> per a evitar atacs de <em>Cross-site Scripting</em> (XSS).</li>
 </ol>
+<p>Aquest article sobre <em>Cross-site Scripting</em> és molt il·lustratiu: <a href="https://www.w3schools.com/php/php_form_validation.asp">PHP Form Validation</a></p>
 <h4 id="valors-buits">Valors buits</h4>
 <ol>
 <li>Els camps requerits no deurien quedar-se buits.</li>
@@ -1807,7 +1821,7 @@ enviat el formulari.</p>
 </ol>
 <h4 id="escapar-lentrada">Escapar l'entrada</h4>
 <p>Sempre hem de filtrar l'entrada amb <code>htmlspecialchars</code> abans de mostrar el camp amb <code>echo</code> o similar. Acò convertirà
-qualsevol caràcter especial d'html en la entitat, així no interferirà en el el programa.</p>
+qualsevol caràcter especial d'html en la entitat corresponent, així no interferirà en el el programa.</p>
 <h4 id="comprovar-lemail">Comprovar l'email</h4>
 <p>Per a verificar si un email és correcte podem utilitzar la funció <code>filter_var</code> </p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">filter_var</span><span class="p">(</span><span class="nv">$email</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span>
@@ -1821,8 +1835,8 @@ o la funció <code>filter_input</code> quan obtenin les dades directament d'una 
 </code></pre></div>
 La funció <code>filter_input</code> agafa una variable externa (<code>$_GET</code>, <code>$_POST</code>, etc) concreta pel seu nom i aplica el filtre indicat.</p>
 <p>Els filtres poden <a href="https://www.php.net/manual/es/filter.filters.validate.php">sanejar</a> o <a href="https://www.php.net/manual/es/filter.filters.sanitize.php">validar</a> les variables externes.</p>
-<p>Per exemple, si volem agafar el valor del paràmetre <em>nom</em>  del querystring (http://localhost/index.php?nom=<h1>Homer</h1>) usarem el tipus INPUT_GET.</p>
-<p>El fltre FILTER_SANITIZE_STRING elimina etiquetes, i opcionalment elimina o codifica caracters especials.</p>
+<p>Per exemple, si volem agafar el valor del paràmetre <em>nom</em>  del querystring (<code>http://localhost/index.php?nom=&lt;h1&gt;Homer&lt;/h1&gt;</code>) usarem el tipus <code>INPUT_GET</code>.</p>
+<p>El filtre <code>FILTER_SANITIZE_STRING</code> elimina etiquetes, i opcionalment elimina o codifica caracters especials.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$nom</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_GET</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_STRING</span><span class="p">)</span><span class="o">.</span>  <span class="c1">// $nom = Homer</span>
 </code></pre></div>
 <p>Més informació en:</p>
@@ -1855,15 +1869,49 @@ La funció <code>filter_input</code> agafa una variable externa (<code>$_GET</co
 <li>No confieu mai (mai) en l’entrada des de l’exterior del vostre PHP.</li>
 <li>Sanegeu i valideu l’entrada de dades sempre.</li>
 <li>Les funcions <code>filter_var()</code> i <code>filter_input()</code> poden sanejar el text i validar els formats de text (per exemple, adreces de correu electrònic, enters).</li>
-<li>Recordeu que l’entrada de dades no es limita a formularis enviats per l’usuari. Els fitxers carregats i descarregats, els valors de sessió, les dades de galetes i les dades de serveis web de tercers també són d’entrada estrangera.</li>
+<li>Recordeu que l’entrada de dades no es limita a formularis enviats per l’usuari. Els fitxers carregats i descarregats, els valors de sessió, les dades de galetes i les dades de serveis web de tercers també són dades que venen de l'exterior.</li>
 </ol>
 <p>A mode de resum podíem resumir la gestió de formularis en el següent diagrama de flux.</p>
-<p><img alt="Form handle" src="images/form-handle.png" /></p>
-<h3 id="formularis-en-html5">Formularis en HTML5</h3>
-<p>En els següents recursos trobaràs informació addicional sobre els controls de formularis en HTML5:
-* <a href="https://developer.mozilla.org/es/docs/Learn/HTML/Forms">Formularios en HTML</a> en MDN web docs.
-* <a href="https://developer.mozilla.org/es/docs/HTML/HTML5/Forms_in_HTML5">Formularios en HTML5</a> en MDN web docs.
-* <a href="https://www.w3schools.com/html/html_forms.asp">HTML Forms</a> en W3CSchools.</p>
+<p><img alt="Form handle" src="../assets/form-handle.png" /></p>
+<p>En els següents recursos trobaràs informació addicional sobre els controls de formularis en HTML5:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/es/docs/Learn/HTML/Forms">Formularios en HTML</a> en MDN web docs.</li>
+<li><a href="https://developer.mozilla.org/es/docs/HTML/HTML5/Forms_in_HTML5">Formularios en HTML5</a> en MDN web docs.</li>
+<li><a href="https://www.w3schools.com/html/html_forms.asp">HTML Forms</a> en W3CSchools.</li>
+</ul>
+<h2 id="sentencies-per-a-incloure-fitxers">Sentències per a incloure Fitxers</h2>
+<p>Les sentències <code>include()</code> i <code>include_once()</code> i <code>require()</code> i <code>require_once()</code> inclouen i avaluen el fitxeru especificat. </p>
+<p><code>include_once()</code> i <code>require_once()</code> a més verifique que el fitxer no haja sigut inclòs abans i és preferible a <code>include</code>. Cal ser curòs amb el <code>path</code> de l'arxiu a incloure. </p>
+<p>La diferència entre <code>require</code> i <code>include</code> és el tractament de l'error quan el fitxer no existeix. Mentre <code>include</code> mostra un avís, <code>require</code> mostra una error fatal que para l'execució de l'script.</p>
+<h3 id="ambit-de-les-variables_1">Àmbit de les variables</h3>
+<p>Com s'observa en l'exemple següent, les variables creades abans de cridar l'include, estaran disponibles en el fitxer inclòs. 
+És a dir, com si tot fora un únic document.</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">fruits.php</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$fruit</span> <span class="o">=</span> <span class="s1">&#39;apple&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">include</span> <span class="s1">&#39;fruit.view.php&#39;</span>
+</code></pre></div>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">fruits.view.php</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Fruites<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="cp">&lt;?</span><span class="o">=</span> <span class="s2">&quot;A </span><span class="si">$color</span><span class="s2"> </span><span class="si">$fruit</span><span class="s2">&quot;</span> <span class="cp">?&gt;</span> 
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>       
+<span class="linenos" data-linenos=" 9 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="rutes">Rutes</h3>
+<p>En l'exemple anterior <code>include "fruit.view.php"</code> la ruta s'especifica de forma relativa, és a dir, la ruta es calcularà a 
+partir de l'execució del fitxer principal. A mesura que les aplicacions van creixent aquest tipus de rutes acaben sent un mal de cap.
+Per això és recomanable escriure les inclusions de forma relativa però fixant prèviament el directori actual.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>require __DIR__ . &#39;/fruits.view.php&#39;;
+</code></pre></div>
 <h2 id="pujada-de-fitxers">Pujada de fitxers</h2>
 <p>Per a pujar fitxers PHP implementa un mecanisme senzill a través de la variable superglobal <code>$_FILES</code>.</p>
 <p>En <a href="https://www.php.net/manual/es/features.file-upload.php">Pujada d'arxius</a> disposeu de tota la informació necessària per a gestionar la pujada d'arxius.</p>
@@ -1899,28 +1947,6 @@ Les claus més importants són:
 <li><code>UPLOAD_ERR_NO_FILE</code>: No s'ha enviat cap fitxer.</li>
 </ul>
 <p>En <a href="https://www.php.net/manual/es/features.file-upload.errors.php">Explicació dels missatges d'error</a> teniu més informació.</p>
-<h2 id="sentencies-per-a-incloure-fitxers">Sentències per a incloure Fitxers</h2>
-<p>Les sentències <strong>include()</strong> i <strong>include_once()</strong> i <strong>require()</strong> i <strong>require_once()</strong> inclouen i avaluen l'arxiu especificat. <strong>include_once()</strong> i <strong>require_once()</strong>  verifica que l'arxiu no haja sigut inclòs abans i és preferible a include. Cal ser curòs amb el path de l'arxiu a incloure. La diferència entre <code>require</code> i <code>include</code> és el tractament de l'error quan el fitxer no existeix.</p>
-<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">fruits.php</label><div class="tabbed-content"></div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="linenos" data-linenos="2 "></span><span class="nv">$color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">;</span>
-<span class="linenos" data-linenos="3 "></span><span class="nv">$fruta</span> <span class="o">=</span> <span class="s1">&#39;apple&#39;</span><span class="p">;</span>
-<span class="linenos" data-linenos="4 "></span><span class="k">include</span><span class="p">(</span><span class="s1">&#39;fruit.view.php&#39;</span><span class="p">)</span>
-</code></pre></div>
-<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">fruits.view.php</label><div class="tabbed-content"></div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Fruites<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 7 "></span>        <span class="cp">&lt;?</span><span class="o">=</span> <span class="s2">&quot;Una </span><span class="si">$fruta</span><span class="s2"> </span><span class="si">$color</span><span class="s2">&quot;</span> <span class="cp">?&gt;</span> 
-<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>       
-<span class="linenos" data-linenos=" 9 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="10 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></div>
 <h2 id="activitats">Activitats</h2>
 <h3 id="cadenes">Cadenes</h3>
 <ol>
@@ -2121,16 +2147,19 @@ taula.</p>
 <p>S'avaluaran tots els camps i si hi ha error/s caldrà mostrar-lo/s. Si no hi ha errors es mostraran les dades introduïdes per l'usuari.</p>
 </li>
 </ol>
-<h3 id="pujada-de-fitxers_1">Pujada de fitxers</h3>
-<ol>
-<li><code>271FormularImatge.php</code>: Modifica l'activitat <code>264FormulariValidat.php</code> afegint un camp de tipus <code>FILE</code> per a pujar una imatge al servidor. Es guardarà en la carpeta <code>uploads</code> i es mostrarà amb la resta de dades. </li>
-</ol>
 <h3 id="inclusio-de-fitxers">Inclusió de fitxers</h3>
 <ol>
 <li>
-<p><code>281Formulari.php</code>: Basant-te en l'activitat <code>271FormulariImatge.php</code> modifica les validacions perquè es facen mitjançant funcions. </p>
-<p>Les funcions es guardaran en el fitxer <code>helpers.php</code> i s'hauran d'incloure en fitxer <code>281Formulari.php</code>.</p>
+<p><code>271Formulari.php</code>: Basant-te en l'activitat <code>264FormulariValidat.php</code> modifica les validacions perquè es facen mitjançant funcions. </p>
+<p>Les funcions es guardaran en el fitxer <code>helpers.php</code> i s'hauran d'incloure en fitxer <code>271Formulari.php</code>.</p>
 </li>
+<li>
+<p><code>272Formulari.php</code>: Basant-te en l'activitat <code>271Formulari.php</code> separa la part de codi de la presentació de forma que tota la lògica estiga en un fitxer i la part de presentació en altre fitxer <code>271Formulari.view.php</code>.</p>
+</li>
+</ol>
+<h3 id="pujada-de-fitxers_1">Pujada de fitxers</h3>
+<ol>
+<li><code>281FormularImatge.php</code>: Modifica l'activitat <code>272Formulari.php</code> afegint un camp de tipus <code>FILE</code> per a pujar una imatge al servidor. Es guardarà en la carpeta <code>uploads</code> i es mostrarà amb la resta de dades. </li>
 </ol>
 <h2 id="credits">Crèdits</h2>
 <ul>
