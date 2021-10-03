@@ -2124,7 +2124,6 @@ passat com a paràmetre.</p>
 <li><code>phone</code></li>
 <li><code>email</code></li>
 </ul>
-<p>Tots els camps són obligatoris excepte <code>zipcode</code>.</p>
 <p>En l'atribut <code>action</code> del formulari posarem el següent:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;262Formulari.php&quot;</span> <span class="err">...</span><span class="p">/&gt;</span>
 </code></pre></div>
@@ -2145,6 +2144,28 @@ taula.</p>
 <li><code>email</code>, ha de ser una adreça electrònica correcta.</li>
 </ul>
 <p>S'avaluaran tots els camps i si hi ha error/s caldrà mostrar-lo/s. Si no hi ha errors es mostraran les dades introduïdes per l'usuari.</p>
+</li>
+<li>
+<p><code>265FormulariOpcions.php</code>: Modifica l'exercici anterior afegint els següents camps al formulari:</p>
+<ul>
+<li><code>genre</code>: serà un <em>radio button</em> i podrà ser <em>home</em>, <em>dona</em> i <em>no binari</em>.</li>
+<li><code>hobbies</code>: serà un checkbox amb aficions de la que podràs triar-ne més d'una:<ul>
+<li>Lectura</li>
+<li>Programació</li>
+<li>Ciclisme</li>
+<li>Running</li>
+<li>...</li>
+</ul>
+</li>
+<li><code>contact-time</code>: serà una llista de les millores hores per a contactar: <ul>
+<li>Primera hora (08:00 a 10:00)</li>
+<li>Abans de dinar (12:00 a 13:00)</li>
+<li>Després de dinar (14:00 a 16:00)</li>
+<li>Per la nit (20:00 a 22:00)</li>
+</ul>
+</li>
+</ul>
+<p>En els tres casos són obligatoris, s'ha de mantindre el valor en cas de ser correcte i, opcionalment, s'hauria de validar contra un <em>array</em> que els valors seleccionats són correctes.</p>
 </li>
 </ol>
 <h3 id="inclusio-de-fitxers">Inclusió de fitxers</h3>
