@@ -1927,12 +1927,13 @@ Per això és recomanable escriure les inclusions de forma relativa però fixant
 </code></pre></div>
 Emprarem <code>$_FILES['image']</code> per obtenir les dades de l'arxiu penjat.</p>
 <h3 id="variable-superglobal-_files">Variable superglobal <code>$_FILES</code></h3>
-<p>Cada element en <code>$_FILES</code> és un array que aporta informació sobre el fitxer pujat.
-Les claus més importants són:
- * <code>name</code>. El nom original del fitxer pujat. No és massa útil perquè el sistema original pot tindre convencions diferents i pot generar col·lisions si l'utilitzem per a emmagatzemar-lo en la seua ubicació definitiva.
- * <code>type</code>. El tipus MIME del fitxer deduït pel navegador.
- * <code>size</code>. La grandària en bytes del fitxer. Si el fitxer és massa gran el valor enviat serà 0.
- * <code>tmp_name</code>. El nom temporal del fitxer en el servidor on s'ha emmagatzemat el fitxer pujat. </p>
+<p>Cada element en <code>$_FILES</code> és un array que aporta informació sobre el fitxer pujat. Les claus més importants són:</p>
+<ul>
+<li><code>name</code>. El nom original del fitxer pujat. No és massa útil perquè el sistema original pot tindre convencions diferents i pot generar col·lisions si l'utilitzem per a emmagatzemar-lo en la seua ubicació definitiva.</li>
+<li><code>type</code>. El tipus MIME del fitxer deduït pel navegador.</li>
+<li><code>size</code>. La grandària en bytes del fitxer. Si el fitxer és massa gran el valor enviat serà 0.</li>
+<li><code>tmp_name</code>. El nom temporal del fitxer en el servidor on s'ha emmagatzemat el fitxer pujat. </li>
+</ul>
 <h3 id="moure-el-fitxer">Moure el fitxer</h3>
 <p>Com que el fitxer pujat es guarda en una carpeta temporal hem d'emprar la funció <a href="https://www.php.net/manual/es/function.move-uploaded-file.php"><code>move_uploaded_file</code></a> per a guardar-lo en la ubicació definitiva. </p>
 <p>La funció <a href="https://www.php.net/manual/es/function.is-uploaded-file.php"><code>is_uploaded_file</code></a> ens permet a assegurar-nos que el fitxer ha estat pujat usant HTTP POST i no es tracta d'un fitxer maliciós.</p>
@@ -2165,7 +2166,10 @@ taula.</p>
 </ul>
 </li>
 </ul>
-<p>En els tres casos són obligatoris, s'ha de mantindre el valor en cas de ser correcte i, opcionalment, s'hauria de validar contra un <em>array</em> que els valors seleccionats són correctes.</p>
+<p>En els tres casos són obligatoris, s'ha de mantindre el valor en cas de ser correcte .</p>
+</li>
+<li>
+<p><code>266FormulariArray</code>: Modifica l'exercici anterior de forma que el contingut dels camps de selecció es genere dinàmicament des d'arrays associatius. A més, els valors rebuts s'haurien de validar contra l'<em>array</em> i mostrar-se fent és d'ell.</p>
 </li>
 </ol>
 <h3 id="inclusio-de-fitxers">Inclusió de fitxers</h3>
@@ -2181,6 +2185,12 @@ taula.</p>
 <h3 id="pujada-de-fitxers_1">Pujada de fitxers</h3>
 <ol>
 <li><code>281FormularImatge.php</code>: Modifica l'activitat <code>272Formulari.php</code> afegint un camp de tipus <code>FILE</code> per a pujar una imatge al servidor. Es guardarà en la carpeta <code>uploads</code> i es mostrarà amb la resta de dades. </li>
+<li><code>282FormulariImage.php</code>: Modifica l'activitat anterior de forma que es controle el següent:<ol>
+<li>Les imatges sols podran ser <code>jpg</code>.</li>
+<li>No podran superar 1MB de grandària</li>
+<li>Es guardaran en un nom aleatori únic.</li>
+</ol>
+</li>
 </ol>
 <h2 id="credits">Crèdits</h2>
 <ul>
