@@ -314,8 +314,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#constructor-i-destructor" class="md-nav__link">
-    Constructor i destructor
+  <a href="#constructor" class="md-nav__link">
+    Constructor
   </a>
   
 </li>
@@ -331,19 +331,6 @@
   <a href="#constants-de-classe" class="md-nav__link">
     Constants de classe
   </a>
-  
-    <nav class="md-nav" aria-label="Constants de classe">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#metodes-o-atributs-estatics" class="md-nav__link">
-    Mètodes o atributs estàtics
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -362,33 +349,12 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clonacio-dobjectes" class="md-nav__link">
-    Clonació d'Objectes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iteracio-dobjectes" class="md-nav__link">
-    Iteració d'objectes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#herencia" class="md-nav__link">
     Herència
   </a>
   
     <nav class="md-nav" aria-label="Herència">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#introduccio_1" class="md-nav__link">
-    Introducció
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#la-paraula-reservada-extends" class="md-nav__link">
@@ -399,13 +365,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#la-paraula-reservada-final" class="md-nav__link">
-    La paraula reservada final
-  </a>
   
 </li>
       
@@ -625,35 +584,20 @@ valor abans d'assignar-lo. En aquests casos, se solen definir aqueixos
 atributs com a privats i a més es creen dins de la classe mètodes per a
 permetre'ns obtenir i/o modificar els valors d'aqueixos atributs. Per
 exemple:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">private</span> <span class="nv">$code</span><span class="p">;</span>
-<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">setCode</span><span class="p">(</span><span class="nv">$newCode</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">private</span> <span class="nx">string</span> <span class="nv">$code</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">setCode</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$newCode</span><span class="p">)</span><span class="o">:</span> <span class="nx">boolean</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">existsCode</span><span class="p">(</span><span class="nv">$newCode</span><span class="p">))</span> <span class="p">{</span>
 <span class="linenos" data-linenos="4 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">=</span> <span class="nv">$newCode</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span>        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="7 "></span>    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="9 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">getCode</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span><span class="p">;</span> <span class="p">}</span>
+<span class="linenos" data-linenos="9 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">getCode</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span> <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span><span class="p">;</span> <span class="p">}</span>
 </code></pre></div>
 <p>Encara que no és obligatori, el nom del mètode que ens permet obtenir el
 valor de un atribut sol començar per <code>get</code>, i el que ens permet
 modificar-lo per <code>set</code>.</p>
-<p>En PHP5 es van introduir els anomenats mètodes màgics, entre ells
-<code>__set</code> i <code>__get</code>. Si es declaren aquests dos mètodes en una classe, PHP
-els invoca automàticament quan des de un objecte s'intenta usar un
-atribut no existent o no accessible. Per exemple, el codi següent simula
-que la classe <code>Product</code> té qualsevol atribut que vulguem usar.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">private</span> <span class="nv">$atributos</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$atributo</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">atributos</span><span class="p">[</span><span class="nv">$atributo</span><span class="p">];</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$atributo</span><span class="p">,</span> <span class="nv">$valor</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="7 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">atributos</span><span class="p">[</span><span class="nv">$atributo</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$valor</span><span class="p">;</span>
-<span class="linenos" data-linenos="8 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
-</code></pre></div>
-<h2 id="constructor-i-destructor">Constructor i destructor</h2>
+<h2 id="constructor">Constructor</h2>
 <p>Com ja has vist, per a instanciar objectes de una classe s'utilitza la
 paraula <code>new</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$product</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span>
@@ -662,49 +606,34 @@ paraula <code>new</code>:</p>
 quan es crea l'objecte.</p>
 <p>El constructor d'una classe ha d'anomenar-se <code>__construct</code>. Es poden utilitzar, per exemple, 
 per assignar valors a atributs.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$numProducts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="k">private</span> <span class="nv">$code</span><span class="p">;</span>
-<span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos="6 "></span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$numPoducts</span><span class="o">++</span><span class="p">;</span>
-<span class="linenos" data-linenos="7 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="8 "></span>    <span class="nx">…</span>
-<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">string</span> <span class="nv">$code</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nx">…</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
 </code></pre></div>
 <p>El constructor d'una classe pot cridar a altres mètodes o tenir
 paràmetres, en aquest cas hauran de passar-se quan es crea l'objecte.
 No obstant açò, només pot haver-hi un mètode constructor en cada classe.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 2 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$numProducts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$code</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$code</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$code</span> <span class="o">=</span> <span class="nv">$code</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 6 "></span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$numProducts</span><span class="o">++</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="o">...</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="10 "></span><span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">&#39;GALAXYS&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">private</span> <span class="nx">string</span> <span class="nv">$code</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$code</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$code</span> <span class="o">=</span> <span class="nv">$code</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="9 "></span><span class="nv">$product</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">&#39;GALAXYS&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>Per exemple, si com en aquest exemple, definim un constructor en el qual
-calga passar el codi, sempre que instancies un nou objecte d'aqueixa
+cal passar el codi, sempre que instancies un nou objecte d'aqueixa
 classe hauràs de indicar el seu codi.</p>
-<p>També és possible definir un mètode destructor, que ha d'anomenar-se
-<code>__destruct()</code> que s'executarà quan s'elimine l'objecte.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="k">private</span> <span class="k">static</span> <span class="nv">$numProducts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$code</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$code</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$code</span> <span class="o">=</span> <span class="nv">$code</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 6 "></span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$numProducts</span><span class="o">++</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__destruct</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 9 "></span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$numProducts</span><span class="o">--</span><span class="p">;</span>
-<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="11 "></span>    <span class="o">...</span>
-<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="13 "></span><span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">&#39;GALAXYS&#39;</span><span class="p">);</span>
-</code></pre></div>
 <h2 id="la-pseuodovariable-this">La pseuodovariable $this</h2>
 <p>Quan des d'un objecte s'invoca un mètode de la classe, a aquest se li
 passa sempre una referència a l'objecte que ha fet la crida. Aquesta
@@ -719,8 +648,8 @@ l'objecte (que només són accessibles des dels mètodes de la classe).</p>
 <p>A més de mètodes i propietats, en una classe també es poden definir constants, 
 utilitzant la paraula <code>const</code>. És important que no confongues els atributs amb
 les constants. Són conceptes diferents: les constants no poden canviar el seu 
-valor (òbviament, de ací el seu nom), no usen el caràcter <code>$</code>, s'escriuen en 
-majúscules (per convenció)  i el seu valor està associat a la classe, és a dir, 
+valor (òbviament, d'ahí el seu nom), no usen el caràcter <code>$</code>, s'escriuen en 
+majúscules (per convenció) i el seu valor està associat a la classe, és a dir, 
 no existeix una còpia del mateix en cada objecte. </p>
 <p>Per tant, per a accedir a les constants d'una classe, s'ha d'utilitzar el 
 nom de la classe i l'operador <code>::</code>, anomenat operador de resolució d'àmbit 
@@ -750,40 +679,6 @@ així facilitar la lectura del codi realitzar per altres.</p>
 <li>Method names MUST be declared in <code>camelCase()</code>.</li>
 </ol>
 <p>Més informació en <a href="http://coppeldev.github.io/php/standards/psr-1.html">Estándares</a></p>
-<h3 id="metodes-o-atributs-estatics">Mètodes o atributs estàtics</h3>
-<p>Tampoc s'han de confondre les constants amb els membres estàtics d'una
-classe. En PHP7, una classe pot tenir atributs o mètodes estàtics, també
-anomenats a vegades atributs o mètodes de classe. Es defineixen utilitzant
-la paraula clau <code>static</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$numProducts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">newProduct</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$numProducts</span><span class="o">++</span><span class="p">;</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="6 "></span>       <span class="nx">…</span>
-<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
-</code></pre></div>
-<p>Els atributs i mètodes estàtics no poden ser cridats des d'un objecte de
-la classe utilitzant l'operador d'objecte <code>-&gt;</code>. Si el mètode o atribut és públic,
-haurà d'accedir-se utilitzant el nom de la classe i l'operador de
-resolució d'àmbit.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">Product</span><span class="o">::</span><span class="na">newProduct</span><span class="p">();</span>
-</code></pre></div>
-<p>Si és privat, com l'atribut <code>$numProducts</code> en l'exemple anterior,
-només es podrà accedir a ell des dels mètodes de la pròpia classe,
-utilitzant la paraula <code>self</code>. De la mateixa forma que <code>$this</code> referencia
-a l'objecte actual, <code>self</code> fa referència a la classe actual.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">self</span><span class="o">::</span><span class="nv">$numProductes</span><span class="o">++</span><span class="p">;</span>
-</code></pre></div>
-<p>Els atributs estàtics d'una classe s'utilitzen per a guardar informació general sobre la mateixa, com pot ser 
-el nombre d'objectes que s'han instanciat. Només existeix un valor de l'atribut, que s'emmagatzema a
-nivell de classe.</p>
-<p>Els mètodes estàtics solen realitzar alguna tasca específica o retornar un objecte concret. Per exemple, 
-les classes matemàtiques solen tenir mètodes estàtics per a realitzar logaritmes o arrels quadrades. No té
-sentit crear un objecte si l'única cosa que volem és realitzar una operació matemàtica.</p>
-<p>Els mètodes estàtics es criden des de la classe. No és possible
-cridar-los des d'un objecte i per tant, no podem usar <code>$this</code> dins d'un
-mètode estàtic.</p>
 <h2 id="utilitzacio-dobjectes">Utilització d'objectes</h2>
 <p>Ja saps com instanciar un objecte utilitzant <code>new</code>, i com accedir a els
 seus mètodes i atributs públics amb l'operador fletxa:</p>
@@ -809,25 +704,15 @@ produeix un error que podries capturar. </p>
 <p>Una característica de la POO que has de tenir molt en compte és què
 succeeix amb els objectes quan els passes a una funció, o simplement
 quan executes un codi com el següent:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span>
-<span class="linenos" data-linenos="2 "></span><span class="nv">$p</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Samsung Galaxy S&#39;</span><span class="p">;</span>
-<span class="linenos" data-linenos="3 "></span><span class="nv">$a</span> <span class="o">=</span> <span class="nv">$p</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$product1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$product1</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Samsung Galaxy S&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$product2</span> <span class="o">=</span> <span class="nv">$product1</span><span class="p">;</span>
 </code></pre></div>
 <p>El codi anterior simplement crearia un nou identificador del mateix objecte. Açò és,
 quan s'utilitze qualsevol dels identificadors per a canviar el valor de algun atribut, aquest canvi es 
 veuria també reflectit en accedir utilitzant l'altre identificador. Recorda que, encara que hi haja dos o
 més identificadors del mateix objecte, en realitat tots es refereixen a l'única còpia que s'emmagatzema 
 del mateix.</p>
-<p>Per tant, a partir de PHP5 no pots copiar un objecte utilitzant
-l'operador <code>=</code>. Si necessites copiar un objecte, has d'utilitzar <code>clone</code>. En
-utilitzar <code>clone</code> sobre un objecte existent, es crea una còpia del mateix.</p>
-<p>A més, existeix una forma senzilla de personalitzar la còpia per a cada
-classe particular. Per exemple, pot succeir que vulgues copiar tots els
-atributs menys algun. En el nostre exemple, almenys el codi de cada
-producte ha de ser diferent i, per tant, potser no tinga sentit
-copiar-lo en crear un nou objecte. Si aquest fóra el cas, pots crear un
-mètode de nom <code>__clone</code> en la classe. Aquest mètode es cridarà
-automàticament després de copiar tots els atributs en el nou objecte.</p>
 <h2 id="comparacio-dobjectes">Comparació d'Objectes</h2>
 <p>En utilitzar l'operador de comparació (==), es comparen d'una manera
 senzilla les variables de cada objecte, és a dir: dues instàncies d'un
@@ -836,23 +721,7 @@ es comparen amb ==), i són instàncies de la mateixa classe.</p>
 <p>Quan s'utilitza l'operador identitat (===), les variables d'un objecte
 són idèntiques si i només sí fan referència a la mateixa instància de
 la mateixa classe.</p>
-<h2 id="clonacio-dobjectes">Clonació d'Objectes</h2>
-<p>Per crear una còpia d'un objecte s'utilitza la paraula clau <code>clone</code> (que
-invoca, si fos possible, al mètode  <code>__clone()</code> de l'objecte). No es pot
-cridar el mètode <code>__clone()</code> d'un objecte directament.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$copia_objecte</span> <span class="o">=</span> <span class="k">clone</span> <span class="nv">$objecte</span><span class="p">;</span>
-</code></pre></div>
-<p>Quan es clona un objecte, PHP7 durà a terme una còpia superficial de les
-propietats de l'objecte. Les propietats que siguen referències a altres
-variables (per exemple, objectes), mantindran les referències.</p>
-<p>Compte: si els atributs són objectes no es clonaran.</p>
-<h2 id="iteracio-dobjectes">Iteració d'objectes</h2>
-<p>PHP 7 ofereix una forma de definir objectes, de manera que és possible
-recórrer una llista d'elements amb, per exemple, una sentència <code>foreach</code>.
-Per defecte, s'utilitzaran totes les propietats visibles per a la
-iteració.</p>
 <h2 id="herencia">Herència</h2>
-<h3 id="introduccio_1">Introducció</h3>
 <p>L'herència és un mecanisme de la POO que ens permet definir noves
 classes sobre la base d'una altra ja existent. Les noves classes que
 hereten també es coneixen amb el nom de subclasses. La classe de la qual
@@ -864,21 +733,21 @@ personalitzada en format HTML del codi.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
 <span class="linenos" data-linenos="2 "></span>   <span class="k">public</span> <span class="nx">string</span> <span class="nv">$code</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>   <span class="k">public</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>    
-<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="4 "></span>  <span class="o">...</span>       
 <span class="linenos" data-linenos="5 "></span>   <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
 <span class="linenos" data-linenos="6 "></span>      <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span>   <span class="p">}</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Aquesta classe és molt útil si l'única informació que tenim dels
-diferents productes és la que es mostra a dalt. Però, si vols
+diferents productes és la que es mostra dalt. Però, si vols
 personalitzar la informació que vas a tractar de cada tipus de producte
 (i emmagatzemar, per exemple per als televisors, les polzades que tenen
 o la seua tecnologia de fabricació), pots crear noves classes que
 hereten de <code>Product</code>. Per exemple, <code>TV</code>, <code>Computer</code>, <code>Phone</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">TV</span> <span class="k">extends</span> <span class="nx">Product</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nv">$size</span><span class="p">;</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="nv">$technology</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nx">float</span> <span class="nv">$size</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$technology</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">}</span>
 </code></pre></div>
 <h3 id="la-paraula-reservada-extends">La paraula reservada <code>extends</code></h3>
@@ -899,45 +768,22 @@ has d'utilitzar la paraula <strong>protected</strong> en lloc de <strong>private
 redefinir el comportament dels mètodes existents en la classe base,
 simplement creant en la subclasse un nou mètode amb el mateix nom.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">TV</span> <span class="k">extends</span> <span class="nx">Producte</span> <span class="p">{</span> 
-<span class="linenos" data-linenos="2 "></span>   <span class="k">public</span> <span class="nv">$size</span><span class="p">;</span>
-<span class="linenos" data-linenos="3 "></span>   <span class="k">public</span> <span class="nv">$technology</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>   <span class="k">public</span> <span class="nx">float</span> <span class="nv">$size</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>   <span class="k">public</span> <span class="nx">string</span> <span class="nv">$technology</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span>
 <span class="linenos" data-linenos="5 "></span>   <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
 <span class="linenos" data-linenos="6 "></span>      <span class="k">print</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">.</span> <span class="s2">&quot; polzades&lt;/p&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span>   <span class="p">}</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
-<h2 id="la-paraula-reservada-final">La paraula reservada <code>final</code></h2>
-<p>Existeix una forma d'evitar que les classes heretades puguen redefinir
-el comportament dels mètodes existents en la superclasse: utilitzar la
-paraula <code>final</code>.</p>
-<p>Si en el nostre exemple haguérem fet:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span> 
-<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nv">$code</span><span class="p">;</span> 
-<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>         
-<span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="nv">$price</span><span class="p">;</span>
-<span class="linenos" data-linenos="5 "></span>
-<span class="linenos" data-linenos="6 "></span>    <span class="k">public</span> <span class="k">final</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos="7 "></span>        <span class="k">print</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="8 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
-</code></pre></div>
-<p>En aquest cas el mètode <code>show</code> no podria redefinir-se en la classe <code>TV</code>.</p>
-<p>També es pot declarar una classe utilitzant <code>final</code>. En aquest cas no
-podran crear-se classes heretades utilitzant-les com a base.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">final</span> <span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>  <span class="o">...</span>
-<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
-</code></pre></div>
 <h2 id="bibliografia">Bibliografia</h2>
-<p>{: .no_toc }</p>
 <ul>
 <li>José Luis Comesaña.  <em>Apuntes de formación a distancia del módulo
     «Desarrollo web en entorno servidor» del CFGS DAW, elaborados y
     licenciados por el Ministerio de Educación, Cultura y Deporte.</em> [en
     línia]. 2012 [data de consulta: 13 de setembre de 2019].
     Disponible en
-    \&lt;<a href="https://github.com/statickidz/TemarioDAW/tree/master/DWES">https://github.com/statickidz/TemarioDAW/tree/master/DWES</a>></li>
+    &lt;<a href="https://github.com/statickidz/TemarioDAW/tree/master/DWES">https://github.com/statickidz/TemarioDAW/tree/master/DWES</a>&gt;</li>
 <li>Antonio López. <em>Learning PHP 7.</em> Packt Publishing (29 de marzo de
     2016) .</li>
 </ul>
