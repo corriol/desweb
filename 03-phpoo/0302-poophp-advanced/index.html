@@ -1,289 +1,153 @@
 
-<!doctype html>
-<html lang="ca" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
-    
-    
-      
-        <title>Programació Orientada a Objectes en PHP - DWES</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.802231af.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#ff6e42">
-        
-      
-    
-    
-    
-      
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
-      
-    
-    
-    
-    
-      
+<!DOCTYPE html>
 
-
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
-  
-    
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#programacio-orientada-a-objectes-en-php" class="md-skip">
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Programació Orientada a Objectes en PHP - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<meta content="#ff6e42" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../css/print-site.css" rel="stylesheet"/>
+<link href="../../css/print-site-material.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="deep-orange" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#programacio-orientada-a-objectes-en-php">
           Salta el contingut
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="DWES" class="md-header__button md-logo" aria-label="DWES" data-md-component="logo">
-      
-  <img src="../../assets/logo.png" alt="logo">
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             DWES
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               Programació Orientada a Objectes en PHP
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
-      
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
 <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list"></ol>
 </div>
-    
-    
-  </nav>
+</div>
+</div>
+</div>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="DWES" class="md-nav__button md-logo" aria-label="DWES" data-md-component="logo">
-      
-  <img src="../../assets/logo.png" alt="logo">
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
     DWES
   </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
         Inici
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../01-intro/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/">
         1.- Introducció a la programació Web
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02-phpbasics/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-phpbasics/">
         2.- El llenguatge PHP
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      <label class="md-nav__link" for="__nav_4">
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
         3.- PHP Orientat a Objectes
         <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="3.- PHP Orientat a Objectes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
           3.- PHP Orientat a Objectes
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../0301-phpoo-basic/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0301-phpoo-basic/">
         PHP OO Bàsic
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../0399-activities/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0399-activities/">
         Activitats
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-          
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                
-                <h1 id="programacio-orientada-a-objectes-en-php">Programació Orientada a Objectes en PHP</h1>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="programacio-orientada-a-objectes-en-php">Programació Orientada a Objectes en PHP</h1>
 <h2 id="introduccio">Introducció</h2>
 <p>La programació orientada a objectes (OOP, per les seues sigles en
 anglès) és un paradigma de programació.</p>
@@ -351,10 +215,10 @@ programació orientat a objectes, així que anem a veure directament les
 peculiaritats pròpies de PHP en el que fa referència a la POO.</p>
 <p>En PHP podemos utilitzar els dos paradigmes de la programació: estructurada i orientada a objectes.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="c1">// utilitzant programació estructurada</span>
-<span class="linenos" data-linenos="2 "></span><span class="nv">$dwes</span> <span class="o">=</span> <span class="nb">mysqli_connect</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;dwes&#39;</span><span class="p">,</span> <span class="s1">&#39;abc123.&#39;</span><span class="p">,</span> <span class="s1">&#39;dwes&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$dwes</span> <span class="o">=</span> <span class="nb">mysqli_connect</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dwes'</span><span class="p">,</span> <span class="s1">'abc123.'</span><span class="p">,</span> <span class="s1">'dwes'</span><span class="p">);</span>
 <span class="linenos" data-linenos="3 "></span><span class="c1">// utilizant POO</span>
 <span class="linenos" data-linenos="4 "></span><span class="nv">$dwes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">();</span>
-<span class="linenos" data-linenos="5 "></span><span class="nv">$dwes</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;dwes&#39;</span><span class="p">,</span> <span class="s1">&#39;abc123.&#39;</span><span class="p">,</span> <span class="s1">&#39;dwes&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$dwes</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="s1">'dwes'</span><span class="p">,</span> <span class="s1">'abc123.'</span><span class="p">,</span> <span class="s1">'dwes'</span><span class="p">);</span>
 </code></pre></div>
 <p>No obstant açò, el llenguatge PHP original no es va dissenyar amb
 característiques d'orientació a objectes. Només a partir de la versió 3,
@@ -405,7 +269,7 @@ després els mètodes, cadascun amb el seu codi respectiu.</p>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="nx">float</span> <span class="nv">$price</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos="6 "></span>        <span class="k">print</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="k">print</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
@@ -420,7 +284,7 @@ instanciar objectes de la següent forma:</p>
 <p>Perquè la línia anterior s'execute sense error, prèviament hem d'haver
 declarat la classe. Per a açò, en aqueix mateix fitxer hauràs de
 incloure la classe posant alguna cosa com:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">require</span><span class="p">(</span><span class="s1">&#39;Product.php&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">require</span><span class="p">(</span><span class="s1">'Product.php'</span><span class="p">);</span>
 </code></pre></div>
 <p>Els atributs de una classe són similars a les variables de PHP. És
 possible indicar un valor en la declaració de la classe. En aquest cas,
@@ -429,7 +293,7 @@ amb aqueix valor per defecte en l'atribut.</p>
 <p>Per a accedir des d'un objecte als seus atributs o als mètodes de
 la classe, has d'utilitzar l'operador fletxa (fixa't que només es posa
 el símbol $ davant del nom de l'objecte):</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$product</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Samsung Galaxy S&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$product</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">'Samsung Galaxy S'</span><span class="p">;</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$product</span><span class="o">-&gt;</span><span class="na">show</span><span class="p">();</span>
 </code></pre></div>
 <p>Quan es declara una propietat o un mètode, s'ha d'indicar el seu nivell d'accés (o visibilitat). Els
@@ -512,7 +376,7 @@ No obstant açò, només pot haver-hi un mètode constructor en cada classe.</p>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos=" 8 "></span>    <span class="o">...</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="10 "></span><span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">&#39;GALAXYS&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">'GALAXYS'</span><span class="p">);</span>
 </code></pre></div>
 <p>Per exemple, si com en aquest exemple, definim un constructor en el qual
 calga passar el codi, sempre que instancies un nou objecte d'aqueixa
@@ -531,7 +395,7 @@ classe hauràs de indicar el seu codi.</p>
 <span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="11 "></span>    <span class="o">...</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="13 "></span><span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">&#39;GALAXYS&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">'GALAXYS'</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="la-pseuodovariable-this">La pseuodovariable $this</h3>
 <p>Quan des d'un objecte s'invoca un mètode de la classe, a aquest se li
@@ -539,7 +403,7 @@ passa sempre una referència a l'objecte que ha fet la crida. Aquesta
 referència s'emmagatzema en la pseudovariable <code>$this.</code> S'utilitza, per
 exemple, en el codi anterior per a tenir accés als atributs privats de
 l'objecte (que només són accessibles des dels mètodes de la classe).</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>echo &quot;<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>&quot; . $this-&gt;code . &quot;<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>&quot;;
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>echo "<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>" . $this-&gt;code . "<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>";
 </code></pre></div>
 <p>En la documentació de PHP tens més informació sobre els mètodes màgics:
 <a href="http://es.php.net/manual/es/language.oop5.magic.php">http://es.php.net/manual/es/language.oop5.magic.php</a></p>
@@ -554,7 +418,7 @@ no existeix una còpia del mateix en cada objecte. </p>
 nom de la classe i l'operador <code>::</code>, anomenat operador de resolució d'àmbit 
 (que s'utilitza per a accedir a els elements de una classe).</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">DB</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">const</span> <span class="no">USUARIO</span> <span class="o">=</span> <span class="s1">&#39;dwes&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">const</span> <span class="no">USUARIO</span> <span class="o">=</span> <span class="s1">'dwes'</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>      <span class="o">...</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="nx">DB</span><span class="o">::</span><span class="na">USUARIO</span><span class="p">;</span>
@@ -617,7 +481,7 @@ mètode estàtic.</p>
 <p>Ja saps com instanciar un objecte utilitzant <code>new</code>, i com accedir a els
 seus mètodes i atributs públics amb l'operador fletxa:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$product</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span>
-<span class="linenos" data-linenos="2 "></span><span class="nv">$product</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">=</span> <span class="s1">&#39;Samsung Galaxy S&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$product</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">=</span> <span class="s1">'Samsung Galaxy S'</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$product</span><span class="o">-&gt;</span><span class="na">show</span><span class="p">();</span>
 </code></pre></div>
 <p>Una vegada creat un objecte, pots utilitzar l'operador <code>instanceof</code> per
@@ -639,7 +503,7 @@ produeix un error que podries capturar. </p>
 succeeix amb els objectes quan els passes a una funció, o simplement
 quan executes un codi com el següent:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span>
-<span class="linenos" data-linenos="2 "></span><span class="nv">$p</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Samsung Galaxy S&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$p</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">'Samsung Galaxy S'</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$a</span> <span class="o">=</span> <span class="nv">$p</span><span class="p">;</span>
 </code></pre></div>
 <p>El codi anterior simplement crearia un nou identificador del mateix objecte. Açò és,
@@ -695,12 +559,12 @@ personalitzada en format HTML del codi.</p>
 <span class="linenos" data-linenos="3 "></span>   <span class="k">public</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>    
 <span class="linenos" data-linenos="4 "></span>
 <span class="linenos" data-linenos="5 "></span>   <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos="6 "></span>      <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>      <span class="k">echo</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span>   <span class="p">}</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Aquesta classe és molt útil si l'única informació que tenim dels
-diferents productes és la que es mostra a dalt. Però, si vols
+diferents productes és la que es mostra dalt. Però, si vols
 personalitzar la informació que vas a tractar de cada tipus de producte
 (i emmagatzemar, per exemple per als televisors, les polzades que tenen
 o la seua tecnologia de fabricació), pots crear noves classes que
@@ -717,7 +581,7 @@ simplement has de utilitzar la paraula <code>extends</code> indicant la supercla
 són també objectes de la classe base; es pot comprovar utilitzant l'operador <code>instanceof</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$tv</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TV</span><span class="p">();</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$tv</span> <span class="nx">instanceof</span> <span class="nx">Product</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="3 "></span>  <span class="c1">// Aquest codi s&#39;executa doncs la condició és certa</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="c1">// Aquest codi s'executa doncs la condició és certa</span>
 <span class="linenos" data-linenos="4 "></span>        <span class="nx">…</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 </code></pre></div>
@@ -732,7 +596,7 @@ simplement creant en la subclasse un nou mètode amb el mateix nom.</p>
 <span class="linenos" data-linenos="3 "></span>   <span class="k">public</span> <span class="nv">$technology</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span>
 <span class="linenos" data-linenos="5 "></span>   <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos="6 "></span>      <span class="k">print</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">.</span> <span class="s2">&quot; polzades&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>      <span class="k">print</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">.</span> <span class="s2">" polzades&lt;/p&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span>   <span class="p">}</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
@@ -747,7 +611,7 @@ paraula <code>final</code>.</p>
 <span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="nv">$price</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span>
 <span class="linenos" data-linenos="6 "></span>    <span class="k">public</span> <span class="k">final</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos="7 "></span>        <span class="k">print</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="k">print</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos="8 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="9 "></span><span class="p">}</span>
 </code></pre></div>
@@ -786,13 +650,13 @@ li passarà un array amb els valors dels atributs del nou producte.</p>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="nv">$price</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 6 "></span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 8 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">echo</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="11 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">];</span>
-<span class="linenos" data-linenos="12 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
-<span class="linenos" data-linenos="13 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">shortName</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;short_name&#39;</span><span class="p">];</span>
-<span class="linenos" data-linenos="14 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">price</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'code'</span><span class="p">];</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'name'</span><span class="p">];</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">shortName</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'short_name'</span><span class="p">];</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">price</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'price'</span><span class="p">];</span>
 <span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="16 "></span><span class="p">}</span>
 </code></pre></div>
@@ -817,13 +681,13 @@ base si ho consideres necessari, utilitzant per a açò la paraula
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nv">$technology</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 4 "></span>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 6 "></span>        <span class="k">print</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">.</span> <span class="s2">&quot; polzades&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">print</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">.</span> <span class="s2">" polzades&lt;/p&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos=" 8 "></span>
 <span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="10 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$row</span><span class="p">);</span>
-<span class="linenos" data-linenos="11 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">];</span>
-<span class="linenos" data-linenos="12 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">technology</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;technology&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'size'</span><span class="p">];</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">technology</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'technology'</span><span class="p">];</span>
 <span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="14 "></span> <span class="p">}</span>
 </code></pre></div>
@@ -849,7 +713,7 @@ que han de implementar els mètodes declarats en aquest interface.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">TV</span> <span class="k">extends</span> <span class="nx">Product</span> <span class="k">implements</span> <span class="nx">IShow</span> <span class="p">{</span>
 <span class="linenos" data-linenos="2 "></span>            <span class="nx">…</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">.</span> <span class="s2">&quot; polzades&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="k">echo</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">size</span> <span class="o">.</span> <span class="s2">" polzades&lt;/p&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="6 "></span>        <span class="nx">…</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">}</span>
@@ -987,19 +851,19 @@ dir, permet combinar membres de classes sense haver d'usar herència.
 
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">trait</span> <span class="nx">Saludar</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 2 "></span>    <span class="k">function</span> <span class="nf">decirHola</span><span class="p">(){</span>
-<span class="linenos" data-linenos=" 3 "></span>        <span class="k">return</span> <span class="s2">&quot;hola&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="k">return</span> <span class="s2">"hola"</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 4 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="p">}</span>
 <span class="linenos" data-linenos=" 6 "></span><span class="k">trait</span> <span class="nx">Despedir</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="k">function</span> <span class="nf">decirAdios</span><span class="p">(){</span>
-<span class="linenos" data-linenos=" 8 "></span>        <span class="k">return</span> <span class="s2">&quot;adiós&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">return</span> <span class="s2">"adiós"</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="10 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="11 "></span><span class="k">class</span> <span class="nc">Comunicacion</span> <span class="p">{</span>
 <span class="linenos" data-linenos="12 "></span>    <span class="k">use</span> <span class="nx">Saludar</span><span class="p">,</span> <span class="nx">Despedir</span><span class="p">;</span>
 <span class="linenos" data-linenos="13 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="14 "></span><span class="nv">$comunicacion</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Comunicacion</span><span class="p">;</span>
-<span class="linenos" data-linenos="15 "></span><span class="k">echo</span> <span class="nv">$comunicacion</span><span class="o">-&gt;</span><span class="na">decirHola</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot;, que tal. &quot;</span> <span class="o">.</span> <span class="nv">$comunicacion</span><span class="o">-&gt;</span><span class="na">decirAdios</span><span class="p">();</span>
+<span class="linenos" data-linenos="15 "></span><span class="k">echo</span> <span class="nv">$comunicacion</span><span class="o">-&gt;</span><span class="na">decirHola</span><span class="p">()</span> <span class="o">.</span> <span class="s2">", que tal. "</span> <span class="o">.</span> <span class="nv">$comunicacion</span><span class="o">-&gt;</span><span class="na">decirAdios</span><span class="p">();</span>
 </code></pre></div>
 
 En l'exemple anterior la classe `Comunicacion` necessita reutilitzar els mètodes `Saludar::decirHola()` i 
@@ -1056,7 +920,7 @@ els principals paràmetres que pots ajustar estan:
   - `error_reporting`. Indica quins tipus d'errors es notificaran. El
     seu valor es forma utilitzant els operadors a nivell de bit per
     combinar les constants anteriors. El seu valor per defecte és `E_ALL
-    & ~ E_NOTICE` que indica que es notifiquin tots els errors (`E_ALL`)
+    &amp; ~ E_NOTICE` que indica que es notifiquin tots els errors (`E_ALL`)
     excepte els avisos a temps d'execució (`E_NOTICE`).
   - `display_errors`. En el seu valor per defecte (`On`), fa que els
     missatges s'envien a la sortida estàndard (i per tant es mostrin al
@@ -1065,7 +929,7 @@ els principals paràmetres que pots ajustar estan:
 
 Hi ha altres paràmetres que podem utilitzar en `php.ini` per ajustar el
 comportament de PHP quan es produeix un error.
-<http://es.php.net/manual/es/errorfunc.configuration.php>
+<http: errorfunc.configuration.php="" es="" es.php.net="" manual="">
 
 Des codi, pots fer servir la funció `error_reporting` amb les constants
 anteriors per establir el nivell de notificació en un moment determinat.
@@ -1117,8 +981,7 @@ divisió i restaurar al seu valor normal a continuació:
 <span class="linenos" data-linenos="23 "></span><span class="c1">;   Development Value: On</span>
 <span class="linenos" data-linenos="24 "></span><span class="c1">;   Production Value: On</span>
 </code></pre></div>
-</div>
-
+</http:></div>
 <h3 id="gestio-global-dels-errors">Gestió global dels errors</h3>
 <p>En utilitzar la funció <code>error_reporting</code> només controles quin tipus
 d'errors va a notificar PHP. A vegades pot ser suficient, però per
@@ -1129,19 +992,19 @@ error. El nom d'aquesta funció s'indica utilitzant <code>set_error_handler</cod
 ha de tenir com a mínim dos paràmetres obligatoris (el nivell de l'error
 i el missatge descriptiu) i fins tres opcionals amb informació addicional 
 sobre el error (el nom del fitxer en què es produeix, el
-nombre de línia, i un bolcat de l'estat de les<br />
+nombre de línia, i un bolcat de l'estat de les<br/>
 variables en aquest moment).</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nb">set_error_handler</span> <span class="p">(</span><span class="s2">&quot;miGestorDeErrores&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nb">set_error_handler</span> <span class="p">(</span><span class="s2">"miGestorDeErrores"</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$resultat</span> <span class="o">=</span> <span class="nv">$dividend</span> <span class="o">/</span> <span class="nv">$divisor</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="nb">restore_error_handler</span> <span class="p">();</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="k">function</span> <span class="nf">miGestorDeErrores</span> <span class="p">(</span><span class="nv">$nivell</span><span class="p">,</span> <span class="nv">$missatge</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="p">{</span>
 <span class="linenos" data-linenos=" 6 "></span>    <span class="k">switch</span> <span class="p">(</span><span class="nv">$nivell</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 7 "></span>        <span class="k">case</span> <span class="k">E_WARNING</span><span class="o">:</span>
-<span class="linenos" data-linenos=" 8 "></span>          <span class="k">echo</span> <span class="s2">&quot;Error de tipus WARNING: </span><span class="si">$missatge</span><span class="s2">. &lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>          <span class="k">echo</span> <span class="s2">"Error de tipus WARNING: </span><span class="si">$missatge</span><span class="s2">. &lt;br /&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span>          <span class="k">break</span><span class="p">;</span>
 <span class="linenos" data-linenos="10 "></span>        <span class="k">default</span><span class="o">:</span>
-<span class="linenos" data-linenos="11 "></span>          <span class="k">echo</span> <span class="s2">&quot;Error de tipus no especificat: $ missatge. &lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>          <span class="k">echo</span> <span class="s2">"Error de tipus no especificat: $ missatge. &lt;br /&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span><span class="p">}</span>
 </code></pre></div>
@@ -1159,7 +1022,7 @@ podem convertir fàcilment els errors en excepcions de tipus <code>ErrorExceptio
 <span class="linenos" data-linenos=" 6 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="k">throw</span> <span class="k">new</span> <span class="nx">ErrorException</span><span class="p">(</span><span class="nv">$mensaje</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$severidad</span><span class="p">,</span> <span class="nv">$fichero</span><span class="p">,</span> <span class="nv">$línea</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="nb">set_error_handler</span><span class="p">(</span><span class="s2">&quot;exception_error_handler&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">set_error_handler</span><span class="p">(</span><span class="s2">"exception_error_handler"</span><span class="p">);</span>
 <span class="linenos" data-linenos="10 "></span>
 <span class="linenos" data-linenos="11 "></span><span class="cm">/* Desencadenar la excepción */</span>
 <span class="linenos" data-linenos="12 "></span><span class="nb">strpos</span><span class="p">();</span>
@@ -1183,11 +1046,11 @@ similar a l'existent en altres llenguatges de programació:</p>
 zero podries fer:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">try</span> <span class="p">{</span>
 <span class="linenos" data-linenos="2 "></span>   <span class="k">if</span> <span class="p">(</span><span class="nv">$divisor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-<span class="linenos" data-linenos="3 "></span>      <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span> <span class="p">(</span> <span class="s2">&quot;Divisió per zero.&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span>      <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span> <span class="p">(</span> <span class="s2">"Divisió per zero."</span><span class="p">);</span>
 <span class="linenos" data-linenos="4 "></span>   <span class="nv">$resultat</span> <span class="o">=</span> <span class="nv">$dividend</span><span class="o">/</span><span class="nv">$divisor</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="6 "></span><span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="7 "></span>   <span class="k">echo</span> <span class="s2">&quot;S&#39;ha produït el següent error:&quot;</span><span class="o">.</span> <span class="err">$</span> <span class="nx">e</span><span class="o">-&gt;</span> <span class="na">getMessage</span> <span class="p">();</span>
+<span class="linenos" data-linenos="7 "></span>   <span class="k">echo</span> <span class="s2">"S'ha produït el següent error:"</span><span class="o">.</span> <span class="err">$</span> <span class="nx">e</span><span class="o">-&gt;</span> <span class="na">getMessage</span> <span class="p">();</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
 <p>PHP ofereix una classe base <code>Exception</code> per utilitzar com a gestor
@@ -1226,20 +1089,20 @@ configurar la connexió fent:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$dwes</span><span class="o">-&gt;</span> <span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
 </code></pre></div>
 <p>Per exemple, el següent codi:
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="nv">$dwes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span> <span class="p">(</span> <span class="s2">&quot;mysql: host = localhost; dbname = dwes&quot;</span><span class="p">,</span> <span class="s2">&quot;dwes&quot;</span><span class="p">,</span> <span class="s2">&quot;abc123.&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="nv">$dwes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span> <span class="p">(</span> <span class="s2">"mysql: host = localhost; dbname = dwes"</span><span class="p">,</span> <span class="s2">"dwes"</span><span class="p">,</span> <span class="s2">"abc123."</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 2 "></span>    <span class="nv">$dwes</span><span class="o">-&gt;</span> <span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span> <span class="o">::</span> <span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span> <span class="o">::</span> <span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">try</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM stox&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM stox"</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$dwes</span><span class="o">-&gt;</span><span class="na">query</span> <span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 6 "></span>        <span class="o">...</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos=" 8 "></span>    <span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$p</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 9 "></span>        <span class="k">echo</span> <span class="s2">&quot;Error&quot;</span><span class="o">.</span> <span class="nv">$p</span><span class="o">-&gt;</span> <span class="na">getMessage</span> <span class="p">()</span><span class="o">.</span> <span class="s2">&quot;&lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">echo</span> <span class="s2">"Error"</span><span class="o">.</span> <span class="nv">$p</span><span class="o">-&gt;</span> <span class="na">getMessage</span> <span class="p">()</span><span class="o">.</span> <span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
 </code></pre></div></p>
 <p>Captura l'excepció que llança PDO a causa de que la taula no existeix.
 El bloc <code>catch</code> mostra el següent missatge:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">Error</span> <span class="nx">SQLSTATE</span> <span class="p">[</span><span class="mi">42</span><span class="nx">S02</span><span class="p">]</span><span class="o">:</span> <span class="nx">Base</span> <span class="nx">table</span> <span class="k">or</span> <span class="nx">view</span> <span class="k">not</span> <span class="nx">found</span><span class="o">:</span> <span class="mi">1146</span> <span class="nx">Table</span> <span class="s1">&#39;dwes.stox&#39;</span> <span class="nx">does</span> <span class="k">not</span> <span class="nx">exist</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">Error</span> <span class="nx">SQLSTATE</span> <span class="p">[</span><span class="mi">42</span><span class="nx">S02</span><span class="p">]</span><span class="o">:</span> <span class="nx">Base</span> <span class="nx">table</span> <span class="k">or</span> <span class="nx">view</span> <span class="k">not</span> <span class="nx">found</span><span class="o">:</span> <span class="mi">1146</span> <span class="nx">Table</span> <span class="s1">'dwes.stox'</span> <span class="nx">does</span> <span class="k">not</span> <span class="nx">exist</span>
 </code></pre></div>
 <h3 id="el-bloc-finally">El bloc <code>finally</code></h3>
 <p>En PHP 5.5 i posterior, es pot utilitzar un bloc <code>finally</code> després o en
@@ -1274,18 +1137,18 @@ la connexió a un servei proporcionats per tercers.<code></code></p>
 <code>Exception</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">NegativeIdException</span> <span class="k">extends</span> <span class="nx">Exception</span> <span class="p">{</span>
 <span class="linenos" data-linenos="2 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$message</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">message</span> <span class="o">=</span> <span class="nv">$message</span> <span class="o">?:</span> <span class="s1">&#39;ID Negatiu.&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">message</span> <span class="o">=</span> <span class="nv">$message</span> <span class="o">?:</span> <span class="s1">'ID Negatiu.'</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span>    <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
 <span class="linenos" data-linenos="5 "></span>  <span class="p">}</span>
 <span class="linenos" data-linenos="6 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Després l'utilitzarem així:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">try</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>  <span class="nv">$post</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Post</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Hola món&quot;</span><span class="p">,</span> <span class="s2">&quot;Aquest és el primer post del blog&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">(),</span> <span class="s2">&quot;Vicent&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="nv">$post</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Post</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"Hola món"</span><span class="p">,</span> <span class="s2">"Aquest és el primer post del blog"</span><span class="p">,</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">(),</span> <span class="s2">"Vicent"</span><span class="p">);</span>
 <span class="linenos" data-linenos="3 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">NegativeIdException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">&quot;No es pot posar un ID negatiu</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">"No es pot posar un ID negatiu</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="6 "></span>  <span class="k">echo</span> <span class="s2">&quot;Excepció desconeguda&quot;</span><span class="o">.</span>  <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span>  <span class="k">echo</span> <span class="s2">"Excepció desconeguda"</span><span class="o">.</span>  <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">}</span>
 </code></pre></div>
 <h2 id="interficie-throwable">Interfície Throwable</h2>
@@ -1305,7 +1168,7 @@ de manera que han d'estendre en el seu lloc <code>Exception</code>.</p>
     que el paràmetre <code>$values</code> del control <code>InputRadio</code> estiga buit.</li>
 <li>Captura l'excepció.</li>
 <li>Crea una excepció personalitzada <code>MovieNotFound</code> que es llance
-    en cas que l'identificador <code>$id</code> sol·licitat no trobe cap pel·licula en <code>single-page.php</code>      </li>
+    en cas que l'identificador <code>$id</code> sol·licitat no trobe cap pel·licula en <code>single-page.php</code> </li>
 <li>Captura l'excepció.</li>
 </ol>
 <h2 id="exercicis-practics">Exercicis pràctics</h2>
@@ -1380,7 +1243,7 @@ internament en les subclasses (<code>$this-&gt;type=??</code>).</p>
 l'HTML que representa el camp.</p>
 <p>Per exemple:
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Nom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="2 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span>  <span class="na">name</span><span class="o">=</span><span class="s">&quot;nom&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">value</span><span class="o">=</span><span class="s">""</span>  <span class="na">name</span><span class="o">=</span><span class="s">"nom"</span> <span class="p">/&gt;</span>
 </code></pre></div></p>
 <p>A continuació crea les classes <code>InputText</code>, <code>InputEmail</code> (<em>type=email</em>), <code>InputTel</code>(<em>type=tel</em>), 
  que hereten de la classe abstracta i usa-les per a crear un formulari en els camps
@@ -1412,7 +1275,7 @@ tindran el constructor i els atributs diferents. Afig als camps ja existents els
 </ul>
 <p>Crea la classe <code>Form</code> que representarà un formulari HTML.  </p>
 <p>El constructor serà 
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$action</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$method</span> <span class="o">=</span><span class="s1">&#39;POST&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$action</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$method</span> <span class="o">=</span><span class="s1">'POST'</span><span class="p">);</span>
 </code></pre></div></p>
 <p>Tindrà una propietat pública <code>$elements</code> que serà un array d'objectes <code>Input</code>. Un mètode <code>Form::add(Input $input)</code>
 que afegirà elements a l'array.</p>
@@ -1448,54 +1311,37 @@ Totes les classes creades implementaran eixa interfície.</p>
     licenciados por el Ministerio de Educación, Cultura y Deporte.</em> [en
     línia]. 2012 [data de consulta: 13 de setembre de 2019].
     Disponible en
-    \&lt;<a href="https://github.com/statickidz/TemarioDAW/tree/master/DWES">https://github.com/statickidz/TemarioDAW/tree/master/DWES</a>></li>
+    \&lt;<a href="https://github.com/statickidz/TemarioDAW/tree/master/DWES">https://github.com/statickidz/TemarioDAW/tree/master/DWES</a>&gt;</li>
 <li>Antonio López. <em>Learning PHP 7.</em> Packt Publishing (29 de marzo de
     2016) .</li>
 </ul>
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-        
-      </main>
-      
-        
+</article>
+</div>
+</div>
+</main>
 <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
             2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
           </div>
         
         Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
           Material for MkDocs
         </a>
-        
-      </div>
-      
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="../../js/print-site.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
 </html>
