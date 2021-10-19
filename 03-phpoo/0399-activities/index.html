@@ -134,9 +134,26 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Activitats
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Activitats
       </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#poo-basic">
+    POO Bàsic
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -149,6 +166,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="activitats">Activitats</h1>
+<h2 id="poo-basic">POO Bàsic</h2>
 <ol>
 <li>
 <p><code>301-Card</code>: Crea una classe anomenada <code>Card</code> que contindrà la informació
@@ -160,6 +178,14 @@
 </ul>
 <p>El constructor i el seus <em>getters</em> i <em>setters</em>.</p>
 <p>Crea cinc objects diferents en un array i mostra'ls de forma aleatòria. </p>
+<div class="mermaid">classDiagram
+class Card {
+    -string suit
+    -string symbol
+    -int value
+    +void function __construct (string, string, int)
+} 
+</div>
 </li>
 <li>
 <p><code>302-CardCollection</code>: Crea una classe anomenada <code>CardCollection</code> que contindrà la propietat
@@ -167,6 +193,51 @@
 <p>Hi haurà dues formes d'inserir cartes, mitjançant el mètode <code>CardCollection::add(array $array)</code> que rebrà un array de cartes i els afegirà a la propietat <code>cards</code> i el mètode <code>CardCollecion::addCard(Card $card)</code> que rebrà una carta i la inserirà en la propietat <code>card</code>.</p>
 <p>A més, contindrà el mètode <code>shuffle()</code> que ordenarà les cartes de forma aleatòria.</p>
 <p>Instància la classe, afig 5 cartes, reordena-les i mostra-les.</p>
+<div class="mermaid">classDiagram
+class CardCollection {
+     -cards: array
+     +add(cards: array)
+     +addCard(card: Card): void
+}
+class Card {
+    -suit: string
+    -symbol: string
+    -value: int
+    __construct (suit: string, symbol: string, value: int)
+    shuffle()
+    getCards() array
+} 
+CardCollection "1"--"*" Card
+</div>
+</li>
+<li>
+<p><code>303-writer</code>: crea el mètodo <code>writer</code> en la classe <code>CardCollection</code> de forma que mostre en format lliure la   col·leció de cartes. Amb aquest mètode afegirem una nova capa d'abstracció ja que no caldrà accedir directament als mètodes de la classe <code>Card</code>.  Afig un segon mètode que mostre la col·lecció de cartes en una imatge que represente cada carta (les imatges que hem usat en activitats anteriors).</p>
+</li>
+<li>
+<p><code>304-basic-game</code>: fent ús de les classes anteriors crearem una aplicació bàsica en la que s'enfronten dos jugadors. Un exemple de partida podria ser el següent:</p>
+<p><img alt="" src="../assets/cartes.png"/></p>
+<p>La classe <code>CardCollection</code> quedarà així:</p>
+<div class="mermaid">classDiagram
+class CardCollection {
+     -cards: array
+     add(cards: array)
+     addCard(card: Card) void
+     ...
+     deal(amount: int) array
+     play() Card
+}
+
+</div>
+<p>Els requisits seran els següents:</p>
+<ol>
+<li>Es repartiran 5 cartes per jugador.</li>
+<li>El mètode <code>deal</code> que repartirà el número de cartes que s'indique com a paràmetre eliminant-les de la col·lecció.</li>
+<li>El mètode <code>play</code> jugarà una carta que s'eliminarà de la col·lecció.</li>
+<li>Cada tirada la guanya el jugador que té la carta més alta, segons el valor.</li>
+<li>La partida la guanya el jugador que ha guanyat més vegades.</li>
+<li>En cas d'empat es repartirà una nova carta a cada jugador.</li>
+</ol>
+<p>Així que en la aplicació interactuaran 3 objectes de tipus <code>CardCollection</code>.</p>
 </li>
 </ol>
 </article>
@@ -212,5 +283,5 @@
 <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
 <script src="../../js/print-site.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</body>
+<script>mermaid.initialize({});</script></body>
 </html>
