@@ -161,6 +161,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#errors-i-excepcions">
+    Errors i excepcions
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#projecte-moviefx">
     Projecte: MovieFX
   </a>
@@ -180,7 +185,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="activitats">Activitats</h1>
 <h2 id="poo-basic">POO Bàsic</h2>
-<ol>
+<ol start="301">
 <li>
 <p><code>301-Card</code>: Crea una classe anomenada <code>Card</code> que contindrà la informació
      relativa una carta de la baralla francesa amb les seguents propietats:</p>
@@ -243,12 +248,12 @@ class CardCollection {
 </div>
 <p>Els requisits seran els següents:</p>
 <ol>
-<li>Es repartiran 5 cartes per jugador.</li>
-<li>El mètode <code>deal</code> que repartirà el número de cartes que s'indique com a paràmetre eliminant-les de la col·lecció.</li>
-<li>El mètode <code>play</code> jugarà una carta que s'eliminarà de la col·lecció.</li>
-<li>Cada tirada la guanya el jugador que té la carta més alta, segons el valor.</li>
-<li>La partida la guanya el jugador que ha guanyat més vegades.</li>
-<li>En cas d'empat es repartirà una nova carta a cada jugador.</li>
+<li>Es repartiran 5 cartes per jugador.
+*  El mètode <code>deal</code> que repartirà el número de cartes que s'indique com a paràmetre eliminant-les de la col·lecció.
+*  El mètode <code>play</code> jugarà una carta que s'eliminarà de la col·lecció.
+*  Cada tirada la guanya el jugador que té la carta més alta, segons el valor.
+*  La partida la guanya el jugador que ha guanyat més vegades.
+*  En cas d'empat es repartirà una nova carta a cada jugador.</li>
 </ol>
 <p>Així que en la aplicació interactuaran 3 objectes de tipus <code>CardCollection</code>.</p>
 </li>
@@ -291,6 +296,29 @@ classDiagram
 <p>En el diagrama anterior definim <code>CardCollection</code> com una classe abstracta, d'ella hereten dos classes <code>Deck</code> que representa la baralla i <code>Hand</code> que representa les cartes d'un jugador. Cada classe exten la funcionalitat afegint els seus propis mètodes.</p>
 <p>Recorda que una classe abstracta és un tipus de classe que no s'instància i sols poden ser heretades traslladant així un funcionamient obligatori a les classes filles (o subclasses). </p>
 <p>Modifica la solució a l'activitat anterior amb la nova jerarquia de classes.</p>
+</li>
+</ol>
+<h2 id="errors-i-excepcions">Errors i excepcions</h2>
+<ol start="306">
+<li>
+<p><code>306-error-handling</code>: modifica l'activitat 284 (formulari de contactes) de forma que quan es produisca un error de validació és llance una excepció que serà capturada.</p>
+<p>Caldrà construir la següent jerarquia d'errors:</p>
+<ul>
+<li><code>ValidationException</code> serà la classe base i heretaran d'ella les següents subclasses:<ul>
+<li><code>RequiredValidationException</code></li>
+<li><code>TooLongValidationException</code></li>
+<li><code>InvalidPhoneValidationException</code></li>
+<li><code>InvalidEmailValidationException</code>.</li>
+<li><code>InvalidKeyValidationException</code></li>
+</ul>
+</li>
+<li><code>FileUploadException</code> serà la classe base de la part de pujada de fitxers.<ul>
+<li><code>NoUploadedFileException</code>.</li>
+<li><code>TooBigFileException</code>.</li>
+<li><code>InvalidTypeFileException</code>.</li>
+</ul>
+</li>
+</ul>
 </li>
 </ol>
 <h2 id="projecte-moviefx">Projecte: MovieFX</h2>
