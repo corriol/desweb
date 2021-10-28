@@ -1,0 +1,1834 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="['books', 'programming']" name="keywords"/>
+<meta content="Vicent Jordà" name="author"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>5. Accés a dades amb PHP PDO - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<meta content="#ff6e42" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="deep-orange" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#acces-a-dades-mitjancant-php-pdo">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              5. Accés a dades amb PHP PDO
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/">
+        1.- Introducció a la programació Web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-phpbasics/">
+        2.- El llenguatge PHP
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Erros i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Accés a dades amb PHP
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Accés a dades amb PHP
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classes-pdo-pdostatement-i-pdoexception">
+    Classes PDO, PDOStatement i PDOException
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connexio-a-la-base-de-dades">
+    Connexió a la base de dades
+  </a>
+<nav aria-label="Connexió a la base de dades" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tancar-la-connexio-a-la-base-de-dades">
+    Tancar la connexió a la base de dades
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#execucio-de-consultes">
+    Execució de consultes
+  </a>
+<nav aria-label="Execució de consultes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#estil-de-busqueda-fetch-style">
+    Estil de búsqueda (fetch style)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consultes-preparades">
+    Consultes preparades
+  </a>
+<nav aria-label="Consultes preparades" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assignacio-amb-marcadors-anonims">
+    Assignació amb marcadors anònims
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diferencia-entre-lus-de-bindparam-i-bindvalue">
+    Diferència entre l'ús de bindParam i bindValue
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assignacio-amb-marcadors-coneguts">
+    Assignació amb marcadors coneguts
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemple-dus">
+    Exemple d'ús
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#insercio-modificacio-i-eliminacio-de-dades-de-la-bbdd">
+    Inserció, modificació i eliminació de dades de la BBDD
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemples-crud-create-read-update-delete-insert-update-y-delete">
+    Exemples CRUD (Create, Read, Update, Delete): INSERT, UPDATE y DELETE
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alguns-metodes-dinteres">
+    Alguns mètodes d'interès
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestio-derrors-en-lacces">
+    Gestió d'errors en l'accés
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activitats">
+    Activitats
+  </a>
+<nav aria-label="Activitats" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consultes-preparades_1">
+    Consultes preparades
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inserint-noves-pellicules">
+    Inserint noves pel·lícules
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modificant-i-esborrants-pellicules">
+    Modificant i esborrants pel·lícules
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#simplificant-lacces-a-la-base-de-dades">
+    Simplificant l'accés a la base de dades
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-classe-database">
+    La classe Database
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arxiu-de-configuracio">
+    Arxiu de configuració
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacio-de-les-entitats">
+    Creació de les entitats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contenidors-de-serveis">
+    Contenidors de serveis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model">
+    Model
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestio-de-les-relacions">
+    Gestió de les relacions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activitats_1">
+    Activitats
+  </a>
+<nav aria-label="Activitats" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generes">
+    Gèneres
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obtenint-el-genere">
+    Obtenint el gènere
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transaccions">
+    Transaccions
+  </a>
+<nav aria-label="Transaccions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transaccions-en-pdo">
+    Transaccions en PDO
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esquema-basic-dus-de-transaccions-amb-pdo">
+    Esquema bàsic d'ús de transaccions amb PDO
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemple">
+    Exemple
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transaccions_1">
+    Transaccions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="acces-a-dades-mitjancant-php-pdo">Accés a dades mitjançant PHP PDO</h1>
+<p>PHP permet treballar en base de dades MySQL gràcies a dues llibreries. MySQLi i PDO. Com que MySQLi està
+dissenyada exclusivament per a MySQL nosaltres aprofundirem en PDO, que permet connectar fins amb
+12 sistemes gestors de base de dades diferents.</p>
+<p>Les sigles PDO (<em>PHP Data Objects</em>) fan referència a una interfície de PHP
+que ens permet accedir a bases de dades de qualsevol tipus en PHP.</p>
+<p>Cada controlador de bases de dades que implemente la interfície PDO pot
+exposar característiques específiques de la base de dades, com les
+funcions habituals de l'extensió. Cal observar que no es pot realitzar
+cap de les funcions de la bases de dades utilitzant l'extensió PDO per
+si mateixa; s'ha d'utilitzar-ne una de PDO específica de la base de
+dades per tenir accés a un servidor de base de dades.</p>
+<p><img alt="" src="../assets/Pdo.png"/></p>
+<p>PDO proporciona una capa d'abstracció d'accés a dades, el que significa
+que, independentment de la base de dades que s'estiga utilitzant, s'usen
+les mateixes funcions per fer consultes i obtenir dades.</p>
+<p>Per saber els controladors PDO disponibles en el nostre sistema:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">getAvailableDrivers</span><span class="p">());</span>
+</code></pre></div>
+<p>La informació oficial sobre PDO es troba en 
+<a href="http://php.net/manual/es/book.pdo.php">http://php.net/manual/es/book.pdo.php</a></p>
+<h2 id="classes-pdo-pdostatement-i-pdoexception">Classes PDO, PDOStatement i PDOException</h2>
+<p>PDO proporciona 3 classes per a gestionar l'accés a la base de dades</p>
+<ul>
+<li><a href="http://php.net/manual/es/class.pdo.php"><code>PDO</code></a>: S'utilitza per representar la connexió entre PHP i un
+  servidor de bases de dades.  </li>
+<li><a href="http://php.net/manual/es/class.pdostatement.php"><code>PDOStatement</code></a>: representa una sentència preparada i també ens
+  permet accedir al conjunt de resultats associat.  </li>
+<li><a href="http://php.net/manual/es/class.pdoexception.php"><code>PDOException</code></a>: representa els errors generats PDO.</li>
+</ul>
+<h2 id="connexio-a-la-base-de-dades">Connexió a la base de dades</h2>
+<p>Per a crear una nova connexió s'utilitza la classe <code>PDO</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">public</span> <span class="nx">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$dsn</span> <span class="p">[,</span> <span class="nx">string</span> <span class="nv">$username</span> <span class="p">[,</span> <span class="nx">string</span> <span class="nv">$passwd</span> <span class="p">[,</span> <span class="k">array</span> <span class="nv">$options</span> <span class="p">]]]</span> <span class="p">)</span>
+</code></pre></div>
+<p>El constructor té els següents paràmetres:</p>
+<ul>
+<li><code>dsn</code>: cadena de connexió</li>
+<li><code>username</code>: nom d'usuari</li>
+<li><code>passwd</code>: contrasenya d'usuari</li>
+<li><code>options</code>: permet afegir altres opcions de la connexió</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">"mysql:host=localhost; dbname=test"</span><span class="p">,</span> <span class="s2">"dbuser"</span><span class="p">,</span> <span class="s2">"1234"</span><span class="p">);</span>
+</code></pre></div>
+<p>En l'exemple anterior <strong>mysql</strong> representa una connexió a una base de dades MySQL (
+podria ser: MSSQL, Sybase, sqlite, etc.) anomenada <code>test</code> que es troba al servidor <code>localhost</code>.
+La connexió es realitzarà mitjançant l'usuari <code>dbuser</code> i la contrasenya <code>1234</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Exemple de connexió a diferents tipus de bases de dades.</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1"># Connectem a la base de dades</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$host</span> <span class="o">=</span> <span class="s1">'www.local'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$hbname</span> <span class="o">=</span> <span class="s1">'cxbasex'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$user</span> <span class="o">=</span> <span class="s1">'cxbasex'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$pass</span> <span class="o">=</span> <span class="s1">'xxxxxx'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="c1"># MS SQL Server y Sybase amb PDO_DBLIB</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">"MSSQL:host=</span><span class="si">$host</span><span class="s2">;dbname=</span><span class="si">$dbname</span><span class="s2">, </span><span class="si">$user</span><span class="s2">, </span><span class="si">$pass</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">"Sybase:host=</span><span class="si">$host</span><span class="s2">;dbname=</span><span class="si">$dbname</span><span class="s2">, </span><span class="si">$user</span><span class="s2">, </span><span class="si">$pass</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>    <span class="cm">/* MySQL amb PDO_MYSQL</span>
+<span class="linenos" data-linenos="14 "></span><span class="cm">     Perquè la connexió a mysql utilitzi les collation UTF-8 afegir charset = utf8 a string</span>
+<span class="linenos" data-linenos="15 "></span><span class="cm">     de la connexió. */</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span>  <span class="p">(</span><span class="s2">"mysql:host=</span><span class="si">$host</span><span class="s2">;dbname=</span><span class="si">$dbname</span><span class="s2">;charset=utf8"</span><span class="p">,</span> <span class="nv">$user</span><span class="p">,</span> <span class="nv">$pass</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    <span class="c1">// Perquè generi excepcions a l'hora de reportar errors.</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>    <span class="c1"># SQLite Database</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span> <span class="p">(</span><span class="s2">"sqlite:my/database/path/database.db"</span><span class="p">);</span>
+<span class="linenos" data-linenos="23 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span><span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="k">die</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span> <span class="na">getMessage</span> <span class="p">());</span>
+<span class="linenos" data-linenos="26 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span><span class="c1">// Si tot va bé en $pdo tindrem el objecte que gestionarà la connexió amb la base de dades.</span>
+</code></pre></div>
+<h3 id="tancar-la-connexio-a-la-base-de-dades">Tancar la connexió a la base de dades</h3>
+<p>Es recomana tancar sempre la connexió a la base de dades quan no es vaja
+a utilitzar més durant el nostre procés.</p>
+<p>Cal recordar que els recursos són limitats i quan hi ha pocs usuaris no
+hi ha cap problema, però si tenim molts usuaris simultanis llavors és
+quan sorgeixen problemes en haver assolit el nombre màxim de connexions
+amb el servidor, per exemple.</p>
+<p>En tancar la connexió de forma explícita accelerem l'alliberament de
+recursos perquè estiguin disponibles per a altres usuaris.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Si vullguerem tancar la connexió amb la base de dades simplement podríem fer al final del fitxer.</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="execucio-de-consultes">Execució de consultes</h2>
+<p>Per a realitzar consultes <code>PDO</code> proporciona tres mètodes:</p>
+<ul>
+<li><code>PDO::query()</code> per a consultes de recuperació de dades (SELECT).</li>
+<li><code>PDO::exec()</code> per a consultes d'inserció, modificació i esborrat de dades (INSERT, UPDATE i DELETE)</li>
+<li><code>PDO::prepare()</code> per a consultes de tot tipus amb paràmetres. Aquest és el mètode recomanat si la consulta té paràmetres o si s'ha d'executar divereses vegades però això hem dedicat un apartat específic.</li>
+</ul>
+<p>Una vegada executada la consulta les dades s'obtenen a través del mètode <code>PDOStatement::fetch()</code> o
+<code>PDOStatement::fetchAll()</code>.</p>
+<ul>
+<li><code>fetch()</code>: Obté la següent fila d'un recordset (conjunt de
+  resultats). <a href="http://php.net/manual/es/pdostatement.fetch.php">http://php.net/manual/es/pdostatement.fetch.php</a></li>
+<li><code>fetchAll()</code>: Retorna un array que conté totes les files del conjunt
+  de resultats (el tipus de dades a retornar es pot indicar com a
+  paràmetre). <a href="http://php.net/manual/es/pdostatement.fetchall.php">http://php.net/manual/es/pdostatement.fetchall.php</a></li>
+</ul>
+<h3 id="estil-de-busqueda-fetch-style">Estil de búsqueda (<em>fetch style</em>)</h3>
+<p>Abans de cridar al mètode <code>fetch()</code> una bona idea és indicar-li com
+volem que ens torne les dades de la base de dades.</p>
+<p>Tindrem les següents opcions en el mètode <code>fetch()</code>:</p>
+<ul>
+<li><code>PDO::FETCH_ASSOC</code>: Torna les dades en un array associatiu pel nom de camp de la
+  taula.</li>
+<li><code>PDO::FETCH_NUM</code>: Retorna un array indexat per la posició del camp.</li>
+<li><code>PDO::FETCH_BOTH</code>: Retorna un array associatiu pel nom de camp de la taula i un</li>
+<li>indexat per la posició del camp. És una combinació dels dos estils anteriors. És l'estil per defecte.</li>
+<li><code>PDO::FETCH_BOUND</code>: Assigna els valors retornats a les variables
+  assignades amb el mètode <code>bindColumn()</code>.</li>
+<li><code>PDO::FETCH_CLASS</code>: Assigna els valors dels camps a les propietats
+  d'una classe. Si les propietats no existeixen en aquesta classe, les
+  crearà.</li>
+<li><code>PDO::FETCH_INTO</code>: Actualitza una instància existent d'una classe.</li>
+<li><code>PDO::FETCH_LAZY</code>: Combina <code>PDO::FETCH_BOTH</code>/<code>PDO::FETCH_OBJ</code>,
+  creant les variables de l'objecte a mesura que es van fent servir.</li>
+<li><code>PDO::FETCH_OBJ</code>: Retorna un objecte anònim amb els noms de les
+  propietats que es corresponen amb els noms de columnes.</li>
+</ul>
+<p>Podem ajustar l'estil de búsqueda de dues formes:</p>
+<p>Abans de recuperar registres</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">setFetchMode</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">);</span>
+</code></pre></div>
+<p>O en el moment de recuperar-los:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fechtall</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title"><code>PDO::FETCH_CLASS</code></p>
+<p>Cal saber que no podem usar <code>PDO::FETCH_CLASS</code> com a paràmetre de <code>PDOStatement::fetch()</code>. Cal controlar l'estil de
+búsqueda amb <code>PDOStatement::setFetchMode()</code>.</p>
+</div>
+<p><strong>FETCH_ASSOC</strong></p>
+<p>Per executar la consulta SELECT si no tenim paràmetres en la consulta podrem usar <code>PDO::query()</code></p>
+<p>Vegem un exemple de consulta SELECT:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">#Per executar la consulta SELECT si no tenim paràmetres en la consulta podrem usar -&gt; query ()</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span> <span class="p">(</span><span class="s1">'SELECT name, addr, city from colleague'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="cm">/* Indiquem en quin format volem obtenir les dades de la taula en format d'array associatiu.</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="cm">       Si no indiquem res per defecte s'usarà FETCH_BOTH el que ens permetrà accedir com a vector</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="cm">        associatiu o array numèric. */</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">setFetchMode</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="c1">#Llegim les dades del recordset amb el mètode-&gt;fetch ()</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">while</span> <span class="p">(</span><span class="nv">$row</span><span class="o">=</span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>       <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="o">.</span> <span class="s2">"&lt;br/&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>       <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'addr'</span><span class="p">]</span><span class="o">.</span> <span class="s2">"&lt;br/&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>       <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">'city'</span><span class="p">]</span><span class="o">.</span> <span class="s2">"&lt;br/&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>     <span class="c1">#Per alliberar els recursos utilitzats en la consulta SELECT</span>
+<span class="linenos" data-linenos="19 "></span>     <span class="nv">$stmt</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span> <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="c1">// Mostrem un missatge genèric d'error.</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="k">echo</span> <span class="s2">"Error: executant consulta SQL."</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span> <span class="p">}</span>
+</code></pre></div>
+<p><strong>FETCH_OBJ</strong></p>
+<p>En aquest estil de búsqueda es crearà un objecte estàndard (<code>stdClass</code>) per
+cada fila que llegim del recordset.</p>
+<p>Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">#Creem la consulta</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">'SELECT name, addr, city from colleague'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="c1">#Ajustem la manera d'obtenció de dades</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">setFetchMode</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_OBJ</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">#Mostrem els resultats.</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="c1">#Fixeu-vos que es torna un objecte cada vegada que es llegeix una fila del recordset.</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span> <span class="s2">"&lt;br/&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">addr</span><span class="o">.</span> <span class="s2">"&lt;br/&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">city</span><span class="o">.</span> <span class="s2">"&lt;br/&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>        <span class="c1">#Alliberem els recursos utilitzats per $stmt</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span><span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$err</span><span class="p">)</span>
+<span class="linenos" data-linenos="20 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="c1">// Mostrem un missatge genèric d'error.</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="k">echo</span> <span class="s2">"Error: executant consulta SQL."</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span><span class="p">}</span>
+</code></pre></div>
+<p><strong>FETCH_CLASS</strong></p>
+<p>En aquest estil de búsqueda els registres es tornaran en una nova instància
+de la classe indicada en el segon paràmetre, fent correspondre les columnes del conjunt de resultats amb els noms de les
+propietats de la classe, i cridant al constructor després, a menys que también es proporcione
+l'opció <code>PDO::FETCH_PROPS_LATE</code>. Si algun nom de camp no existeix com a propietat en la classe es crearà dinàmicament.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">Persona</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">decir</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">decir</span><span class="p">()</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="k">echo</span> <span class="s2">"Soy </span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="k">echo</span> <span class="s2">"Aún no tengo nombre.</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="nv">$sth</span> <span class="o">=</span> <span class="nv">$dbh</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">"SELECT * FROM people"</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span><span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">setFetchMode</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_CLASS</span><span class="p">,</span> <span class="s1">'Persona'</span><span class="p">);</span>
+<span class="linenos" data-linenos="22 "></span><span class="nv">$persona</span> <span class="o">=</span> <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">();</span>
+<span class="linenos" data-linenos="23 "></span><span class="nv">$persona</span><span class="o">-&gt;</span><span class="na">decir</span><span class="p">();</span>
+<span class="linenos" data-linenos="24 "></span><span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">setFetchMode</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_CLASS</span><span class="o">|</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_PROPS_LATE</span><span class="p">,</span> <span class="s1">'Persona'</span><span class="p">);</span>
+<span class="linenos" data-linenos="25 "></span><span class="nv">$persona</span> <span class="o">=</span> <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">();</span>
+<span class="linenos" data-linenos="26 "></span><span class="nv">$persona</span><span class="o">-&gt;</span><span class="na">decir</span><span class="p">();</span>
+</code></pre></div>
+<p>Mostrarà:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Soy Alice.
+<span class="linenos" data-linenos="2 "></span>Soy Alice.
+<span class="linenos" data-linenos="3 "></span>Aún no tengo nombre.
+<span class="linenos" data-linenos="4 "></span>Soy Bob.
+</code></pre></div>
+<h2 id="consultes-preparades">Consultes preparades</h2>
+<p>Com hem vist en l'apartat anterior les consultes poden acceptar
+paràmetres. <strong>La millor forma de realitzar aquestes consultes és
+mitjançant les consultes preparades</strong>.</p>
+<p>Les consultes preparades ens aporten dues avantatges importants:</p>
+<ul>
+<li>Per a sentències que seran executades en múltiples ocasions amb
+  diferents paràmetres optimitza el rendiment de la aplicació.</li>
+<li>Ajuda a prevenir injeccions SQL eliminant la necessitat de posar
+  entre cometes manualment els paràmetres.</li>
+</ul>
+<p>Per a construir una sentència preparada cal incloure uns marcadors en la
+sentència SQL.</p>
+<p>Hi ha tres formes de fer-ho:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Marcadors anònims</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colleague (name, addr, city) values (?, ?, ?)"</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="c1"># Marcadors coneguts</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colleague (name, addr, city) values (:name, :addr, :city)"</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="c1"># Sense marcadors. Aquest mètode està desaconsellat! Prohibit en el nostre cas.</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colleague (name, addr, city) values (</span><span class="si">$name</span><span class="s2">, </span><span class="si">$addr</span><span class="s2">, </span><span class="si">$city</span><span class="s2">)"</span><span class="p">);</span>
+</code></pre></div>
+<p>Hauràs d'usar el primer o el segon mètode dels que es mostren
+anteriorment. El tipus de marcadors que utilitzem afectaran a la forma
+d'assignar els valors d'eixos marcadors.</p>
+<h3 id="assignacio-amb-marcadors-anonims">Assignació amb marcadors anònims</h3>
+<p>Per enllaçar els marcadors anònims amb el seu corresponent valor es pot
+utilitzar <code>bindParam</code> o <code>bindValue</code>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Marcadors anònims</p>
+<p>ATENCIÓ:<code>$pdo-&gt;prepare()</code> usant marcadors anònims <code>?</code>, tracta totes les
+variables com si foren <em>string</em>, per la qual cosa farà servir cometes
+per delimitar els seus valors per defecte.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Marcadors anònims</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colleague (name, addr, city) values (?, ?, ?)"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1"># Assignem variables a cada marcador, indexats l'1 al 3</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nv">$addr</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nv">$city</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1"># Inserim una fila.</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$name</span> <span class="o">=</span> <span class="s2">"Daniel"</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$addr</span> <span class="o">=</span> <span class="s2">"1 Wicked Way"</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$city</span> <span class="o">=</span> <span class="s2">"Arlington Heights"</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="c1"># Inserim un altra fila con valores diferents.</span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$name</span> <span class="o">=</span> <span class="s2">"Steve"</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$addr</span> <span class="o">=</span> <span class="s2">"5 Circle Drive"</span><span class="p">;</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$city</span> <span class="o">=</span> <span class="s2">"Schaumburg"</span><span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+</code></pre></div>
+<p>Un altra forma d'assignació amb marcadors anònims és mitjançant un array
+associatiu:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="c1"># Les dades que volem inserir</span>
+<span class="linenos" data-linenos="2 "></span> <span class="nv">$dades</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Cathy'</span><span class="p">,</span> <span class="s1">'9 Dark and Twisty Road'</span><span class="p">,</span> <span class="s1">'Cardiff'</span><span class="p">];</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span> <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colleague (name, addr, city) values (?, ?, ?)"</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$dades</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="diferencia-entre-lus-de-bindparam-i-bindvalue">Diferència entre l'ús de bindParam i bindValue</h3>
+<p>Amb <code>bindParam</code> es vincula la variable al paràmetre i en el moment de
+fer l'<em>execute</em> és quan s'assigna realment el valor de la variable a
+aquest paràmetre.</p>
+<p>Amb <code>bindValue</code> s'assigna el valor de la variable a aquest paràmetre
+just en el moment d'executar la instrucció <code>bindValue</code>.</p>
+<p>Exemple de diferència entre <code>bindParam</code> i <code>bindValue</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Ejemplo con bindParam:</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$sex</span> <span class="o">=</span> <span class="s1">'hombre'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$s</span> <span class="o">=</span> <span class="nv">$dbh</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s1">'SELECT name FROM estudiantes WHERE sexo = :sexo'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$s</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':sexo'</span><span class="p">,</span> <span class="nv">$sex</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$sex</span> <span class="o">=</span> <span class="s1">'mujer'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$s</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span> <span class="c1">// se ejecutó con el valor WHERE sexo = 'mujer'</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1">// El mismo ejemplo con bindValue:</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$sex</span> <span class="o">=</span> <span class="s1">'hombre'</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$s</span> <span class="o">=</span> <span class="nv">$dbh</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s1">'SELECT name FROM students WHERE sexo = :sexo'</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$s</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="s1">':sexo'</span><span class="p">,</span> <span class="nv">$sex</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$sex</span> <span class="o">=</span> <span class="s1">'mujer'</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$s</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span> <span class="c1">// se ejecutó con el valor WHERE sexo = 'hombre'</span>
+</code></pre></div>
+<h3 id="assignacio-amb-marcadors-coneguts">Assignació amb marcadors coneguts</h3>
+<p>Els marcadors coneguts són la forma més recomanable de treballar amb PDO, ja que a l'hora
+de fer el <code>bindParam</code> o el <code>bindValue</code> es pot especificar
+el tipus de dada i la seua longitud.</p>
+<p>Format de <code>bindParam</code> amb marcadors coneguts:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">bindParam</span><span class="p">(</span><span class="s1">':marcador'</span><span class="p">,</span> <span class="nv">$variableVincular</span><span class="p">,</span> <span class="nx">TIPO</span> <span class="nx">DATOS</span> <span class="nx">PDO</span><span class="p">)</span>
+</code></pre></div>
+<p>Exemple d'ús de <code>bindParam</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':calorias'</span><span class="p">,</span> <span class="nv">$misCalorias</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">PARAM_INT</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':apellidos'</span><span class="p">,</span> <span class="nv">$misApellidos</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">PARAM_STR</span><span class="p">,</span> <span class="mi">35</span><span class="p">);</span> <span class="c1">// 35 caracteres como máximo.</span>
+</code></pre></div>
+<p>Amb marcadors coneguts quedaria de la següent forma:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colleague (name, addr, city) value (:name, :addr, :city)"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1"># El primer argument de bindParam és el nom del marcador i el segon la variable</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1"># que contindrà les dades.</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span> <span class="c1"># Els marcadors conocidos siempre comienzan con :</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':name'</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$name</span><span class="o">=</span><span class="s1">'Pepito'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':addr'</span><span class="p">,</span> <span class="nv">$addr</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$addr</span><span class="o">=</span><span class="s1">'Duanes, 17'</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':city'</span><span class="p">,</span> <span class="nv">$city</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$city</span> <span class="o">=</span> <span class="s1">'Pego'</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="c1"># També podem fer-ho mitjançant un array associatiu</span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$dades</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Pepito'</span><span class="p">,</span> <span class="s1">'addr'</span> <span class="o">=&gt;</span> <span class="s1">'Duanes, 17'</span><span class="p">,</span> <span class="s1">'city'</span> <span class="o">=&gt;</span> <span class="s1">'Pego'</span> <span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="c1"># Fixeu-vos es passa l'array de dades en execute().</span>
+<span class="linenos" data-linenos="22 "></span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colleague (name, addr, city) value (:name, :addr, :city)"</span><span class="p">);</span>
+<span class="linenos" data-linenos="23 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$dades</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="c1"># La última instrucción se podría poner también así:</span>
+<span class="linenos" data-linenos="26 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Pepito'</span><span class="p">,</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="s1">'addr'</span> <span class="o">=&gt;</span> <span class="s1">'Duanes, 17'</span><span class="p">,</span>
+<span class="linenos" data-linenos="29 "></span>    <span class="s1">'city'</span> <span class="o">=&gt;</span> <span class="s1">'Pego'</span>
+<span class="linenos" data-linenos="30 "></span><span class="p">]);</span>
+</code></pre></div>
+<p>Una altra característica dels marcadors coneguts és que ens permetran
+treballar amb objectes directament a la base de dades, assumint que les
+propietats d'aquest objecte coincideixen amb els noms dels camps de la
+taula a la base de dades.</p>
+<p>Exemple d'ús de marcadors coneguts i objectes:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Un objeto sencillo</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Person</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="nv">$addr</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="nv">$city</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$n</span><span class="p">,</span><span class="nv">$a</span><span class="p">,</span><span class="nv">$c</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$n</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addr</span> <span class="o">=</span> <span class="nv">$a</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">city</span> <span class="o">=</span> <span class="nv">$c</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="c1"># etc ...</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="nv">$cathy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">'Pepito'</span><span class="p">,</span><span class="s1">'Duanes, 17'</span><span class="p">,</span><span class="s1">'Pego'</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="c1"># Preparación de la consulta</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colegas (name, addr, city) value (:name, :addr, :city)"</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="c1"># Inserción del objeto</span>
+<span class="linenos" data-linenos="21 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">((</span><span class="k">array</span><span class="p">)</span><span class="nv">$cathy</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="exemple-dus">Exemple d'ús</h3>
+<p>Per a utilitzar les consultes preparades seguirem sempre aquest esquema:</p>
+<p><img alt="Consultes preparades" src="consultes-preparades.png"/></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s1">'sqlite:/path/db/users.db'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1"># 1. Preparem la connexió</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s1">'SELECT name FROM users WHERE id = :id'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1"># 2. Vinculem els paràmetres</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':id'</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">PARAM_INT</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="c1"># 3. Executem la consulta</span>
+<span class="linenos" data-linenos="12 "></span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span> <span class="c1"># 4. Obtenim els registres</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span> <span class="c1"># Un a un</span>
+<span class="linenos" data-linenos="17 "></span> <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">();</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span> <span class="c1"># Tots a l'hora</span>
+<span class="linenos" data-linenos="20 "></span> <span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Dates en MySQL</p>
+<p>Recorda que el tipus DATE de MySQL es recupera com un <em>string</em> en format "YYYY-MM-DD" i a l'hora</p>
+</div>
+<p>d'emmagatzemar-lo cal que tinga el mateix format.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Si fóra DATETIME també caldria afegir l'hora "YY-MM-DD hh:mm:ss".
+</code></pre></div>
+<h2 id="insercio-modificacio-i-eliminacio-de-dades-de-la-bbdd">Inserció, modificació i eliminació de dades de la BBDD</h2>
+<p>Inserir noves dades, actualitzar-les o esborrar-les són algunes de les
+operacions més comunes en una base de dades. Amb PDO podem fer aquestes aquestes
+operacions en 3 passos.</p>
+<p><img alt="Prepare Bind Execute" src="../assets/Prepare-bind-execute.png"/></p>
+<p>Exemple d'ús:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># $stmt serà un objecte de tipus PDOStatement (consulta preparada)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colleague(name, addr, city) values (:name, :addr, :city)"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1"># Assignem els valors dels marcadors</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$name</span> <span class="o">=</span> <span class="s2">"Josep"</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$addr</span> <span class="o">=</span> <span class="s2">"Duanes, 17"</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$city</span> <span class="o">=</span> <span class="s2">"Pego"</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">BindValue</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">BindValue</span><span class="p">(</span><span class="s2">"addr"</span><span class="p">,</span> <span class="nv">$addr</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">BindValue</span><span class="p">(</span><span class="s2">"city"</span><span class="p">,</span> <span class="nv">$city</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="c1"># Executem la consulta amb -&gt;execute() mètode de l'objecte PDOStatement</span>
+<span class="linenos" data-linenos="14 "></span><span class="c1"># Este mètode devuelve true o false.</span>
+<span class="linenos" data-linenos="15 "></span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="exemples-crud-create-read-update-delete-insert-update-y-delete">Exemples CRUD (<strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete): INSERT, UPDATE y DELETE</h2>
+<p><strong>INSERT</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">"mysql:host=</span><span class="si">$host</span><span class="s2">;dbname=</span><span class="si">$dbname</span><span class="s2">;charset=utf8"</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s1">'INSERT INTO colleague (name, addr, city ) VALUES(:name,</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="s1">    :addr, :city)'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="s1">':name'</span> <span class="o">=&gt;</span> <span class="s1">'Josep'</span><span class="p">,</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="s1">':addr'</span> <span class="o">=&gt;</span> <span class="s1">'Duanes, 17'</span><span class="p">,</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="s1">':city'</span> <span class="o">=&gt;</span> <span class="s1">'Pego'</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">]);</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="c1"># Affected Rows?</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">echo</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">rowCount</span><span class="p">();</span> <span class="c1">// 1</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="k">echo</span> <span class="s1">'Error: '</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+</code></pre></div>
+<p><strong>UPDATE</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$name</span> <span class="o">=</span> <span class="s2">"Joe the Plumber"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">"mysql:host=</span><span class="si">$host</span><span class="s2">;dbname=</span><span class="si">$dbname</span><span class="s2">;charset=utf8"</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s1">'UPDATE someTable SET name = :name WHERE id = :id'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="s1">':id'</span> <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">,</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="s1">':name'</span> <span class="o">=&gt;</span> <span class="nv">$name</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">));</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">echo</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">rowCount</span><span class="p">();</span> <span class="c1">// 1</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="k">echo</span> <span class="s1">'Error: '</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">}</span>
+</code></pre></div>
+<p><strong>DELETE</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// From a form or something similar</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">"mysql:host=</span><span class="si">$host</span><span class="s2">;dbname=</span><span class="si">$dbname</span><span class="s2">;charset=utf8"</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s1">'DELETE FROM someTable WHERE id = :id'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':id'</span><span class="p">,</span> <span class="nv">$id</span><span class="p">);</span> <span class="c1">// this time, we'll use the bindParam method</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">echo</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">rowCount</span><span class="p">();</span> <span class="c1">// 1</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">echo</span> <span class="s1">'Error: '</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="alguns-metodes-dinteres">Alguns mètodes d'interès</h2>
+<p>Alguns mètodes interessant i que podem utilitzar per a millorar la gestió de l'accés a dades són:</p>
+<ul>
+<li><code>PDO::lastInsertId()</code>, ens torna la clau primària (<code>id</code>) del últim registre inserit en la base de dades.</li>
+<li><code>PDOStatement::rowCount()</code>, ens torna el número de files afectades por una sentència DELETE, INSERT, o UPDATE.</li>
+</ul>
+<h2 id="gestio-derrors-en-lacces">Gestió d'errors en l'accés</h2>
+<p>PDO pot utilitzar les excepcions per gestionar els errors, el que
+significa que qualsevol cosa que fem amb PDO podríem encapsular en un
+bloc try/catch per gestionar si produeix algun error.</p>
+<p>Podem forçar PDO perquè treballi en qualsevol de les tres maneres
+següents:</p>
+<ul>
+<li><code>PDO::ERRMODE_SILENT</code>. És el mode per defecte. Aquí haurem de
+  revisar els errors usant <code>errorCode()</code> i <code>errorInfo()</code>.</li>
+<li><code>PDO::ERRMODE_WARNING</code>. Genera errors de revisió de resultats
+  PHP però permetria l'execució normal de l'aplicació.</li>
+<li><code>PDO::ERRMODE_EXCEPTION</code>. Serà la forma més utilitzada en PDO.
+  Dispara una excepció permetent-nos gestionar l'error de forma
+  amigable.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">//Activació de la manera de treball de PDO</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$pdo</span><span class="o">-&gt;</span> <span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_SILENT</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$pdo</span><span class="o">-&gt;</span> <span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_WARNING</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">// Es recomana activar aquesta opció per gestionar els errors amb PDOException</span>
+<span class="linenos" data-linenos="6 "></span><span class="nv">$pdo</span><span class="o">-&gt;</span> <span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Excepcions</p>
+<p>Es recomana activar aquesta opció per gestionar els errors amb <code>PDOException</code>, d'altra forma no </p>
+</div>
+<p>apareixerà cap missatge i serà complicat detectar-los.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$pdo</span><span class="o">-&gt;</span> <span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>Exemple d'ús:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Connectem a la base de dades</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$host</span> <span class="o">=</span> <span class="s1">'www.local'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$dbname</span> <span class="o">=</span> <span class="s1">'cxbasex'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$user</span> <span class="o">=</span> <span class="s1">'cxbasex'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$pass</span> <span class="o">=</span> <span class="s1">'xxxxxx'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$pdo</span><span class="o">=</span><span class="k">new</span> <span class="nx">PDO</span> <span class="p">(</span><span class="s2">"mysql:host=</span><span class="si">$host</span><span class="s2">;dbname=</span><span class="si">$dbname</span><span class="s2">;charset=utf8"</span><span class="p">,</span> <span class="nv">$user</span><span class="p">,</span> <span class="nv">$pass</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">echo</span> <span class="s2">"S'ha produït un error en intentar connectar al servidor MySQL:"</span><span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="c1"># Un altre Exemple d'error! DELECT en lloc de SELECT!</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span> <span class="s1">'DELECT name FROM people'</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span><span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="k">echo</span> <span class="s2">"S'ha produït un error en l'execució de la consulta:"</span><span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>    <span class="cm">/* En aquest cas hem mostrat el missatge d'error i, a més emmagatzemem</span>
+<span class="linenos" data-linenos="23 "></span><span class="cm">       en un fitxer els errors generats. */</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="nb">file_put_contents</span> <span class="p">(</span><span class="s1">'PDOErrors.txt'</span><span class="p">,</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">(),</span> <span class="nx">FILE_APPEND</span><span class="p">);</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="activitats">Activitats</h2>
+<p><strong>Enunciat</strong></p>
+<ol>
+<li>Crea la base de dades <code>movies</code>.</li>
+<li>Importa l'arxiu <code>movies.sql</code>.</li>
+<li>Crea l'usuari <code>dbuser</code> amb <code>1234</code> de constrasenya.</li>
+<li>Dona-li els privilegis necessaris perquè sols puga fer SELECT, INSERT, DELETE i UPDATE</li>
+<li>Modifica el projecte perquè obtinga els partners de la base de dades.</li>
+<li>Modifica també les pel·lícules perquè les obtinga de la base de dades.</li>
+</ol>
+<h3 id="consultes-preparades_1">Consultes preparades</h3>
+<p><strong>Enunciat</strong></p>
+<ol>
+<li>Implementa el filtre de búsqueda en <code>partners.php</code> (seguint el vídeo)</li>
+<li>Modifica <code>single-page.php</code> perquè obtinga les dades de la base de dades.
+   Rebrà <code>id</code> com a paràmetre pel querystring.</li>
+<li>Modifica el filtratge i l'ordenació en <code>movies.php</code> perquè funcione des de la base
+   de dades (<strong>opcional</strong>)</li>
+</ol>
+<p><strong>Utilitza consultes preparades sempre que calga usar paràmetres.</strong></p>
+<h3 id="inserint-noves-pellicules">Inserint noves pel·lícules</h3>
+<p><strong>Enunciat</strong></p>
+<ul>
+<li>Seguint les indicacions del vídeo crea el formulari de creació de partners.</li>
+<li>Crea un formulari (<code>movie-create.php</code>) per a inserir noves pel·lícules.</li>
+<li>Posa un enllaç al formulari en <code>movies.php</code>.</li>
+<li>La pàgina (<code>movie-create.php</code>) processarà el formulari i després de validar tots
+  els camps els inserirà a la base de dades.</li>
+</ul>
+<p>Cal tenir en compte la separació de la lògica i la presentació.</p>
+<h3 id="modificant-i-esborrants-pellicules">Modificant i esborrants pel·lícules</h3>
+<p><strong>Enunciat</strong></p>
+<ul>
+<li>Seguint les indicacions del vídeo crea el formulari d'edició de partners.</li>
+<li>Crea el formulari per a editar pel·lícules.</li>
+<li>Crea el formulari per a esborrar pel·lícules.</li>
+<li>Afig en en \$movies un enllaç per a esborrar i editar la película de la fila.</li>
+</ul>
+<h2 id="simplificant-lacces-a-la-base-de-dades">Simplificant l'accés a la base de dades</h2>
+<h2 id="la-classe-database">La classe Database</h2>
+<p>La classe <code>Database</code> serà l'encarregada de gestionar la connexió amb la base de dades,
+contindrà un mètode estàtic <code>getConnetion()</code> que tornarà una instància d'una connexió <code>PDO</code>. Els mètodes estàtics
+són accessibles sense necessitat d'instanciar la classe. Així fent <code>$pdo = Database::getConnection()</code> obtindríem
+una instància de PDO.</p>
+<p>Avís: aquesta classe conté diverses males pràctiques que cal evitar. Temps tindrem d'arreglar-ho. De moment l'objectiu
+és que siga senzilla d'usar.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Database.php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">class</span> <span class="nc">Database</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">private</span> <span class="nx">PDO</span> <span class="nv">$connection</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">private</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="nv">$name</span> <span class="o">=</span> <span class="s2">"movies"</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="nv">$user</span> <span class="o">=</span> <span class="s2">"dbuser"</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="nv">$pass</span> <span class="o">=</span> <span class="s2">"1234"</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="nv">$connection</span> <span class="o">=</span> <span class="s2">"mysql:host=localhost;charset=utf8"</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos="15 "></span>                <span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span> <span class="o">=&gt;</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">,</span>
+<span class="linenos" data-linenos="16 "></span>                <span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_PERSISTENT</span> <span class="o">=&gt;</span> <span class="k">true</span>
+<span class="linenos" data-linenos="17 "></span>                <span class="p">];</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">"</span><span class="si">$connection</span><span class="s2">;dbname=</span><span class="si">$name</span><span class="s2">"</span><span class="p">,</span> <span class="nv">$user</span><span class="p">,</span> <span class="nv">$pass</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="k">die</span> <span class="p">(</span><span class="s2">"Eerror en intentar connectar al servidor de base de dades: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="22 "></span>            <span class="k">die</span><span class="p">(</span><span class="s2">"Error en intentar connectar al servidor de base de dades: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getConnection</span><span class="p">()</span><span class="o">:</span> <span class="nx">PDO</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="28 "></span>        <span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="29 "></span>            <span class="nv">$PDO</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Database</span><span class="p">();</span>
+<span class="linenos" data-linenos="30 "></span>        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="31 "></span>            <span class="k">die</span><span class="p">(</span><span class="s2">"Error en intentar connectar al servidor de base de dades: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="33 "></span>        <span class="k">return</span> <span class="nv">$PDO</span><span class="o">-&gt;</span><span class="na">connection</span><span class="p">;</span>
+<span class="linenos" data-linenos="34 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="35 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="arxiu-de-configuracio">Arxiu de configuració</h2>
+<p>En l'exemple anterior les dades de la connexió estan posades directament, el que fa que sempre que vullguen
+reutilitzar la classe haguem de modificar manualment la classe.</p>
+<p>La solució habitual és que totes les dades de configuració que siguen susceptibles
+de canviar en els diferents entorns (desenvolupament, producció, test,
+etc.) es separen en un o diversos fitxers de configuració.</p>
+<p>Aquests fitxers es poden codificar en PHP o utilitzar un altre format
+que després puga ser llegit per PHP (Per exemple, ara s'utilitza molt
+YAML).</p>
+<div class="admonition info">
+<p class="admonition-title">Dotenv</p>
+<p>Dotenv és una mena d'estàndard de facto per a emmagatzemar la informació sensible de les aplicacions. Mitjançant</p>
+</div>
+<p>fitxers <code>.env</code> s'estableix la configuració que després es carrega com a variables d'entorn.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>El seu origen està en el paquet Ruby dotenv i s'utilitza en diversos frameworks com Symfony i Nodejs.
+</code></pre></div>
+<p>Per exemple</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># config/config.php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$config</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="s1">'database'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="s1">'blog'</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'1234'</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="s1">'connection'</span> <span class="o">=&gt;</span> <span class="s1">'mysql:host=blog.local;dbname=blog;charset=utf8'</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="s1">'options'</span> <span class="o">=&gt;</span> <span class="p">[</span>  <span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span> <span class="o">=&gt;</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span>                        <span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_PERSISTENT</span> <span class="o">=&gt;</span> <span class="k">true</span> <span class="p">]</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">]</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">];</span>
+</code></pre></div>
+<p>En format JSON:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>  <span class="nt">"database"</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"blog"</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nt">"password"</span><span class="p">:</span> <span class="s2">"blog"</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nt">"connection"</span><span class="p">:</span> <span class="s2">"mysql:host=blog.local;dbname=blog"</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nt">"options"</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nt">"PDO::ATTR_ERRMODE"</span><span class="p">:</span> <span class="s2">"PDP::ERRORMODE_EXCEPTION"</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nt">"PDO::ATTR_PERSISTENT"</span><span class="p">:</span> <span class="s2">"true"</span><span class="err">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="creacio-de-les-entitats">Creació de les entitats</h2>
+<p>Les entitats són les classes que mapejaran les taules de la base de dades. Tindran un atribut per cada camp de la
+taula que mapegen. Aquest tipus de classes també poden anomenar-se dominis (<em>domains</em>) o DAO (Data Access Objects).
+Independentment del nom que se li done caldrà tenir en consideració la seua funcionalitat: representar
+registres d'una taula.</p>
+<p>En la majoria dels casos només contindran:</p>
+<ul>
+<li><em>getters</em> i <em>setters</em> per accedir als atributs.</li>
+<li>Constructor si cal.</li>
+<li><code>__toString</code> per convertir l'objecte a cadena si cal.</li>
+<li>Etc.</li>
+</ul>
+<p>No implementarem lògica de negoci en les entitats.</p>
+<p>Les consultes que obtindran dades de la BBDD tornaran un array d'entitats.</p>
+<p>Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">Book</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$id</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="nv">$isbn</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">private</span> <span class="nv">$title</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">private</span> <span class="nv">$author</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">private</span> <span class="nv">$stock</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">private</span> <span class="nv">$price</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getId</span><span class="p">()</span><span class="o">:</span> <span class="nx">int</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getIsbn</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isbn</span><span class="p">;</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTitle</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAuthor</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="27 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">author</span><span class="p">;</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getStock</span><span class="p">()</span><span class="o">:</span> <span class="nx">int</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">stock</span><span class="p">;</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="34 "></span>
+<span class="linenos" data-linenos="35 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCopy</span><span class="p">()</span><span class="o">:</span> <span class="nx">bool</span>
+<span class="linenos" data-linenos="36 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="37 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">stock</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="38 "></span>            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+<span class="linenos" data-linenos="39 "></span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="40 "></span>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">stock</span><span class="o">--</span><span class="p">;</span>
+<span class="linenos" data-linenos="41 "></span>            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+<span class="linenos" data-linenos="42 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="43 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="44 "></span>
+<span class="linenos" data-linenos="45 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">addCopy</span><span class="p">()</span>
+<span class="linenos" data-linenos="46 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="47 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">stock</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="48 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="49 "></span>
+<span class="linenos" data-linenos="50 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPrice</span><span class="p">()</span><span class="o">:</span> <span class="nx">float</span>
+<span class="linenos" data-linenos="51 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="52 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">price</span><span class="p">;</span>
+<span class="linenos" data-linenos="53 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="54 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Com ja hem vist en l'apartat anterior tant el mètode <code>fetch</code> com el mètode <code>fetchAll</code> de la classe <code>PDOStatement</code>
+tenen la possibilitat de retornar les dades de la BBDD com a objectes de la classe que li indiquem.</p>
+<p>Utilitzarem el paràmetre <code>PDO::FETCH_CLASS</code> passant el nom de l'entitat com a segon paràmetre.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$posts</span><span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_CLASS</span><span class="p">,</span> <span class="s1">'Book'</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="contenidors-de-serveis">Contenidors de serveis</h2>
+<p>Un contenidor de serveis (o contenidor d'injecció de dependències)
+simplement és un objecte PHP que gestiona la creació d'instàncies dels
+serveis (és a dir, dels objectes).</p>
+<p>Suposem per exemple que tens una classe PHP senzilla que envia missatges
+de correu electrònic. Sense un contenidor de serveis, has de crear
+manualment l'objecte cada vegada que el necessites:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">use</span> <span class="nx">Acme\HelloBundle\Mailer</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$mailer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mailer</span> <span class="p">(</span> <span class="s1">'sendmail'</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$mailer</span><span class="o">-&gt;</span> <span class="na">send</span> <span class="p">(</span><span class="s1">'ryan@foobar.net '</span><span class="p">,</span> <span class="o">...</span><span class="p">);</span>
+</code></pre></div>
+<p>Aquest codi és bastant fàcil, ja que la classe imaginària Mailer
+s'encarrega de configurar el mètode utilitzat per enviar missatges de
+correu electrònic (per exemple, sendmail, smtp, etc.). Què passa si has
+d'utilitzar la classe Mailer en un altre punt de l'aplicació? Has de
+copiar i enganxar el mateix codi en tots els llocs? I si has de canviar
+la forma en què s'envien els correus electrònics? Has de buscar en el
+codi de tota l'aplicació i canviar la mateixa configuració desenes de
+vegades?</p>
+<h2 id="model">Model</h2>
+<p>El model representa la lògica de negocis. S’encarrega d’accedir de forma directa a les dades actuant com a
+“intermediari” amb la base de datos.</p>
+<p>En Symfony, per exemple, no trobareu models, és per això que llegireu que no és un MVC "pur",en canvi disposa
+de repositoris d'entitats que en la pràtica són homologables als models.</p>
+<p>En el nostre MVC tindrem la classe abstracta <code>Model</code> que implementarà les operacions habituals amb la base de dades.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Model</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="k">protected</span> <span class="nx">string</span> <span class="nv">$className</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="k">protected</span> <span class="nx">string</span> <span class="nv">$tableName</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="k">protected</span> <span class="nx">PDO</span> <span class="nv">$pdo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">PDO</span> <span class="nv">$pdo</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$tableName</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$className</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">(</span><span class="nv">$order</span> <span class="o">=</span> <span class="p">[])</span><span class="o">:</span> <span class="k">array</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">find</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Entity</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">findBy</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">$operator</span> <span class="o">=</span> <span class="s2">"AND"</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">findOneBy</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span> <span class="o">=</span> <span class="p">[])</span><span class="o">:</span> <span class="o">?</span><span class="nx">Entity</span> <span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Entity</span> <span class="nv">$entity</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span><span class="p">;</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nx">Entity</span> <span class="nv">$entity</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nx">Entity</span> <span class="nv">$entity</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span><span class="p">;</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span>  <span class="c1">// Rep una sentència SELECT en paràmetres que seran passats com a un array on la clau serà</span>
+<span class="linenos" data-linenos="27 "></span>  <span class="c1">// el nom del paràmetre i el valor el valor i torna un array amb el resultat.</span>
+<span class="linenos" data-linenos="28 "></span>  <span class="c1">// per exemple si $sql és "SELECT * FROM movie WHERE title LIKE :text" el paràmetre</span>
+<span class="linenos" data-linenos="29 "></span>  <span class="c1">// passat  serà ["text"=&gt;"%Ava%"].</span>
+<span class="linenos" data-linenos="30 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">executeQuery</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$sql</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$parameters</span> <span class="o">=</span> <span class="p">[])</span><span class="o">:</span> <span class="k">array</span><span class="p">;</span>
+<span class="linenos" data-linenos="31 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="gestio-de-les-relacions">Gestió de les relacions</h2>
+<p>A l'hora d'obtenir les dades de les entitats relacionades podem optar per dues estratègies:
+<em>lazy loading</em> o <em>eager loading</em>.</p>
+<ul>
+<li><em>Lazy loading</em> o càrrega diferida és un patró de disseny que s’utilitza habitualment en programació,<br/>
+  sobretot en el disseny i desenvolupament de pàgines web per diferir la inicialització d’un objecte
+  fins al punt en què es necessita.</li>
+<li><em>Eager loading</em> o càrrega immediata és un patró de disseny pel qual una consulta per a un tipus d’entitat
+  també carrega entitats relacionades com a part de la consulta, de manera que no necessitem executar una
+  consulta independent per a entitats relacionades.</li>
+</ul>
+<p>En el nostre cas optarem per la càrrega diferida per ser més senzilla. Aprofundirem més en aquestes conceptes
+quan parlem de <em>frameworks</em> com Laravel o Symfony.</p>
+<h2 id="activitats_1">Activitats</h2>
+<p>{: .alert .alert-activity }</p>
+<div class="activity" markdown="1">
+
+### Implementació del model
+
+{:.no_toc .nocount}
+
+#### Enunciat
+
+1. Implementa el model seguint les indicacions dels vídeos
+2. Implementa els mètodes `delete`, `update` i `executeQuery`. En `update` pots usar `array_map`
+   per a generar la sentència `UPDATE` tenint en compte que la clau primària no pot canviar mai.
+3. Fes ús del model sempre que calga interactuar en la base de dades.
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="  1 "></span><span class="sd">/**</span>
+<span class="linenos" data-linenos="  2 "></span><span class="sd"> * Class UploadedFile</span>
+<span class="linenos" data-linenos="  3 "></span><span class="sd"> *</span>
+<span class="linenos" data-linenos="  4 "></span><span class="sd"> * Classe que gestiona la pujada de fitxers al servidor mitjançant formularis</span>
+<span class="linenos" data-linenos="  5 "></span><span class="sd"> */</span>
+<span class="linenos" data-linenos="  6 "></span><span class="k">class</span> <span class="nc">UploadedFile</span>
+<span class="linenos" data-linenos="  7 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="  8 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="  9 "></span><span class="sd">     * @var array</span>
+<span class="linenos" data-linenos=" 10 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 11 "></span><span class="sd">     * Array del fitxer pujat. $_FILES['nom_del_camp_del_formuari']</span>
+<span class="linenos" data-linenos=" 12 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 13 "></span>    <span class="k">private</span> <span class="nv">$file</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 14 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 15 "></span><span class="sd">     * @var string</span>
+<span class="linenos" data-linenos=" 16 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 17 "></span><span class="sd">     * Nom amb que es guardarà el fitxer.</span>
+<span class="linenos" data-linenos=" 18 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 19 "></span>    <span class="k">private</span> <span class="nv">$fileName</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 20 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 21 "></span><span class="sd">     * @var int</span>
+<span class="linenos" data-linenos=" 22 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 23 "></span><span class="sd">     * Mida màxima en bytes del fitxer, 0 indica que no hi ha límit.</span>
+<span class="linenos" data-linenos=" 24 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 25 "></span>
+<span class="linenos" data-linenos=" 26 "></span>    <span class="k">private</span> <span class="nv">$maxSize</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 27 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 28 "></span><span class="sd">     * @var array</span>
+<span class="linenos" data-linenos=" 29 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 30 "></span><span class="sd">     * Array amb els MimeType acceptats. Per exemple ['image/jpg', 'image/gif', image/png'].</span>
+<span class="linenos" data-linenos=" 31 "></span><span class="sd">     * Si l'array és buit  s'accepten tots els tipus.</span>
+<span class="linenos" data-linenos=" 32 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 33 "></span>    <span class="k">private</span> <span class="nv">$acceptedTypes</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 34 "></span>
+<span class="linenos" data-linenos=" 35 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 36 "></span><span class="sd">     * UploadedFile constructor. Comprova que s'ha pujat un fitxer, si no llançarà una excepció</span>
+<span class="linenos" data-linenos=" 37 "></span><span class="sd">     * UploadFileNoFileException.</span>
+<span class="linenos" data-linenos=" 38 "></span><span class="sd">     * En qualsevol altre error en la pujada llançarà l'excepció UploadFileException.</span>
+<span class="linenos" data-linenos=" 39 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 40 "></span><span class="sd">     * El paràmetre $inputName rebrà la clau de $_FILES en que s'emmagatzemen les dades del</span>
+<span class="linenos" data-linenos=" 41 "></span><span class="sd">     * fitxer pujat.</span>
+<span class="linenos" data-linenos=" 42 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 43 "></span><span class="sd">     * El paràmetre $maxSize indica la grandària màxima en bytes permesa. És opcional,</span>
+<span class="linenos" data-linenos=" 44 "></span><span class="sd">     * serà 0 per defecte.  Si és 0 la grandària és ilimitada.</span>
+<span class="linenos" data-linenos=" 45 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 46 "></span><span class="sd">     * El paràmetre $acceptedTypes és opcional. Contindrà els mimetype (tipus de fitxers) permesos.</span>
+<span class="linenos" data-linenos=" 47 "></span><span class="sd">     * Per defecte estarà buit, en eixe cas es podrà pujar qualsevol tipus de fitxer.</span>
+<span class="linenos" data-linenos=" 48 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 49 "></span><span class="sd">     * @param string $inputName</span>
+<span class="linenos" data-linenos=" 50 "></span><span class="sd">     * @param int $maxSize</span>
+<span class="linenos" data-linenos=" 51 "></span><span class="sd">     * @param array $acceptedTypes</span>
+<span class="linenos" data-linenos=" 52 "></span><span class="sd">     * @throws UploadFileException</span>
+<span class="linenos" data-linenos=" 53 "></span><span class="sd">     * @throws UploadFileNoFileException</span>
+<span class="linenos" data-linenos=" 54 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 55 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$inputName</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$maxSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 56 "></span>        <span class="k">array</span> <span class="nv">$acceptedTypes</span> <span class="o">=</span> <span class="k">array</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 57 "></span>
+<span class="linenos" data-linenos=" 58 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 59 "></span><span class="sd">     * @return bool</span>
+<span class="linenos" data-linenos=" 60 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 61 "></span><span class="sd">     * Comprova que el fitxer s'haja pujat correctament, que no supera el</span>
+<span class="linenos" data-linenos=" 62 "></span><span class="sd">     * limit de grandària i és del tipus indicat.</span>
+<span class="linenos" data-linenos=" 63 "></span><span class="sd">     * Si no passa la validació llançarà una excepció.</span>
+<span class="linenos" data-linenos=" 64 "></span><span class="sd">     * @throws UploadFileException</span>
+<span class="linenos" data-linenos=" 65 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 66 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">validate</span><span class="p">()</span><span class="o">:</span> <span class="nx">bool</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 67 "></span>
+<span class="linenos" data-linenos=" 68 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 69 "></span><span class="sd">     * @return string</span>
+<span class="linenos" data-linenos=" 70 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 71 "></span><span class="sd">     * Tornarà el nom del fitxer.</span>
+<span class="linenos" data-linenos=" 72 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 73 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFileName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+<span class="linenos" data-linenos=" 74 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 75 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fileName</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 76 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 77 "></span>
+<span class="linenos" data-linenos=" 78 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos=" 79 "></span><span class="sd">     * @param string $directory</span>
+<span class="linenos" data-linenos=" 80 "></span><span class="sd">     * @param string $fileName</span>
+<span class="linenos" data-linenos=" 81 "></span><span class="sd">     * @return bool</span>
+<span class="linenos" data-linenos=" 82 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 83 "></span><span class="sd">     * Guarda el fitxer en la ubicació indicada.</span>
+<span class="linenos" data-linenos=" 84 "></span><span class="sd">     * Si no s'indica nom es guardarà amb el mateix nom que s'ha penjat.</span>
+<span class="linenos" data-linenos=" 85 "></span><span class="sd">     * Si s'indica es guardarà en eixe nom, l'extensió s'obtindrà de forma automàtica a partir</span>
+<span class="linenos" data-linenos=" 86 "></span><span class="sd">     * del nom del que s'ha pujat.</span>
+<span class="linenos" data-linenos=" 87 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 88 "></span><span class="sd">     * Exemple: $path = '/public/images/', $fileName = 'prova.png'</span>
+<span class="linenos" data-linenos=" 89 "></span><span class="sd">     *</span>
+<span class="linenos" data-linenos=" 90 "></span><span class="sd">     * Torna true si s'ha pogut moure la imatge a la ubicació indicada.</span>
+<span class="linenos" data-linenos=" 91 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos=" 92 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$directory</span><span class="p">,</span> <span class="nv">$fileName</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+<span class="linenos" data-linenos=" 93 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 94 "></span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">is_uploaded_file</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">file</span><span class="p">[</span><span class="s1">'tmp_name'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 95 "></span>            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 96 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos=" 97 "></span>        <span class="c1">// TODO: Implementar el que falta</span>
+<span class="linenos" data-linenos=" 98 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 99 "></span>
+<span class="linenos" data-linenos="100 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="101 "></span><span class="sd">     * Extrau del nom de fitxer pujat la seua extensió</span>
+<span class="linenos" data-linenos="102 "></span><span class="sd">     * @return string</span>
+<span class="linenos" data-linenos="103 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="104 "></span>    <span class="k">private</span> <span class="k">function</span> <span class="nf">getExtension</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+<span class="linenos" data-linenos="105 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="106 "></span>        <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">file</span><span class="p">[</span><span class="s2">"name"</span><span class="p">];</span>
+<span class="linenos" data-linenos="107 "></span>        <span class="nv">$extensionArray</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="nv">$file</span><span class="p">);</span>
+<span class="linenos" data-linenos="108 "></span>        <span class="nv">$extension</span> <span class="o">=</span> <span class="nb">end</span><span class="p">(</span><span class="nv">$extensionArray</span><span class="p">);</span>
+<span class="linenos" data-linenos="109 "></span>        <span class="k">return</span> <span class="nv">$extension</span> <span class="o">?</span> <span class="s2">".</span><span class="si">$extension</span><span class="s2">"</span> <span class="o">:</span> <span class="s2">""</span><span class="p">;</span>
+<span class="linenos" data-linenos="110 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="111 "></span><span class="p">}</span>
+</code></pre></div>
+
+
+### La classe FileUpload
+
+#### Enunciat
+
+Fes una ullada a la classe FileUpload anterior.
+
+1. A partir de la documentació en PHPDoc implementa els mètodes que falten de la classe `FileUpload`.
+2. Implementa també les excepcions personalitzades.
+3. Fes ús de la classe per a gestionar la pujada d'imatges en pel·lícules, limitant-les al format jpg i a la grandària
+   de 300KB.
+4. En [Handling file uploads](https://www.php.net/manual/es/features.file-upload.php) teniu informació addicinal.
+   No cal que es cree el directori si no existeix. Anem a suposar que ja existeix.
+   </div>
+<h3 id="generes">Gèneres</h3>
+<h4 id="enunciat">Enunciat</h4>
+<ol>
+<li>Implementa el model per a la taula <code>Genre</code>.</li>
+<li>En <code>Movie</code> afig la propietat <code>$genre_id</code> que serà la clau aliena a la taula <code>Genere</code> i crea els mètodes
+   <code>Movie::setGenreId()</code> i <code>Movie::getGenreId()</code> per a accedir a la propietat.</li>
+<li>Modifica el formulari de creació de pel·lícules perquè es puga triar el gènere d'una llista desplegable.</li>
+<li>En el llistat de pel·lícules (<code>movies.php</code>) afig una columna que mostre el <code>id</code> de gènere.</li>
+<li>Modifica <code>Model::save()</code> perquè assigne l'últim id inserit a l'element Entity.
+   </li></ol></article></div></div></main></div></body></html>
+
+<h3 id="obtenint-el-genere">Obtenint el gènere</h3>
+<h4 id="enunciat_1">Enunciat</h4>
+<ol>
+<li>Implementa el mètode <code>MovieModel::getGenre()</code> de forma que en rebre l'id d'un gènere et torne
+   l'objecte gènere relacionat.</li>
+<li>Utilitza el mètode anterior perquè en <code>movies.php</code> aparega el nom del gènere enlloc del seu <code>id</code>.</li>
+</ol>
+<h2 id="transaccions">Transaccions</h2>
+<p>Una transacció en un Sistema de Gestió de Bases de Dades és un conjunt
+d'ordres que s'executen formant una unitat de treball, és a dir, en
+forma indivisible o atòmica.</p>
+<p>Un SGBD es diu transaccional si és capaç de mantenir la integritat de
+dades, fent que aquestes transaccions no puguin finalitzar en un estat
+intermedi. Quan per alguna causa el sistema ha de cancel·lar la
+transacció, comença a desfer les ordres executades fins a deixar la base
+de dades en el seu estat inicial (anomenat punt d'integritat), com si
+l'ordre de la transacció mai s'hagués realitzat. Una transacció ha de
+comptar amb ACID (un acrònim anglès) que vol dir: Atomicidad,
+consistència, aïllament i durabilitat.</p>
+<h3 id="transaccions-en-pdo">Transaccions en PDO</h3>
+<p>Com ja hem comentat, no tots els SGBD són transaccionals. Però també es
+possible que tot i que el SGBD ho siga el motor d'emmagatzemat no ho
+suporte. Per la qual cosa si necessites utilitzar transaccions hauràs
+d'assegurar-se que estiguen suportades pel motor d'emmagatzematge que
+gestiona les teves taules en MySQL. Per exemple el motor MyISAM no les
+suporta.</p>
+<p>Per defecte PDO treballa en mode autocommit. Confirma automàticament
+cada sentència que executa el servidor.</p>
+<p>Per treballar amb transaccions, PDO incorpora tres mètodes:</p>
+<ul>
+<li><code>beginTransaction</code>. Deshabilita la manera autocommit i comença una
+  nova transacció, que finalitzarà quan executis un dels dos mètodes<br/>
+  següents.</li>
+<li><code>commit</code>. Confirma la transacció actual.</li>
+<li><code>rollback</code>. Reverteix els canvis duts a terme a la transacció
+  actual.</li>
+</ul>
+<p>Un cop executat un <code>commit</code> o <code>rollback</code>, es tornarà al mode de
+confirmació automàtica.</p>
+<p>Si utilitzem un motor que no suporta transaccions PDO no mostrarà cap
+error, simplement serà incapaç de realitzar un <code>rollback</code> si fora
+necessari.</p>
+<h3 id="esquema-basic-dus-de-transaccions-amb-pdo">Esquema bàsic d'ús de transaccions amb PDO</h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="c1">#Esquema bàsic d'ús de PDO</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">try</span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="s1">'DELETE ...'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="s1">'UPDATE ...'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">commit</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">catch</span><span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$exception</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">rollback</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+</code></pre></div>
+<h3 id="exemple">Exemple</h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="nv">$mbd</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s1">'odbc:SAMPLE'</span><span class="p">,</span> <span class="s1">'db2inst1'</span><span class="p">,</span> <span class="s1">'ibmdb2'</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 2 "></span>            <span class="k">array</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_PERSISTENT</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="k">echo</span> <span class="s2">"Conectado</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="k">die</span><span class="p">(</span><span class="s2">"No se pudo conectar: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$mbd</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$mbd</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$mbd</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="s2">"insert into staff (id, first, last) values (23, 'Joe', 'Bloggs')"</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nv">$mbd</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="s2">"insert into salarychange (id, amount, changedate)</span>
+<span class="linenos" data-linenos="14 "></span><span class="s2">          values (23, 50000, NOW())"</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="nv">$mbd</span><span class="o">-&gt;</span><span class="na">commit</span><span class="p">();</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="nv">$mbd</span><span class="o">-&gt;</span><span class="na">rollBack</span><span class="p">();</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="k">echo</span> <span class="s2">"Fallo: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="p">}</span>
+</code></pre></div>
+<h3 id="transaccions_1">Transaccions</h3>
+<h4 id="enunciat_2">Enunciat</h4>
+<p>Implementa una transacció de forma que les operacions d'inserció de pel·lícules en la base de dades
+i d'actualització del número de gèneres s'execute de forma única (com si fos una).</p>
+
+<hr/>
+<p>layout: default
+parent: 5. Accés a dades amb PHP PDO
+nav_order: 7
+has_children: false</p>
+<hr/>
+<h1 id="paginacio">Paginació</h1>
+<p>La paginació és el procés de dividir un document en pàgines. En el nostre cas, limitar el nombre de registres
+una taula que volem mostrar en cada pàgina.</p>
+<p><img alt="Paginació" src="../assets/paginacio-bootstrap.png"/></p>
+<p>En MySQL disposem de les claúsules LIMIT i OFFSET per poder implementar la paginació.</p>
+<p>Exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">post</span> <span class="k">LIMIT</span> <span class="mi">4</span> <span class="k">OFFSET</span> <span class="mi">0</span>
+</code></pre></div>
+<p>La consulta tornaria 4 registres a partir del primer (OFFSET 0).</p>
+<p>Hi ha una sintaxi alternativa en la que els valors es separem per coma i s'omet la clau OFFSET:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">post</span> <span class="k">LIMIT</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span>
+</code></pre></div>
+<p>En aquest cas l'offset es situa després de límit.</p>
+<p>A l'hora de realitzar la consulta ho farem mitjançant consultes preparades, passant com a paràmetres l'offset i
+el límit.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$stmt</span><span class="o">=</span><span class="nv">$conn→prepare</span><span class="p">(</span>
+<span class="linenos" data-linenos="2 "></span><span class="s2">"SELECT * FROM movie</span>
+<span class="linenos" data-linenos="3 "></span><span class="s2"> LIMIT :limit</span>
+<span class="linenos" data-linenos="4 "></span><span class="s2"> OFFSET :offset"</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$stmt→bindValue</span><span class="p">(</span><span class="s1">':limit'</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="nv">$stmt→bindValue</span><span class="p">(</span><span class="s1">':offset'</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span><span class="nv">$stmt→execute</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="obtenir-les-dades-paginades">Obtenir les dades paginades</h2>
+<p>Per a implementar la paginació necessitarem saber:</p>
+<ul>
+<li>El límit (quants registres mostrarem).</li>
+<li>L'offset (a partir de quin registre mostrem).</li>
+</ul>
+<p>Això ho calcularem a partir de:</p>
+<ul>
+<li>La grandària de la pàgina (límit).</li>
+<li>El número de pàgina actual (per a calcular l’offset).</li>
+</ul>
+<p>Per conèixer el número total de pàgines caldrà saber el número total de registres.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$numberOfRecordsPerPage</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// el número de pàgina es sol passar en un paràmetre del _querystring_.</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$currentPage</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_GET</span><span class="p">,</span> <span class="s2">"page"</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_INT</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">// si $currentPage és false o null després del filter_input assignarem</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// el valor 1 per defecte.</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$currentPage</span><span class="p">))</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nv">$currentPage</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="c1">// Calculem el offset</span>
+<span class="linenos" data-linenos="13 "></span><span class="c1">// si $currentPage = 1, $offset = 0</span>
+<span class="linenos" data-linenos="14 "></span><span class="c1">// si $currentPage = 2, $offset = 4</span>
+<span class="linenos" data-linenos="15 "></span><span class="nv">$offset</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$currentPage</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nv">$numberOfRecordsPerPage</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="c1">// el límit el determina la grandària de pàgina</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$limit</span> <span class="o">=</span> <span class="nv">$numberOfRecordsPerPage</span><span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="nv">$stmt</span><span class="o">=</span><span class="nv">$conn→prepare</span><span class="p">(</span>
+<span class="linenos" data-linenos="21 "></span><span class="s2">"SELECT * FROM movie</span>
+<span class="linenos" data-linenos="22 "></span><span class="s2"> LIMIT :limit</span>
+<span class="linenos" data-linenos="23 "></span><span class="s2"> OFFSET :offset"</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span><span class="nv">$stmt→bindValue</span><span class="p">(</span><span class="s1">':limit'</span><span class="p">,</span> <span class="nv">$limit</span><span class="p">);</span>
+<span class="linenos" data-linenos="25 "></span><span class="nv">$stmt→bindValue</span><span class="p">(</span><span class="s1">':offset'</span><span class="p">,</span> <span class="nv">$offset</span><span class="p">);</span>
+<span class="linenos" data-linenos="26 "></span><span class="nv">$stmt→execute</span><span class="p">();</span>
+</code></pre></div>
+<p><img alt="Paginació" src="../assets/paginacio-exemple.png"/></p>
+<h2 id="navegar-entre-les-pagines">Navegar entre les pàgines</h2>
+<p>Obtenir les dades paginades és el primer pas. Després caldrà implementar el típic navegador.</p>
+<p>Teniu un exemple en aquest tutorial <a href="https://www.digitalocean.com/community/tutorials/how-to-implement-pagination-in-mysql-with-php-on-ubuntu-18-04#step-3-—-implementing-pagination-with-php">How to implement pagination in MySQL</a></p>
+<p>{:.alert .alert-activity}</p>
+<div class="activity" markdown="1">
+
+### Paginació
+
+{:.nocount .no_toc}
+
+#### Enunciat
+
+{:.nocount .no_toc}
+
+1. Modifica `index.php`de forma que sols mostre les 8 pel·lícules més noves.
+2. Implementa un paginador en `movies.php` de forma que mostre 10 pel·lícules per pàgina i pugam navegar entre pàgines.
+3. Implementa `Model::findAllPaginated()` amb 3 paràmetres opcionals $currentPage que rebrà la pàgina
+actual, per defecte serà 1; $numberOfRecords que serà la grandària de la pàgina, per defecte serà 10; i \$order que
+   funcionarà com en `Model::findAll()`. [Opcional].
+   </div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>---
+</code></pre></div>
+<p>layout: default
+   parent: 5. Accés a dades amb PHP PDO
+   nav_order: 5
+   has_children: false</p>
+<hr/>
+<h1 id="procediments-emmagatzemats">Procediments emmagatzemats</h1>
+<h2 id="introduccio">Introducció</h2>
+<p>Un procediment emmagatzemat és un programa (o procediment) emmagatzemat dins d'una base de dades.
+Estan escrits en llenguatges d'alt nivell (normalment propietaris, és a dir, cada SGBD implementa el seu)
+i contenen sentències d'SQL.</p>
+<p>El principal avantatge d'un procediment emmagatzemat és que quan s'executa, com a conseqüència
+d'una petició d'un usuari, ho fa directament en la base de dades i per tant és més ràpid processant dades que
+si el mateix procés es realitzés fora de la base de dades (probablement en un altre servidor),
+ja que estalvia la transmissió de les dades que tracta.</p>
+<h2 id="implementacio">Implementació</h2>
+<p>La sentència SELECT següent retorna totes les files de la taula <code>movie</code> la nostra base de dades:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">SELECT</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="o">*</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">FROM</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">movie</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">title</span><span class="p">;</span>
+</code></pre></div>
+<p>Si voleu desar aquesta consulta al servidor de base de dades per executar-la més endavant, una manera de fer-ho
+és utilitzar un procediment emmagatzemat.</p>
+<p>La sentència CREATE PROCEDURE següent crea un nou procediment emmagatzemat que completa la consulta anterior:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">DELIMITER</span> <span class="err">$$</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">GetMovies</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">BEGIN</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">SELECT</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="o">*</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">FROM</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="n">movie</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">title</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="k">END</span><span class="err">$$</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">DELIMITER</span> <span class="p">;</span>
+</code></pre></div>
+<p>Per definició, un procediment emmagatzemat és un conjunt d’instruccions SQL emmagatzemades dins del
+servidor MySQL. En aquest exemple, acabem de crear un procediment emmagatzemat amb el nom <code>GetMovies()</code>.</p>
+<p>Un cop desat el procediment emmagatzemat, el podeu invocar mitjançant la sentència CALL:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">CALL</span> <span class="n">GetMovies</span><span class="p">();</span>
+</code></pre></div>
+<p>I la sentència retorna el mateix resultat que la consulta.</p>
+<p>La primera vegada que invoqueu un procediment emmagatzemat, MySQL busca el nom al catàleg de la
+base de dades, compila el codi del procediment emmagatzemat, el col·loca en una àrea de memòria coneguda com a
+memòria cau i executa el procediment emmagatzemat.</p>
+<p>Si torneu a invocar el mateix procediment emmagatzemat a la mateixa sessió,
+MySQL només executa el procediment emmagatzemat des de la memòria cau sense haver de recompilar-lo.</p>
+<p>Un procediment emmagatzemat pot tenir paràmetres perquè pugueu passar-hi valors i recuperar-ne
+el resultat. Per exemple, podeu tenir un procediment emmagatzemat que retorne les pel·lícules per
+gènere. En aquest cas, el gènere seria un paràmetre del procediment emmagatzemat.</p>
+<p>Un procediment emmagatzemat pot contenir declaracions de flux de control, com ara IF, CASE i LOOP que li
+permeten implementar el codi en la forma de procediment.</p>
+<p>Un procediment emmagatzemat pot cridar a altres procediments emmagatzemats o funcions
+emmagatzemades, cosa que permet modular el codi.</p>
+<h2 id="canvi-temporal-del-delimitador">Canvi temporal del delimitador</h2>
+<p>Com que el delimitador de sentències per defecte en MySQL és el punt i coma (;). Si intenteu crear un procediment
+emmagatzemant amb diverses sentències el client MySQL interpretarà que cada sentència és diferent i
+podeu tenir problemes.</p>
+<p>La forma d'evitar aquest problema és canviar temporalment el delimitador.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">-- Canvie el delimitador</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">DELIMITER</span> <span class="o">//</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">-- Ací posaríem la declaració del procediment emmagatzemant</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">CREATE</span> <span class="k">PROCEDURE</span>  <span class="p">...</span>
+<span class="linenos" data-linenos=" 6 "></span> <span class="k">BEGIN</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">SELECT</span> <span class="o">*</span> <span class="p">...;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">SELECT</span> <span class="o">*</span> <span class="p">...;</span>
+<span class="linenos" data-linenos=" 9 "></span> <span class="k">END</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="c1">-- Tornem al delimitador per defecte</span>
+<span class="linenos" data-linenos="12 "></span><span class="k">DELIMITER</span> <span class="p">;</span>
+</code></pre></div>
+<h2 id="executar-procediments-emmagatzemats-des-de-php">Executar procediments emmagatzemats des de PHP</h2>
+<p>La forma d'executar procediments emmagatzemats des de PHP és molt semblant a executar qualsevol consulta:</p>
+<p>En aquest exemple es crida un procediment emmagatzemant sense paràmetres:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$sentencia</span> <span class="o">=</span> <span class="nv">$mbd</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"CALL sp_update_counters()"</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// llamar al procedimiento almacenado</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$sentencia</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+</code></pre></div>
+<p>{:.alert .alert-activity}</p>
+<div class="activity" markdown="1">
+
+### Procediment emmagatzemat
+
+{:.nocount .no_toc}
+
+#### Enunciat
+
+{:.nocount .no_toc}
+
+1. Crea un procediment emmagatzemant anomenat `sp_update_number_of_movies()`que actualitze els
+   contadors de pel·lícues de gènere. Aquest procediment serà excutat regularment perquè cada gènere tinga
+   el número de pel·lícules del gènere actualitat.
+2. Crea en el projecte la pàgina `tasks.php` que incloga l'execució del procediment emmagatzemant.
+   </div>
+<h2 id="webgrafia">Webgrafia</h2>
+<ul>
+<li>
+<p>The PHP Group. <em>Sentencias preparadas y procedimientos almacenados</em> [En línia]. Manual de PHP [Data de consulta:
+  20 de novembre de 2020]. Disponible en <a href="https://www.php.net/manual/es/pdo.prepared-statements.php">https://www.php.net/manual/es/pdo.prepared-statements.php</a></p>
+</li>
+<li>
+<p>MySQLtutorial.org. <em>Introduction to MySQL Strored Procedures</em> [En línia]. MySQLTutorial [Data de consulta: 20 de
+  novembre de 2020]. Disponible en <a href="https://www.mysqltutorial.org/introduction-to-sql-stored-procedures.aspx">https://www.mysqltutorial.org/introduction-to-sql-stored-procedures.aspx</a> ---
+  layout: default
+  parent: 5. Accés a dades amb PHP PDO
+  nav_order: 7
+  has_children: false</p>
+</li>
+</ul>
+<hr/>
+<h1 id="triggers">Triggers</h1>
+<p>Els disparadors (triggers) són procediments emmagatzemats a la base de dades que s’executen automàticament
+quan es du a terme una operació INSERT, DELETE o UPDATE sobre alguna taula en concret i permeten
+als usuaris executar funcions introduïdes per altres usuaris sense conèixer-ne la implementació.</p>
+<p>No es poden dur a terme en una operació SELECT.</p>
+<p>Aquesta acció podria servir per fer una comprovació de consistència en un conjunt de valors
+per ser inserits, en el format de les dades abans de ser introduïdes, en una modificació
+en una taula o en una modificació d’un conjunt de files.</p>
+<p>L’estàndard SQL defineix dos tipus d’activadors: activadors a nivell de fila i activadors a nivell d’instruccions.</p>
+<ul>
+<li>S'activa un activador a nivell de fila per a cada fila que s'insereix, s'actualitza o se suprimeix.
+  Per exemple, si una taula té 100 files inserides, actualitzades o suprimides, el disparador
+  s'invoca automàticament 100 vegades per a les 100 files afectades.</li>
+<li>Un activador a nivell de sentència s'executa una vegada per a cada transacció
+  independentment del nombre de files inserides, actualitzades o suprimides.</li>
+</ul>
+<p>MySQL només admet activadors a nivell de fila. No admet els activadors a nivell de sentència.</p>
+<p>En el <a href="https://www.mysqltutorial.org/mysql-triggers.aspx">Tutorial de Triggers MySQL</a> teniu més informació.</p>
+<p>En el nostre cas implementarem el següent disparador que actualitzarà el contador de pel·lícules de gènere quan hi
+haja una modificació en el gènere d'una pel·lícula.</p>
+<p>Aquesta és la sintaxi d'un trigger BEFORE UPDATE</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="k">trigger_name</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">BEFORE</span> <span class="k">UPDATE</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">ON</span> <span class="k">table_name</span> <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">trigger_body</span>
+</code></pre></div>
+<p>En aquest exemple el trigger executarà despŕes (AFTER UPDATE) d'actualitzar una pe·lícula:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">DELIMITER</span> <span class="err">$$</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">after_movie_update</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">AFTER</span> <span class="k">UPDATE</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">ON</span> <span class="n">movie</span> <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">BEGIN</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">-- Si hi ha un canvi en el gènere</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">IF</span> <span class="k">new</span><span class="p">.</span><span class="n">genre_id</span> <span class="o">&lt;&gt;</span> <span class="k">old</span><span class="p">.</span><span class="n">genre_id</span> <span class="k">THEN</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="c1">-- Restem 1 al contador del gènere antic</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">UPDATE</span> <span class="n">genre</span> <span class="k">SET</span> <span class="n">number_of_movies</span> <span class="o">=</span> <span class="n">number_of_movies</span> <span class="o">-</span><span class="mi">1</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="k">old</span><span class="p">.</span><span class="n">genre_id</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="c1">-- Sumem 1 al contador del gènere nou</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">UPDATE</span> <span class="n">genre</span> <span class="k">SET</span> <span class="n">number_of_movies</span> <span class="o">=</span> <span class="n">number_of_movies</span> <span class="o">+</span><span class="mi">1</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="k">new</span><span class="p">.</span><span class="n">genre_id</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span><span class="k">END</span><span class="err">$$</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="k">DELIMITER</span> <span class="p">;</span>
+</code></pre></div>
+<p>{:.alert .alert-activity}</p>
+<div markdown="1">
+
+### Trigger
+
+{:.nocount .no_toc}
+
+#### Enunciat
+
+{:.nocount .no_toc}
+
+1. Implementa un _trigger_ de forma que en actualitzar una pel·lícula es comprove si ha canviat
+   el gènere seleccionat. En cas afirmatiu que decremente el contador de pel·lícules en el gènere anterior
+   i augment en el nou.
+
+2. Implementa un _trigger_ actualitze el contador de pel·lícules en esborrar una pel·lícula.
+
+Crea una carpeta anomenada `data` en el projecte i guarda en ella una exportació de la base de dades.
+
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>---
+</code></pre></div>
+<p>layout: default
+parent: 5. Accés a dades amb PHP PDO
+nav_order: 8
+has_children: false</p>
+<hr/>
+<h2 id="errors-frequents">Errors freqüents</h2>
+<h3 id="problemes-amb-releasedate">Problemes amb \$releaseDate</h3>
+<p>La funció <code>fechtAll()</code> amb el mode <code>FETCH_CLASS</code> torna un array d'objectes de la classe que li hem passat
+com a 2n paràmetre. El que fa és assignar cada camp de la taula a una propietat de la classe, <em>si la propietat no existeix
+la crea</em>.</p>
+<p>Al treballar en tipat estricte <code>declare(strict_types=1)</code>, si el tipus d'una propietat no és escalar (tipus bàsic),
+la funció <code>fetchAll()</code> amb el mode <code>FECHT_CLASS</code> falla.</p>
+<p>Eixe és el problema si usem <code>private DateTime $release_date</code>, que com la data la intenta guardar en <code>string</code> i la
+propietat és de tipus <code>DateTime</code> mostra un error.</p>
+<p>La solució més elegant que he trobat i que ens permet usar el mode <code>FETCH_PROPS_LATE</code> en el <code>fechtAll()</code> es tractar
+d'aprofitar que quan recuperem dades d'una taula amb <code>FETCH_CLASS</code> si les propietats que no eixisteixen en la classe les crea.</p>
+<p>Això dispara el mètode màgic <code>__set($name, $value)</code> i perment que puguem llegir el valor i convertir-lo en
+<code>DateTime</code> sobre la propietat \$releaseDate.</p>
+<p>Per això hem de llevar la propietat <code>$release_date</code> i gestionar-ho en el <code>__set</code> de la següent manera:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">private</span> <span class="nx">int</span> <span class="nv">$id</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">private</span> <span class="nx">string</span> <span class="nv">$title</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">private</span> <span class="nx">string</span> <span class="nv">$overview</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// private string $release_date;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">private</span> <span class="nx">DateTime</span> <span class="nv">$releaseDate</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">private</span> <span class="nx">float</span> <span class="nv">$starsRating</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">private</span> <span class="o">?</span><span class="nx">string</span> <span class="nv">$tagline</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">private</span> <span class="nx">string</span> <span class="nv">$poster</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$name</span> <span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">switch</span> <span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">case</span> <span class="s2">"release_date"</span><span class="o">:</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">releaseDate</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s2">"Y-m-d"</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<p>El constructor ja no serà necessari.</p>
+<h2 id="valors-que-poden-ser-null">Valors que poden ser null</h2>
+<p>Es possible que alguns valor en una taula puguen ser <code>null</code> (no ser obligatoris). Recordeu que <code>null</code> en PHP és un
+tipus així que també, a consequència del tipat estricte, fallarà.</p>
+<p>La solució la podeu veure en l'exemple anterior, el símbol <code>?</code> india que la propietat <code>$tagline</code> potser <code>string</code> o <code>null</code>.</p>
+<p>Òbviament, si un camp pot ser <code>null</code>, s'hauria d'indicar en la base de dades i no hauria de ser obligatori
+en els formularis.</p>
+<h2 id="els-fitxers-es-pugen-quan-hi-ha-errors">Els fitxers es pugen quan hi ha errors</h2>
+<p>En els formularis d'inserció i edició si hi ha un error de validació en algun camp i s'ha pujat una imatge, la imatge
+es puja i es guarda igualment.</p>
+<h2 id="lentitat-movie-o-partner-no-es-carrega">L'entitat <code>movie</code> o <code>partner</code> no es carrega</h2>
+<p>Hi ha alguns casos en que l'entitat <code>movie</code> o <code>partner</code> no es carrega adequadament si s'envia el formulari d'edició amb
+errors. El motiu és perquè per a carregar-se depén el <em>querystring</em>.</p>
+<p>Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$id</span> <span class="o">=</span> <span class="nb">filter_input</span><span class="p">(</span><span class="nx">INPUT_GET</span><span class="p">,</span> <span class="s1">'id'</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_INT</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$id</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$errors</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">"404 Not found"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s1">'SELECT * FROM movie WHERE id=:id'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">PARAM_INT</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">setFetchMode</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_CLASS</span><span class="p">,</span> <span class="nx">Movie</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nv">$movie</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+</code></pre></div>
+<p>En el vídeo a mi en funcionava per casualitat (ho explicaré després) perquè per un error el formulari s'enviava a la
+url amb querystring, per exemple, <code>http://00-vicent.local/movies-edit.php?id=245</code>.</p>
+<h2 id="url-estranya">URL estranya</h2>
+<p>El tema de la URL estranya està motivada perquè en alguns sistemes, en el meu per exemple, puc fer açò:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"PHP_SELF"</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Hem permet usat <code>&lt;?</code> en lloc de <code>&lt;?php</code>. El motiu el desconec. Per això a mi no m'escrivia res, m'havia oblidat de
+posar el <code>=</code> i. En el cas de Pepe i David no, perquè el seu sistema no ho interpreta com codi PHP
+i suposa que es HTML, per això en enviar el formulari els eixia la URL estranya.</p>
+<h2 id="validacio-i-separacio-de-logica-i-presentacio">Validació i separació de lògica i presentació</h2>
+<p>Tant la validació de les dades rebudes del formulari com la separació de la lògica i la presentació són bones
+pràctiques que s'han de fer sempre.</p>
+<h2 id="parametres">Paràmetres</h2>
+<p>Els paràmetres de les consultes preparades no es poden usar com si foren les marques <code>%s</code> de <code>sprintf()</code>, sols
+es poden aplicar en el WHERE o el HAVING de la forma que hem vist.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span><span class="s2">"</span><span class="si">$id</span><span class="s2">"</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">PARAM_INT</span><span class="p">);</span>
+</code></pre></div>
+<p>En el codi anterior sobrnm les cometes de <code>"$id"</code> ja que \$id és enter i el paràmetre també ho ha de ser,
+en este cas s'està passant un enter a string perquè <code>bindValue</code> el passe internament a enter.</p>
+<p>L'error bé perquè en el filtre fèiem <code>"%$text%"</code>, ahí és correcte perquè estem fent una expansió de la varible (una mena
+de concatenació), ja que és el paràmetre d'un LIKE.</p>
+
+
+
+
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Activitats" class="md-footer__link md-footer__link--prev" href="../../03-phpoo/0399-activities/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Activitats
+            </div>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+
