@@ -290,6 +290,11 @@
     Modificant i esborrants pel·lícules
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creant-transaccions">
+    Creant transaccions
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -916,6 +921,58 @@ següents:</p>
 <li>Crea el formulari per a esborrar pel·lícules (<code>movies-delete.php</code>).</li>
 <li>Afig en cada pel·lícula un enllaç per a esborrar i editar la película.</li>
 </ol>
+<h3 id="creant-transaccions">Creant transaccions</h3>
+<p>Per poder fer aquesta activitat caldrà tenir en la base de dades les taules: <code>user</code> i <code>rating</code>.</p>
+<div class="mermaid">erDiagram
+    user ||--o{ rating : places
+    movie ||--o{ rating : contains
+    rating {
+        int id    
+        int value        
+    }
+    user {
+     int id
+     string username
+     string password     
+    }    
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span> <span class="p">(</span>
+<span class="linenos" data-linenos=" 2 "></span>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="o">`</span><span class="n">value</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="o">`</span><span class="n">movie_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="o">`</span><span class="n">user_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_spanish2_ci</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span> <span class="p">(</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="o">`</span><span class="n">username</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="o">`</span><span class="n">password</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_spanish2_ci</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span>
+<span class="linenos" data-linenos="16 "></span>  <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span>
+<span class="linenos" data-linenos="19 "></span>  <span class="k">MODIFY</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span>
+<span class="linenos" data-linenos="22 "></span>  <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
+<span class="linenos" data-linenos="23 "></span>  <span class="k">ADD</span> <span class="k">UNIQUE</span> <span class="k">KEY</span> <span class="o">`</span><span class="n">movie_user_idx</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">movie_id</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">)</span> <span class="k">USING</span> <span class="n">BTREE</span><span class="p">;</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span>
+<span class="linenos" data-linenos="26 "></span>  <span class="k">MODIFY</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">;</span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span>
+<span class="linenos" data-linenos="29 "></span>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="o">`</span><span class="n">rating_movie_fk</span><span class="o">`</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">movie_id</span><span class="o">`</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
+<span class="linenos" data-linenos="30 "></span>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="o">`</span><span class="n">rating_user_fk</span><span class="o">`</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">);</span>
+<span class="linenos" data-linenos="31 "></span><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<ol>
+<li>Els usuaris podran valorar una pel·lícula amb un número de l'1 al 5, per aquest motiu afegirem en la classe <code>User</code> el mètode <code>rate</code> que rebrà com a paràmetres una pel·lícula i una valoració.</li>
+<li>El mètode <code>rate</code> crearà un nou registre en la taula <code>rating</code> per evitar duplicats i a mès, actualitzarà la valoració de la pel·lícula tenint en compte la valoració de l'usuari.</li>
+<li>Aquestes dos sentències contra la base de dades estaran dintre d'una transacció, ja que s'han d'executar com si foren una.</li>
+</ol>
 </article>
 </div>
 </div>
@@ -958,5 +1015,5 @@ següents:</p>
 <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
 <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</body>
+<script>mermaid.initialize({});</script></body>
 </html>
