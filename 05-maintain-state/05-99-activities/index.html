@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>2. Tecnologies per a programació web del costat del servidor - DWES</title>
+<title>Activitats - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#2-tecnologies-per-a-programacio-web-del-costat-del-servidor">
+<a class="md-skip" href="#activitats">
           Salta el contingut
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              2. Tecnologies per a programació web del costat del servidor
+              Activitats
             
           </span>
 </div>
@@ -104,7 +104,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../01-intro/">
         1.- Introducció a la programació Web
       </a>
 </li>
@@ -168,8 +168,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
         5.- Manteniment de l'estat
         <span class="md-nav__icon md-icon"></span>
@@ -181,19 +181,46 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05-maintain-state/05-01-intro/">
+<a class="md-nav__link" href="../05-01-intro/">
         Introducció
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05-maintain-state/05-02-cookies/">
+<a class="md-nav__link" href="../05-02-cookies/">
         Galetes (cookies)
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../05-maintain-state/05-99-activities/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Activitats
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Activitats
       </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cookies">
+    Cookies
+  </a>
+<nav aria-label="Cookies" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#projecte-moviefx">
+    Projecte MovieFX
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -205,127 +232,48 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="2-tecnologies-per-a-programacio-web-del-costat-del-servidor">2. Tecnologies per a programació web del costat del servidor</h1>
-<h2 id="introduccio">Introducció</h2>
-<p>Des d'un punt de vista de desenvolupament una aproximació més detallada
-al model client-servidor és el que es coneix com a <strong>model en 3 capes</strong>.
-És un model on es mostra més en detall com es distribueix el programari
-que participa en qualsevol desenvolupament web. Segueix estant present
-l'arquitectura client-servidor (tot es basa en ella) però apareixen més
-detalls com el programari utilitzat en cada un dels dos actors i com
-interactuen les diferents tecnologies o aplicacions.</p>
-<p>Per comprendre millor que és el model de desenvolupament de 3 capes
-podem tirar un ull al següent esquema on es mostra cadascuna d'aquestes
-capes i que s'encarrega cadascuna d'elles:</p>
-<p><img alt="**Model de desenvolupament de 3
-capes**" src="../assets/3_capas.png" title="Model de desenvolupament de 3 capes"/></p>
-<ul>
-<li><strong>Capa de presentació:</strong> És la capa on l'aplicació es mostra a
-    l'usuari. Bàsicament és la GUI (<em>Graphical User Interface,
-    interfície gràfica d'usuari</em>). En el cas d'una aplicació web seria
-    el codi HTML que es carrega directament al navegador web. En
-    qualsevol cas, s'executa directament en l'equip del client.</li>
-<li><strong>Capa de negoci:</strong> És la capa intermèdia on es porta a terme tota
-    la lògica de l'aplicació. Sempre s'executarà en el costat
-    servidor. Aquesta capa, després de realitzar tots els càlculs i / o
-    operacions sobre les dades, genera el codi HTML que serà presentat a
-    l'usuari en la capa següent.</li>
-<li><strong>Capa de dades:</strong> És la capa que emmagatzema les dades. Bàsicament,
-    en condicions normals, fa referència al propi SGBD que és
-    l'encarregat d'emmagatzemar les dades. Depenent de l'arquitectura
-    de l'aplicació, aquesta capa i la de negoci es poden trobar
-    físicament en el mateix equip, encara que també és possible que
-    s'hagin de separar per qüestions de rendiment. La capa de dades
-    serveix totes la informació necessària a la capa de negoci per dur a
-    terme les seves operacions.</li>
-</ul>
-<p>Si ens imaginem una botiga online, la capa de dades emmagatzema tota la
-informació en una base de dades (usuaris, comandes, articles,
-ofertes,...), La capa de negoci ha d'accedir a aquesta informació i,
-després processar una comanda, per exemple, ha de presentar el resultat
-final a l'usuari en el navegador, que és la capa de presentació.</p>
-<p>I si ens centrem en un cas concret amb programari i tecnologies ja
-definits, un model de 3 capes podria ser el següent:</p>
-<p><img alt="**Modelo de desarrollo de 3 capas (desarrollo web con
-PHP)**" src="../assets/3_capas2.jpg" title=": Modelo de desarrollo de 3 capas (desarrollo web con PHP)"/></p>
-<ul>
-<li>Navegador web: En aquest cas, Mozilla Firefox, Internet Explorer o
-    Google Chrome podrien ser qualsevol de les aplicacions que ocuparien
-    aquesta capa</li>
-<li>Apache + PHP / IIS + ASP: Un servidor web acompanyat del seu
-    corresponent llenguatge de programació web permeten desenvolupar la
-    part que ocupa la capa de negoci. També podríem col·locar la
-    combinació Apache Tomcat + Servlets</li>
-<li>MySQL / PostgreSQL: Finalment a la capa de dades podem posar
-    qualsevol SGBD, com poden ser MySQL o PostgreSQL.</li>
-</ul>
-<p>L'avantatge principal d'aquest model és que el desenvolupament es pot
-dur a terme en diversos nivells i, en cas que sobrevinga algun canvi,
-només afectarà el nivell requerit sense haver de revisar entre el codi
-font d'altres mòduls, atès que s'haurà reduït el acoblament informàtic
-fins a una interfície de pas de missatges.
-:::</p>
-<h2 id="front-end-back-end-full-stack">Front-end, Back-end, Full stack</h2>
-<p>També tenint en compte en quin costat se situen les tecnologies i per a
-què s'utilitzen aquestes, actualment es parla molt de 3 perfils
-diferenciats en l'àmbit del desenvolupament web:</p>
-<ul>
-<li><strong>Front-end:</strong> És la part del desenvolupament que s'encarrega del
-    disseny i maquetació de l'aplicació web utilitzant tecnologies com
-    HTML, CSS i Javascript (i els seus frameworks). En aquest cas s'ha
-    de preocupar també de la correcta presentació en qualsevol tipus de
-    dispositiu i fins i tot del posicionament en cercadors</li>
-<li><strong>Back-end:</strong> És la part del desenvolupament que s'encarrega del
-    costat servidor utilitzant tecnologies com PHP, JSP i Python. També
-    s'encarrega de l'administració del servidor d'aplicacions i la
-    base de dades.</li>
-<li><strong>Full stack:</strong> En un perfil que engloba els dos anteriors. En
-    aquest cas el desenvolupador potser no és un expert de cap
-    tecnologia concreta però té amplis coneixements de tot el conjunt i
-    és capaç de col·laborar en qualsevol de les parts.</li>
-</ul>
-<p><img alt="" src="../assets/fullstack.jpg"/></p>
-<h2 id="servidors-web-i-servidors-daplicacions">Servidors web i servidors d'aplicacions</h2>
-<p>Així com les aplicacions d'escriptori s'executen directament sobre el
-sistema operatiu, les aplicacions web necessiten d'una
-eina addicional que permeti desplegar-les per a la seva posada en marxa.
-Parlem de <a href="https://en.wikipedia.org/wiki/Comparison_of_web_server_software">servidors
-web</a> i
-<a href="https://en.wikipedia.org/wiki/Application_server">servidors
-d'aplicacions</a>,
-respectivament.</p>
-<h3 id="que-es-un-servidor-web">Què és un servidor web?</h3>
-<p>Un servidor web és una aplicació que rep una petició HTTP (normalment a
-través d'un navegador web) i retorna la pàgina web sol·licitada
-(escrita en llenguatge HTML i podent contenir codi Javascript
-encastat) perquè aquesta sigua interpretada i visualitzada pel
-navegador de qui va realitzar la sol·licitud (l'usuari).</p>
-<h3 id="que-es-un-servidor-daplicacions">Què és un servidor d'aplicacions?</h3>
-<p>Un servidor d'aplicacions és un servidor que permet l'execució d'aplicacions web.</p>
-<h3 id="exemples">Exemples</h3>
-<h4 id="apache">Apache</h4>
-<p>Apache és un dels servidors web més coneguts. És programari lliure i
-multiplataforma, encara que aproximadament el 90% dels servidors Apache
-s'executen actualment en entorns Linux ja que és el servidor preferit
-per a aquesta plataforma.</p>
-<p>És molt modular el que permet incorporar característiques un cop
-instal·lat i posat en marxa. Això li fa també molt flexible i pot donar
-servei a webs escrites en els llenguatges de programació web més estesos
-(com PHP, Python, ASP,...) A través del mòdul corresponent.</p>
-<h4 id="apache-tomcat">Apache Tomcat</h4>
-<p>Apache Tomcat és un servidor d'aplicacions que funciona com a
-contenidor de Servlets de Java. Actualment és capaç d'implementar
-diverses especificacions de Java EE com Servlets i JSP (Java Server
-Pages) i més proporciona un servidor web pur perquè es faça servir en
-combinació amb l'entorn Java.</p>
-<h4 id="wsgi-web-server-gateway-interface">WSGI (<em>Web Server Gateway Interface</em>)</h4>
-<p>WSGI és una interfície que defineix com es comunica un servidor web amb
-aplicacions web o frameworks escrits en Python.</p>
+<h1 id="activitats">Activitats</h1>
+<h2 id="cookies">Cookies</h2>
+<h3 id="projecte-moviefx">Projecte MovieFX</h3>
+<ol start="501">
+<li>
+<p>Última visita. </p>
+<p>Modifica la pàgina <code>index.php</code> de forma que emmagatzeme en una galeta l'últim instant en què l'usuari va visitar la pàgina. </p>
+<p>Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de la seva anterior visita. </p>
+<p>La galeta tindrà una durada d'una setmana.</p>
+<p>Comprova que la galeta s'ha creat correctament.</p>
+</li>
+<li>
+<p>Emmagatzematge del nom de l'usuari.</p>
+<p>L'objectiu és que quan un usuari inicie sessió s'emmagatzeme el nom introduït en un galeta, de forma que quan torne a accedir al formulari d'inici de sessió aparega el nom automàticament.</p>
+<p>El nom de la <em>cookie</em> serà <code>last_used_name</code> i la durada serà de 30 dies.</p>
+<p>Crea la pàgina <code>logout.php</code> que en accedir eliminarà la <em>cookie</em>.</p>
+</li>
+<li>
+<p>Assegurant les galetes.</p>
+<p>Després de llegir l'article enllaçat, aplica els canvis oportuns per a fer més segures les <em>cookies</em>.</p>
+</li>
+</ol>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Galetes (cookies)" class="md-footer__link md-footer__link--prev" href="../05-02-cookies/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Galetes (cookies)
+            </div>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

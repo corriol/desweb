@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>2. Tecnologies per a programació web del costat del servidor - DWES</title>
+<title>Galetes (cookies) - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#2-tecnologies-per-a-programacio-web-del-costat-del-servidor">
+<a class="md-skip" href="#galetes-cookies">
           Salta el contingut
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              2. Tecnologies per a programació web del costat del servidor
+              Galetes (cookies)
             
           </span>
 </div>
@@ -104,7 +104,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../01-intro/">
         1.- Introducció a la programació Web
       </a>
 </li>
@@ -168,8 +168,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_6">
         5.- Manteniment de l'estat
         <span class="md-nav__icon md-icon"></span>
@@ -181,17 +181,35 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05-maintain-state/05-01-intro/">
+<a class="md-nav__link" href="../05-01-intro/">
         Introducció
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../05-maintain-state/05-02-cookies/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Galetes (cookies)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Galetes (cookies)
       </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#problemes-de-seguretat-relacionats-amb-galletes">
+    Problemes de seguretat relacionats amb gal·letes
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05-maintain-state/05-99-activities/">
+<a class="md-nav__link" href="../05-99-activities/">
         Activitats
       </a>
 </li>
@@ -205,127 +223,97 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="2-tecnologies-per-a-programacio-web-del-costat-del-servidor">2. Tecnologies per a programació web del costat del servidor</h1>
-<h2 id="introduccio">Introducció</h2>
-<p>Des d'un punt de vista de desenvolupament una aproximació més detallada
-al model client-servidor és el que es coneix com a <strong>model en 3 capes</strong>.
-És un model on es mostra més en detall com es distribueix el programari
-que participa en qualsevol desenvolupament web. Segueix estant present
-l'arquitectura client-servidor (tot es basa en ella) però apareixen més
-detalls com el programari utilitzat en cada un dels dos actors i com
-interactuen les diferents tecnologies o aplicacions.</p>
-<p>Per comprendre millor que és el model de desenvolupament de 3 capes
-podem tirar un ull al següent esquema on es mostra cadascuna d'aquestes
-capes i que s'encarrega cadascuna d'elles:</p>
-<p><img alt="**Model de desenvolupament de 3
-capes**" src="../assets/3_capas.png" title="Model de desenvolupament de 3 capes"/></p>
-<ul>
-<li><strong>Capa de presentació:</strong> És la capa on l'aplicació es mostra a
-    l'usuari. Bàsicament és la GUI (<em>Graphical User Interface,
-    interfície gràfica d'usuari</em>). En el cas d'una aplicació web seria
-    el codi HTML que es carrega directament al navegador web. En
-    qualsevol cas, s'executa directament en l'equip del client.</li>
-<li><strong>Capa de negoci:</strong> És la capa intermèdia on es porta a terme tota
-    la lògica de l'aplicació. Sempre s'executarà en el costat
-    servidor. Aquesta capa, després de realitzar tots els càlculs i / o
-    operacions sobre les dades, genera el codi HTML que serà presentat a
-    l'usuari en la capa següent.</li>
-<li><strong>Capa de dades:</strong> És la capa que emmagatzema les dades. Bàsicament,
-    en condicions normals, fa referència al propi SGBD que és
-    l'encarregat d'emmagatzemar les dades. Depenent de l'arquitectura
-    de l'aplicació, aquesta capa i la de negoci es poden trobar
-    físicament en el mateix equip, encara que també és possible que
-    s'hagin de separar per qüestions de rendiment. La capa de dades
-    serveix totes la informació necessària a la capa de negoci per dur a
-    terme les seves operacions.</li>
-</ul>
-<p>Si ens imaginem una botiga online, la capa de dades emmagatzema tota la
-informació en una base de dades (usuaris, comandes, articles,
-ofertes,...), La capa de negoci ha d'accedir a aquesta informació i,
-després processar una comanda, per exemple, ha de presentar el resultat
-final a l'usuari en el navegador, que és la capa de presentació.</p>
-<p>I si ens centrem en un cas concret amb programari i tecnologies ja
-definits, un model de 3 capes podria ser el següent:</p>
-<p><img alt="**Modelo de desarrollo de 3 capas (desarrollo web con
-PHP)**" src="../assets/3_capas2.jpg" title=": Modelo de desarrollo de 3 capas (desarrollo web con PHP)"/></p>
-<ul>
-<li>Navegador web: En aquest cas, Mozilla Firefox, Internet Explorer o
-    Google Chrome podrien ser qualsevol de les aplicacions que ocuparien
-    aquesta capa</li>
-<li>Apache + PHP / IIS + ASP: Un servidor web acompanyat del seu
-    corresponent llenguatge de programació web permeten desenvolupar la
-    part que ocupa la capa de negoci. També podríem col·locar la
-    combinació Apache Tomcat + Servlets</li>
-<li>MySQL / PostgreSQL: Finalment a la capa de dades podem posar
-    qualsevol SGBD, com poden ser MySQL o PostgreSQL.</li>
-</ul>
-<p>L'avantatge principal d'aquest model és que el desenvolupament es pot
-dur a terme en diversos nivells i, en cas que sobrevinga algun canvi,
-només afectarà el nivell requerit sense haver de revisar entre el codi
-font d'altres mòduls, atès que s'haurà reduït el acoblament informàtic
-fins a una interfície de pas de missatges.
-:::</p>
-<h2 id="front-end-back-end-full-stack">Front-end, Back-end, Full stack</h2>
-<p>També tenint en compte en quin costat se situen les tecnologies i per a
-què s'utilitzen aquestes, actualment es parla molt de 3 perfils
-diferenciats en l'àmbit del desenvolupament web:</p>
-<ul>
-<li><strong>Front-end:</strong> És la part del desenvolupament que s'encarrega del
-    disseny i maquetació de l'aplicació web utilitzant tecnologies com
-    HTML, CSS i Javascript (i els seus frameworks). En aquest cas s'ha
-    de preocupar també de la correcta presentació en qualsevol tipus de
-    dispositiu i fins i tot del posicionament en cercadors</li>
-<li><strong>Back-end:</strong> És la part del desenvolupament que s'encarrega del
-    costat servidor utilitzant tecnologies com PHP, JSP i Python. També
-    s'encarrega de l'administració del servidor d'aplicacions i la
-    base de dades.</li>
-<li><strong>Full stack:</strong> En un perfil que engloba els dos anteriors. En
-    aquest cas el desenvolupador potser no és un expert de cap
-    tecnologia concreta però té amplis coneixements de tot el conjunt i
-    és capaç de col·laborar en qualsevol de les parts.</li>
-</ul>
-<p><img alt="" src="../assets/fullstack.jpg"/></p>
-<h2 id="servidors-web-i-servidors-daplicacions">Servidors web i servidors d'aplicacions</h2>
-<p>Així com les aplicacions d'escriptori s'executen directament sobre el
-sistema operatiu, les aplicacions web necessiten d'una
-eina addicional que permeti desplegar-les per a la seva posada en marxa.
-Parlem de <a href="https://en.wikipedia.org/wiki/Comparison_of_web_server_software">servidors
-web</a> i
-<a href="https://en.wikipedia.org/wiki/Application_server">servidors
-d'aplicacions</a>,
-respectivament.</p>
-<h3 id="que-es-un-servidor-web">Què és un servidor web?</h3>
-<p>Un servidor web és una aplicació que rep una petició HTTP (normalment a
-través d'un navegador web) i retorna la pàgina web sol·licitada
-(escrita en llenguatge HTML i podent contenir codi Javascript
-encastat) perquè aquesta sigua interpretada i visualitzada pel
-navegador de qui va realitzar la sol·licitud (l'usuari).</p>
-<h3 id="que-es-un-servidor-daplicacions">Què és un servidor d'aplicacions?</h3>
-<p>Un servidor d'aplicacions és un servidor que permet l'execució d'aplicacions web.</p>
-<h3 id="exemples">Exemples</h3>
-<h4 id="apache">Apache</h4>
-<p>Apache és un dels servidors web més coneguts. És programari lliure i
-multiplataforma, encara que aproximadament el 90% dels servidors Apache
-s'executen actualment en entorns Linux ja que és el servidor preferit
-per a aquesta plataforma.</p>
-<p>És molt modular el que permet incorporar característiques un cop
-instal·lat i posat en marxa. Això li fa també molt flexible i pot donar
-servei a webs escrites en els llenguatges de programació web més estesos
-(com PHP, Python, ASP,...) A través del mòdul corresponent.</p>
-<h4 id="apache-tomcat">Apache Tomcat</h4>
-<p>Apache Tomcat és un servidor d'aplicacions que funciona com a
-contenidor de Servlets de Java. Actualment és capaç d'implementar
-diverses especificacions de Java EE com Servlets i JSP (Java Server
-Pages) i més proporciona un servidor web pur perquè es faça servir en
-combinació amb l'entorn Java.</p>
-<h4 id="wsgi-web-server-gateway-interface">WSGI (<em>Web Server Gateway Interface</em>)</h4>
-<p>WSGI és una interfície que defineix com es comunica un servidor web amb
-aplicacions web o frameworks escrits en Python.</p>
+<h1 id="galetes-cookies">Galetes (<em>cookies</em>)</h1>
+<p>Una galeta és un fitxer de text que un lloc web guarda a l'entorn de l'usuari de navegador. El seu ús més típic és
+l'emmagatzematge de les preferències de l'usuari (per exemple, l'idioma en que s'han de mostrar les pàgines), perquè no
+hagi de tornar a indicar-les la propera vegada que visiteu el lloc.</p>
+<p>Si utilitzes Firefox com a navegador, pots accedir a <code>Desenvolupador web</code> – <code>Inspector d'emmagatzematge</code> des del
+menú principal. Entre les seves característiques et permet consultar i editar les galetes emmagatzemades en el mateix.</p>
+<p><img alt="Inspeccionar galetes en Firefox" src="images/galetes-firefox.png"/></p>
+<p>En PHP, per emmagatzemar una galeta al navegador de l'usuari, pots utilitzar la funció <code>setcookie</code>. L'únic paràmetre
+obligatori que has de fer servir és el nom de la galeta, però admet diversos paràmetres més opcionals.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="nb">setcookie</span><span class="p">(</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nx">string</span> <span class="nv">$name</span><span class="p">,</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nx">string</span> <span class="nv">$value</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nx">int</span> <span class="nv">$expires</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nx">string</span> <span class="nv">$path</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nx">string</span> <span class="nv">$domain</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="nx">bool</span> <span class="nv">$secure</span> <span class="o">=</span> <span class="k">false</span><span class="p">,</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="nx">bool</span> <span class="nv">$httponly</span> <span class="o">=</span> <span class="k">false</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Per a més informació consulta: <a href="https://www.php.net/manual/es/function.setcookie.php">https://www.php.net/manual/es/function.setcookie.php</a>.</p>
+</div>
+<p>Per exemple, si vols emmagatzemar en una galeta la data del darrer accés d'un usuari, pots fer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">setcookie</span> <span class="p">(</span><span class="s2">"last_visit_date"</span><span class="p">,</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nb">time</span><span class="p">(),</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">);</span>
+</code></pre></div>
+<p>Els dos primers paràmetres són el nom de la galeta i el seu valor. El tercer és la data de caducitat de la mateixa en format <code>timestamp</code> (en l'exemple, un hora des del moment en què s'execute). En cas de no figurar aquest paràmetre, la galeta s'eliminarà quan es tanque el navegador. Tingues en compte que també es poden aplicar restriccions a les pàgines del lloc que poden accedir a una galeta en funció de la ruta.</p>
+<p>Les galetes es transmeten entre el navegador i el servidor web utilitzant les capçaleres del protocol 
+HTTP. <strong>Per això, les sentències <code>setcookie</code> s'han d'enviar abans que el navegador mostre cap informació a pantalla.</strong></p>
+<p><img alt="Enviament de cookies HTTP" src="../assets/cookie-http-transfer.png"/></p>
+<p>Podeu trobar més informació en <a href="https://blog.webf.zone/ultimate-guide-to-http-cookies-2aa3e083dbae">Ultimate Guide to HTTP Cookies</a></p>
+<p>El procés de recuperació de la informació que emmagatzema una galeta és molt simple. Quan accedeixes a un lloc web, el
+navegador li envia de forma automàtica tot el contingut de les galetes que emmagatzema relatives a aquest lloc en
+concret. Des PHP pots accedir a aquesta informació per mitjà de l'array <code>$_COOKIE</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Sempre que utilitzeu galetes en una aplicació web, heu de tenir en compte que en última instància la seva 
+disponibilitat està controlada pel client. Per exemple, alguns usuaris deshabiliten les galetes al navegador perquè 
+pensen que la informació que emmagatzemen pot suposar un potencial problema de seguretat. O que la informació que
+emmagatzemen pot arribar a perdre perquè el usuari decideix formatar l'equip o simplement eliminar-les de sistema.</p>
+</div>
+<p>Si un cop emmagatzemada una galeta al navegador vols eliminar-la abans que expire, pots utilitzar 
+la mateixa funció <code>setcookie</code> però indicant una data de caducitat anterior a l'actual.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Quina és la durada per defecte d'una galeta si no s'indica la data de caducitat, com en la següent crida a la funció <code>setcookie</code>?</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">setcookie</span> <span class="p">(</span><span class="s2">"idioma"</span><span class="p">,</span> <span class="s2">"espanyol"</span><span class="p">);</span>
+</code></pre></div>
+<ol>
+<li>Fins que es tanque el navegador de l'usuari.</li>
+<li>1 hora.</li>
+</ol>
+</div>
+<h2 id="problemes-de-seguretat-relacionats-amb-galletes">Problemes de seguretat relacionats amb gal·letes</h2>
+<p>A l'hora de fer ús de gal·letes, cal ser conscient dels potencials problemes de seguretat que 
+poden patir.</p>
+<p>En l'article <a href="https://blog.webf.zone/ultimate-guide-to-http-cookies-2aa3e083dbae">Ultimate Guide to HTTP Cookies</a> s'exposen tres dels problemes més rellevants i la seua sol·lució.</p>
+<p>Aquest article és una referència molt completa dels possibles valors i atributs que es poden fer servir les gal·letes: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie headers</a></p>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Introducció" class="md-footer__link md-footer__link--prev" href="../05-01-intro/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Introducció
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../05-99-activities/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

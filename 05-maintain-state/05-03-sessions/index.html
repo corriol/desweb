@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Maneig de sessions - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<meta content="#ff6e42" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="deep-orange" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#maneig-de-sessions">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Maneig de sessions
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/">
+        1.- Introducció a la programació Web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-phpbasics/">
+        2.- El llenguatge PHP
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Erros i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-data-access/04-data-access-php/">
+        Accés a dades amb PHP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Manteniment de l'estat
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Manteniment de l'estat" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Manteniment de l'estat
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-02-cookies/">
+        Galetes (cookies)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="maneig-de-sessions">Maneig de sessions</h1>
+<p>Com acabes de veure, una forma per guardar informació particular de cada usuari és utilitzar galetes (<em>cookies</em>). No obstant això, hi ha diversos problemes associats a les galetes, com el nombre d'elles que admet el navegador, o la seva grandària màxima. Per solucionar aquests inconvenients, existeixen les sessions. El terme sessió fa referència al conjunt d'informació relativa a un usuari concret.</p>
+<p>Aquesta informació pot ser tan simple com el nom de l'usuari mateix, o més complexa, com els articles que ha dipositat a la cistella de compra d'una botiga en línia.</p>
+<p>Cada usuari diferent d'un lloc web té la seva pròpia informació de sessió. Per distingir una sessió d'una altra s'usen els <strong>identificadors de sessió</strong> (SID). Un SID és un atribut que s'assigna a cada un dels visitants d'un lloc web i l'identifica. D'aquesta manera, si el servidor web coneix el SID d'un usuari, pot relacionar-lo amb tota la informació que posseeix sobre ell, que es manté en la sessió de l'usuari. Aquesta informació s'emmagatzema en el servidor web, generalment en fitxers tot i que també es poden utilitzar altres mecanismes d'emmagatzematge com bases de dades. Com ja hauràs suposat, la qüestió ara és: ¿i on s'emmagatzema aquest SID, identificador de la sessió, que és únic per a cada usuari? Doncs hi ha dues maneres de mantenir el SID entre les pàgines d'un lloc web que visita l'usuari:</p>
+<ul>
+<li>Utilitzant galetes.</li>
+<li>Propagant el SID en un paràmetre de la URL. El SID s'afegeix com una part més de la URL, de la forma:</li>
+</ul>
+<p>http://www.misitioweb.com/tienda/listado.php&amp;<strong>PHPSESSID=34534fg4ffg34ty</strong></p>
+<p>En l'exemple anterior, el SID és el valor del paràmetre PHPSESSID.</p>
+<p>Cap de les dues maneres és perfecta. Ja saps els problemes que té la utilització de cookies. Malgrat això, és el millor mètode i el més utilitzat. Propagar el SID com a part de la URL comporta majors desavantatges, com la impossibilitat de mantenir el SID entre diferents sessions, o el fet que compartir la URL amb una altra persona implica compartir també l'identificador de sessió.</p>
+<p>La bona notícia, és que el procés de maneig de sessions en PHP està automatitzat en gran mida. Quan un usuari visita un lloc web, no cal programar un procediment per veure si hi ha un SID previ i carregar les dades associades amb el mateix. Tampoc has d'utilitzar la funció <code>setcookie</code> si vols emmagatzemar els SID en galetes, o anar passant el SID entre les pàgines web del teu lloc si et decideixes per propagar. Tot això PHP ho fa automàticament.</p>
+<div class="admonition info">
+<p class="admonition-title">Server side cookies</p>
+<p>A la informació que s'emmagatzema en la sessió d'un usuari també se li coneix com a galetes en la part de servidor (<em>server side cookies</em>). Has de tenir en compte que encara aquesta informació no viatja entre el client i el servidor, sí que ho fa el SID, bé com a part de l'URL o en una capçalera HTTP si es guarda en una galeta. En tots dos casos, això planteja un possible problema de seguretat. El SID pot ser aconseguit per una altra persona, i a partir de la mateixa obtenir la informació de la sessió de l'usuari. La manera més segura d'utilitzar sessions és emmagatzemant els SID en galetes i utilitzar HTTPS per a xifrar la informació que es transmet entre el servidor web i el client.</p>
+</div>
+<h3 id="configuracio">Configuració</h3>
+<p>Per defecte, PHP inclou suport de sessions incorporat. Abans, però, d'utilitzar sessions en el teu lloc web, has de configurar correctament PHP utilitzant els següents directives en el fitxer
+php.ini segons correspongui:</p>
+<table>
+<thead>
+<tr>
+<th>Directiva</th>
+<th>significat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>session.use_cookies</td>
+<td>Indica si s'han d'usar cookies (1) o propagació a la URL (0) per emmagatzemar el SID.</td>
+</tr>
+<tr>
+<td>session.use_only_cookies</td>
+<td>S'ha d'activar (1) quan fas servir cookies per emmagatzemar els SID, i a més no vols que es reconeguin els SID que es puguin passar com part de la URL (aquest mètode es pot usar per usurpar l'identificador d'un altre usuari)</td>
+</tr>
+<tr>
+<td>session.save_handler</td>
+<td>S'utilitza per indicar a PHP com ha de emmagatzemar les dades de la sessió de l'usuari. Hi ha quatre opcions: en fitxers (files), en memòria (Mm), en una base de dades SQLite (sqlite) o utilitzant per a això funcions que ha de definir el programador (user). El valor per defecte (Files) funcionarà sense problemes en la majoria dels casos.</td>
+</tr>
+<tr>
+<td>session.name</td>
+<td>Determina el nom de la galeta que s'utilitzarà per guardar el SID. La seva valor per defecte és PHPSESSID.</td>
+</tr>
+<tr>
+<td>session.auto_start</td>
+<td>El seu valor per defecte és 0, i en aquest cas hauràs de fer servir la funció session_start per gestionar l'inici de les sessions. Si fas servir sessions al lloc web, pot ser bona idea canviar el seu valor a 1 per que PHP activi de forma automàtica el maneig de sessions.</td>
+</tr>
+<tr>
+<td>session.cookie_lifetime</td>
+<td>Si utilitzes l'URL per propagar el SID, aquest es perdrà quan tanqui el navegador. No obstant això, si utilitzes galetes, el SID es mantindrà mentre no es destrueixi la galeta. En el seu valor per defecte (0), les galetes es destrueixen quan es tanca el navegador. Si vols que es mantingui el SID durant més temps, has d'indicar en aquesta directiva aquest temps en segons.</td>
+</tr>
+<tr>
+<td>session.gc_maxlifetime</td>
+<td>Indica el temps en segons que s'ha de mantenir activa la sessió, encara que no hi hagi cap activitat per part de l'usuari. El seu valor per defecte és 1440. És a dir, passats 24 minuts des de l'última activitat per part de l'usuari, es tanca la sessió automàticament.</td>
+</tr>
+<tr>
+<td>session.cookie_path</td>
+<td>URL path prefix that must match for the cookie to be sent.</td>
+</tr>
+<tr>
+<td>session.cookie_domain</td>
+<td>Domain suffix that must match for the cookie to be sent. No value means the cookie is sent back only to the full hostname that sent it.</td>
+</tr>
+<tr>
+<td>session.cookie_secure</td>
+<td>Set to On to have the cookie only sent back with HTTPS URLs.</td>
+</tr>
+<tr>
+<td>session.cookie_httponly</td>
+<td>Set to On to tell browsers to prevent JavaScript from reading the cookie.</td>
+</tr>
+</tbody>
+</table>
+<p>La funció <code>phpinfo</code>, de la qual ja vam parlar amb anterioritat, t'ofereix informació sobre la configuració actual de les directives de sessió.</p>
+<p>En la documentació de PHP tens informació sobre aquestes i altres directives que permeten configurar el maneig de sessions.</p>
+<p><a href="https://www.php.net/manual/es/session.configuration.php">https://www.php.net/manual/es/session.configuration.php</a></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Si la informació de l'usuari que vols emmagatzemar inclou contingut privat com una contrasenya, ¿què utilitzaries, galetes o la sessió de l'usuari?</p>
+</div>
+<h3 id="inici-i-fi-duna-sessio">Inici i fi d'una sessió</h3>
+<p>L'inici d'una sessió pot tenir lloc de dues maneres. Si has activat la directiva <code>session.auto_start</code> en la configuració de PHP, la sessió començarà automàticament quan un usuari es connecte al teu lloc web. En el cas que aquest usuari ja haja obert una sessió amb anterioritat, i aquesta no s'haja eliminat, en lloc d'obrir una nova sessió es reprendrà la anterior. Per a això s'utilitzarà el SID anterior, que estarà emmagatzemat en una galeta (recorda que si fas servir propagació de l'SID, no podràs restaurar sessions anteriors; el SID figura a la URL i es perd quan tanques el navegador).</p>
+<p>Si per contra, decideixes no utilitzar l'inici automàtic de sessions, hauràs executar la funció <code>session_start()</code> per indicar a PHP que inicie una nova sessió o reprenga l'anterior. Anteriorment aquesta funció tornava sempre <code>true</code>, a partir de la versió 5.3.0 de PHP el seu comportament és més coherent: retorna <code>false</code> en cas de no poder iniciar o restaurar la sessió.</p>
+<p>Com l'inici de sessió requereix utilitzar <code>cookies</code>, i aquestes es transmeten en els encapçalats HTTP, heu de tenir en compte que per poder iniciar una sessió utilitzant <code>session_start</code>, hauràs de fer les cridades a aquesta funció abans que la pàgina web mostre informació al navegador.</p>
+<p>A més, totes les pàgines que necessiten utilitzar la informació emmagatzemada en la sessió, hauran d'executar la funció <code>session_start</code>.</p>
+<p>Mentre la sessió estiga oberta, pots utilitzar la variable superglobal <code>$_SESSION</code> per afegir informació a la sessió de l'usuari, o per accedir a la informació emmagatzemada en la sessió. Per
+exemple, per comptar el nombre de vegades que l'usuari visita la pàgina, pots fer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">// Iniciamos la sesión o recuperamos la anterior sesión existente</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="c1">// Comprobamos si la variable ya existe</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]))</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">else</span>
+<span class="linenos" data-linenos="8 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si en lloc de el nombre de visites, voldries emmagatzemar l'instant en què es produeix cadascuna, la variable de sessió "visites" ha de ser una matriu i per tant hauràs de canviar el codi anterior per:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span> <span class="c1">// Iniciamos la sesión o recuperamos la anterior sesión existente</span>
+<span class="linenos" data-linenos="3 "></span> <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span> <span class="c1">// En cada visita añadimos un valor al array "visitas"</span>
+<span class="linenos" data-linenos="5 "></span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'visitas'</span><span class="p">][]</span> <span class="o">=</span> <span class="nb">mktime</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Encara que com ja has vist, pots configurar PHP perquè elimine de forma automàtica les dades de una sessió passat cert temps, en ocasions pot ser necessari tancar-la de forma manual en un moment determinat. Per exemple, si utilitzes sessions per recordar la informació d'autenticació hauràs donar-li a l'usuari de la pàgina web la possibilitat de tancar la sessió quan ho crega convenient.</p>
+<p>En PHP tens dues funcions per eliminar la informació emmagatzemada en la sessió:</p>
+<ul>
+<li><code>session_unset</code>. Elimina les variables emmagatzemades a la sessió actual, però no elimina la informació de la sessió del dispositiu d'emmagatzematge usat.</li>
+<li><code>session_destroy</code>. Elimina completament la informació de la sessió del dispositiu de emmagatzematge.</li>
+</ul>
+<h3 id="activitat">Activitat</h3>
+<p>Crea una pàgina similar a l'anterior, emmagatzemant en la sessió d'usuari els instants de totes les seves últimes visites. Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de totes les seves visites anteriors. Afegeix un botó a la pàgina que permeti esborrar el registre de visites.</p>
+<p>Utilitza també una variable de sessió per a comprovar si l'usuari ja ha iniciat correctament. D'aquesta manera no caldrà comprovar les credencials amb la base de dades constantment.</p>
+<h2 id="gestio-de-la-informacio-de-la-sessio">Gestió de la informació de la sessió</h2>
+<p>Ara veurem pas a pas un exemple d'utilització de sessions per a emmagatzemar informació de l'usuari. Utilitzaràs la base de dades "blog", usada anteriorment, per a crear un prototip d'elements favorits.</p>
+<p>Les pàgines de què constarà l'aplicació web seran:</p>
+<ul>
+<li>Login (<code>SecurityController::login</code>). La seva funció és autentificar a l'usuari de l'aplicació web. Tots els usuaris de l'aplicació s'hauran autentificar utilitzant aquesta pàgina abans de poder marcar algun post com a favorit.</li>
+<li>Afegir a preferits (<code>PostController::addToFavourite</code>). Cada entrada disposarà d'un botó per a afegir a favorits sempre que el usuari s'haja validat.</li>
+<li>Llistat de posts favorits (<code>PostController::favourite</code>). Presenta un llistat de les entrades favorites.</li>
+<li>Logoff (<code>SecurityController::logout</code>). Aquesta pàgina desconnecta a l'usuari de l'aplicació i redirigeix ​​a l'usuari de forma automàtica a la pàgina d'inici. No mostra cap informació en pantalla, pel que no és visible per a l'usuari.</li>
+</ul>
+<p>Abans de començar tingues en compte que l'aplicació que vas a desenvolupar no és completament funcional. Per exemple:</p>
+<ul>
+<li>No tindràs en compte la possibilitat que l'usuari afegisca diverses vegades la mateixa entrada.</li>
+<li>Un cop afegida una entrada no es podrà eliminar, sols buidar.</li>
+<li>No es mostraran imatges dels productes.</li>
+<li>Es mostraran tots els posts en una única pàgina, sense paginació.</li>
+</ul>
+<p>Encara que reduïm en aquest exemple la funcionalitat, t'animem a que un cop finalitzat el mateix, afegisques pel teu compte totes aquelles opcions que vulguis. Recorda que la millor manera d'aprendre programació és ... programant!</p>
+<h3 id="autenticar-lusuari">Autenticar l'usuari</h3>
+<p>La primera pàgina que vas a programar és la d'autenticació de l'usuari (<code>SecurityController::login</code>). Per variar, faràs servir les capacitats de maneig de sessions de PHP per emmagatzemar la identificació dels usuaris.</p>
+<p>A més, utilitzarem la informació de la taula "User" a la base de dades "bloc", accedint mitjançant PDO.</p>
+<p>Vas a crear a la pàgina un formulari amb dos camps, un de tipus text per a l'usuari, i un altre de tipus password per a la contrasenya. En prémer el botó Enviar, el formulari s'enviarà a aquesta mateixa pàgina, on es compararan les credencials proporcionades per l'usuari amb les emmagatzemades en la base de dades. Si les dades són correctes, s'iniciarà una nova sessió i s'emmagatzemarà en ella el nom de l'usuari que s'acaba de connectar.</p>
+<p><img alt="UserController::login" src="images/usercontroller-login.png"/></p>
+<p>Anem per passos. El codi HTML per crear el formulari, que anirà dins el cos de la pàgina (entre les etiquetes <body>) serà el següent:</body></p>
+<p>{% raw %}</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">action</span><span class="o">=</span><span class="s2">"{{ router.generateURL('User', 'login') }}"</span> <span class="nx">method</span><span class="o">=</span><span class="s2">"post"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>        <span class="p">{{</span> <span class="nx">message</span> <span class="p">}}</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-group"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"username"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">"Nom d'usuari"</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-control"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-group"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"password"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"password"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">"Contrasenya"</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-control"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="o">&lt;</span><span class="nx">p</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"text-center"</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"btn btn-primary"</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"login"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="o">&gt;&lt;</span><span class="nx">i</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"fa fa-sign-in"</span><span class="o">&gt;&lt;/</span><span class="nx">i</span><span class="o">&gt;</span> <span class="nx">Iniciar</span> <span class="nx">sessió</span><span class="o">&lt;/</span><span class="nx">button</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="o">&lt;/</span><span class="nx">form</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>{% endraw %}
+Fixa't que hi ha un espai per posar els possibles missatges d'error que es produeixin, com la falta d'alguna dada necessari, o un error de credencials errònies.</p>
+<p>El codi PHP que ha de figurar a l'començament d'aquesta mateixa pàgina (abans que es mostri qualsevol text), s'encarregarà de:</p>
+<p>Comprovar que s'han introduït tant el nom d'usuari com la contrasenya.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># UserController.php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">((</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">'username'</span><span class="p">)</span> <span class="o">&amp;&amp;</span>  <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">'password'</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isPost</span><span class="p">()</span> <span class="p">)</span>  <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="c1">//Cogemos datos del formulario y validamos</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$username</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getString</span><span class="p">(</span><span class="s1">'username'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$password</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getString</span><span class="p">(</span><span class="s1">'password'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setUsername</span><span class="p">(</span><span class="nv">$username</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="nv">$password</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="c1">// Comprovem que els valors són correctes.</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$errors</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">validateLogin</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</code></pre></div>
+<p>Comprovem les credencials.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// UserController.php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// Si no hi ha errors comprovem les credancials</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$errors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="c1">//Cogemos los datos del formulario para comprobar que existe el usuario</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$loginOk</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">checkUser</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">(),</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getPassword</span><span class="p">());</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// UserModel.php</span>
+<span class="linenos" data-linenos=" 2 "></span>      <span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>            <span class="nv">$loginUsuario</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"SELECT * FROM user WHERE username=:username AND password=:password"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>            <span class="nv">$loginUsuario</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':username'</span><span class="p">,</span> <span class="nv">$email</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">PARAM_STR</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>            <span class="nv">$loginUsuario</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">':password'</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">PARAM_STR</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>            <span class="nv">$loginUsuario</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>            <span class="k">return</span> <span class="nv">$loginUsuario</span><span class="o">-&gt;</span><span class="na">rowCount</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="k">echo</span> <span class="s2">"Error: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">}</span>
+</code></pre></div>
+<p>Si les credencials són correctes carreguem en les dades d'usuari en \$_SESSION</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$loginOk</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>        <span class="nv">$dataUser</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">getByUsername</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">());</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'iduser'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$dataUser</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$dataUser</span><span class="o">-&gt;</span><span class="na">getEmail</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$dataUser</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'id_rol'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$dataUser</span><span class="o">-&gt;</span><span class="na">getRoles</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: "</span><span class="o">.</span><span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'router'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="s1">'favourite'</span><span class="p">));</span>
+<span class="linenos" data-linenos="10 "></span>       <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$errors</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">"Les credencials són invàlides"</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+</code></pre></div>
+<p>I redirigir a la pàgina de les entrades favorites.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: "</span><span class="o">.</span><span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'router'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span><span class="s1">'favourite'</span><span class="p">));</span>
+</code></pre></div>
+<p>Enten bé el codi abans de seguir endavant.</p>
+<p>{: .alert .alert-question }
+En el codi anterior, la sessió de l'usuari s'inicia sòl si es proporciona un nom d'usuari i contrasenya correctes. ¿Podria haver-se iniciat la sessió en començar el codi encara que l'usuari no haja proporcionat les credencials?</p>
+<h3 id="pagina-de-favorits">Pàgina de favorits</h3>
+<p>Quan un usuari proporciona unes credencials d'inici de sessió correctes (recorda que tu ja havies afegit l'usuari "jane_admin" amb contrasenya "admin"), se li redirigeix ​​automàticament a la pàgina de la llista d'entrades favorites. Aquesta és la pàgina que vas a programar a continuació.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// PostController.php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">favourite</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">global</span> <span class="nv">$router</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// Comprovem si l'usuari s'ha autenticat</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">die</span><span class="p">(</span><span class="s2">"Error - cal autenticar-se &lt;a href=</span><span class="se">\"</span><span class="s2">"</span> <span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span> <span class="s1">'login'</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$postModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PostModel</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$posts</span><span class="o">=</span><span class="p">[];</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$postId</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="nv">$posts</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$postModel</span><span class="o">-&gt;</span><span class="na">getById</span><span class="p">(</span><span class="nv">$postId</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="nv">$image_dir</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'image_path'</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="nv">$header</span> <span class="o">=</span> <span class="s1">'Últimes entrades'</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>    <span class="nv">$properties</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="s1">'image_dir'</span> <span class="o">=&gt;</span> <span class="nv">$image_dir</span><span class="p">,</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="s1">'header'</span> <span class="o">=&gt;</span> <span class="s1">'Entrades favorites'</span><span class="p">,</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="s1">'posts'</span> <span class="o">=&gt;</span> <span class="nv">$posts</span><span class="p">,</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="s1">'tags'</span> <span class="o">=&gt;</span> <span class="nv">$tags</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="p">];</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'posts/favourite.twig'</span><span class="p">,</span> <span class="nv">$properties</span><span class="p">);</span>
+<span class="linenos" data-linenos="28 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">addToFavourite</span><span class="p">()</span>
+<span class="linenos" data-linenos="31 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="32 "></span>    <span class="k">global</span> <span class="nv">$router</span><span class="p">;</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos="34 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="35 "></span>    <span class="c1">// Comprovem si l'usuari s'ha autenticat</span>
+<span class="linenos" data-linenos="36 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="37 "></span>        <span class="k">die</span><span class="p">(</span><span class="s2">"Error - cal autenticar-se &lt;a href=</span><span class="se">\"</span><span class="s2">"</span> <span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span> <span class="s1">'login'</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="38 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="39 "></span>
+<span class="linenos" data-linenos="40 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isPost</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos="41 "></span>        <span class="nv">$postId</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getInt</span><span class="p">(</span><span class="s1">'post'</span><span class="p">);</span>
+<span class="linenos" data-linenos="42 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$postId</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="43 "></span>            <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">][]</span> <span class="o">=</span> <span class="nv">$postId</span><span class="p">;</span>
+<span class="linenos" data-linenos="44 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="45 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s1">'Location: '</span><span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'Posts'</span><span class="p">,</span> <span class="s1">'index'</span><span class="p">));</span>
+<span class="linenos" data-linenos="46 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="47 "></span>
+<span class="linenos" data-linenos="48 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">emptyFavourite</span><span class="p">()</span>
+<span class="linenos" data-linenos="49 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="50 "></span>    <span class="k">global</span> <span class="nv">$router</span><span class="p">;</span>
+<span class="linenos" data-linenos="51 "></span>    <span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos="52 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="53 "></span>
+<span class="linenos" data-linenos="54 "></span>    <span class="c1">// Buidem l'array amb les entrades favorites</span>
+<span class="linenos" data-linenos="55 "></span>    <span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]);</span>
+<span class="linenos" data-linenos="56 "></span>
+<span class="linenos" data-linenos="57 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s1">'Location: '</span><span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'Posts'</span><span class="p">,</span> <span class="s1">'index'</span><span class="p">));</span>
+<span class="linenos" data-linenos="58 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Les plantilles de Twig</p>
+<p>{%raw%}</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">#posts/favourite.twig</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">body</span> <span class="sx">%}</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sx">    &lt;!-- MOSTREM LES ENTRADES --&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="sx">    {% for post in posts %}</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>            <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="sr">            &lt;p&gt;Escrit per:&lt;strong&gt;{{ post.user.fullname }} &lt;/s</span><span class="n">trong</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>                <span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">published_at</span><span class="o">|</span><span class="n">date</span><span class="p">(</span><span class="s2">"d/m/Y"</span><span class="p">)</span> <span class="p">}}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>                <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">admin</span> <span class="sx">%}</span>
+<span class="linenos" data-linenos="11 "></span><span class="sx">                    &lt;a class="btn px-2 secondary-link"</span>
+<span class="linenos" data-linenos="12 "></span><span class="sx">                       href="{{ router.generateURL('Post', 'search') }</span><span class="p">}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="s2">                        &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">pencil</span><span class="o">-</span><span class="n">square</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="s2">                    &lt;a class="</span><span class="n">btn</span> <span class="n">px</span><span class="o">-</span><span class="mi">2</span> <span class="n">secondary</span><span class="o">-</span><span class="n">link</span><span class="s2">"</span>
+<span class="linenos" data-linenos="16 "></span><span class="s2">                       href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'search'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="s2">                        &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">trash</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="s2">                {% endif %}</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="s2">            &lt;/p&gt;</span>
+<span class="linenos" data-linenos="21 "></span><span class="s2">            &lt;div class="</span><span class="n">fakeimg</span><span class="s2">"&gt;&lt;img class="</span><span class="n">w</span><span class="o">-</span><span class="mi">25</span> <span class="n">img</span><span class="o">-</span><span class="n">thumbnail</span> <span class="n">float</span><span class="o">-</span><span class="n">left</span> <span class="n">mr</span><span class="o">-</span><span class="mi">2</span><span class="s2">"</span>
+<span class="linenos" data-linenos="22 "></span><span class="s2">                                      src="</span><span class="p">{{</span> <span class="n">image_dir</span> <span class="o">~</span> <span class="n">post</span><span class="o">.</span><span class="n">image</span> <span class="p">}}</span><span class="s2">"/&gt;&lt;/div&gt;</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="s2">            &lt;p&gt;{{ post.summary }}&lt;/p&gt;</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span><span class="s2">            &lt;p&gt;&lt;a href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'showById'</span><span class="p">,</span> <span class="p">{</span><span class="nb">id</span><span class="p">:</span> <span class="n">post</span><span class="o">.</span><span class="n">id</span><span class="p">})</span> <span class="p">}}</span><span class="s2">"&gt;Llegir més&lt;/a&gt;</span>
+<span class="linenos" data-linenos="27 "></span><span class="s2">            &lt;/p&gt;</span>
+<span class="linenos" data-linenos="28 "></span><span class="s2">            &lt;div class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="29 "></span><span class="s2">                &lt;!-- MOSTREM ELS TAGS --&gt;</span>
+<span class="linenos" data-linenos="30 "></span><span class="s2">                {% for tag in post.tags %}</span>
+<span class="linenos" data-linenos="31 "></span>
+<span class="linenos" data-linenos="32 "></span><span class="s2">                    &lt;a class="</span><span class="n">btn</span> <span class="n">btn</span><span class="o">-</span><span class="n">light</span><span class="s2">"</span>
+<span class="linenos" data-linenos="33 "></span><span class="s2">                       href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'showByTag'</span><span class="p">,</span> <span class="p">{</span> <span class="nb">id</span><span class="p">:</span> <span class="n">tag</span><span class="o">.</span><span class="n">id</span> <span class="p">})</span> <span class="p">}}</span><span class="s2">"&gt; &lt;span</span>
+<span class="linenos" data-linenos="34 "></span><span class="s2">                                class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">tags</span><span class="s2">" aria-hidden="</span><span class="kp">true</span><span class="s2">"&gt;{{ tag.name }} &lt;/a&gt;</span>
+<span class="linenos" data-linenos="35 "></span>
+<span class="linenos" data-linenos="36 "></span><span class="s2">                {% endfor %}</span>
+<span class="linenos" data-linenos="37 "></span>
+<span class="linenos" data-linenos="38 "></span><span class="s2">            &lt;/div&gt;</span>
+<span class="linenos" data-linenos="39 "></span><span class="s2">        &lt;/div&gt;</span>
+<span class="linenos" data-linenos="40 "></span><span class="s2">        &lt;div class="</span><span class="n">clearfix</span><span class="s2">"&gt;&lt;/div&gt;</span>
+<span class="linenos" data-linenos="41 "></span>
+<span class="linenos" data-linenos="42 "></span><span class="s2">    {% endfor %}</span>
+<span class="linenos" data-linenos="43 "></span><span class="s2">    &lt;form class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">" action="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'emptyFavourite'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">" method="</span><span class="n">post</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="44 "></span><span class="s2">        &lt;input type="</span><span class="n">submit</span><span class="s2">" class="</span><span class="n">btn</span> <span class="n">btn</span><span class="o">-</span><span class="n">info</span><span class="s2">" value="</span><span class="no">Buidar</span> <span class="n">favorits</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="45 "></span><span class="s2">    &lt;/form&gt;</span>
+<span class="linenos" data-linenos="46 "></span><span class="s2">{% endblock %}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># posts/show.twig</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.twig"</span> <span class="sx">%}</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="sx">{% block body %}</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">&lt;!--</span> <span class="no">MOSTREM</span> <span class="no">LES</span> <span class="no">ENTRADES</span> <span class="o">--&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="sr">        &lt;p&gt;Escrit per:&lt;strong&gt;{{ post.user.fullname }} &lt;/s</span><span class="n">trong</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">published_at</span><span class="o">|</span><span class="n">date</span><span class="p">(</span><span class="s2">"d/m/Y"</span><span class="p">)</span> <span class="p">}}</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>            <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">admin</span> <span class="sx">%}</span>
+<span class="linenos" data-linenos="12 "></span><span class="sx">                &lt;a class="btn px-2 secondary-link"</span>
+<span class="linenos" data-linenos="13 "></span><span class="sx">                   href="{{ router.generateURL('Post', 'search') }</span><span class="p">}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="s2">                    &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">pencil</span><span class="o">-</span><span class="n">square</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="s2">                &lt;a class="</span><span class="n">btn</span> <span class="n">px</span><span class="o">-</span><span class="mi">2</span> <span class="n">secondary</span><span class="o">-</span><span class="n">link</span><span class="s2">"</span>
+<span class="linenos" data-linenos="17 "></span><span class="s2">                   href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'search'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="s2">                    &lt;span class="</span><span class="n">fa</span> <span class="n">fa</span><span class="o">-</span><span class="n">trash</span><span class="o">-</span><span class="n">o</span><span class="s2">"&gt;&lt;/span&gt;&lt;/a&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="s2">            {% endif %}</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="s2">        &lt;/p&gt;</span>
+<span class="linenos" data-linenos="22 "></span><span class="s2">        &lt;div class="</span><span class="n">fakeimg</span><span class="s2">"&gt;&lt;img class="</span><span class="n">w</span><span class="o">-</span><span class="mi">25</span> <span class="n">img</span><span class="o">-</span><span class="n">thumbnail</span> <span class="n">float</span><span class="o">-</span><span class="n">left</span> <span class="n">mr</span><span class="o">-</span><span class="mi">2</span><span class="s2">"</span>
+<span class="linenos" data-linenos="23 "></span><span class="s2">                                  src="</span><span class="p">{{</span> <span class="n">image_dir</span> <span class="o">~</span> <span class="n">post</span><span class="o">.</span><span class="n">image</span> <span class="p">}}</span><span class="s2">"/&gt;&lt;/div&gt;</span>
+<span class="linenos" data-linenos="24 "></span><span class="s2">        &lt;p&gt;{{ post.content|markdown_to_html }}&lt;/p&gt;</span>
+<span class="linenos" data-linenos="25 "></span><span class="s2">        &lt;form class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">" action="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateUrl</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'addToFavourite'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">" method="</span><span class="n">post</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="26 "></span><span class="s2">            &lt;input type="</span><span class="n">hidden</span><span class="s2">" name="</span><span class="n">post</span><span class="s2">" value="</span><span class="p">{{</span> <span class="n">post</span><span class="o">.</span><span class="n">id</span> <span class="p">}}</span><span class="s2">" /&gt;</span>
+<span class="linenos" data-linenos="27 "></span><span class="s2">            &lt;input type="</span><span class="n">submit</span><span class="s2">" class="</span><span class="n">btn</span> <span class="n">btn</span><span class="o">-</span><span class="n">info</span><span class="s2">" value="</span><span class="no">Afegir</span> <span class="n">a</span> <span class="n">favorits</span><span class="s2">"&gt;</span>
+<span class="linenos" data-linenos="28 "></span><span class="s2">        &lt;/form&gt;</span>
+<span class="linenos" data-linenos="29 "></span><span class="s2">        &lt;p class="</span><span class="n">mb</span><span class="o">-</span><span class="mi">4</span><span class="s2">"&gt;&lt;a href="</span><span class="p">{{</span> <span class="n">router</span><span class="o">.</span><span class="n">generateURL</span><span class="p">(</span><span class="s1">'Post'</span><span class="p">,</span> <span class="s1">'index'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">"&gt;Pàgina principal&lt;/a&gt;</span>
+<span class="linenos" data-linenos="30 "></span><span class="s2">        &lt;/p&gt;</span>
+<span class="linenos" data-linenos="31 "></span><span class="s2">    &lt;/div&gt;</span>
+<span class="linenos" data-linenos="32 "></span><span class="s2">{% endblock %}</span>
+</code></pre></div>
+<p>{% endraw %}</p>
+<p>En cada entrada es crea un formulario amb un botó "Afegir a favorits" que envia a la pàgina <em>/favourite/add</em> l'identificador de cada entrada que activa el mètode <code>addToFavourite()</code>. Quan s'executa es comprova si s'ha enviat la pàgina i s'afegeix a \$_SESSION['Posts] l'idenficador rebut.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isPost</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$postId</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getParams</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getInt</span><span class="p">(</span><span class="s1">'post'</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$postId</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">][]</span> <span class="o">=</span> <span class="nv">$postId</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<p>L'array <code>$_SESSION['Posts']</code> és la variable de sessió en la que emmagatzemarem els identificadors de totes les entrades que l'usuari afegeix a favorits.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Si hi ha elements a favorits els mostrarem</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$postId</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nv">$posts</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$postModel</span><span class="o">-&gt;</span><span class="na">getById</span><span class="p">(</span><span class="nv">$postId</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">// Si no, mostrarem un missatge</span>
+<span class="linenos" data-linenos="7 "></span><span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="nv">$message</span> <span class="o">=</span> <span class="s2">"No hi ha elements favorits"</span><span class="p">;</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>La pàgina conté un formulari per a buidar els elements favorits:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]);</span>
+</code></pre></div>
+<p>A més a més, tant en aquesta pàgina como en la resta, caldrà comprovar si la variable \$_SESSION['loggedin'] existeix per a verificar que l'usuari s'ha autenticat correctament.</p>
+<p>Para ello, debes incluir el siguiente código al inicio de la página.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// Comprovem si l'usuari s'ha autenticat</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">die</span><span class="p">(</span><span class="s2">"Error - cal autenticar-se &lt;a href=</span><span class="se">\"</span><span class="s2">"</span> <span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span> <span class="s1">'login'</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si l'usuari no s'ha autenticat, es mostra un missatge d'error junt amb l'enllaç a la pàgina d'inici de sessió.</p>
+<p>Si des de qualsevol pàgina l'usuari prem l'opció del menú "Favorits", activarà el mètode <code>favourite()</code> de <code>PostController</code> en la que se vorà totes les entrades que ha marcat com a favorites.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// PostController.php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">favourite</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">global</span> <span class="nv">$router</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="c1">// Recuperem la informació de la sessió</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// Comprovem si l'usuari s'ha autenticat</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'loggedin'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">die</span><span class="p">(</span><span class="s2">"Error - cal autenticar-se &lt;a href=</span><span class="se">\"</span><span class="s2">"</span> <span class="o">.</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generateURL</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span> <span class="s1">'login'</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">"</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$postModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PostModel</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$posts</span><span class="o">=</span><span class="p">[];</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'Posts'</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$postId</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="nv">$posts</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$postModel</span><span class="o">-&gt;</span><span class="na">getById</span><span class="p">(</span><span class="nv">$postId</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="nv">$image_dir</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'image_path'</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="nv">$header</span> <span class="o">=</span> <span class="s1">'Últimes entrades'</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>    <span class="nv">$properties</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="s1">'image_dir'</span> <span class="o">=&gt;</span> <span class="nv">$image_dir</span><span class="p">,</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="s1">'header'</span> <span class="o">=&gt;</span> <span class="s1">'Entrades favorites'</span><span class="p">,</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="s1">'posts'</span> <span class="o">=&gt;</span> <span class="nv">$posts</span><span class="p">,</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="s1">'tags'</span> <span class="o">=&gt;</span> <span class="nv">$tags</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="p">];</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'posts/favourite.twig'</span><span class="p">,</span> <span class="nv">$properties</span><span class="p">);</span>
+<span class="linenos" data-linenos="28 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Les entrades que es mostren en la pàgina s'obtenen de la informació emmagatzemada en la sessió. Usarem <code>PostModel</code> per a carregar les dades de cada entrada.</p>
+<p>En acabar, l'usuari podrà tancar sessió activant el mètode <code>logout</code> de <code>SecurityController</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// Recuperamos la información de la sesión</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// Y la eliminamos</span>
+<span class="linenos" data-linenos="4 "></span><span class="nb">session_unset</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">"Location: login.php"</span><span class="p">);</span>
+</code></pre></div>
+<p>Més informació sobre les sessions en PHP: <a href="https://www.php.net/manual/es/book.session.php">Maneig de sessions (PHP)</a></p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
