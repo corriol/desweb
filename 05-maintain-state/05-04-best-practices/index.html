@@ -187,7 +187,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../05-02-cookies/">
-        Galetes (cookies)
+        Galletes (cookies)
       </a>
 </li>
 <li class="md-nav__item">
@@ -254,7 +254,7 @@
 <p><strong>Fes caducar la sessió quan siga de llarga durada</strong>: obligació a reautentificar la sessió, que tot i estar actiu ha arribat al temps màxim permès, p.e. unes poques hores.</p>
 </li>
 <li>
-<p><strong>Elimineu la galeta de sessió en destruir una sessió</strong>.</p>
+<p><strong>Elimineu la galleta de sessió en destruir una sessió</strong>.</p>
 </li>
 </ol>
 <h3 id="identificador-de-sessio">Identificador de sessió</h3>
@@ -275,10 +275,10 @@
 <h3 id="cookie-de-sessio">Cookie de sessió</h3>
 <ol>
 <li>
-<p>Definiu el domini de la galeta a quelcom més específic que el domini de primer nivell.</p>
+<p>Definiu el domini de la galleta a quelcom més específic que el domini de primer nivell.</p>
 </li>
 <li>
-<p>No emmagatzeneu res a la galeta (almenys qualsevol informació sensible com el nom d’usuari o la contrasenya) sols’ID de sessió.</p>
+<p>No emmagatzeneu res a la galleta (almenys qualsevol informació sensible com el nom d’usuari o la contrasenya) sols’ID de sessió.</p>
 </li>
 <li>
 <p>Definiu el senyalador només http per desactivar la captura de l'identificador de sessió mitjançant XSS.</p>
@@ -329,14 +329,6 @@
 <p class="admonition-title">PASSWORD_DEFAULT</p>
 <p><strong>PASSWORD_DEFAULT</strong>. Actualment utilitza l’algoritme bcrypt (predeterminat a partir de PHP 5.5.0). Observeu que aquesta constant està pensada per a adaptar-se sempre que hi haja un algoritme nou i més fort a PHP. Per aquesta raó, la longitud del resultat d’utilitzar aquest identificador pot canviar amb el temps. Per tant, es recomana emmagatzemar el resultat en una columna d’una base de dades de més de 60 caracters (255 caracters seria una bona elecció).</p>
 </div>
-<h3 id="activitat">Activitat</h3>
-<p>Adapta el projecte de forma que:</p>
-<ol>
-<li>Cada 15 minuts es regenere la sessió.</li>
-<li>Sols use http per accedir a la <em>cookie</em> de sessió.</li>
-<li>Les constrasenyes s'encripten amb <em>bcrypt</em>.</li>
-<li>Es tanque la sessió tal com s'indica.</li>
-</ol>
 <h3 id="recursos">Recursos</h3>
 <ul>
 <li><a href="https://paragonie.com/blog/2017/12/2018-guide-building-secure-php-software">The 2018 Guide to Building Secure PHP Software</a></li>

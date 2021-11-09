@@ -187,7 +187,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../05-02-cookies/">
-        Galetes (cookies)
+        Galletes (cookies)
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
@@ -219,6 +219,20 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#maneig-de-sessions">
+    Maneig de sessions
+  </a>
+<nav aria-label="Maneig de sessions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#projecte-moviefx_1">
+    Projecte MovieFX
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -238,14 +252,14 @@
 <ol start="501">
 <li>
 <p>Última visita. </p>
-<p>Modifica la pàgina <code>index.php</code> de forma que emmagatzeme en una galeta l'últim instant en què l'usuari va visitar la pàgina. </p>
+<p>Modifica la pàgina <code>index.php</code> de forma que emmagatzeme en una galleta l'últim instant en què l'usuari va visitar la pàgina. </p>
 <p>Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de la seva anterior visita. </p>
-<p>La galeta tindrà una durada d'una setmana.</p>
-<p>Comprova que la galeta s'ha creat correctament.</p>
+<p>La galleta tindrà una durada d'una setmana.</p>
+<p>Comprova que la galleta s'ha creat correctament.</p>
 </li>
 <li>
 <p>Emmagatzematge del nom de l'usuari.</p>
-<p>L'objectiu és que quan un usuari inicie sessió s'emmagatzeme el nom introduït en un galeta, de forma que quan torne a accedir al formulari d'inici de sessió aparega el nom automàticament.</p>
+<p>L'objectiu és que quan un usuari inicie sessió s'emmagatzeme el nom introduït en un galleta, de forma que quan torne a accedir al formulari d'inici de sessió aparega el nom automàticament.</p>
 <p>El nom de la <em>cookie</em> serà <code>last_used_name</code> i la durada serà de 30 dies.</p>
 <p>Crea la pàgina <code>logout.php</code> que en accedir eliminarà la <em>cookie</em>.</p>
 </li>
@@ -254,13 +268,43 @@
 <p>Després de llegir l'article enllaçat, aplica els canvis oportuns per a fer més segures les <em>cookies</em>.</p>
 </li>
 </ol>
+<h2 id="maneig-de-sessions">Maneig de sessions</h2>
+<h3 id="projecte-moviefx_1">Projecte MovieFX</h3>
+<ol start="504">
+<li>
+<p>Registre de visites</p>
+<p>Modifica la pàgina inicial del projecte de forma que s'emmagatzeme en la sessió d'usuari els instants de totes les seves últimes visites. Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de totes les seves visites anteriors. Afegeix un botó a la pàgina que permeti esborrar el registre de visites.</p>
+</li>
+<li>
+<p>Control d'accés</p>
+<p>Utilitza també una variable de sessió per a comprovar si l'usuari ja ha iniciat sessió correctament. D'aquesta manera no caldrà comprovar les credencials amb la base de dades constantment.</p>
+</li>
+<li>
+<p>Evitar atacts CSRF</p>
+<p>Implementa en el formulari de creació de pel·lícules la solució proposada en els apunts.</p>
+</li>
+<li>
+<p>Gestió de formularis en dos fitxers.</p>
+<p>Modifica el formulari de creació de pel·lícules de forma que es gestione en dos fitxers tal com s'indica en els apunts.</p>
+</li>
+<li>
+<p>Bones pràctiques</p>
+<p>Adapta el projecte de forma que:</p>
+<ol>
+<li>Cada 15 minuts es regenere la sessió.</li>
+<li>Sols use http per accedir a la <em>cookie</em> de sessió.</li>
+<li>Les constrasenyes s'encripten amb <em>bcrypt</em>.</li>
+<li>Es tanque la sessió tal com s'indica.</li>
+</ol>
+</li>
+</ol>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Anterior: Galetes (cookies)" class="md-footer__link md-footer__link--prev" href="../05-02-cookies/" rel="prev">
+<a aria-label="Anterior: Galletes (cookies)" class="md-footer__link md-footer__link--prev" href="../05-02-cookies/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -269,7 +313,7 @@
 <span class="md-footer__direction">
                 Anterior
               </span>
-              Galetes (cookies)
+              Galletes (cookies)
             </div>
 </div>
 </a>

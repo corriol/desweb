@@ -187,7 +187,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../05-02-cookies/">
-        Galetes (cookies)
+        Galletes (cookies)
       </a>
 </li>
 <li class="md-nav__item">
@@ -429,27 +429,27 @@ contrasenyes. Per això podries emprar un fitxer de text, o millor encara, una b
 <span class="linenos" data-linenos="47 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="galetes-cookies">Galetes (<em>cookies</em>)</h2>
-<p>Una galeta és un fitxer de text que un lloc web guarda a l'entorn de l'usuari de navegador. El seu ús més típic és l'emmagatzematge de les preferències de l'usuari (per exemple, l'idioma en que s'han de mostrar les pàgines), perquè no hagi de tornar a indicar-les la propera vegada que visiteu el lloc.</p>
+<p>Una galleta és un fitxer de text que un lloc web guarda a l'entorn de l'usuari de navegador. El seu ús més típic és l'emmagatzematge de les preferències de l'usuari (per exemple, l'idioma en que s'han de mostrar les pàgines), perquè no hagi de tornar a indicar-les la propera vegada que visiteu el lloc.</p>
 <p>Si utilitzes Firefox com a navegador, pots accedir a <code>Desenvolupador web</code> – <code>Inspector d'emmagatzematge</code> des del menú principal. Entre les seves característiques et permet consultar i editar les galetes emmagatzemades en el mateix.</p>
 <p><img alt="Inspeccionar galetes en Firefox" src="../assets/galetes-firefox.png"/></p>
-<p>En PHP, per emmagatzemar una galeta al navegador de l'usuari, pots utilitzar la funció <code>setcookie</code>. L'únic paràmetre obligatori que has de fer servir és el nom de la galeta, però admet diversos paràmetres més opcionals.</p>
+<p>En PHP, per emmagatzemar una galleta al navegador de l'usuari, pots utilitzar la funció <code>setcookie</code>. L'únic paràmetre obligatori que has de fer servir és el nom de la galleta, però admet diversos paràmetres més opcionals.</p>
 <div class="admonition information">
 <p class="admonition-title">setcookie</p>
 <p>Per a més informació consulta: <a href="https://www.php.net/manual/es/function.setcookie.php">https://www.php.net/manual/es/function.setcookie.php</a>.</p>
 </div>
-<p>Per exemple, si vols emmagatzemar en una galeta el nom d'usuari que es va transmetre a les credencials HTTP (és només un exemple, no és en absolut aconsellable emmagatzemar informació relativa a la seguretat en les galetes), pots fer:</p>
+<p>Per exemple, si vols emmagatzemar en una galleta el nom d'usuari que es va transmetre a les credencials HTTP (és només un exemple, no és en absolut aconsellable emmagatzemar informació relativa a la seguretat en les galetes), pots fer:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">setcookie</span> <span class="p">(</span><span class="s2">"nom_usuari"</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_USER'</span><span class="p">],</span> <span class="nb">time</span> <span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">);</span>
 </code></pre></div>
-<p>Els dos primers paràmetres són el nom de la galeta i el seu valor. El tercer és la data de caducitat de la mateixa (una hora des del moment en què s'execute). En cas de no figurar aquest paràmetre, la galeta s'eliminarà quan es tanqui el navegador. Tingues en compte que també es poden aplicar restriccions a les pàgines de el lloc que poden accedir a una galeta en funció de la ruta.</p>
+<p>Els dos primers paràmetres són el nom de la galleta i el seu valor. El tercer és la data de caducitat de la mateixa (una hora des del moment en què s'execute). En cas de no figurar aquest paràmetre, la galleta s'eliminarà quan es tanqui el navegador. Tingues en compte que també es poden aplicar restriccions a les pàgines de el lloc que poden accedir a una galleta en funció de la ruta.</p>
 <p>Les galetes es transmeten entre el navegador i el servidor web de la mateixa manera que les credencials que acabes de veure; utilitzant les capçaleres de el protocol HTTP. <strong>Per això, les
 sentències <code>setcookie</code> s'han d'enviar abans que el navegador mostri cap informació a pantalla.</strong></p>
-<p>El procés de recuperació de la informació que emmagatzema una galeta és molt simple. quan accedeixes a un lloc web, el navegador li envia de forma automàtica tot el contingut de les galetes que emmagatzemi relatives a aquest lloc en concret. Des PHP pots accedir a aquesta informació per mitjà de l'array <code>$_COOKIE</code>.</p>
+<p>El procés de recuperació de la informació que emmagatzema una galleta és molt simple. quan accedeixes a un lloc web, el navegador li envia de forma automàtica tot el contingut de les galetes que emmagatzemi relatives a aquest lloc en concret. Des PHP pots accedir a aquesta informació per mitjà de l'array <code>$_COOKIE</code>.</p>
 <div class="admonition important">
 <p class="admonition-title">important</p>
 <p>Sempre que utilitzes galetes en una aplicació web, heu de tenir en compte que en última instància la seva disponibilitat està controlada pel client. Per exemple, alguns usuaris deshabiliten les galetes al navegador perquè pensen que la informació que emmagatzemen pot suposar un potencial problema de seguretat. O la informació que emmagatzemen pot arribar a perdre perquè el usuari decideix formatar l'equip o simplement eliminar-les de sistema.</p>
 </div>
-<p>Si un cop emmagatzemada una galeta al navegador vols eliminar abans que expire, pots utilitzar la mateixa funció <code>setcookie</code> però indicant una data de caducitat anterior a l'actual.</p>
-<p>Sobre el mateix exercici anterior, emmagatzema en una galeta l'últim instant en què el usuari va visitar la pàgina. Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de la seva anterior visita.</p>
+<p>Si un cop emmagatzemada una galleta al navegador vols eliminar abans que expire, pots utilitzar la mateixa funció <code>setcookie</code> però indicant una data de caducitat anterior a l'actual.</p>
+<p>Sobre el mateix exercici anterior, emmagatzema en una galleta l'últim instant en què el usuari va visitar la pàgina. Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de la seva anterior visita.</p>
 <p>Revisa la solució proposada. Hauràs utilitzar la funció <code>setcookie</code> per guardar l'instant de la seva anterior visita i mostrar el seu contingut utilitzant l'array <code>$_COOKIE</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// Si l'usuari encara no s'ha entrat, demanem les credencials</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span> <span class="p">(</span><span class="nv">$_</span> <span class="nx">SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_USER'</span><span class="p">]))</span> <span class="p">{</span>
@@ -515,7 +515,7 @@ sentències <code>setcookie</code> s'han d'enviar abans que el navegador mostri 
 </code></pre></div>
 <div class="admonition think">
 <p class="admonition-title">Reflexiona</p>
-<p>Quina és la durada per defecte d'una galeta si no s'indica la data de caducitat,
+<p>Quina és la durada per defecte d'una galleta si no s'indica la data de caducitat,
 com en la següent crida a la funció setcookie?</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">setcookie</span> <span class="p">(</span><span class="s2">"idioma"</span><span class="p">,</span> <span class="s2">"espanyol"</span><span class="p">);</span>
 </code></pre></div>
@@ -539,7 +539,7 @@ com en la següent crida a la funció setcookie?</p>
 <p>La bona notícia, és que el procés de maneig de sessions en PHP està automatitzat en gran mida. Quan un usuari visita un lloc web, no cal programar un procediment per veure si hi ha un SID previ i carregar les dades associades amb el mateix. Tampoc has d'utilitzar la funció <code>setcookie</code> si vols emmagatzemar els SID en galetes, o anar passant el SID entre les pàgines web del teu lloc si et decideixes per propagar. Tot això PHP ho fa automàticament.</p>
 <div class="admonition info">
 <p class="admonition-title">Server side cookies</p>
-<p>A la informació que s'emmagatzema en la sessió d'un usuari també se li coneix com a galetes en la part de servidor (<em>server side cookies</em>). Has de tenir en compte que encara aquesta informació no viatja entre el client i el servidor, sí que ho fa el SID, bé com a part de l'URL o en una capçalera HTTP si es guarda en una galeta. En tots dos casos, això planteja un possible problema de seguretat. El SID pot ser aconseguit per una altra persona, i a partir de la mateixa obtenir la informació de la sessió de l'usuari. La manera més segura d'utilitzar sessions és emmagatzemant els SID en galetes i utilitzar HTTPS per a xifrar la informació que es transmet entre el servidor web i el client.</p>
+<p>A la informació que s'emmagatzema en la sessió d'un usuari també se li coneix com a galetes en la part de servidor (<em>server side cookies</em>). Has de tenir en compte que encara aquesta informació no viatja entre el client i el servidor, sí que ho fa el SID, bé com a part de l'URL o en una capçalera HTTP si es guarda en una galleta. En tots dos casos, això planteja un possible problema de seguretat. El SID pot ser aconseguit per una altra persona, i a partir de la mateixa obtenir la informació de la sessió de l'usuari. La manera més segura d'utilitzar sessions és emmagatzemant els SID en galetes i utilitzar HTTPS per a xifrar la informació que es transmet entre el servidor web i el client.</p>
 </div>
 <h3 id="configuracio">Configuració</h3>
 <p>Per defecte, PHP inclou suport de sessions incorporat. Abans, però, d'utilitzar sessions en el teu lloc web, has de configurar correctament PHP utilitzant els següents directives en el fitxer
@@ -566,7 +566,7 @@ php.ini segons correspongui:</p>
 </tr>
 <tr>
 <td>session.name</td>
-<td>Determina el nom de la galeta que s'utilitzarà per guardar el SID. La seva valor per defecte és PHPSESSID.</td>
+<td>Determina el nom de la galleta que s'utilitzarà per guardar el SID. La seva valor per defecte és PHPSESSID.</td>
 </tr>
 <tr>
 <td>session.auto_start</td>
@@ -574,7 +574,7 @@ php.ini segons correspongui:</p>
 </tr>
 <tr>
 <td>session.cookie_lifetime</td>
-<td>Si utilitzes l'URL per propagar el SID, aquest es perdrà quan tanqui el navegador. No obstant això, si utilitzes galetes, el SID es mantindrà mentre no es destrueixi la galeta. En el seu valor per defecte (0), les galetes es destrueixen quan es tanca el navegador. Si vols que es mantingui el SID durant més temps, has d'indicar en aquesta directiva aquest temps en segons.</td>
+<td>Si utilitzes l'URL per propagar el SID, aquest es perdrà quan tanqui el navegador. No obstant això, si utilitzes galetes, el SID es mantindrà mentre no es destrueixi la galleta. En el seu valor per defecte (0), les galetes es destrueixen quan es tanca el navegador. Si vols que es mantingui el SID durant més temps, has d'indicar en aquesta directiva aquest temps en segons.</td>
 </tr>
 <tr>
 <td>session.gc_maxlifetime</td>
@@ -606,7 +606,7 @@ php.ini segons correspongui:</p>
 <p>Si la informació de l'usuari que vols emmagatzemar inclou contingut privat com una contrasenya, ¿què utilitzaries, galetes o la sessió de l'usuari?</p>
 </div>
 <h3 id="inici-i-fi-duna-sessio">Inici i fi d'una sessió</h3>
-<p>L'inici d'una sessió pot tenir lloc de dues maneres. Si has activat la directiva <code>session.auto_start</code> en la configuració de PHP, la sessió començarà automàticament quan un usuari es connecte al teu lloc web. En el cas que aquest usuari ja haja obert una sessió amb anterioritat, i aquesta no s'haja eliminat, en lloc d'obrir una nova sessió es reprendrà la anterior. Per a això s'utilitzarà el SID anterior, que estarà emmagatzemat en una galeta (recorda que si fas servir propagació de l'SID, no podràs restaurar sessions anteriors; el SID figura a la URL i es perd quan tanques el navegador).</p>
+<p>L'inici d'una sessió pot tenir lloc de dues maneres. Si has activat la directiva <code>session.auto_start</code> en la configuració de PHP, la sessió començarà automàticament quan un usuari es connecte al teu lloc web. En el cas que aquest usuari ja haja obert una sessió amb anterioritat, i aquesta no s'haja eliminat, en lloc d'obrir una nova sessió es reprendrà la anterior. Per a això s'utilitzarà el SID anterior, que estarà emmagatzemat en una galleta (recorda que si fas servir propagació de l'SID, no podràs restaurar sessions anteriors; el SID figura a la URL i es perd quan tanques el navegador).</p>
 <p>Si per contra, decideixes no utilitzar l'inici automàtic de sessions, hauràs executar la funció <code>session_start()</code> per indicar a PHP que inicie una nova sessió o reprenga l'anterior. Anteriorment aquesta funció tornava sempre <code>true</code>, a partir de la versió 5.3.0 de PHP el seu comportament és més coherent: retorna <code>false</code> en cas de no poder iniciar o restaurar la sessió.</p>
 <p>Com l'inici de sessió requereix utilitzar <code>cookies</code>, i aquestes es transmeten en els encapçalats HTTP, heu de tenir en compte que per poder iniciar una sessió utilitzant <code>session_start</code>, hauràs de fer les cridades a aquesta funció abans que la pàgina web mostre informació al navegador.</p>
 <p>A més, totes les pàgines que necessiten utilitzar la informació emmagatzemada en la sessió, hauran d'executar la funció <code>session_start</code>.</p>
@@ -994,7 +994,7 @@ En el codi anterior, la sessió de l'usuari s'inicia sòl si es proporciona un n
 <p><strong>Fes caducar la sessió quan siga de llarga durada</strong>: obligació a reautentificar la sessió, que tot i estar actiu ha arribat al temps màxim permès, p.e. unes poques hores.</p>
 </li>
 <li>
-<p><strong>Elimineu la galeta de sessió en destruir una sessió</strong>.</p>
+<p><strong>Elimineu la galleta de sessió en destruir una sessió</strong>.</p>
 </li>
 </ol>
 <h3 id="identificador-de-sessio">Identificador de sessió</h3>
@@ -1015,10 +1015,10 @@ En el codi anterior, la sessió de l'usuari s'inicia sòl si es proporciona un n
 <h3 id="cookie-de-sessio">Cookie de sessió</h3>
 <ol>
 <li>
-<p>Definiu el domini de la galeta a quelcom més específic que el domini de primer nivell.</p>
+<p>Definiu el domini de la galleta a quelcom més específic que el domini de primer nivell.</p>
 </li>
 <li>
-<p>No emmagatzeneu res a la galeta (almenys qualsevol informació sensible com el nom d’usuari o la contrasenya) sols’ID de sessió.</p>
+<p>No emmagatzeneu res a la galleta (almenys qualsevol informació sensible com el nom d’usuari o la contrasenya) sols’ID de sessió.</p>
 </li>
 <li>
 <p>Definiu el senyalador només http per desactivar la captura de l'identificador de sessió mitjançant XSS.</p>
