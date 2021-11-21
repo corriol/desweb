@@ -274,7 +274,7 @@
 <li>
 <p>La classe <code>FlashMessage</code>. </p>
 <p>Fins ara, hem gestionat la comunicació entre pàgines mitjançant sessions. 
- La gestió la fèiem escrivint i llegint en les variables de sessió. L'objectiu de la següent classe és proporcionar-nos un mecanisme que ens facilite l'enviament de missatges entre pàgines.</p>
+ La gestió la fèiem escrivint i llegint en les variables de sessió. L'objectiu de la següent classe és proporcionar-nos un mecanisme que ens facilite l'enviament de missatges entre pàgines. Una vegada implementada utilitza-la en la creació de pel·lícules.</p>
 </li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Core/Helpers/FlashMessage.php</span>
@@ -310,125 +310,12 @@
 <span class="linenos" data-linenos="31 "></span>    <span class="sd">/**</span>
 <span class="linenos" data-linenos="32 "></span><span class="sd">     * @param string $key</span>
 <span class="linenos" data-linenos="33 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="34 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">unset</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">);</span>      
+<span class="linenos" data-linenos="34 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">unset</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">);</span>      
 <span class="linenos" data-linenos="35 "></span><span class="p">}</span>
 </code></pre></div>
 <ol start="602">
-<li>La classe <code>FileUpload</code>.
-      Encapsularem en una classe la gestió de fitxers.</li>
+<li>Tenint en compte tot el procés de gestió de pujada de fixers, les restriccions que es poden aplicar, i les dades que ens interessen una vegada el procés s'ha efectuat exitosament, crea una classe que encapsule totes les funcionalitats requerides.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="  1 "></span><span class="sd">/**</span>
-<span class="linenos" data-linenos="  2 "></span><span class="sd"> * Class UploadedFile</span>
-<span class="linenos" data-linenos="  3 "></span><span class="sd"> *</span>
-<span class="linenos" data-linenos="  4 "></span><span class="sd"> * Classe que gestiona la pujada de fitxers al servidor mitjançant formularis</span>
-<span class="linenos" data-linenos="  5 "></span><span class="sd"> */</span>
-<span class="linenos" data-linenos="  6 "></span><span class="k">class</span> <span class="nc">UploadedFile</span>
-<span class="linenos" data-linenos="  7 "></span><span class="p">{</span>
-<span class="linenos" data-linenos="  8 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="  9 "></span><span class="sd">     * @var array</span>
-<span class="linenos" data-linenos=" 10 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 11 "></span><span class="sd">     * Array del fitxer pujat. $_FILES['nom_del_camp_del_formuari']</span>
-<span class="linenos" data-linenos=" 12 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 13 "></span>    <span class="k">private</span> <span class="nv">$file</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 14 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 15 "></span><span class="sd">     * @var string</span>
-<span class="linenos" data-linenos=" 16 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 17 "></span><span class="sd">     * Nom amb que es guardarà el fitxer.</span>
-<span class="linenos" data-linenos=" 18 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 19 "></span>    <span class="k">private</span> <span class="nv">$fileName</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 20 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 21 "></span><span class="sd">     * @var int</span>
-<span class="linenos" data-linenos=" 22 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 23 "></span><span class="sd">     * Mida màxima en bytes del fitxer, 0 indica que no hi ha límit.</span>
-<span class="linenos" data-linenos=" 24 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 25 "></span>
-<span class="linenos" data-linenos=" 26 "></span>    <span class="k">private</span> <span class="nv">$maxSize</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 27 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 28 "></span><span class="sd">     * @var array</span>
-<span class="linenos" data-linenos=" 29 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 30 "></span><span class="sd">     * Array amb els MimeType acceptats. Per exemple ['image/jpg', 'image/gif', image/png']. </span>
-<span class="linenos" data-linenos=" 31 "></span><span class="sd">     * Si l'array és buit  s'accepten tots els tipus.</span>
-<span class="linenos" data-linenos=" 32 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 33 "></span>    <span class="k">private</span> <span class="nv">$acceptedTypes</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 34 "></span>
-<span class="linenos" data-linenos=" 35 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 36 "></span><span class="sd">     * UploadedFile constructor. Comprova que s'ha pujat un fitxer, si no llançarà una excepció</span>
-<span class="linenos" data-linenos=" 37 "></span><span class="sd">     * UploadFileNoFileException.</span>
-<span class="linenos" data-linenos=" 38 "></span><span class="sd">     * En qualsevol altre error en la pujada llançarà l'excepció UploadFileException.</span>
-<span class="linenos" data-linenos=" 39 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 40 "></span><span class="sd">     * El paràmetre $inputName rebrà la clau de $_FILES en que s'emmagatzemen les dades del </span>
-<span class="linenos" data-linenos=" 41 "></span><span class="sd">     * fitxer pujat.     </span>
-<span class="linenos" data-linenos=" 42 "></span><span class="sd">     * </span>
-<span class="linenos" data-linenos=" 43 "></span><span class="sd">     * El paràmetre $maxSize indica la grandària màxima en bytes permesa. És opcional, </span>
-<span class="linenos" data-linenos=" 44 "></span><span class="sd">     * serà 0 per defecte.  Si és 0 la grandària és ilimitada.</span>
-<span class="linenos" data-linenos=" 45 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 46 "></span><span class="sd">     * El paràmetre $acceptedTypes és opcional. Contindrà els mimetype (tipus de fitxers) permesos. </span>
-<span class="linenos" data-linenos=" 47 "></span><span class="sd">     * Per defecte estarà buit, en eixe cas es podrà pujar qualsevol tipus de fitxer.</span>
-<span class="linenos" data-linenos=" 48 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 49 "></span><span class="sd">     * @param string $inputName</span>
-<span class="linenos" data-linenos=" 50 "></span><span class="sd">     * @param int $maxSize</span>
-<span class="linenos" data-linenos=" 51 "></span><span class="sd">     * @param array $acceptedTypes</span>
-<span class="linenos" data-linenos=" 52 "></span><span class="sd">     * @throws UploadFileException</span>
-<span class="linenos" data-linenos=" 53 "></span><span class="sd">     * @throws UploadFileNoFileException</span>
-<span class="linenos" data-linenos=" 54 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 55 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$inputName</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$maxSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> 
-<span class="linenos" data-linenos=" 56 "></span>        <span class="k">array</span> <span class="nv">$acceptedTypes</span> <span class="o">=</span> <span class="k">array</span><span class="p">());</span>
-<span class="linenos" data-linenos=" 57 "></span>
-<span class="linenos" data-linenos=" 58 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 59 "></span><span class="sd">     * @return bool</span>
-<span class="linenos" data-linenos=" 60 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 61 "></span><span class="sd">     * Comprova que el fitxer s'haja pujat correctament, que no supera el </span>
-<span class="linenos" data-linenos=" 62 "></span><span class="sd">     * limit de grandària i és del tipus indicat.</span>
-<span class="linenos" data-linenos=" 63 "></span><span class="sd">     * Si no passa la validació llançarà una excepció.</span>
-<span class="linenos" data-linenos=" 64 "></span><span class="sd">     * @throws UploadFileException</span>
-<span class="linenos" data-linenos=" 65 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 66 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">validate</span><span class="p">()</span><span class="o">:</span> <span class="nx">bool</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 67 "></span>
-<span class="linenos" data-linenos=" 68 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 69 "></span><span class="sd">     * @return string</span>
-<span class="linenos" data-linenos=" 70 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 71 "></span><span class="sd">     * Tornarà el nom del fitxer.</span>
-<span class="linenos" data-linenos=" 72 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 73 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFileName</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
-<span class="linenos" data-linenos=" 74 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos=" 75 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fileName</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 76 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos=" 77 "></span>
-<span class="linenos" data-linenos=" 78 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 79 "></span><span class="sd">     * @param string $directory</span>
-<span class="linenos" data-linenos=" 80 "></span><span class="sd">     * @param string $fileName</span>
-<span class="linenos" data-linenos=" 81 "></span><span class="sd">     * @return bool</span>
-<span class="linenos" data-linenos=" 82 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 83 "></span><span class="sd">     * Guarda el fitxer en la ubicació indicada.</span>
-<span class="linenos" data-linenos=" 84 "></span><span class="sd">     * Si no s'indica nom es guardarà amb el mateix nom que s'ha penjat.</span>
-<span class="linenos" data-linenos=" 85 "></span><span class="sd">     * Si s'indica es guardarà en eixe nom, l'extensió s'obtindrà de forma automàtica a partir </span>
-<span class="linenos" data-linenos=" 86 "></span><span class="sd">     * del nom del que s'ha pujat.</span>
-<span class="linenos" data-linenos=" 87 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 88 "></span><span class="sd">     * Exemple: $path = '/public/images/', $fileName = 'prova.png'</span>
-<span class="linenos" data-linenos=" 89 "></span><span class="sd">     *</span>
-<span class="linenos" data-linenos=" 90 "></span><span class="sd">     * Torna true si s'ha pogut moure la imatge a la ubicació indicada.</span>
-<span class="linenos" data-linenos=" 91 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 92 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$directory</span><span class="p">,</span> <span class="nv">$fileName</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
-<span class="linenos" data-linenos=" 93 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos=" 94 "></span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">is_uploaded_file</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">file</span><span class="p">[</span><span class="s1">'tmp_name'</span><span class="p">]))</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 95 "></span>            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 96 "></span>        <span class="p">}</span>
-<span class="linenos" data-linenos=" 97 "></span>        <span class="c1">// TODO: Implementar el que falta</span>
-<span class="linenos" data-linenos=" 98 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos=" 99 "></span>
-<span class="linenos" data-linenos="100 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="101 "></span><span class="sd">     * Extrau del nom de fitxer pujat la seua extensió</span>
-<span class="linenos" data-linenos="102 "></span><span class="sd">     * @return string</span>
-<span class="linenos" data-linenos="103 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="104 "></span>    <span class="k">private</span> <span class="k">function</span> <span class="nf">getExtension</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
-<span class="linenos" data-linenos="105 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos="106 "></span>        <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">file</span><span class="p">[</span><span class="s2">"name"</span><span class="p">];</span>
-<span class="linenos" data-linenos="107 "></span>        <span class="nv">$extensionArray</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="nv">$file</span><span class="p">);</span>
-<span class="linenos" data-linenos="108 "></span>        <span class="nv">$extension</span> <span class="o">=</span> <span class="nb">end</span><span class="p">(</span><span class="nv">$extensionArray</span><span class="p">);</span>
-<span class="linenos" data-linenos="109 "></span>        <span class="k">return</span> <span class="nv">$extension</span> <span class="o">?</span> <span class="s2">".</span><span class="si">$extension</span><span class="s2">"</span> <span class="o">:</span> <span class="s2">""</span><span class="p">;</span>
-<span class="linenos" data-linenos="110 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="111 "></span><span class="p">}</span>
-</code></pre></div>
 </article>
 </div>
 </div>
