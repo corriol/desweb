@@ -289,32 +289,44 @@
 <span class="linenos" data-linenos="10 "></span>    <span class="sd">/**</span>
 <span class="linenos" data-linenos="11 "></span><span class="sd">     * string</span>
 <span class="linenos" data-linenos="12 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="13 "></span>    <span class="nx">const</span> <span class="nv">$sessionKey</span> <span class="o">=</span> <span class="s2">"flash-message"</span><span class="p">;</span>
-<span class="linenos" data-linenos="14 "></span>
-<span class="linenos" data-linenos="15 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="16 "></span><span class="sd">     * obtenim el valor de l'array associat a la clau.</span>
-<span class="linenos" data-linenos="17 "></span><span class="sd">     * després de llegir-lo l'esborrem</span>
-<span class="linenos" data-linenos="18 "></span><span class="sd">     * si no existeix tornem el valor indicat per defecte.</span>
-<span class="linenos" data-linenos="19 "></span><span class="sd">     * @param string $key</span>
-<span class="linenos" data-linenos="20 "></span><span class="sd">     * @param mixed $defaultValue</span>
-<span class="linenos" data-linenos="21 "></span><span class="sd">     * @return mixed|string</span>
-<span class="linenos" data-linenos="22 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="23 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$defaultValue</span> <span class="o">=</span> <span class="s1">''</span><span class="p">);</span>
-<span class="linenos" data-linenos="24 "></span>
-<span class="linenos" data-linenos="25 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="26 "></span><span class="sd">     * @param string $key</span>
-<span class="linenos" data-linenos="27 "></span><span class="sd">     * @param $value</span>
-<span class="linenos" data-linenos="28 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="29 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">set</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
-<span class="linenos" data-linenos="30 "></span>
-<span class="linenos" data-linenos="31 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="32 "></span><span class="sd">     * @param string $key</span>
-<span class="linenos" data-linenos="33 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="34 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">unset</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">);</span>      
-<span class="linenos" data-linenos="35 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">const</span> <span class="no">SESSION_KEY</span> <span class="o">=</span> <span class="s2">"flash-message"</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="17 "></span><span class="sd">     * obtenim el valor de l'array associat a la clau.</span>
+<span class="linenos" data-linenos="18 "></span><span class="sd">     * després de llegir-lo l'esborrem</span>
+<span class="linenos" data-linenos="19 "></span><span class="sd">     * si no existeix tornem el valor indicat per defecte.</span>
+<span class="linenos" data-linenos="20 "></span><span class="sd">     * @param string $key</span>
+<span class="linenos" data-linenos="21 "></span><span class="sd">     * @param mixed $defaultValue</span>
+<span class="linenos" data-linenos="22 "></span><span class="sd">     * @return mixed|string</span>
+<span class="linenos" data-linenos="23 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$defaultValue</span> <span class="o">=</span> <span class="s1">''</span><span class="p">);</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="27 "></span><span class="sd">     * @param string $key</span>
+<span class="linenos" data-linenos="28 "></span><span class="sd">     * @param $value</span>
+<span class="linenos" data-linenos="29 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">set</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+<span class="linenos" data-linenos="31 "></span>
+<span class="linenos" data-linenos="32 "></span>    <span class="sd">/**</span>
+<span class="linenos" data-linenos="33 "></span><span class="sd">     * @param string $key</span>
+<span class="linenos" data-linenos="34 "></span><span class="sd">     */</span>
+<span class="linenos" data-linenos="35 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">unset</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">);</span>      
+<span class="linenos" data-linenos="36 "></span><span class="p">}</span>
 </code></pre></div>
 <ol start="602">
-<li>Tenint en compte tot el procés de gestió de pujada de fixers, les restriccions que es poden aplicar, i les dades que ens interessen una vegada el procés s'ha efectuat exitosament, crea una classe que encapsule totes les funcionalitats requerides.</li>
+<li>
+<p>Tenint en compte tot el procés de gestió de pujada de fixers, les restriccions que es poden aplicar, i les dades que ens interessen una vegada el procés s'ha efectuat exitosament, crea una classe que encapsule totes les funcionalitats requerides.</p>
+</li>
+<li>
+<p>Implementa el patró <code>Registry</code> en una classe amb el mateix nom i afegeix una instancia de PDO associada a la 
+clau "PDO". L'objecte PDO l'hauràs de crear i inserir-lo en el <code>Registre</code> en un nou fitxer anomenat <code>bootstrap.php</code>.</p>
+<p>Aquest fitxer serà requerit en totes els fitxers que tinguen accés a la base de dades.</p>
+</li>
+<li>
+<p>En un fitxer de configuració (JSON, YAML, INI o XML, segons t'haja assignat el professor) emmagatzema el DSN (<em>Data Source Name</em>) d'accés a la base de dades. Després, crea una classe <code>Config</code> que llija el fitxer i extraga el DSN. Utilitza onfig<code>en</code>bootstrap.php` en lloc d'usar un literal en instanciar la classe PDO.</p>
+<p>Afig també al fitxer de configuració la ruta relativa on es guarden les fotos pujades.</p>
+</li>
 </ol>
 </article>
 </div>

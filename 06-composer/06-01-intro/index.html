@@ -240,6 +240,20 @@
     Introducció
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#patrons-de-disseny">
+    Patrons de disseny
+  </a>
+<nav aria-label="Patrons de disseny" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#registry">
+    Registry
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -290,6 +304,27 @@ les aplicacions d'una forma més àgil i segura.</p>
 <p class="admonition-title">Refacció</p>
 <p>En enginyeria del programari, el terme refacció, en anglès <em>refactoring</em>, s'empra per a descriure el fet de modificar codi font sense canviar-ne el comportament observat des de l'exterior. La refacció sovint és una part del cicle de vida del programari: els desenvolupadors alternen entre la producció de noves funcionalitats i la refacció de codi ja existent per tal de millorar-ne la consistència interna i la claredat. Les proves de regressió asseguren que la refacció no ha canviat el comportament del codi observat des d'altres mòduls del programa. </p>
 </div>
+<h2 id="patrons-de-disseny">Patrons de disseny</h2>
+<p>Segons Viquipèdia: </p>
+<blockquote>
+<p>En enginyeria de programari, un patró de disseny és una solució general a un problema comú i recurrent en el disseny de programari. Un patró de disseny no és un disseny acabat que es pot transformar directament en codi; és una descripció o plantilla per resoldre un problema que es pot utilitzar en moltes situacions diferents. </p>
+</blockquote>
+<p>És a dir, són solucions als problemes habituals que podem trobar-nos en desenvolupar el nostre programari.</p>
+<p>Hi ha molts patrons de disseny com podeu trobar en les següents pàgines:</p>
+<ul>
+<li><a href="https://refactoring.guru/design-patterns">Refactoring guru</a></li>
+<li><a href="https://designpatternsphp.readthedocs.io/en/latest/README.html">Design Patters PHP</a></li>
+</ul>
+<p>En el nostre cas en vorem alguns senzills, fàcils d'aplicar i que després trobarem en els framewoks més habituals.</p>
+<h3 id="registry">Registry</h3>
+<p>El propòsit del patró <code>Registry</code> és implementar un emmagatzematge central per als objectes que s'utilitzen sovint a tota l'aplicació, normalment s'implementa utilitzant una classe abstracta amb només mètodes estàtics (o utilitzant el patró <code>Singleton</code>). </p>
+<div class="admonition warning">
+<p class="admonition-title">Estat global</p>
+<p>El patró <code>Registry</code>  introdueix un estat global, és a dir, crea un objecte d'àmbit global, la qual cosa s'hauri d'evitar tot moment!</p>
+</div>
+<p>No obstant això, en projectes xicotets i senzills pot utilitzar-se perfectament. Més avant del patró <code>Dependency Injection</code>
+que seria el recomanat en aquestos casos.</p>
+<p>En <a href="https://designpatternsphp.readthedocs.io/en/latest/Structural/Registry/README.html">Registry</a> teniu un exemple d'implementació.</p>
 </article>
 </div>
 </div>
