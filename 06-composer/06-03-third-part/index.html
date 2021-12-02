@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>06 03 third part - DWES</title>
+<title>Ús del paquet Monolog - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -22,6 +22,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#us-del-paquet-monolog">
+          Salta el contingut
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -43,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              06 03 third part
+              Ús del paquet Monolog
             
           </span>
 </div>
@@ -223,6 +226,16 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-04-namespaces/">
+        Namespaces
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../06-99-activities/">
         Activitats
       </a>
@@ -237,7 +250,17 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>06 03 third part</h1>
+<h1 id="us-del-paquet-monolog">Ús del paquet Monolog</h1>
+<p>Per utilitzar la llibreria Monolog podem usar les seves classes i Composer s'encarregarà de carregar-les:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$log</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Monolog\Logger</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$log</span><span class="o">-&gt;</span> <span class="na">pushHandler</span> <span class="p">(</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">new</span> <span class="nx">Monolog\Handler\StreamHandler</span><span class="p">(</span><span class="s1">'app.log'</span><span class="p">,</span> <span class="nx">Monolog\Logger</span><span class="o">::</span><span class="na">INFO</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$log→info</span><span class="p">(</span><span class="s1">'Foo'</span><span class="p">);</span>
+</code></pre></div>
+Més informació:
+https://packagist.org/packages/monolog/monolog
+https://github.com/Seldaek/monolog/blob/HEAD/doc/01-usage.md</p>
 </article>
 </div>
 </div>

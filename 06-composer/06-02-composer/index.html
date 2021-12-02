@@ -208,8 +208,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7">
         6.- Composer. Introducció al testing
         <span class="md-nav__icon md-icon"></span>
@@ -223,6 +223,87 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../06-01-intro/">
         Introducció
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Composer
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Composer
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio">
+    Introducció
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#us-basic">
+    Ús bàsic
+  </a>
+<nav aria-label="Ús bàsic" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#limitar-la-versio-dels-paquets">
+    Limitar la versió dels paquets
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#versionat-semantic-semver">
+    Versionat semàntic (semver)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installant-dependencies">
+    Instal·lant dependències
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actualitzar-versions">
+    Actualitzar versions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#afegint-dependencies">
+    Afegint dependències
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#packagist">
+    Packagist
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#carrega-automatica-de-classes">
+    Carrega automàtica de classes
+  </a>
+<nav aria-label="Carrega automàtica de classes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classes-personalitzades">
+    Classes personalitzades
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-04-namespaces/">
+        Namespaces
       </a>
 </li>
 <li class="md-nav__item">
@@ -242,7 +323,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="composer">Composer</h1>
 <h2 id="introduccio">Introducció</h2>
-<p>Abans de tot cal definir què és un compoment o paquet en PHP. Un component PHP és un conjunt de codi que t’ajuda a solucionar un problema específ de la teua aplicació. Aquests components solen estar formats per diverses classes. <strong>Composer</strong> és una eina que permet gestionar components en PHP. </p>
+<p>Abans de tot cal definir què és un compoment o paquet en PHP. Un component PHP és un conjunt de codi que t’ajuda a solucionar un problema específic de la teua aplicació. Aquests components solen estar formats per diverses classes. <strong>Composer</strong> és una eina que permet gestionar components en PHP. </p>
 <p>Composer permet declarar els components dels que depèn el nostre projecte i gestionar-los (instal·lar/actualitzar). A diferència dels gestors de paquets com Apt o Yum, Composer gestiona els paquets per projecte, instal·lant-los en el directori (<code>vendor</code>) del projecte. </p>
 <p>Per defecte, no instal·la res de forma global. Per tant, és un gestor de dependències. Aquesta idea no és nova i Composer s’inspira fortament en npm de node i el bundler de ruby.</p>
 <p>Composer ens soluciona dos problemes:</p>
@@ -251,28 +332,30 @@
 <li><strong><em>Autoloading</em> del nostre codi.</strong> Ja no haurem de fer més <code>require</code>, Composer ho farà per nosaltres</li>
 </ul>
 <h2 id="us-basic">Ús bàsic</h2>
-<p>Per usar composer el primer que necessitem és disposar de l’arxiu <code>composer.json</code>.</p>
-<p>Consisteix en un seguit d’estructures d’informació:</p>
+<p>Composer manté la seua configuració en dos fitxers: <code>composer.json</code> i <code>composer.lock</code>.</p>
+<p>Per usar Composer el primer que necessitem és disposar de l’arxiu <code>composer.json</code>. En aquest fitxer existeixen un seguit
+d'estructures d'informació:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">{</span>
 <span class="linenos" data-linenos="2 "></span>    <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>        <span class="nt">"monolog/monolog"</span><span class="p">:</span> <span class="s2">"2.0.*"</span>
 <span class="linenos" data-linenos="4 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 </code></pre></div>
-<p><code>require</code> mapeja noms de paquets (en l’exemple, <code>monolog/monolog</code>) amb la seua versió (en aquest cas: <code>2.0.*</code>)</p>
+<p><code>require</code> indica els paquets que requerix la aplicació i els mapeja (en l’exemple, <code>monolog/monolog</code>) a la versió requerida (en aquest cas: <code>2.0.*</code>).</p>
 <p>Si necessitàrem usar en un projecte el component <code>monolog</code> executariem en la carpeta del projecte:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog:2.0.*
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog
 </code></pre></div>
-<h2 id="els-noms-dels-paquets">Els noms dels paquets</h2>
-<p>Està format per dues parts:</p>
+<p>Com hauràs observat el nom del paquet està format per dues parts:</p>
 <ul>
 <li>La primera indica qui és el seu "vendor" o creador.</li>
-<li>La segona indica el nom de el projecte.</li>
+<li>La segona indica el nom del projecte.</li>
 </ul>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require vendor/package
 </code></pre></div>
 Sovint les dues parts són idèntiques.</p>
-<h2 id="limitar-la-versio-dels-paquets">Limitar la versió dels paquets</h2>
+<p>El fitxer <code>composer.lock</code> guarda la versió exacta que s'ha instal·lat de cada paquet. El projecte es fixa a unes determinades versions. Tant el <code>composer.lock</code> com el <code>composer.json</code> han d'estar al repositori.</p>
+<h3 id="limitar-la-versio-dels-paquets">Limitar la versió dels paquets</h3>
+<p>En alguns casos és necessari limitar les versions dels paquetes per mantindre compatibilitat. Hi ha diverses formes d'expressar dites limitacions:</p>
 <ul>
 <li>Restricció de la versió exacta<ul>
 <li>Exemple: 1.0.2  #MAJOR.MINOR.PATCH.</li>
@@ -297,7 +380,7 @@ Sovint les dues parts són idèntiques.</p>
 </ul>
 </li>
 <li>Rang de versió amb cimcurflex (<code>^</code>)<ul>
-<li>Per exemple <code>^1.2.3</code> és equivalent a <code>&gt;=1.2.3 &lt;2.0.0</code> ja que ninguna de les releases fins a la <code>2.0</code> deuria trencar compatibilitat en versions anteriors. </li>
+<li>Per exemple <code>^1.2.3</code> és equivalent a <code>&gt;=1.2.3 &lt;2.0.0</code> ja que ninguna de les <em>releases</em> fins a la <code>2.0</code> deuria trencar compatibilitat en versions anteriors. </li>
 <li>Exemple: <code>^1.2.3</code></li>
 </ul>
 </li>
@@ -307,93 +390,93 @@ Sovint les dues parts són idèntiques.</p>
 <p>Veure l'especificació en el següent document:
 <a href="http://semver.org/lang/es/">http://semver.org/lang/es/</a></p>
 <h2 id="installant-dependencies">Instal·lant dependències</h2>
+<p>L’ordre <code>install</code> comprova primer si existeix el fitxer <code>composer.lock</code>, i si existeix, descàrrega exactament les versions que s'indiquen en aquest l'arxiu <code>composer.lock</code>.</p>
+<p>Si treballem en equip, tot l'equip tindrà les mateixes versions.</p>
 <p>Executem la següent ordre:</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer install
 </code></pre></div>
 Es generarà el directori <code>vendor/</code> amb les llibreries de les quals depèn el projecte.</p>
-<p>IMPORTANT: Hem d'afegir el directori <code>vendor/</code> a l'arxiu <code>.gitignore</code></p>
+<div class="admonition warning">
+<p class="admonition-title">directori <code>vendor</code></p>
+<p>Hem d'afegir el directori <code>vendor/</code> a l'arxiu <code>.gitignore</code>, perquè crea gran quantitat de fitxers que després s'han de descarregar amb <code>composer install</code>.</p>
+</div>
 <p>L’ordre també crea un fitxer <code>composer.lock</code></p>
-<h3 id="el-fitxer-composerlock">El fitxer <code>composer.lock</code></h3>
-<p><code>composer.lock</code> guarda la versió exacta que s'ha instal·lat de cada llibreria.</p>
-<p>El projecte es fixa a unes determinades versions.</p>
-<p>Tant el <code>composer.lock</code> com el <code>composer.json</code> han estar al repositori.</p>
-<p>L’ordre <code>install</code> comprova primer si hi ha el fitxer <code>composer.lock</code>, i si existeix, descàrrega exactament les versions que s'indiquen en aquest arxiu.</p>
-<p>Si treballem en equip, tot l'equip tindrà les mateixes versions.</p>
 <h2 id="actualitzar-versions">Actualitzar versions</h2>
-<p>Si tenim l'arxiu <code>composer.lock</code> sempre s'instal·laran les mateixes versions de les llibreries.
-Per actualitzar a noves versions, fem servir l’ordre <code>composer update</code>.
-Fa que Composer busque les versions més recents de les llibreries sempre que segueixin complint les restriccions de les versions indicades a l'arxiu composer.json.
-També actualitza l'arxiu composer.lock.</p>
+<p>Si tenim l'arxiu <code>composer.lock</code> sempre s'instal·laran les mateixes versions dels paquets.</p>
+<p>Per actualitzar a noves versions, fem servir l’ordre <code>composer update</code>. Aquesta ordre fa que Composer busque les versions més recents de les llibreries sempre que segueixin complint les restriccions de les versions indicades a l'arxiu <code>composer.json</code>. També actualitza l'arxiu <code>composer.lock</code>.</p>
 <p>Si només volem instal·lar o actualitzar una dependència, podem indicar el seu nom després de l’ordre:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer update monolog/monolog
 </code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">No actualitzar en producció</p>
+<p>Quan desplegues una aplicació basada en Composer a producció, usa sempre <code>composer install</code>. No haurieu d'usar mai <code>composer update</code> ja que podria ser que s'actualitzara algun paquet a una versió no provada. </p>
+</div>
 <h2 id="afegint-dependencies">Afegint dependències</h2>
-<p>L’ordre que afegeix noves dependències en el arxiu composer.json:</p>
-<p>composer require</p>
-<p>Ens preguntarà què llibreries volem afegir.</p>
+<p>L’ordre que afegeix noves dependències en el arxiu <code>composer.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require
+</code></pre></div>
+<p>Ens preguntarà quines llibreries volem afegir.</p>
 <p>Després d'afegir aquestes noves dependències, s’instal·len o actualitzen les dependències que siguen necessàries.
-Podem passar les noves dependències com argument de la comanda.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog:1. *
+Podem passar les noves dependències com argument de l'ordre.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog:
 </code></pre></div>
 <h2 id="packagist">Packagist</h2>
-<p>Repositori central d'Composer (lloc de què s'obtenen els paquets)</p>
+<p>Packagist és el repositori central de paquets que pot gestionar Composer.</p>
 <p>Lloc Web: http://packagist.org</p>
 <h2 id="carrega-automatica-de-classes">Carrega automàtica de classes</h2>
-<p>Normalment les llibreries proporcionen informació sobre la càrrega automàtica de les seves classes.</p>
-<p>Composer genera un arxiu vendor/autoload.php.</p>
-<p>Incloent aquest fitxer en el projecte, podem utilitzar qualsevol classe instal·lada a través de Composer sense haver de incloure explícitament:</p>
+<p>Normalment les llibreries proporcionen informació sobre la càrrega automàtica de les seves classes. Composer genera un arxiu <code>vendor/autoload.php</code>.</p>
+<p>Incloent aquest fitxer en el projecte, podem utilitzar qualsevol classe instal·lada a través de Composer sense haver de incloure-la  explícitament:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
 </code></pre></div>
 <p>En el nostre cas, afegirem el <code>require</code> anterior en el fitxer <code>bootsrap.php</code>.</p>
-<h2 id="carrega-automatica-de-classes_1">Càrrega automàtica de classes</h2>
+<div class="admonition important">
+<p class="admonition-title"><code>vendor/autoload.php</code></p>
+<p><code>autoload.php</code> és el punt d'entrada de l'aplicació a totes les funcionalitats que ens oferix <strong>Composer</strong>.</p>
+</div>
 <h3 id="classes-personalitzades">Classes personalitzades</h3>
-<p>Podem emprar l’autoloader de Composer perquè carregue les nostres classes. Si el nostre namespace es App i els arxius estan en src afegirem:</p>
+<p>Podem emprar l’<em>autoloader</em> de Composer per a carregar les nostres classes. Si el nostre <em>namespace</em> és <code>App</code> i els arxius estan en <code>src</code> afegirem:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nt">"autoload"</span><span class="p">:</span> <span class="p">{</span>
 <span class="linenos" data-linenos="2 "></span>        <span class="nt">"psr-4"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"App"</span><span class="p">:</span> <span class="s2">"src/"</span> <span class="p">}</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="p">}</span>
 </code></pre></div>
 <p>Després executarem <code>composer dump-autoload</code> perquè és regenere <code>vendor/autoload.php</code>.</p>
-<p>Ús de la llibreria</p>
-<p>Per utilitzar la llibreria Monolog podem usar les seves classes i Composer s'encarregarà de carregar-les:</p>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$log</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Monolog\Logger</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span>
-<span class="linenos" data-linenos="2 "></span><span class="nv">$log</span><span class="o">-&gt;</span> <span class="na">pushHandler</span> <span class="p">(</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="k">new</span> <span class="nx">Monolog\Handler\StreamHandler</span><span class="p">(</span><span class="s1">'app.log'</span><span class="p">,</span> <span class="nx">Monolog\Logger</span><span class="o">::</span><span class="na">INFO</span><span class="p">)</span>
-<span class="linenos" data-linenos="4 "></span><span class="p">);</span>
-<span class="linenos" data-linenos="5 "></span><span class="nv">$log→info</span><span class="p">(</span><span class="s1">'Foo'</span><span class="p">);</span>
-</code></pre></div>
-Més informació:
-https://packagist.org/packages/monolog/monolog
-https://github.com/Seldaek/monolog/blob/HEAD/doc/01-usage.md</p>
-<p>Pràctica
-part 1
-Instal·la composer
-Instal·la monolog
-Configura bootstrap.php perquè use l’autoloader de composer.
-Configura composer.json perquè carregue les nostres classes.
-Configura monolog en indexp.php de forma que registre la activitat en directori del projecte/app.log.</p>
-<p>Pràctica
-part 2
-Injecta la instancia de monolog ($log) al DI ($di).
-Modifica AbstractController perquè obtinga del $di el $log.
-Modifica el PostController perquè registre un esdeveniment quan es crea un nou producte.
-Usa el mètode info si tot ha anat bé i error si hi ha hagut errors.</p>
-<p>Espais de noms (namespaces)</p>
-<p>En el món de PHP, els espais de noms estan dissenyats per a solucionar dos problemes amb què es troben els autors de biblioteques i d'aplicacions en crear elements de codi reusable, com ara classes o funcions:</p>
-<ul>
-<li>El conflicte de noms entre el codi que es crea i les classes / funcions / constants internes de PHP o les classes / funcions / constants de tercers.</li>
-<li>La capacitat de sobrenomenar (o abreujar) Noms_Extra_Llargs dissenyada per alleugerir el primer problema, millorant la llegibilitat del codi font.</li>
-</ul>
-<p>Els espais de noms de PHP proporcionen una manera per agrupar classes, interfícies, funcions i constants relacionades. </p>
-<p>En la seva definició més acceptada, els espais de noms són una manera d'encapsular elements.
-Exemple: directoris en els sistemes de fitxers.</p>
-<p>El fitxer <code>foo.txt</code> pot existir en els directoris <code>/home/Greg</code> i <code>/home/altre</code>, però no poden coexistir dues còpies de foo.txt en el mateix directori.</p>
-<p>A més, per accedir al fitxer <code>foo.txt</code> fora de directori <code>/home/Greg</code>, s'ha d'avantposar el nom de directori al nom de el fitxer, emprant el separador de directoris per així obtenir <code>/home/greg/foo.txt</code>. </p>
-<p>Aquest mateix principi s'estén als espais de noms en el món de la programació.</p>
+<div class="admonition important">
+<p class="admonition-title">PSR-4</p>
+<p>PSR-4 (<em>PHP Standard Recommendation</em>) és una de les recomanacions del PHP-FIG per a implementar el sistema de càrrega automàtica de classes. PHP-FIG (<em>Framework Interoperability Group</em>). La idea del grup és que els representants del projecte parlen sobre els punts en comú entre els seus projectes i troben maneres de treballar junts.</p>
+</div>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Introducció" class="md-footer__link md-footer__link--prev" href="../06-01-intro/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Introducció
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Namespaces" class="md-footer__link md-footer__link--next" href="../06-04-namespaces/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Namespaces
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

@@ -225,6 +225,16 @@
         Introducció
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-04-namespaces/">
+        Namespaces
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -332,7 +342,63 @@ clau "PDO". L'objecte PDO l'hauràs de crear i inserir-lo en el <code>Registre</
 <p>En un fitxer de configuració (JSON, YAML, INI o XML, segons t'haja assignat el professor) emmagatzema el DSN (<em>Data Source Name</em>) d'accés a la base de dades. Després, crea una classe <code>Config</code> que llija el fitxer i extraga el DSN. Utilitza onfig<code>en</code>bootstrap.php` en lloc d'usar un literal en instanciar la classe PDO.</p>
 <p>Afig també al fitxer de configuració la ruta relativa on es guarden les fotos pujades.</p>
 </li>
+<li>
+<p>Implementa els mètodes <code>Movie::toArray()</code>, <code>Movie::fromArray(Movie $obj)</code> i la classe <code>MovieMapper</code> tenint en compte la següent signatura:</p>
+</li>
 </ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">MovieMapper</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$pdo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pdo</span> <span class="o">=</span> <span class="nx">Registry</span><span class="o">::</span><span class="na">getPDO</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">find</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="o">?</span><span class="nx">Movie</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">()</span><span class="o">:</span> <span class="k">array</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">insert</span><span class="p">(</span><span class="nx">Movie</span> <span class="nv">$obj</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Movie</span> <span class="nv">$object</span><span class="p">)</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span><span class="p">}</span>
+</code></pre></div>
+<ol start="606">
+<li>Implementa el repositori de pel·licules tenint en compte la següent signatura:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">class</span> <span class="nc">MovieRepository</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="nx">MovieMapper</span> <span class="nv">$mapper</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mapper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MovieMapper</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nx">Movie</span> <span class="nv">$movie</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">find</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:?</span><span class="nx">Movie</span> <span class="p">{</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">()</span><span class="o">:</span><span class="k">array</span> <span class="p">{</span>        
+<span class="linenos" data-linenos="19 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nx">Movie</span> <span class="nv">$movie</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span><span class="p">}</span>
+</code></pre></div>
 <h3 id="composer">Composer</h3>
 <ol start="607">
 <li>
@@ -360,7 +426,7 @@ clau "PDO". L'objecte PDO l'hauràs de crear i inserir-lo en el <code>Registre</
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Anterior: Introducció" class="md-footer__link md-footer__link--prev" href="../06-01-intro/" rel="prev">
+<a aria-label="Anterior: Namespaces" class="md-footer__link md-footer__link--prev" href="../06-04-namespaces/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -369,7 +435,7 @@ clau "PDO". L'objecte PDO l'hauràs de crear i inserir-lo en el <code>Registre</
 <span class="md-footer__direction">
                 Anterior
               </span>
-              Introducció
+              Namespaces
             </div>
 </div>
 </a>
