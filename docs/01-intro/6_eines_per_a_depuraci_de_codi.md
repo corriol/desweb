@@ -82,11 +82,10 @@ modificacions:
     final
 
         [xdebug]
-        zend_extension = /opt/lampp/lib/php/extensions/no-debug-non-zts-########/xdebug.so
-        xdebug.mode=develop
+        zend_extension=xdebug
+        xdebug.mode=debug
         xdebug.client_port=9003
-        xdebug.start_upon_error=yes
-        xdebug.start_with_request=yes
+        xdebug.client_host=127.0.0.1
 
 10. Reinicieu el servidor web
 

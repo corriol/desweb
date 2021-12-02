@@ -16,15 +16,40 @@ nav:
   - "Inici": "index.md"
   - "1.- Introducció a la programació Web": "01-intro.md"    
   - "2.- El llenguatge PHP": "02-phpbasics.md"
-  - "3.- PHP Orientat a Objectes": "03-phpoo.md"
+  - "3.- PHP Orientat a Objectes": 
+      "PHP OO Bàsic": "03-phpoo/0301-phpoo-basic.md"
+      "PHP OO Avançat": "03-phpoo/0302-phpoo-advanced.md"
+      "Erros i excepcions": "03-phpoo/0303-errorhandling.md"
+      "Activitats": "03-phpoo/0399-activities.md"
+  - "4.- Accés a dades amb PHP":
+      "Accés a dades amb PHP": "04-data-access/04-data-access-php.md"
+  - "5.- Manteniment de l'estat":
+      "Introducció": "05-maintain-state/05-01-intro.md"
+      "Galletes (cookies)": "05-maintain-state/05-02-cookies.md"
+      "Sessions": "05-maintain-state/05-03-sessions.md"
+      "Bones pràctiques": "05-maintain-state/05-04-best-practices.md"
+      "Activitats": "05-maintain-state/05-99-activities.md"
+  - "6.- Composer. Introducció al testing":
+      "Introducció": "06-composer/06-01-intro.md"
+      "Composer": "06-composer/06-02-composer.md"      
+      "Namespaces": "06-composer/06-04-namespaces.md"      
+      "Activitats": "06-composer/06-99-activities.md"
+
+    
 
 markdown_extensions:
   - toc:
       toc_depth: 3
   - pymdownx.tabbed
   - admonition
+  - abbr
   - pymdownx.inlinehilite:
   - pymdownx.superfences:  
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+
   - pymdownx.highlight:
       extend_pygments_lang:
         - name: php-inline
@@ -37,7 +62,17 @@ markdown_extensions:
             startinline: true
       linenums_style: pymdownx-inline
       linenums: true
-      
+  - sane_lists
+  - pymdownx.details
+  
 plugins:
+  - search
+  - mermaid2  
+
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+
+extra_css:
+  - stylesheets/extra.css  
   
 copyright: 2021-2022 Vicent Jordà - Licencia CC BY-NC-SA

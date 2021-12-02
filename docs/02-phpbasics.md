@@ -1156,8 +1156,8 @@ Emprarem `$_FILES['image']` per obtenir les dades de l'arxiu penjat.
 
 ### Variable superglobal `$_FILES`
 
-Cada element en `$_FILES` és un array que aporta informació sobre el fitxer pujat.
-Les claus més importants són:
+Cada element en `$_FILES` és un array que aporta informació sobre el fitxer pujat. Les claus més importants són:
+
  * `name`. El nom original del fitxer pujat. No és massa útil perquè el sistema original pot tindre convencions diferents i pot generar col·lisions si l'utilitzem per a emmagatzemar-lo en la seua ubicació definitiva.
  * `type`. El tipus MIME del fitxer deduït pel navegador.
  * `size`. La grandària en bytes del fitxer. Si el fitxer és massa gran el valor enviat serà 0.
@@ -1269,12 +1269,12 @@ comunitat autònoma de les ciutats de la llista i el percentatge sobre els habit
 
 ### Funcions
 
-241.     `241funcions.php`: Escriu una funció per retornar una etiqueta HTML `<img />`. 
+241. `241funcions.php`: Escriu una funció per retornar una etiqueta HTML `<img />`. 
 
       La funció hauria d’acceptar com a argument obligatori l’URL de la imatge i arguments opcionals per a un text 
       alternatiu, alçada i amplada.
 
-242.     `242funcions.php`: Copieu la funció de l’exercici anterior i modifiqueu-la de manera que només es passe el nom de fitxer a la funció en
+242. `242funcions.php`: Copieu la funció de l’exercici anterior i modifiqueu-la de manera que només es passe el nom de fitxer a la funció en
 lloc de l’URL completa. Dins de la funció, farem ús d’una variable global per fer l’URL completa.
   
       Per exemple, si passem `photo.png` a la funció, i la variable global conté `/images`, llavors l’atribut `src` de 
@@ -1354,9 +1354,7 @@ passat com a paràmetre.
      * `lastname`
      * `phone`
      * `email`
-
-    Tots els camps són obligatoris excepte `zipcode`.
-   
+  
 
     En l'atribut `action` del formulari posarem el següent:
 
@@ -1380,6 +1378,23 @@ passat com a paràmetre.
 
     S'avaluaran tots els camps i si hi ha error/s caldrà mostrar-lo/s. Si no hi ha errors es mostraran les dades introduïdes per l'usuari.
 
+265. `265FormulariOpcions.php`: Modifica l'exercici anterior afegint els següents camps al formulari:
+      * `genre`: serà un _radio button_ i podrà ser _home_, _dona_ i _no binari_.
+      * `hobbies`: serà un checkbox amb aficions de la que podràs triar-ne més d'una:
+        * Lectura
+        * Programació
+        * Ciclisme
+        * Running
+        * ...
+      * `contact-time`: serà una llista de les millores hores per a contactar: 
+        * Primera hora (08:00 a 10:00)
+        * Abans de dinar (12:00 a 13:00)
+        * Després de dinar (14:00 a 16:00)
+        * Per la nit (20:00 a 22:00)
+      
+    En els tres casos són obligatoris, s'ha de mantindre el valor en cas de ser correcte .
+    
+266. `266FormulariArray`: Modifica l'exercici anterior de forma que el contingut dels camps de selecció es genere dinàmicament des d'arrays associatius. A més, els valors rebuts s'haurien de validar contra l'_array_ i mostrar-se fent és d'ell.
 
 
 ### Inclusió de fitxers
@@ -1394,6 +1409,10 @@ passat com a paràmetre.
 ### Pujada de fitxers
 
 1.   `281FormularImatge.php`: Modifica l'activitat `272Formulari.php` afegint un camp de tipus `FILE` per a pujar una imatge al servidor. Es guardarà en la carpeta `uploads` i es mostrarà amb la resta de dades. 
+2.   `282FormulariImage.php`: Modifica l'activitat anterior de forma que es controle el següent:
+     1.   Les imatges sols podran ser `jpg`.
+     2.   No podran superar 1MB de grandària
+     3.   Es guardaran en un nom aleatori únic.
 
 ## Crèdits
 
