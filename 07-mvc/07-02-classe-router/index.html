@@ -281,27 +281,49 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="routing">Routing</h1>
-<p>Una de les tasques que hem de realitzar a l'hora d'analitzar un projecte és com anem a
- organitzar la taula de rutes. Nosaltres seguirem la guia següent: <a href="https://restfulapi.net/resource-naming/">REST resource naming</a>. </p>
-<p>Una ruta serà la url que ens donarà accés a un controlador. Com que encara no disposem de controladors
-el que farem serà associar les dades de la URL amb l'script encarregat de resoldre aquesta operació.</p>
-<h2 id="la-classe-router">La classe Router</h2>
-<p>És convenient encapsular l'operativa amb la taula de rutes dins d'una classe que siga la responsable 
-d'aquesta tasca.</p>
-<p>Aquesta classe tindrà l'array de rutes com a atribut. I tindrà els següents mètodes:</p>
-<ul>
-<li><code>setRoutes()</code>, que ens permetrà carregar les rutes de la taula.</li>
-<li><code>route()</code>, que activarà el controlador encarregat de gestionar una ruta.</li>
-</ul>
-<p>La ubicarem dins del directori <code>Core</code>, ja que serà una classe del nostre <em>framework</em>.</p>
-<p>La seva responsabilitat serà gestionar tot el que tinga a veure amb les rutes de l'aplicació.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># config/routes.php</span>
-<span class="linenos" data-linenos="2 "></span><span class="k">return</span> <span class="p">[</span>
-<span class="linenos" data-linenos="3 "></span>        <span class="s2">""</span><span class="o">=&gt;</span><span class="s2">"index.php"</span><span class="p">,</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="s2">"movies"</span><span class="o">=&gt;</span><span class="s2">"movies.php"</span><span class="p">,</span>
-<span class="linenos" data-linenos="5 "></span>        <span class="s2">"partners"</span><span class="o">=&gt;</span><span class="s2">"partners.php"</span><span class="p">,</span>
-<span class="linenos" data-linenos="6 "></span>        <span class="s2">"movies-show"</span><span class="o">=&gt;</span><span class="s2">"single-page"</span> 
-<span class="linenos" data-linenos="7 "></span><span class="p">];</span>
+<p>Una de les tasques que ha de realitzar el nostre controlador frontal és enrutar, és a dir, analitzar la sol·licitud
+de l'usuari i activar el mètodo del controlador associat. </p>
+<p>Així una ruta serà una url que ens donarà accés a un controlador.  És important, a l'hora de definir les rutes
+seguir una convenció, nosaltres seguirem aquesta: <a href="https://restfulapi.net/resource-naming/">REST resource naming</a>. </p>
+<h2 id="el-router-altorouter">El <em>router</em>: AltoRouter</h2>
+<p>Aquesta funció la realitzarem des d'un compoment que s'encarregarà de:</p>
+<ol>
+<li>Gestionar la taula de rutes, on es vincula cada ruta a un controlador.</li>
+<li>Resoldre les sol·licituds, és a dir, buscar el controlador vinculat a la ruta.</li>
+</ol>
+<p>En el projecte usarem <a href="https://altorouter.com/"><code>AltoRouter</code></a> un component que s'ajusta perfectament a les nostres necessitats.</p>
+<p>L'instal·lem:
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require altorouter/altorouter
+</code></pre></div></p>
+<p>En aquest exemple podem vore les seues opcions de mapeig:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AltoRouter</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// map homepage</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$router</span><span class="o">-&gt;</span><span class="na">map</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">require</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">'/views/home.php'</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">});</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1">// dynamic named route</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$router</span><span class="o">-&gt;</span><span class="na">map</span><span class="p">(</span><span class="s1">'GET|POST'</span><span class="p">,</span> <span class="s1">'/users/[i:id]/'</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="nv">$user</span> <span class="o">=</span> <span class="o">.....</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="k">require</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">'/views/user/details.php'</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">},</span> <span class="s1">'user-details'</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="c1">// map controller</span>
+<span class="linenos" data-linenos="15 "></span><span class="nv">$router</span><span class="o">-&gt;</span><span class="na">map</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">,</span> <span class="s1">'MovieController#list'</span><span class="p">,</span> <span class="s1">'movie_list'</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="c1">// map controller with params</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$router</span><span class="o">-&gt;</span><span class="na">map</span><span class="p">(</span><span class="s1">'GET|POST'</span><span class="p">,</span> <span class="s1">'/movies/[i:id]/edit'</span><span class="p">,</span> <span class="s2">"MovieController#edit"</span><span class="p">,</span> <span class="s1">'movie_edit'</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="c1">// echo URL to user-details page for ID 5</span>
+<span class="linenos" data-linenos="21 "></span><span class="k">echo</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="s1">'user-details'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">]);</span> <span class="c1">// Output: "/users/5"</span>
+</code></pre></div>
+I la forma de resoldre les sol·licituds amb el mètode <code>match()</code> que torna 
+el nom del controlador a activar.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$match</span> <span class="o">=</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">();</span>
+</code></pre></div>
+<p>Una vegada obtingut el controlador caldrà executar-lo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>
 </code></pre></div>
 </article>
 </div>
