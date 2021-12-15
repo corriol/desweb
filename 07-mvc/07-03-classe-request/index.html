@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>4. Preparant l'entorn de desenvolupament - DWES</title>
+<title>La classe Request - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#4-preparant-lentorn-de-desenvolupament">
+<a class="md-skip" href="#la-classe-request">
           Salta el contingut
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              4. Preparant l'entorn de desenvolupament
+              La classe Request
             
           </span>
 </div>
@@ -104,7 +104,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../01-intro/">
         1.- Introducció a la programació Web
       </a>
 </li>
@@ -261,12 +261,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+<a class="md-nav__link" href="../07-00-intro/">
         Introducció
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07-mvc/07-01-controlador-frontal/">
+<a class="md-nav__link" href="../07-01-controlador-frontal/">
         Controlador frontal
       </a>
 </li>
@@ -280,44 +280,16 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="4-preparant-lentorn-de-desenvolupament">4. Preparant l'entorn de desenvolupament</h1>
-<p>Per a poder provar els nostres llocs web necessitarem instal·lar una
-sèrie d'eines com són: el servidor web Apache, el mòdul PHP per a
-aquest servidor, el SGBD MySql, un front-end per al SGBD (PHPMyAdmin),
-etc.</p>
-<p>Per simplificar les coses optarem per instal·lar-ho mitjançant XAMPP, un
-paquet de programari lliure que conté el servidor HTTP Apache, la base
-de dades de MySQL i eines necessàries per utilitzar el PHP i el
-llenguatge de programació Perl.</p>
-<div class="admonition todo">
-<p class="admonition-title">Pràctica 1: Instal·lació de XAMPP</p>
-<ol>
-<li>Descarreguem el paquet XAMPP per a la nostra màquina
-(https://www.apachefriends.org/).    </li>
-<li>Li donem permisos d'execució a l'arxiu descarregat:
-<code>sudo chmod +x xampp-linux-x64-7.3.9-0-installer.run</code></li>
-<li>Executem l'assistent d'instal·lació
-<code>sudo ./xampp-linux-x64-7.3.9-0-installer.run</code></li>
-<li>En l'assistent d'instal·lació, deixarem les opcions per defecte
-(excepte la qual ens parla de bitnami que la desmarcarem).</li>
-<li>Una vegada finalitzada la instal·lació, el nostre XAMPP es trobarà
-en el directori <code>/opt/lampp</code></li>
-<li>Ara ja podem arrancar els serveis amb el següent comando:
-<code>sudo /opt/lampp/lampp start</code></li>
-<li>Quan els arranquem, si obrim el navegador i ens anem a la url
-http://localhost, ens hauria d'aparèixer la pàgina de benvinguda de
-XAMPP.</li>
-<li>Per a parar els serveis podem fer açò:
-<code>sudo /opt/lampp/xampp stop</code></li>
-<li>En qualsevol cas, és molt més còmode treballar amb el panell de
-control de XAMPP que podrem executar amb la següent ordre:
-<code>sudo /opt/lampp/manager-linux-x64.run</code></li>
-<li>Veurem que s'inicia l'aplicació que ens permet controlar els
-serveis de XAMPP.</li>
-</ol>
-</div>
-<p><img alt="[*Panell de control de
-XAMPP*]{.title}" src="../assets/Captura_de_pantalla_a_2019-09-13_21-03-02.png" title="Panell de control de XAMPP"/></p>
+<h1 id="la-classe-request">La classe Request</h1>
+<p>La classe <code>Request</code> serà la responsable de gestionar les sol·licituds dels usuaris. 
+Tindrà tres propietats <code>domain</code>, <code>path</code> i <code>method</code>. De moment
+crearem el mètode <code>Request::getPath()</code> per obtenir la ruta sol·licitada.  </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">domain</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_HOST'</span><span class="p">];</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">path</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">'?'</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">])[</span><span class="mi">0</span><span class="p">];</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">method</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_METHOD'</span><span class="p">];</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
 </article>
 </div>
 </div>

@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>4. Preparant l'entorn de desenvolupament - DWES</title>
+<title>Què necessites? La injecció de dependències - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#4-preparant-lentorn-de-desenvolupament">
+<a class="md-skip" href="#que-necessites-la-injeccio-de-dependencies">
           Salta el contingut
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              4. Preparant l'entorn de desenvolupament
+              Què necessites? La injecció de dependències
             
           </span>
 </div>
@@ -104,7 +104,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../01-intro/">
         1.- Introducció a la programació Web
       </a>
 </li>
@@ -261,12 +261,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+<a class="md-nav__link" href="../07-00-intro/">
         Introducció
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07-mvc/07-01-controlador-frontal/">
+<a class="md-nav__link" href="../07-01-controlador-frontal/">
         Controlador frontal
       </a>
 </li>
@@ -280,44 +280,68 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="4-preparant-lentorn-de-desenvolupament">4. Preparant l'entorn de desenvolupament</h1>
-<p>Per a poder provar els nostres llocs web necessitarem instal·lar una
-sèrie d'eines com són: el servidor web Apache, el mòdul PHP per a
-aquest servidor, el SGBD MySql, un front-end per al SGBD (PHPMyAdmin),
-etc.</p>
-<p>Per simplificar les coses optarem per instal·lar-ho mitjançant XAMPP, un
-paquet de programari lliure que conté el servidor HTTP Apache, la base
-de dades de MySQL i eines necessàries per utilitzar el PHP i el
-llenguatge de programació Perl.</p>
-<div class="admonition todo">
-<p class="admonition-title">Pràctica 1: Instal·lació de XAMPP</p>
-<ol>
-<li>Descarreguem el paquet XAMPP per a la nostra màquina
-(https://www.apachefriends.org/).    </li>
-<li>Li donem permisos d'execució a l'arxiu descarregat:
-<code>sudo chmod +x xampp-linux-x64-7.3.9-0-installer.run</code></li>
-<li>Executem l'assistent d'instal·lació
-<code>sudo ./xampp-linux-x64-7.3.9-0-installer.run</code></li>
-<li>En l'assistent d'instal·lació, deixarem les opcions per defecte
-(excepte la qual ens parla de bitnami que la desmarcarem).</li>
-<li>Una vegada finalitzada la instal·lació, el nostre XAMPP es trobarà
-en el directori <code>/opt/lampp</code></li>
-<li>Ara ja podem arrancar els serveis amb el següent comando:
-<code>sudo /opt/lampp/lampp start</code></li>
-<li>Quan els arranquem, si obrim el navegador i ens anem a la url
-http://localhost, ens hauria d'aparèixer la pàgina de benvinguda de
-XAMPP.</li>
-<li>Per a parar els serveis podem fer açò:
-<code>sudo /opt/lampp/xampp stop</code></li>
-<li>En qualsevol cas, és molt més còmode treballar amb el panell de
-control de XAMPP que podrem executar amb la següent ordre:
-<code>sudo /opt/lampp/manager-linux-x64.run</code></li>
-<li>Veurem que s'inicia l'aplicació que ens permet controlar els
-serveis de XAMPP.</li>
-</ol>
-</div>
-<p><img alt="[*Panell de control de
-XAMPP*]{.title}" src="../assets/Captura_de_pantalla_a_2019-09-13_21-03-02.png" title="Panell de control de XAMPP"/></p>
+<h1 id="que-necessites-la-injeccio-de-dependencies">Què necessites? La injecció de dependències</h1>
+<p>La injecció de dependències (<em>dependency injection</em>) és un patró de disseny orientat a objectes en
+ què es subministren els objectes a una classe en lloc de ser la pròpia classe la que creu aquests objectes. </p>
+<p>Aquests objectes compleixen contractes (interfícies, classes abstractes) que necessiten les nostres
+ classes per poder funcionar (d'aquí el concepte de dependència). </p>
+<p>Les nostres classes no creen els objectes que necessiten, sinó que se'ls subministra una altra 
+classe 'contenidora' que injectarà la implementació desitjada al nostre contracte.</p>
+<p>Simplificant:</p>
+<blockquote>
+<p>La injecció de dependències proporciona a una classe les seves dependències ja siga mitjançant la injecció del constructor, crides a mètodes o l’establiment de propietats.</p>
+</blockquote>
+<p>Exemple:
+https://github.com/Seldaek/monolog/blob/master/doc/01-usage.md</p>
+<h2 id="contenidor-de-serveis">Contenidor de serveis</h2>
+<p>El contenidor de serveis és una utilitat que ajuda a la implementació de la injecció de dependències. 
+S'encarrega de registrar totes les depedències (objectes) de l'aplicació web en un array. L'aplicació web les extraurà i 
+injectarà  quan les necessite.</p>
+<p>En el nostre cas el contenidor de serveis serà la classe <code>App</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Core/App.php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">class</span> <span class="nc">App</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$container</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">bind</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="k">static</span><span class="o">::</span> <span class="nv">$container</span> <span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$key</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">array_key_exists</span> <span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="k">static</span><span class="o">::</span> <span class="nv">$container</span> <span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">"The </span><span class="si">$key</span><span class="s2"> doesn't in the container"</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="k">return</span> <span class="k">static</span><span class="o">::</span> <span class="nv">$container</span> <span class="p">[</span><span class="nv">$key</span><span class="p">];</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="autowiring">Autowiring</h2>
+<p><em>Autowiring</em> és una palabra exótica que representa una cosa molt senzilla: la capacitat del contenidor per a crear i 
+injectar dependències automàticament.</p>
+<p>La idea bàsica és que quan es cride un mètode d'un classe, si s'ha indicat el tipus de dada de l'argument en la 
+declaració del mètode, el contenidor busque una instància d'eixa classe i 
+la injecte automàticament. </p>
+<p>Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">DatabaseConnection</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="c1">// ...</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">class</span> <span class="nc">MovieModel</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">DatabaseConnection</span> <span class="nv">$DBconnection</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="c1">// ...</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Quan el contenidor necessite crear un objecte MovieModel, detectarà que aquesta classe necessita un objecte 
+DatabaseConnection i l'injectarà automàticament.</p>
+<p>Aquesta és una funcionalitat molt important en els frameworks PHP moderns, la posarem en pràctica quan treballem en un d'ells. 
+En el nostre projecte accedirem a les instàncies mitjançant el mètode <code>App::get()</code>; </p>
+<p>Més informació:
+* <a href="https://php-di.org/doc/autowiring.html">https://php-di.org/doc/autowiring.html</a></p>
 </article>
 </div>
 </div>
