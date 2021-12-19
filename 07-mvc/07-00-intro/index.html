@@ -262,9 +262,26 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Introducció
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Introducció
       </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-vista-controlador">
+    Model Vista Controlador
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../07-01-controlador-frontal/">
@@ -290,6 +307,35 @@
 <p>En aquesta unitat implementarem els components bàsics del nostre <em>framework</em>. Explicarem la seua funció i com 
 implementar-lo de forma bàsica.</p>
 <p>També es veuran alguns conceptes molt utilitzats en els <em>frameworks</em> professionals.</p>
+<h2 id="model-vista-controlador">Model Vista Controlador</h2>
+<p><em>Model–view–controller</em> (MVC) és un patró de disseny de programari que s'utilitza habitualment per desenvolupar interfícies d'usuari que divideixen la lògica del programa relacionada en tres elements interconnectats. Això es fa per separar les representacions internes de la informació de la forma en que es presenta i accepta la informació a l'usuari.</p>
+<p>Aquest patró es va fer popular per desenvolupar aplicacions web. Els llenguatges de programació populars tenen frameworks MVC que faciliten el desenvolupament. Per exemple:</p>
+<ul>
+<li>En Python, Django.</li>
+<li>En Ruby, Ruby on Rails.</li>
+<li>En Javascript, Angular.</li>
+<li>En PHP, Symfony i Laravel.</li>
+</ul>
+<figure>
+<p><img alt="Image" src="../assets/mvc-1.png" width="400">
+</img></p>
+<figcaption>Esquema MVC</figcaption>
+</figure>
+<figure>
+<p><img alt="Image 2" src="../assets/router-mvc-db.svg.png" width="400">
+</img></p>
+<figcaption>Esquema MVC ampliat</figcaption>
+</figure>
+<ul>
+<li><strong>Model</strong>: El component central del patró. És l'estructura de dades dinàmiques de l'aplicació, independent de la interfície d'usuari. Gestiona directament les dades, la lògica i les regles de l'aplicació.</li>
+<li><strong>Vista</strong>: Qualsevol representació d'informació com un gràfic, un diagrama o una taula. Són possibles diverses visualitzacions de la mateixa informació, com ara un gràfic de barres per a la gestió i una vista tabular per als comptables.</li>
+<li><strong>Controlador</strong>: Accepta l'entrada i la converteix en ordres per al model o la vista per a finalment tornar la resposta al client.</li>
+</ul>
+<p>A més de dividir l'aplicació en aquests components defineix les interaccions entre ells.
+- El model s'encarrega de gestionar les dades de l'aplicació. Rep l'entrada de l'usuari mitjançant el controlador.
+- La vista fa la presentació del model en un format determinat.
+- El controlador respon a l'entrada de l'usuari i realitza interaccions amb els objectes del model de dades. El controlador rep l'entrada, opcionalment la valida i després passa l'entrada al model.</p>
+<p>Igual que amb altres patrons de programari, MVC expressa el "nucli de la solució" a un problema alhora que permet adaptar-lo a cada sistema. Els dissenys MVC particulars poden variar significativament de la descripció tradicional.</p>
 </article>
 </div>
 </div>

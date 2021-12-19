@@ -290,6 +290,11 @@
     El router: AltoRouter
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#els-controladors">
+    Els controladors
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -364,6 +369,41 @@ el nom del controlador a activar.</p>
 <span class="linenos" data-linenos="16 "></span>    <span class="k">echo</span> <span class="s2">"error"</span><span class="p">;</span>
 <span class="linenos" data-linenos="17 "></span><span class="p">}</span>
 </code></pre></div>
+<h2 id="els-controladors">Els controladors</h2>
+<p>Com hem vist en la introducció, el controlador és el component del patró MVC que s'encarrega de rebre
+la sol·licitud de l'usuari, interactuar en el model i la vista i retornar la informació al client.</p>
+<p>Els controladors solen implementar-se en una classe, els mètodes de la qual, són les diferents accions que es poden realitzar. </p>
+<p>Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="o">...</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">class</span> <span class="nc">MovieController</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">const</span> <span class="no">MAX_SIZE</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">private</span> <span class="nx">MovieRepository</span> <span class="nv">$movieRepository</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$mapper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MovieMapper</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movieRepository</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MovieRepository</span><span class="p">(</span><span class="nv">$mapper</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">list</span><span class="p">()</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="nv">$movies</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movieRepository</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span>        <span class="nv">$logger</span> <span class="o">=</span> <span class="nx">Registry</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nx">Registry</span><span class="o">::</span><span class="na">LOGGER</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="nv">$logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">"s'ha executat una consulta"</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>        <span class="k">require</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s2">"/../../views/index.view.php"</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">}</span>
+</code></pre></div>
+<p>En aquest exemple, en sol·licitar la pàgina principal ("/"), el enrutador activaria 
+el mètode <code>list</code> del controlador <code>MovieController</code> que obté les pel·lícules mitjançant el 
+repositori. Com que la vista, a hores d'ara, es troba en el mateix àmbit d'execució, 
+podrà accedir a les dades generades i mostrar-les.</p>
 </article>
 </div>
 </div>
