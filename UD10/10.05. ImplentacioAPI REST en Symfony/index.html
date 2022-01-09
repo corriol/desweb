@@ -1,0 +1,944 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Implementació d'una API REST. - DWES</title>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<meta content="#ff6e42" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="deep-orange" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#desenvolupament-de-serveis-rest-amb-symfony">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Implementació d'una API REST.
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01-intro/">
+        1.- Introducció a la programació Web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-phpbasics/">
+        2.- El llenguatge PHP
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Erros i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-data-access/04-data-access-php/">
+        Accés a dades amb PHP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Manteniment de l'estat
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Manteniment de l'estat" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Manteniment de l'estat
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-02-cookies/">
+        Galletes (cookies)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-03-sessions/">
+        Sessions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        6.- Composer. Introducció al testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-04-namespaces/">
+        Namespaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="desenvolupament-de-serveis-rest-amb-symfony">Desenvolupament de serveis REST amb Symfony</h1>
+<h2 id="construint-una-api-rest-basica">Construint una API REST bàsica</h2>
+<p>Vegem ara quins passos donar per a construir una API REST que done
+suport a les operacions bàsiques sobre una o diverses entitats:
+consultes (GET), insercions (POST), modificacions (PUT) i esborrats
+(DELETE).</p>
+<h2 id="installant-els-bundles-necessaris">Instal·lant els bundles necessaris</h2>
+<p>A més del que ja tenim instal·laat caldrà fer ús d'un bundle específic per a
+desenvolupar APIs REST, anomenat <strong>FOSRestBundle</strong>. Està creat per
+l'equip de desenvolupament <em>Friends Of Symfony</em>, responsable de diversos
+<em>bundles</em> populars per a aquest framework. A més, aquest bundle requereix
+d'un altre addicional, que s'encarregarà de
+serializar/deserializar les dades que s'envien client i servidor,
+emprant el format JSON (encara que es pot triar un altre format, com XML
+o HTML, però ens centrarem en JSON). Aquest bundle s'anomena
+<strong>JMSSerializerBundle</strong> .</p>
+<p>Resumint, aquests són els comandos que necessitarem (i en aquest ordre):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer config extra.symfony.allow-contrib <span class="nb">true</span>
+<span class="linenos" data-linenos="2 "></span>composer require jms/serializer-bundle
+<span class="linenos" data-linenos="3 "></span>composer require friendsofsymfony/rest-bundle
+</code></pre></div>
+<p>El primer comando el necessitarem perquè <em>JMSSerializerBundle</em> és un
+bundle contribuït, que significa que no ha sigut
+validat o verificat per l'equip de desenvolupament de Symfony, i
+s'accepta com a contribució. No obstant açò, hem d'especificar en el
+nostre projecte que permetem la instal·lació de paquets contribuïts.
+Possiblement aquest comando ja l'hauràs escrit abans (és necessari per
+a permetre la reescriptura d'URLs, per exemple), així que no serà
+necessari. Però ho incloem en aquest tutorial per si de cas.</p>
+<h2 id="definint-els-serveis">Definint els serveis</h2>
+<p>Ara que ja tenim instal·lat el necessari per a començar a definir els
+serveis, anem al que és important. Crearem una nova classe (perr a no
+interferir amb el que ja tenim), on definirem els serveis bàsics sobre
+l'entitat Movie. Cridarem a aquesta classe <code>MovieRESTController</code>, i
+l'afegirem en la carpeta src/Controller:</p>
+<p>La classe té una anotació @Route, que implica que qualsevol ruta que
+indiquem dins va a tenir aqueix prefix (en aquest cas, totes les rutes
+dels mètodes interns tindran el prefix <code>/api/v1/movies</code>).</p>
+<h3 id="llistat-de-tots-els-elements-get">Llistat de tots els elements (GET /)</h3>
+<p>Anem a afegir un mètode a la nostra classe anterior perquè retorne, en
+format JSON, totes les pel·lícules de la base de dades. El codi del
+mètode és el següent:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">/</span><span class="nx">\</span><span class="o">*</span><span class="nx">\</span><span class="o">*</span> <span class="nx">\</span><span class="o">*</span> <span class="nx">\</span><span class="o">@</span><span class="nx">Rest</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"movies_list"</span><span class="p">)</span> <span class="nx">\</span><span class="o">*/</span> <span class="k">public</span> <span class="k">function</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">llesta_peliculas</span><span class="p">()</span> <span class="p">{</span> <span class="nx">\</span><span class="nv">$serializer</span> <span class="o">=</span> <span class="nx">\</span><span class="nv">$this</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nx">get</span><span class="p">(</span><span class="s1">'jms_serializer'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nx">\</span><span class="nv">$repositori</span> <span class="o">=</span> <span class="nx">\</span><span class="nv">$this</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nx">getDoctrine</span><span class="p">()</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nx">getRepository</span><span class="p">(</span><span class="nx">Pelicula</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nx">\</span><span class="nv">$peliculas</span> <span class="o">=</span> <span class="nx">\</span><span class="nv">$repositori</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nx">findAll</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nx">\</span><span class="nv">$peliculas</span><span class="p">)</span> <span class="nx">\</span><span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span> <span class="nx">\</span><span class="nv">$resposta</span> <span class="o">=</span> <span class="nx">\</span><span class="p">[</span> <span class="s1">'ok'</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="s1">'peliculas'</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="nx">\</span><span class="nv">$peliculas\</span><span class="p">];</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="nx">\</span><span class="nv">$resposta</span> <span class="o">=</span> <span class="nx">\</span><span class="p">[</span> <span class="s1">'ok'</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">false</span><span class="p">,</span> <span class="s1">'error'</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="s1">'No s'</span><span class="nx">han</span> <span class="nx">trobat</span> <span class="nx">pel·lícules</span><span class="err">'</span> <span class="nx">\</span><span class="p">];</span> <span class="p">}</span> <span class="k">return</span> <span class="k">new</span>
+<span class="linenos" data-linenos="10 "></span><span class="nx">Response</span><span class="p">(</span><span class="nx">\</span><span class="nv">$serializer</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nb">serialize</span><span class="p">(</span><span class="nx">\</span><span class="nv">$resposta</span><span class="p">,</span> <span class="s2">"json"</span><span class="p">));</span> <span class="p">}</span>
+</code></pre></div>
+<p>Analitzem alguns aspectes importants que no hem vist abans:</p>
+<ul>
+<li>El mètode llesta_peliculas té una anotació \@Rest, que és similar a
+    \@Route però permet especificar el comando que es va a atendre (GET,
+    en aquest cas), i la ruta associada (hem indicat l'arrel /, la qual
+    cosa significa que s'atenen peticions GET a /peliculas/api/, que és
+    la ruta base de la classe).</li>
+<li>Dins del mètode, fem el següent: ◦ Obtenim el serializador ◦ Obtenim
+    el llistat de totes les pel·lícules (açò ja ho sabem fer de sessions
+    prèvies) ◦ En funció de si el llistat té dades o no, construïm una
+    resposta a enviar al client. Si hi ha dades, enviem un atribut ok a
+    true, i un atribut peliculas amb l'array de pel·lícules obtingut.
+    Si no hi ha dades, enviem l'atribut ok a false i el missatge
+    d'error corresponent (no s'han trobat pel·lícules). ◦ Finalment,
+    emetem una resposta (Response) amb l'array d'atributs que hem
+    construït, serializado a format JSON.</li>
+</ul>
+<p>Si obrim un navegador i accedim a symfony.bundles/peliculaREST obtindrem
+açò:</p>
+<p>El que veiem és la informació de resposta en format JSON.</p>
+<p>2.2.2. Llistat d'un element concret (GET /id)</p>
+<p>Anem ara a definir un segon mètode que cercarà una pel·lícula per la
+seua aneu, que rebrà com a part de la URI, tal com hem fet en sessions
+prèvies amb els contactes. El mètode seria el següent:</p>
+<p>/** * \@Rest("/{aneu}", name="cerca_pelicula") */ public function
+cerca_pelicula(\$aneu) { \$serializer = \$this-&gt;get('jms_serializer');
+\$repositori = \$this-&gt;getDoctrine()-&gt;getRepository(Pelicula::class);</p>
+<p>\$pelicula = $$repositori{o -}find($$aneu);</p>
+<p>if (\$pelicula) { \$resposta = [ 'ok' =&gt; true, 'pelicula' =&gt;
+\$pelicula]; } else { \$resposta = [ 'ok' =&gt; false, 'error' =&gt;
+'Pelicula no oposada' ]; } return new
+Response(\$serializer-&gt;serialize(\$resposta, "json")); }</p>
+<p>La diferència principal amb el mètode anterior és que emprem el mètode
+find per a cercar per l'aneu de la pel·lícula, i en el resultat JSON ja
+no retornem un array de pel·lícules, sinó una sola pel·lícula, en
+l'atribut pelicula, si tot ha anat bé.</p>
+<p>Podem provar el funcionament d'aquest servei també des del navegador,
+accedint a la URL symfony.bundles/peliculas/api/1, o amb qualsevol codi
+de pel·lícula que tinguem disponible en la base de dades. Si el codi no
+és correcte, veurem el missatge d'error en lloc de les dades de la
+pel·lícula.</p>
+<p>2.2.3. Inserció de pel·lícula (POST)</p>
+<p>Anem a definir ara una nova funció per a gestionar la inserció de
+pel·lícules. En aquest cas, el comando a tractar és POST, i les dades
+arribaran fora de la URI, en el cos de la petició. El mètode podria ser
+alguna cosa així:</p>
+<p>/** * \@Rest("/", name="nova_pelicula") */ public function
+nova_pelicula(Request \$request) { \$serializer =
+\$this-&gt;get('jms_serializer'); \$pelicula = new Pelicula();
+$$pelicul{a -}setTitulo($$request-&gt;get('titule'));
+$$pelicul{a -}setAnyo($$request-&gt;get('anyo')); \$entityManager =
+\$this-&gt;getDoctrine()-&gt;getManager();
+$$entityManage{r -}persist($$pelicula); \$entityManager-&gt;flush();</p>
+<p>\$resposta = [ 'ok' =&gt; true,</p>
+<p>'pelicula' =&gt; \$pelicula ];</p>
+<p>return new Response($$serialize{r -}serialize($$resposta, "json")); }</p>
+<p>Necessitarem incloure una instrucció use al principi per a poder
+treballar amb l'objecte Request, que és el que emprarem per a extraure
+les dades de la petició (el títol i any de la pel·lícula). Amb ells, vam
+crear l'objecte Pelicula, ho inserim en la base de dades i ho retornem
+en la resposta.</p>
+<p>Per a poder provar aquest servei correctament, i els de esborrat i
+modificació que veurem ara, necessitarem alguna eina que simule una
+petició POST. En breu explicarem una d'elles, cridada Postman.</p>
+<p>2.2.4. Esborrat d'elements (DELETE /aneu)</p>
+<p>El mètode d'esborrat rebrà també com a paràmetre l'aneu de l'element
+a esborrar. El codi seria així:</p>
+<p>/** * \@Rest("/{aneu}", name="esborra_pelicula") */ public function
+esborra_pelicula(\$aneu) { \$serializer =
+\$this-&gt;get('jms_serializer'); \$entityManager =
+\$this-&gt;getDoctrine()-&gt;getManager(); \$repositori =
+\$this-&gt;getDoctrine()-&gt;getRepository(Pelicula::class); \$pelicula =
+$$repositori{o -}find($$aneu); if (\$pelicula) {
+$$entityManage{r -}remove($$pelicula); \$entityManager-&gt;flush();
+\$resposta = [ 'ok' =&gt; true, 'pelicula' =&gt; \$pelicula]; } else {
+\$resposta = [ 'ok' =&gt; false, 'error' =&gt; 'Pelicula no oposada'
+]; } return new Response(\$serializer-&gt;serialize(\$resposta, "json"));
+}</p>
+<p>Bàsicament, utilitzant Doctrine, cerquem l'element a esborrar i ho
+eliminem. En el cas de no trobar-ho, retornem un missatge d'error en la
+resposta.</p>
+<p>2.2.5. Modificació d'elements (UPDATE /aneu)</p>
+<p>La modificació d'elements és similar a la inserció, però rebrem com a
+paràmetre en la URI l'aneu de l'element a modificar.</p>
+<p>/** * \@Rest("/{aneu}", name="modifica_pelicula") */ public function
+modifica_pelicula(\$aneu, Request \$request) { \$serializer =
+\$this-&gt;get('jms_serializer'); \$entityManager =
+\$this-&gt;getDoctrine()-&gt;getManager(); \$repositori =
+\$this-&gt;getDoctrine()-&gt;getRepository(Pelicula::class); \$pelicula =
+$$repositori{o -}find($$aneu);</p>
+<p>if (\$pelicula) { $$pelicul{a -}setTitulo($$request-&gt;get('titule'));
+$$pelicul{a -}setAnyo($$request-&gt;get('anyo'));
+\$entityManager-&gt;flush(); \$resposta = [ 'ok' =&gt; true, 'pelicula' =&gt;
+\$pelicula]; } else { \$resposta = [ 'ok' =&gt; false, 'error' =&gt;
+'Pelicula no oposada' ]; } return new
+Response(\$serializer-&gt;serialize(\$resposta, "json")); }</p>
+<p>Novament, si trobem la pel·lícula, actualitzem les seues dades amb els
+quals rebem en la petició (com en inserir-la nova), i després
+actualitzem els canvis.</p>
+<p>En aquest punt, pots realitzar l'Exercici 1 dels proposats al final de
+la sessió.</p>
+<p>3. Introducció a Postman</p>
+<p>Ja hem vist que provar uns serveis de llistat (GET) és senzill a través
+d'un navegador. Fins i tot provar un servei d'inserció (POST) podria
+fer-se a través d'un formulari HTML, però els serveis de modificació
+(PUT) o esborrat (DELETE) exigeixen d'altres eines per a poder ser
+provats. Una de les més útils en aquest sentit és Postman.</p>
+<p>Postman és una aplicació gratuïta i multiplataforma que permet enviar
+tot</p>
+<p>tipus de peticions a un servidor determinat, i examinar la resposta que</p>
+<p>aquest produeix. D'aquesta forma, podem comprovar que els serveis
+ofereixen la</p>
+<p>informació adequada abans de ser usats per una aplicació client real.</p>
+<p>3.1. Descàrrega, instal·lació i primers passos</p>
+<p>Per a descarregar i instal·lar Postman, hem d'anar al seu web oficial,
+i fer clic en el botó de descarregar (Download the app), i després triar
+la versió concreta per al nostre sistema operatiu.</p>
+<h3 id="anchor-11">[]{#anchor-11}</h3>
+<p>Obtindrem un arxiu comprimit portable, que podem descomprimir i executar
+directament. Gens més iniciar, ens preguntarà si volem registrar-nos, i
+fins i tot associar Postman a un compte Google. Açò té els avantatges de
+poder emmagatzemar en el compte les diferents proves que fem, per a
+després poder-les utilitzar en altres equips, però no és un pas
+obligatori, i podem ometre-ho, si volem, anant a l'enllaç de la part
+inferior de la finestra.</p>
+<p>Després d'aquesta pantalla, veurem un diàleg per a crear peticions
+simples o col·leccions de peticions (conjunts de proves per a una
+aplicació). El que farem habitualment serà açò últim.</p>
+<p>Si triem crear una col·lecció, li haurem d'associar un nom (per
+exemple, "Contactes", "Llibres", o qualsevol nom associat a l'aplicació
+que estiguem fent) i guardar-la. Llavors podrem veure la col·lecció en
+el panell esquerre de Postman. Per a començar, anem a crear una
+col·lecció per a gestionar les nostres Pel·lícules:</p>
+<p>Des del botó "New" de color taronja en la cantonada superior esquerra
+podem crear noves peticions (també noves col·leccions) i associar-les a
+una col·lecció. Existeix una forma alternativa (potser més còmoda) de
+crear aqueixes peticions, a través del panell de pestanyes, afegint
+noves:</p>
+<p>3.2. Afegir peticions simples: GET</p>
+<p>Per a afegir una petició, habitualment triarem el tipus de comando sota
+les pestanyes (GET, POST, PUT, DELETE) i la URL associada a aquest
+comando. Per exemple, aquesta seria la petició per a obtenir el llistat
+de totes les pel·lícules:</p>
+<p>Llavors, podem fer clic en el botó "Save" en la part dreta, i guardar la
+petició per a poder-la reutilitzar. En guardar-la, ens demanarà que li
+assignem un nom (per exemple, "GET peliculas" en aquest cas), i la
+col·lecció en la qual s'emmagatzemarà (nostra col·lecció de
+"Peliculas").</p>
+<p>Després, podrem veure la prova associada a la col·lecció, en el panell
+esquerre:</p>
+<p>Si seleccionem aquesta prova i premem en el botó blau de "Send" (part
+superior dreta), podem veure la resposta emesa pel servidor en el panell
+inferior de resposta:</p>
+<p>Seguint aquests mateixos passos, podem també crear una nova petició per
+a obtenir una pel·lícula a partir de la seua aneu, per GET, passant-li
+l'aneu en la URI:</p>
+<p>Bastaria amb reemplaçar l'aneu de la URI pel qual vulguem consultar
+realment. Si provem aquesta petició, obtindrem la resposta corresponent:</p>
+<p>3.3. Afegir peticions POST</p>
+<p>Les peticions POST difereixen de les peticions GET en què s'envia certa
+informació en el cos de la petició. Aquesta informació normalment són
+les dades que es volen afegir en el servidor. Com podem fer açò amb
+Postman?</p>
+<p>En primer lloc, vam crear una nova petició, triem el comando POST i
+definim la URI (seguint amb el nostre exemple, la URI serà
+symfony.bundles/peliculas/api/). Llavors, fem clic en la pestanya Bodi,
+sota la URL, i establim el tipus com raw perquè ens deixe escriure-ho
+sense restriccions. També convé canviar la propietat Text perquè siga
+application/json, i que així el servidor arreplegue el tipus de dada
+adequada: s'afegirà automàticament una capçalera de petició (Header)
+que especificarà que el tipus de contingut que es va a enviar són dades
+JSON.</p>
+<p>Després, en el quadre de text sota aquestes opcions, especifiquem
+l'objecte JSON que volem enviar per a inserir:</p>
+<p>Si enviem aquesta petició, obtindrem el resultat de la inserció:</p>
+<p>3.4. Afegir peticions PUT o DELETE</p>
+<p>En el cas de peticions PUT, procedirem de forma similar a les peticions
+POST vistes abans: hem de triar el comando (PUT en aquest cas), la URI,
+i completar el cos de la petició amb les dades que vulguem modificar del
+contacte. En aquest cas, a més, l'aneu de l'element a modificar ho
+enviarem també en la pròpia URI:</p>
+<p>Per a peticions DELETE, la mecànica és similar a la de GET per a obtenir
+la fitxa d'un element pel seu aneu, canviant el comando GET per DELETE,
+i sense necessitat d'establir gens en el cos de la petició:</p>
+<p>3.5. Exportar/Importar col·leccions</p>
+<p>Podem exportar i importar les nostres col·leccions en Postman, de manera
+que podem portar-les d'un equip a un altre. Per a <strong>exportar</strong> una
+col·lecció, fem clic en el botó de punts suspensius (...) que hi ha al
+costat d'ella en el panell esquerre, i triem Export.</p>
+<p>Ens preguntarà per a quina versió de Postman volem exportar (normalment
+la recomanada és la millor opció):</p>
+<p>Es crearà un nou arxiu Postman en la ubicació que triem.</p>
+<p>Si volem <strong>importar</strong> una col·lecció prèviament exportada, podem fer
+clic en el botó Import de la cantonada superior esquerra en la finestra
+principal:</p>
+<p>Llavors, triem l'arxiu Postman amb la col·lecció i apareixerà en el
+panell esquerre després de la importació.</p>
+<p>En aquest punt, pots realitzar l'Exercici 2 del final de la sessió.</p>
+<p>4. Altres opcions addicionals</p>
+<p>Ara que ja hem vist com construir una API REST bàsica utilitzant alguns
+bundles auxiliars, vegem algunes altres opcions que podem incorporar a
+aquest procés per a fer-ho una mica més complet.</p>
+<p>4.1. Configuració de CORS</p>
+<p>CORS són les sigles de Cross­Origin Resource Sharing, una tecnologia que
+permet que dues aplicacions de dominis diferents puguen intercanviar-se
+informació. És una tecnologia que està molt vinculada a aplicacions
+basades en serveis REST, ja que aquests poden ser accessibles des de
+diferents plataformes client. Imaginem que tenim una aplicació web en
+www.midominio.com, i volem accedir des d'ella a la nostra API
+recentment creada, per exemple, a la ruta
+symfony.bundles/peliculas/api/1 per a obtenir les dades d'una
+pel·lícula.</p>
+<p>En pertànyer a dos dominis diferents, aquesta petició automàticament
+queda sense efecte, i el client no serà capaç de rebre les dades que el
+servidor envia, per motius de seguretat (accés d'un domini a un altre
+diferent).</p>
+<p>Per a evitar aquest problema, i permetre que diferents fonts o dominis
+puguen accedir a nostra API REST, hem d'habilitar CORS en la nostra
+aplicació Symfony. Una de les opcions que tenim és utilitzar un bundle
+anomenat NelmioCorsBundle. Els passos són senzills: en primer lloc
+instal·lem el bundle així:</p>
+<p>composer require cors</p>
+<p>Després, podem editar l'arxiu de configuració
+config/packages/nelmio_cors.yaml i ajustar-ho al nostre gust. En la
+subsección paths estan les rutes per a les quals s'habilita CORS. Si,
+per exemple, volem habilitar-ho només per a la subruta /peliculas/apis/,
+hauríem de definir únicament el path '\^/peliculas/apis/'.</p>
+<p>4.2. Validació de dades</p>
+<p>Podem incorporar el bundle validator de Symfony, que ja hem emprat per a
+validar les dades que provenen d'un formulari, i utilitzar-ho per a
+validar que les dades que rep un servei (POST o PUT) són correctes abans
+de realitzar les corresponents insercions o modificacions. Per a açò, en
+primer lloc incloem el bundle en el projecte:</p>
+<p>composer require symfony/validator</p>
+<p>A continuació, editem l'arxiu de configuració
+config/packages/framework.yaml i afegim aquesta línia, per a permetre la
+validació mitjançant anotacions:</p>
+<p>framework: ... <strong>validation: { enable_annotations: true }</strong></p>
+<p>Després, definim les regles de validació en la(s) entitat(és)
+corresponent(s). Per exemple, si volem que el títol de la pel·lícula no
+estiga buit, podem fer alguna cosa així en la nostra entitat Pelicula
+(indiquem en negreta les dues noves línies a afegir):</p>
+<p>... <strong>use Symfonyas Assert;</strong></p>
+<p>/<strong> * \@ORM(repositoryClass=</strong>"<strong>App</strong>"<strong>) </strong><strong><em>/ class Pelicula { ...
+/ * \@ORM(type=</em></strong>"<strong><em>string</em></strong>"<strong><em>, length=255) </em></strong><strong>\@Assert()</strong> */
+private \$titule; ...</p>
+<p>Finalment, quan anem a utilitzar el servei POST o PUT, per a insercions
+o modificacions respectivament, n'hi ha prou amb validar l'objecte
+construït abans de realitzar l'operació. Si no hi ha errors,
+s'insereix/modifica, i si n'hi ha, es retorna un missatge d'error.
+Així seria en el cas de la inserció:</p>
+<p><strong>use Symfony;</strong> ... /** * \@Rest("/", name="nova_pelicula") */
+public function nova_pelicula(Request \$request <strong>, ValidatorInterface
+\$validator</strong> ) { \$serializer = \$this-&gt;get('jms_serializer');
+\$pelicula = new Pelicula();
+$$pelicul{a -}setTitulo($$request-&gt;get('titule'));
+$$pelicul{a -}setAnyo($$request-&gt;get('anyo'));</p>
+<p><strong>\$errors = </strong>$$validato{r -}validate($$<strong>pelicula);</strong></p>
+<p><strong>if (count(\$errors) == 0 )</strong> { \$entityManager =
+\$this-&gt;getDoctrine()-&gt;getManager();
+$$entityManage{r -}persist($$pelicula); \$entityManager-&gt;flush();</p>
+<p>\$resposta = [ 'ok' =&gt; true, 'pelicula' =&gt; \$pelicula]; } else {
+\$resposta = [</p>
+<p>'ok' =&gt; false, 'error' =&gt; 'Les dades no són correctes' ]; }</p>
+<p>return new Response($$serialize{r -}serialize($$resposta, "json")); }</p>
+<p>Notar que utilitzem un servei anomenat ValidatorInterface per a validar
+les dades. La validació retorna un array d'errors oposats que, si està
+buit, indica que no hi ha errors, i podem procedir amb la inserció.</p>
+<p>En aquest punt, pots intentar realitzar l'Exercici 3 del final de la
+sessió, que és de caràcter optatiu.</p>
+<p>4.3. Autenticació basada en tokens</p>
+<p>Els mecanismes d'autenticació tradicional en aplicacions web estan
+basats en sessions: l'usuari envia les seues credencials a través
+d'algun formulari, el servidor ho valida i emmagatzema en la sessió les
+dades de l'usuari logueado, perquè, mentre no caduque la sessió o la
+tanque l'usuari, puga seguir accedint sense haver de tornar a
+autenticar-se.</p>
+<p>No obstant açò, aquest tipus d'autenticació té la limitació de ser
+exclusiva per a aplicacions web, és a dir, per a clients web que es
+connecten a servidors web. Si volguérem adaptar l'aplicació a mòbil, o
+a una versió d'escriptori, no podríem seguir emprant aquest mecanisme.</p>
+<p>Per a superar aquest escull, podem utilitzar l'autenticació basada en
+tokens. Aquesta és una autenticació "sense estat" (stateless), la qual
+cosa significa que no s'emmagatzema gens entre client i servidor per a
+seguir accedint autenticats. El que es fa és el següent:</p>
+<ol>
+<li>El client envia al servidor les seues credencials (usuari i
+    password)</li>
+<li>El servidor les valguda, i si són correctes, genera una cadena
+    xifrada anomenada token, que conté la validació de l'usuari, a més
+    de certa informació addicional que puguem voler afegir (com el login
+    de l'usuari, per exemple). Aquest token s'envia de tornada a
+    l'usuari com a resposta a la seua autenticació.</li>
+<li>A partir d'aquest punt, cada vegada que el client vulga
+    autenticar-se contra el servidor per a sol·licitar un recurs, n'hi
+    ha prou que envie el token que el servidor li va proporcionar. El
+    servidor s'encarregarà de verificar-ho per a comprovar que és
+    correcte, i donar-li accés o denegar-li-ho.</li>
+</ol>
+<p>Igual que les sessions, els tokens també poden tenir una caducitat, que
+s'indica dins del propi token. Si, passat aqueix temps, el servidor rep
+el token, ho descartarà com a invàlid (caducat), i el client tornarà a
+no estar autenticat.</p>
+<p>4.3.1. Introducció a JWT</p>
+<p>JWT (JSON Web Token) és un estàndard obert que permet l'enviament de
+tokens de forma segura. Els tokens se signen amb una clau, i contenen la
+informació necessària de l'usuari</p>
+<p>autenticat (normalment el seu login és suficient), perquè no s'haja de
+tornar a consultar qui és, mentre el token no caduque.</p>
+<p>Per a poder treballar amb JWT en Symfony, podem emprar (entre uns
+altres) el bundle lexik/ jwt­authentication­ bundle, que s'instal·la
+d'aquesta manera:</p>
+<p>composer require jwt-auth</p>
+<p>A més, necessitarem afegir el bundle de seguretat de Symfony:</p>
+<p>composer require symfony/security</p>
+<p>4.3.2. Creació de l'entitat Usuari per a validar-se</p>
+<p>Emprarem per a validar-nos una entitat Usuari com la qual emprem en la
+sessió 6 per a l'aplicació symfony.contactes. Podem copiar-la i
+pegar-la en el nostre projecte symfony.bundles, en la carpeta src/Entity
+al costat de l'entitat Pelicula. També copia i pega l'arxiu
+UsuarioRepository de la carpeta src/Repository en la carpeta
+corresponent del projecte symfony.bundles. Quan tinguem aquests dos
+arxius copiats, executem els dos comandos per a actualitzar la base de
+dades:</p>
+<p>php bin/console make:migration</p>
+<p>php bin/console doctrine:migration:migrate</p>
+<p>Inserirem també algun usuari de prova en la taula, amb el password
+encriptat en format bcrypt de 12 voltes, com vam fer en la sessió 6
+(pots copiar algun d'aqueixos usuaris també, si ho prefereixes).</p>
+<p>4.3.3. Generació de certificats</p>
+<p>Per a poder codificar els tokens, és necessari generar uns certificats.
+Generarem un de privat per a generar el token quan l'usuari es valide,
+i un públic per a poder-ho validar quan l'usuari ho envie.</p>
+<p>Per a açò, executem aquests comandos des de la carpeta arrel del
+projecte. Quan ens ho demane, triarem com passphrase la paraula symfony
+(és només una paraula o frase que utilitzar per a xifrar el contingut,
+triem aqueixa per exemple):</p>
+<p>mkdir config/jwt</p>
+<p>openssl genrsa -out config/jwt/private.pem -aes256 4096</p>
+<p>openssl rsa -pubout -in config/jwt/private.pem -out
+config/jwt/public.pem</p>
+<p>4.3.4. Configuració en l'arxiu .env</p>
+<p>Hem d'editar també l'arxiu .env i afegir aquestes línies:</p>
+<p>JWT_PRIVATE_KEY_PATH=config/jwt/private.pem</p>
+<p>JWT_PUBLIC_KEY_PATH=config/jwt/public.pem</p>
+<p>JWT_PASSPHRASE=symfony</p>
+<p>JWT_TOKENTTL=3600</p>
+<p>L'atribut JWT_PASSPHRASE haurà de coincidir amb el qual indiquem en
+generar els certificats en el pas anterior (symfony, en el nostre cas).
+L'atribut JWT_TOKENTTL</p>
+<p>és el temps de vida o caducitat del token, en segons. En aquest cas, li
+donem un temps de validesa d'una hora.</p>
+<p>4.3.5. Configuració de config/packages/lexik_authentication.yaml</p>
+<p>Aquest arxiu quedarà d'aquesta manera, en el qual indiquem on estan
+generades la clau privada i pública, la paraula de xifrat i el temps de
+vida:</p>
+<p>lexik_jwt_authentication:</p>
+<p>private_key_path: '%kernel.project_dir%/%env(JWT_PRIVATE_KEY_PATH)%'</p>
+<p>public_key_path: '%kernel.project_dir%/%env(JWT_PUBLIC_KEY_PATH)%'</p>
+<p>pass_phrase: '%env(JWT_PASSPHRASE)%'</p>
+<p>token_ttl: '%env(JWT_TOKENTTL)%'</p>
+<p>4.3.6. Configuració de config/packages/security.yaml</p>
+<p>L'arxiu principal de seguretat config/packages/security.yaml haurà de
+contenir aquests atributs per a l'autenticació per token:</p>
+<p>security:</p>
+<p>encoders: App: algorithm: bcrypt cost: 12</p>
+<p>providers: api_user_provider: entity: class: App property: login</p>
+<p>firewalls: login: pattern: \^/peliculas/api/login stateless: true
+anonymous: true provider: api_user_provider form_login:</p>
+<p>check_path: /peliculas/api/login success_handler:
+lexik_jwt_authentication.handler.authentication_success failure_handler:
+lexik_jwt_authentication.handler.authentication_failure
+require_previous_session: false username_parameter: username
+password_parameter: password</p>
+<p>api:</p>
+<p>pattern: \^/peliculas/api stateless: true anonymous: false guard:</p>
+<p>authenticators:</p>
+<ul>
+<li>lexik_jwt_authentication.jwt_token_authenticator</li>
+</ul>
+<p>access_control:</p>
+<ul>
+<li>{ path: \^/peliculas/api/login, rols: IS_AUTHENTICATED_ANONYMOUSLY }</li>
+<li>{ path: \^/peliculas/api, rols: IS_AUTHENTICATED_FULLY }</li>
+</ul>
+<p>El que hem definit en aquest arxiu és:</p>
+<ul>
+<li>En la secció encoders definim com estaran codificats els passwords.
+    En el nostre cas usarem bcrypt de 12 voltes, com en la sessió 6.</li>
+<li>En la secció providers especifiquem d'on obtindrem els usuaris.
+    Emprarem l'entitat Usuari, que el seu login ve emmagatzemat en la
+    propietat login</li>
+<li>En la secció firewalls especifiquem les regions protegides de
+    l'aplicació: ◦ La secció /peliculas/api/login no està protegida
+    (accés anònim obert). En accedir a ella s'activarà el controlador
+    mapeado amb la ruta /peliculas/api/login, i automàticament prendrà
+    un paràmetre anomenat username i un altre anomenat password de la
+    petició, i els validarà contra el provider indicat. Si tot és
+    correcte, s'utilitzarà el success handler indicat (que serà
+    l'encarregat de generar el token). Si alguna cosa falla, s'emprarà
+    el failure handler indicat (que enviarà una resposta de no
+    autorització). ◦ La resta de la secció /peliculas/api està protegida
+    mitjançant el jwt_authenticator, amb el que haurem d'enviar un
+    token prèviament obtingut per a entrar.</li>
+<li>Finalment, en la secció d'access_control indiquem que no és
+    necessari estar autenticat per a accedir al login, i sí per a la
+    resta d'URIs de /peliculas/api.</li>
+</ul>
+<p>4.3.7. El controlador de login</p>
+<p>El controlador de login bàsicament consisteix en mapear la URI
+/peliculas/api/login amb una funció buida, ja que el propi bundle
+s'encarrega de tot (validar credencials i generar el token, o validar
+el token que arriba del client, segons el cas). Per tant, podem afegir
+aquest mètode en la nostra classe PeliculaRESTController:</p>
+<p>/** * \@Rest("/login", name="login") */ public function login() {}</p>
+<p>4.3.8. Provant l'autenticació</p>
+<p>Per a provar que l'autenticació funciona, vam crear una nova petició
+POST en Postman a la URI /peliculas/api/login, i li passem en el cos de
+la petició l'usuari (username) i la contrasenya (password). En aquest
+exemple, suposem que l'usuari és pelicula i la contrasenya (sense
+encriptar) és 0000 . Haurem d'afegir també una capçalera (Header) amb
+l'atribut Content­Type establit a application/json.</p>
+<p>Si tot va correctament, rebrem com a resposta un token:</p>
+<p>4.3.9. Provant l'autorització</p>
+<p>Ara, anem a provar a obtenir un llistat de pel·lícules. Si llancem la
+petició en Postman sense cap tipus d'autorització, rebrem aquest
+missatge de tornada:</p>
+<p>Hem d'afegir una capçalera Authorization el valor de la qual siga el
+prefix "Bearer " (incloent l'espai final) seguit del token que ens ha
+enviat el servidor en autenticar-nos:</p>
+<p>Amb açò, sí obtindrem el llistat de pel·lícules. Haurem de procedir de
+la mateixa forma (enviant el token en la capçalera Authorization) per a
+poder emprar la resta de peticions.</p>
+<p>Si vols provar a fer-ho per tu mateix, pots realitzar l'Exercici 4 del
+final de les anotacions, de caràcter opcional.</p>
+<p>5. Exercicis</p>
+<p>5.1. Exercici 1</p>
+<p>Basant-te en l'exemple de les pel·lícules vist en els apartats
+anteriors, construeix ara tu una API REST sobre l'aplicació
+symfony.tasques que iniciem en la sessió anterior. Ja tindràs
+instal·lats els bundles de Doctrine de la sessió prèvia, però ara hauràs
+d'instal·lar JMSSerializerBundle i FOSRestBundle, com s'explica en
+aquesta sessió (apartat 2.1).</p>
+<p>Després, crea una classe anomenada TareaRESTController en la carpeta
+src/Controller, i defineix en ella el codi necessari per a definir
+aquests serveis. Tots ells hauran de partir de la URI base /tasques/api:</p>
+<ul>
+<li>Servei GET a la subruta /, que retornarà un llistat de tasques si
+    tot ha anat bé, o un missatge d'error si no hi ha tasques que
+    mostrar.</li>
+<li>Servei GET a la subruta /{aneu}, que retornarà les dades de la tasca
+    amb l'aneu indicat.</li>
+<li>Servei POST a la subruta /, que inserirà la tasca que li arriba en
+    el cos de la petició, retornant la tasca inserida. El format de la
+    data ho pots triar tu mateix, i pots emprar el mètode
+    DateTime::createFromFormat per a crear la data a partir d'aqueix
+    format.</li>
+<li>Servei DELETE a la subruta /{aneu}, que eliminarà la tasca amb
+    l'aneu indicat, retornant la tasca eliminada.</li>
+<li>Servei PUT a la subruta /{aneu}, que modificarà les dades de la
+    tasca amb l'aneu indicat. Rebrà en el cos de la petició totes les
+    dades de la tasca (descripció, data i prioritat) i els actualitzarà
+    sobre la tasca oposada. Es retornarà la pròpia tasca modificada.</li>
+</ul>
+<p>Tots els serveis retornaran una estructura JSON composta per les
+mateixes dades que en l'exemple de les pel·lícules:</p>
+<ul>
+<li>Un atribut ok, que serà vertader si l'operació ha sigut correcta, i
+    fals si no. De moment, les operacions de GET es consideraran
+    incorrectes si no es troben resultats, la de POST serà sempre
+    correcta, i les de DELETE i PUT seran incorrectes si no es troba
+    l'element a esborrar o modificar, respectivament.</li>
+<li>En el cas que ok siga vertader (l'operació siga correcta),
+    s'adjuntarà com a segon atribut l'element afectat (el llistat
+    oposat, o l'element inserit/esborrat/modificat).</li>
+<li>En el cas que ok siga fals (operació incorrecta), s'adjuntarà un
+    segon atribut error amb el missatge d'error corresponent.</li>
+</ul>
+<p>5.2. Exercici 2</p>
+<p>Crea una col·lecció en Postman cridada Tasques, i defineix dins aquestes
+cinc peticions:</p>
+<ul>
+<li><strong>GET tasques</strong> , que enviarà una petició GET a
+    symfony.tasques/tasca/api/ per a obtenir totes les tasques</li>
+<li><strong>GET tasca</strong> , que enviarà una petició GET a
+    symfony.tasques/tasca/api/1, per a obtenir les dades de la tasca
+    indicada (en aquest cas la 1, però pots posar l'aneu que
+    preferisques per a provar).</li>
+<li><strong>POST tasca,</strong> que enviarà una petició POST a
+    symfony.tasques/tasca/api/, i en el cos (bodi) de la petició,
+    enviarà les dades d'una tasca. Per exemple (el format de data pot
+    variar depenent del que hages triat tu): {"descripcion":"Preparar
+    examen desembre", "data":"10/12/ 2018", "prioritat": "BAIXA"}</li>
+<li><strong>DELETE tasca</strong> , que enviarà una petició DELETE a
+    symfony.tasques/tasca/api/2, per a eliminar la tasca indicada (en
+    aquest cas la 2, però pots posar l'aneu que preferisques per a
+    provar)</li>
+<li><strong>PUT tasca</strong> , que enviarà una petició PUT a
+    symfony.tasques/tasca/api/3, per a modificar les dades de la tasca
+    indicada (en aquest cas la 3, però pots posar l'aneu que
+    preferisques per a provar). Les dades de la tasca (descripció, data
+    i prioritat) s'enviaran en el cos de la petició. Per exemple (el
+    format de data, novament, pot variar depenent del que hages triat):
+    {"descripcion":"Acabar sessió 8", "data":"28/11/2018", "prioritat":
+    "ALTA"}</li>
+</ul>
+<p>Quan tingues totes les peticions fetes i comprovades, exporta-les a un
+arxiu anomenat tasques.postman_collection.json, que hauràs d'adjuntar
+com a lliurament d'aquest exercici.</p>
+<p>5.3. Exercici 3 (opcional)</p>
+<p>Modifica la inserció de tasques de l'Exercici 1 perquè es valide que la
+descripció, la data i la prioritat no estiguen en blanc, i que la
+prioritat tinga valors entre 1 i 3 (inclusivament). Si la tasca no és
+vàlida, es retornarà un missatge d'error indicant-ho, en lloc de la
+tasca inserida.</p>
+<p>NOTA : per a indicar que la prioritat estiga entre dos valors donats,</p>
+<p>pots utilitzar les assercions GreaterThanOrEqual i</p>
+<p>LessThanOrEqual, tal com s'explica ací.</p>
+<p>Crea una nova petició en Postman cridada POST incorrecte que intente
+enviar les dades d'una tasca amb la prioritat o la descripció buides
+(cadena buida), o amb una prioritat no vàlida (per exemple, 5), i
+comprova que retorna un resultat d'error. Actualitza l'arxiu exportat
+tasques.postman_collection.json de l'exercici anterior amb aquesta nova
+petició.</p>
+<h3 id="anchor-1154-exercici-4-opcional">[]{#anchor-11}5.4. Exercici 4 (opcional)</h3>
+<p>Segueix els passos indicats en el subapartat 4.3 per a afegir seguretat
+basada en tokens en l'aplicació d'exemple symfony.bundles (la mateixa
+en la qual es basa aqueix apartat). Prova a autenticar-te amb l'usuari
+que hages creat, obtenir el token i emprar-ho per a obtenir el llistat
+de pel·lícules o qualsevol altra ruta.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
