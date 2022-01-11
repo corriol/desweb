@@ -490,6 +490,8 @@ projectes, la injecció de dependències per a gestionar recursos tals com
 a connexions a bases de dades o elements compartits per tota l'aplicació, 
 la possibilitat de desenvolupar tant webs completes
 com a serveis REST accessibles des de diversos clients, etc.</p>
+<p>En el següent article teniu una comparatova entre Laravel i Symfony: 
+<a href="https://hackernoon.com/php-laravel-vs-symfony-a-detailed-comparison-of-web-development-frameworks-sq493y3l">PHP Laravel VS Symfony: A Detailed Comparison of Web Development Frameworks</a></p>
 <h3 id="quin-triar">Quin triar?</h3>
 <p>A l'hora de decantar-nos per un o un altre framework, no ens hauríem de
 deixar enganyar per la seua popularitat, en termes de quota de
@@ -526,7 +528,7 @@ inconvenient:</p>
 <li>S'enllaça bé amb altres frameworks i llibreries de tercers molt
     útils, denominades <em>bundles</em>. Alguns exemples que utilitzarem en el
     curs són Twig (un potent motor de plantilles per a desenvolupar les
-    nostres vistes) o Doctrine (un ORM per a poder mapear les dades en
+    nostres vistes) o Doctrine (un ORM per a poder mapejar les dades en
     objectes).</li>
 </ul>
 <p>En realitat, una vegada es coneix un d'aquests frameworks, és més
@@ -550,11 +552,11 @@ programari, com són:</p>
 </ul>
 <h3 id="installar-apache-mysql-i-php">Instal·lar Apache, MySQL i PHP</h3>
 <p>Per a complir amb els tres primers requisits (Apache, MariaDB/MySQL i
-PHP) anem a instal·lar un sistema XAMPP, des del seu <a href="https://www.apachefriends.org/es/download.html">web oficial</a>.
+PHP) instal·larem un sistema XAMPP, des del seu <a href="https://www.apachefriends.org/es/download.html">web oficial</a>.
 En el cas de la màquina virtual que tenim disponible per al curs, podem
 instal·lar-ho descarregant la versió per a Linux.</p>
 <p>Es tracta d'un arxiu <code>.run</code>. Primer hem de fer-ho executable, escrivint
-aquest comando des de la carpeta on l'hagem descarregat (per exemple,
+aquest comando des de la carpeta on l'hàgem descarregat (per exemple,
 per a la versió 7.4.14 de XAMPP, que és la que està disponible en el
 moment d'escriure aquestes anotacions):</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>chmod +x xampp-linux-x64-7.4.14-0-installer.run
@@ -567,9 +569,6 @@ totes les opcions marcades per defecte, excepte l'opció sobre Bitnami,
 que podem desmarcar ja que no ho utilitzarem (és una espècie
 d'assistent que permet instal·lar altres paquets com Wordpress, Joomla,
 Moodle... en els nostres projectes web).</p>
-<p>Recorda, no obstant açò, que disposes d'una versió de la màquina
-virtual amb tot el programari necessari instal·lat, amb el que pots
-ometre aquest pas si no vols perdre temps amb ell.</p>
 <h4 id="el-panell-de-control-manager-de-xampp">El panell de control (<em>manager</em>) de XAMPP</h4>
 <p>Farem ús del manager que s'haurà instal·lat per a engegar els
 servidors. Haurem de cercar el manager en qüestió en la carpeta on
@@ -589,12 +588,12 @@ una: crearem un arxiu en l'escriptori (el podem cridar, per exemple
 <span class="linenos" data-linenos=" 2 "></span>Encoding=UTF-8
 <span class="linenos" data-linenos=" 3 "></span>Name=XAMPP Manager
 <span class="linenos" data-linenos=" 4 "></span>Comment=Manager XAMPP
-<span class="linenos" data-linenos=" 5 "></span>Exec=gksudo /opt/lampp/manager-linux-x64.run
+<span class="linenos" data-linenos=" 5 "></span>Exec=sudo /opt/lampp/manager-linux-x64.run
 <span class="linenos" data-linenos=" 6 "></span>Icon=/opt/lampp/htdocs/favicon.ico
 <span class="linenos" data-linenos=" 7 "></span>Categories=Aplicacions;Programació;Web
 <span class="linenos" data-linenos=" 8 "></span>Version=7.4
 <span class="linenos" data-linenos=" 9 "></span>Type=Application
-<span class="linenos" data-linenos="10 "></span>Terminal=
+<span class="linenos" data-linenos="10 "></span>Terminal=true
 </code></pre></div>
 <p>El que hem fet és definir diversos paràmetres de configuració de
 l'accés directe. Entre ells, els més destacats són la ruta cap a
@@ -603,8 +602,8 @@ l'executable (paràmetre <code>exec</code>) i la icona per a l'accés directe
 XAMPP).</p>
 <p>Després d'açò, fem que l'arxiu <code>xampp.desktop</code> siga executable (amb
 clic dret, en les seues propietats, podem fer-ho), i ho executem. Pot
-ser que ens demane la contrasenya de "alumne" per a llançar-ho, i
-després ja podrem veure el manager.</p>
+ser que ens demane la contrasenya per a llançar-ho, i
+després ja podrem veure el <em>manager</em>.</p>
 <h3 id="installant-symfony-a-traves-de-composer">Instal·lant Symfony a través de Composer</h3>
 <p>L'últim requisit per a començar a treballar amb Symfony és, òbviament,
 disposar del framework Symfony. Per a açò, la mateixa web ofereix algunes
@@ -614,7 +613,7 @@ diferents mòduls o llibreries en un projecte. Conté una base de dades
 en línia amb moltes llibreries disponibles centralitzades, amb el que
 podem indicar quin(es) volem per a cada projecte concret, i Composer les
 descarrega i instal·la per nosaltres. És molt similar a
-altres gestors com NPM (Node Package Manager), que s'aplica a
+altres gestors com NPM (<em>Node Package Manager</em>), que s'aplica a
 llibreries per a Node o Javascript en general.</p>
 <p>Composer pot instal·lar-se localment per a cada projecte web, o de forma
 global per a tot el sistema. Aquesta última opció és la recomanable en
@@ -625,10 +624,16 @@ comandos des de terminal:</p>
 <span class="linenos" data-linenos="2 "></span>sudo mv composer.phar /usr/local/bin/composer
 </code></pre></div>
 <p>El que hem fet és descarregar Composer amb el comando <code>curl</code> (pot ser que
-necessites instal·lar el comando <code>curl</code> si no t'ho reconeix la màquina
-virtual, mitjançant <code>sudo apt-get install curl</code>). Després, movem l'arxiu
+necessites instal·lar el comando <code>curl</code> si no t'ho el sistema, mitjançant 
+<code>sudo apt-get install curl</code>). Després, movem l'arxiu
 descarregat (<code>composer.phar</code>) a la carpeta <code>/usr/local/bin</code>, amb el nom
 "composer", perquè en executar-ho ho trobe en el PATH del sistema.</p>
+<div class="admonition important">
+<p class="admonition-title">PHP CLI</p>
+<p>Les ferramentes de Symfony fan ús de l'intèrpret de PHP, així 
+que hem de tenir configurat el sistema perquè siga capaç d'executar la mateixa versió
+que tenim al servidor Apache, on executarà l'aplicació web.</p>
+</div>
 <p>Com a últim pas, i ja que Composer utilitza l'executable de PHP,
 necessitem que l'executable estiga també en el PATH del sistema, per
 al que farem el següent:</p>
@@ -638,8 +643,6 @@ al que farem el següent:</p>
 <p>La primera línia afig la carpeta <code>/opt/lampp/bin</code> al PATH, amb el que ja
 es pot localitzar el comando <code>php</code> a nivell global. La segona recarrega el
 fitxer <code>.bashrc</code> per a fer efectius els canvis.</p>
-<p>En aquest punt, ja pots realitzar l'exercici 1 dels proposats al final
-de la sessió.</p>
 <h4 id="symfony-cli">Symfony CLI</h4>
 <p>Opcionalment pots instal·lar <a href="https://symfony.com/download">Symfony CLI</a>. 
 Des de la versió 5 Symfony inclou un binari anomenat <code>symfony</code> que proporciona
@@ -793,7 +796,8 @@ carpeta de treball, i deixat habilitats els hosts virtuals per al futur.</p>
 <code>/home/alumne/symfony-projects/testing</code> del projecte que hem creat, comprovaràs que ocupa bastants megues. Gran part d'aqueixa grandària
  es deu a les dependències que per defecte s'instal·len en crear 
  el projecte amb l'opció <code>website-­skeleton</code>, i la grandària creixerà més encara si necessitem instal·lar alguna altra dependència addicional a les quals ja vénen.</p>
-<div class="alert-info alert">
+<div class="admonition alert">
+<p class="admonition-title">omissió de directoris</p>
 <p>Òbviament, distribuir una carpeta d'aqueixa grandària no és
 còmode, ni recomanable. En lloc d'açò, el que pots fer és
 ometre la subcarpeta <code>vendor</code>, que és on s'instal·len totes les
@@ -827,6 +831,10 @@ Symfony (més endavant veurem què és açò dels serveis).</p>
 provar ràpidament el projecte sense necessitat d'Apache, o altres
 comandos per a crear certs elements de l'aplicació o examinar-los. Els
 anirem veient més endavant.</p>
+<div class="admonition warning">
+<p class="admonition-title">Problemes amb permisos</p>
+<p>Els requeriments de permisos de Symfony són senzills d'aplicar, en cas que hi haja algun problema aquest article aporta informació d'interès <a href="https://symfony.com/doc/current/setup/file_permissions.html">Setting up or Fixing file Permissions</a></p>
+</div>
 <h2 id="introduccio-a-yaml">Introducció a YAML</h2>
 <p>La configuració dels projectes Symfony, per defecte, es defineix
 mitjançant arxius YAML. Aquests arxius són una alternativa al format

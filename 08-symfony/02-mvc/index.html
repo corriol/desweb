@@ -609,8 +609,8 @@ Al que respondrem <code>y</code> o <code>p</code> si volem que no ens torne a pr
 <div class="admonition info">
 <p class="admonition-title">Les receptes de Symfony</p>
 <p>Les receptes de Symfony permeten automatitzar la configuració de paquets Composer mitjançant el connector Symfony Flex Composer.</p>
-<p>Les receptes del dipòsit <code>contrib</code> són contribucions de tercers, és a dir, no són receptes dels desenvolupadors oficials de Symfony.</p>
-<p>Aquest és el cas de la recepta <code>symfony/apache-pack</code>, per la qual cosa ens pregunta si volem instal·lar-la igualment.</p>
+<p>Hi ha receptes oficials i contribucions de tercers (<code>contrib</code>) és a dir, no són receptes dels desenvolupadors oficials de Symfony. Aquest és el cas de la recepta <code>symfony/apache-pack</code>, per la qual cosa ens pregunta si volem instal·lar-la igualment.</p>
+<p>Podem executar <code>composer recipes</code> per veure les receptes que hi ha instal·lades i si cal actualitzar-les.</p>
 </div>
 <p>A partir d'aquest punt, ja podrem crear les rutes amigables que vulguem
 en el nostre projecte. <strong>Recorda repetir aquests comandos en tots els
@@ -648,7 +648,7 @@ El mètode associat a la ruta ha de tenir un paràmetre amb aqueixa
 mateixa dada (l'identificador), de manera que puguem utilitzar-lo dins del
 mètode. Si ara accedim a la URI <code>movies-symfony/movies/54</code> ens mostrarà
 el missatge "Movie data with id: 54".</p>
-<p>Anem a millorar un poc aquest controlador, per a simular que accedeix 
+<p>Millorarem un poc aquest controlador, per a simular que accedeix 
 a una font de dades per a obtenir la informació. Fins a veure en sessions 
 posteriors com connectar amb MySQL, anem a crear-nos el nostre propi array de 
 pel·lícules en la classe <em>MovieController</em>, i farem
@@ -700,7 +700,7 @@ s'haja indicat. El controlador quedarà així:
 <p>Com veiem, hem definit un array de pel·lícules, i dins del mètode filtrem
 amb <code>array_filter</code> aquell el codi del qual coincidisca amb l'indicat,
 mostrant les seues dades en la resposta. Observa també com podem
-incloure codi HTML en la pròpia resposta, encara que de seguida veurem
+incloure codi HTML en la mateixa resposta, encara que de seguida veurem
 que hi ha formes més còmodes de fer açò.</p>
 <h4 id="afegir-requisits-a-les-wildcards">Afegir requisits a les wildcards</h4>
 <p>Imaginem que volem definir un cercador de pel·lícules, de manera que li
@@ -745,7 +745,7 @@ motiu és simple, hem definit dues rutes a priori diferents:</p>
 <li><code>/movies/{id}</code> per a la fitxa de la pel·lícula</li>
 <li><code>/movies/{text}</code> per a cercar pel·lícules pel títol</li>
 </ul>
-<p>No obstant açò, a efectes pràctics, ambdues rutes són el mateix: el
+<p>No obstant això, a efectes pràctics, ambdues rutes són el mateix: el
 prefix <code>/movies</code> seguit del que siga. En aquesta situació, Symfony
 llança el primer dels controladors la ruta dels quals coincidisca amb la
 indicada (el de la fitxa de pel·lícules, en aquest cas).</p>
