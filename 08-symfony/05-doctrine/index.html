@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>Gestió del model de dades amb Doctrine - DWES</title>
+<title>Doctrine - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Gestió del model de dades amb Doctrine
+              Doctrine
             
           </span>
 </div>
@@ -283,8 +283,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_9">
         8.- Symfony
         <span class="md-nav__icon md-icon"></span>
@@ -315,6 +315,110 @@
         Injecció de dependències
       </a>
 </li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Doctrine
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Doctrine
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio-a-doctrine">
+    Introducció a Doctrine
+  </a>
+<nav aria-label="Introducció a Doctrine" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-es-un-orm">
+    Què és un ORM?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracio-basica-de-doctrine">
+    Configuració bàsica de Doctrine
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacio-dentitats">
+    Creació d'entitats
+  </a>
+<nav aria-label="Creació d'entitats" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generacio-de-lesquema">
+    Generació de l'esquema
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#editar-entitats">
+    Editar entitats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#establir-altres-claus-primaries">
+    Establir altres claus primàries
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operacions-contra-la-base-de-dades">
+    Operacions contra la base de dades
+  </a>
+<nav aria-label="Operacions contra la base de dades" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inserir-objectes">
+    Inserir objectes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obtenir-objectes">
+    Obtenir objectes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consultes-mes-avancades">
+    Consultes més avançades
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actualitzar-i-esborrar-objectes">
+    Actualitzar i esborrar objectes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#relacions-entre-entitats">
+    Relacions entre entitats
+  </a>
+<nav aria-label="Relacions entre entitats" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#treballar-amb-entitats-relacionades">
+    Treballar amb entitats relacionades
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../99-activitats/">
         Activitats
@@ -331,17 +435,13 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="gestio-del-model-de-dades-amb-doctrine">Gestió del model de dades amb Doctrine</h1>
-<p>{:no_toc}</p>
-<ol>
-<li toc="toc">Taula de continguts</li>
-</ol>
 <h2 id="introduccio-a-doctrine">Introducció a Doctrine</h2>
 <h3 id="que-es-un-orm">Què és un ORM?</h3>
 <p>Un ORM (<em>Object Relational Mapping</em>) és un <em>framework</em> encarregat de tractar
 amb una base de dades relacional (connectar amb ella, realitzar
 operacions de consulta, inserció, etc.), de manera que, de cara a
 l'aplicació, <em>es converteixen a objectes tots els elements que
-s'extraguen de la base de dades</em>m i viceversa (els objectes de
+s'extraguen de la base de dades</em> i viceversa (els objectes de
 l'aplicació es transformen en registres de la base de dades, arribat el
 cas). D'aquesta forma, l'ORM s'encarregarà de realitzar aquesta
 conversió o mapatge automàticament per nosaltres. Definint una sèrie de
@@ -379,7 +479,8 @@ vàlid per a connectar a la nostra base de dades de contactes:</p>
 producció, encara que en aquest últim cas es recomana definir variables
 d'entorn reals en el sistema, per a evitar pèrdua de rendiment en haver
 de traduir aquest arxiu per a cada petició.</p>
-<div class="alert-info alert">
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>Symfony suporta la noció d'entorns. Per defecte, té suport integrat per tres entorns, 
 però pots afegir-ne tants com vulgues: <code>dev</code>, <code>prod</code> i <code>test</code>. Tots els entorns 
 comparteixen el mateix codi, però treballen amb configuracions diferents.</p>
@@ -398,12 +499,10 @@ En l'entorn <code>prod</code> l'aplicació està optimitzada per al rendiment.</
 <span class="linenos" data-linenos=" 9 "></span>
 <span class="linenos" data-linenos="10 "></span>DATABASE_URL="mysql://root@127.0.0.1:3306/symfony-movies"
 </code></pre></div>
-<p>Qualsevol paquet pot afegir més variables d'entorn a aquesta imatge gràcies a la seva 
-recepta utilitzada per Symfony Flex.</p>
-<p>El fitxer <code>.env</code> s'envia al repositori i descriu els valors per defecte de l'entorn
- de producció. Podeu substituir aquests valors creant un fitxer <code>.env.local</code>. Aquest 
- fitxer no ha de ser enviat a l'repositori i és per això que el fitxer <code>.gitignore</code> ja l'està ignorant.</p>
+<p>Qualsevol paquet pot afegir més variables d'entorn a aquesta imatge gràcies a la seva recepta utilitzada per Symfony Flex.</p>
+<p>El fitxer <code>.env</code> s'envia al repositori i descriu els valors per defecte de l'entorn  de producció. Podeu substituir aquests valors creant un fitxer <code>.env.local</code>. Aquest fitxer no ha de ser enviat a l'repositori i és per això que el fitxer <code>.gitignore</code> ja l'està ignorant.</p>
 <p>Mai guardis dades secretes o confidencials en aquests arxius. </p>
+<p>Per a obtenir més informació consulta <a href="https://symfony.com/doc/current/configuration.html#configuration-environments">Configuring Symfony</a></p>
 </div>
 <p>En el cas que la base de dades encara no existisca, <em>Doctrine</em> pot
 crear-la per nosaltres. Per a açò, n'hi ha prou amb escriure el següent
@@ -416,11 +515,29 @@ Automàticament, es prendrà el nom de la base de dades de la variable
 d'entorn anterior, es connectarà al servidor i es crearà (sense taules,
 de moment).</p>
 <h2 id="creacio-dentitats">Creació d'entitats</h2>
-<p>Les entitats són les classes que van a compondre el model de dades de la
+<p>Les entitats, en Doctrine són objectes PHP que es poden identificar mitjançant un 
+identificador únic o clau primària. Aquestes classes no necessiten estendre cap 
+classe base abstracta o interfície. </p>
+<p>Una entitat conté propietats de persitència. Una propietat de persistència és una 
+instància de l'entitat que es desa i es recupera de la base de dades 
+mitjançant les capacitats de mapeig de dades de Doctrine.</p>
+<p>En resum, podríem dir que les entitats són les classes que van a compondre el model de dades de la
 nostra aplicació. Per exemple, per a la nostra aplicació de pel·licules,
 necessitarem una entitat/classe anomenada <code>Movie</code> que emmagatzeme les
-dades concretes de cada película (<em>id</em>, <em>title</em>, <em>tagline</em>, <em>poster</em>, <em>release_date</em> 
-i <em>overview</em>).</p>
+dades concretes de cada película:</p>
+<div class="mermaid">classDiagram
+     class Movie{
+          -init id
+          -title string
+          -overview text
+          -poster string
+          -releaseDate date
+          -voters int = 0
+          -rating float = 0.0
+      }
+
+
+</div>
 <p>Per a crear una entitat, emprem el següent comando des del terminal
 (dins de la carpeta principal del nostre projecte Symfony):</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php bin/console make:entity
@@ -632,7 +749,7 @@ de prova (el servei creat a tal efecte) l'hem reemplaçat per un camp enter
  que es genera automàticament com a clau principal de la classe. Per tant, només hem
 hagut d'especificar el títol, l'eslògan, la sinopsi, la data d'estrena i el pòster.</p>
 <p>Quant als tipus de dades que podem especificar, si premem <code>?</code> i <code>Intro</code> quan
-anem a especificar el tipus de dada, veurem un llistat complet dels
+especifique el tipus de dada, veurem un llistat complet dels
 tipus disponibles (també ho podeu consultar ací). L'habitual serà
 treballar amb cadenes de text d'una longitud determinada (<em>string</em>),
 textos il·limitats (<em>text</em>), enters (<em>integer</em>), booleans (<em>boolean</em>), reals
@@ -659,28 +776,6 @@ tots els arxius de migració que encara no s'hagen migrat efectivament a la base
 de dades, per la qual cosa si hi ha algun que no
 vulguem migrar (perquè s'haja generat equivocadament, per exemple),
 haurem d'eliminar-la abans.</p>
-<div class="alert-activity alert">
-<h3 id="exercici-51">Exercici 5.1</h3>
-<p>En l'aplicació de pel·lícules, crea una nova entitat anomenada <code>Movie</code> amb
-els següents atributs:</p>
-<ul>
-<li>title (<em>string</em> de grandària 255)</li>
-<li>tagline (<em>string</em> de grandària 100)</li>
-<li>poster (<em>string</em> de grandària 255)</li>
-<li>overview (<em>text</em>)</li>
-<li>releaseDate(<em>DateTime</em>)</li>
-</ul>
-<p>Sol el camp <em>tagline</em> admetra nuls. Recorda definir prèviament la
-variable <code>DATABASE_URL</code> en les variables d'entorn, crear la base de
-dades, i després migrar aquests canvis a la base de dades, emprant els
-comandos vistos en aquesta sessió.</p>
-<p>El camp <code>id</code> (<em>enter</em>, autonumèric) es crea automàticament.</p>
-</div>
-<div class="alert-activity alert">
-<h3 id="exercici-52">Exercici 5.2</h3>
-<p>Realitza l'exercici anterior en el teu projecte Symfony, creant la base de dades,
-l'entitat principai i la taula relacionada en la base de dades.</p>
-</div>
 <h3 id="editar-entitats">Editar entitats</h3>
 <p>Què passa si, després de crear una entitat, volem modificar la seua
 estructura? Podem editar la classe de l'entitat manualment per a
@@ -710,21 +805,21 @@ En el cas que siga una clau primària composta per més d'un camp, haurem
 d'afegir aquesta anotació en cada camp que forme part de la clau
 primària.</p>
 <h2 id="operacions-contra-la-base-de-dades">Operacions contra la base de dades</h2>
-<p>Ara que ja hem vist com definir entitats simples, vegem com realitzar
+<p>Ara que ja hem vist com definir entitats simples, vegem com fer
 operacions amb elles, tals com a insercions, esborrats, modificacions i
 consultes. Per a realitzar aquestes operacions, ens valdrem d'un
-objecte molt important en Doctrine, el seu entity manager, a través del
-com farem les insercions, esborrats, etc. També utilitzarem el
+objecte molt important en Doctrine, el seu <em>entity manager</em>, a través del
+que farem les insercions, esborrats, etc. També utilitzarem el
 repositori de l'entitat corresponent, per a realitzar les cerques.</p>
 <h3 id="inserir-objectes">Inserir objectes</h3>
 <p>Si volem afegir objectes nous a la nostra base de dades, n'hi ha prou
-que creiem un objecte de l'entitat corresponent en el mètode oportú, i
-cridem al mètode persist i flush de l'entity manager de Doctrine.</p>
-<p>Per exemple, per a provar, anem a crear un controlador en la nostra
+que creem un objecte de l'entitat corresponent en el mètode oportú, i
+cridem al mètode <code>persist</code> i <code>flush</code> de l'<em>entity manager</em> de Doctrine.</p>
+<p>Per exemple, per a provar, crearem un controlador en la nostra
 classe <code>MovieController</code> associat a una ruta <code>/movies/create</code>, que de
 moment serà de proves fins que fem un formulari d'inserció. Dins
 d'aquest mètode, crearem un objecte <code>Movie</code> amb dades prefixades,
-obtenim l'entity manager de Doctrine i persistim l'objecte:</p>
+obtenim l'<em>entity manager</em> de Doctrine i persistim l'objecte:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="sd">/**</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="sd">* @Route("/movies/create", name="movies_create")</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="sd">*/</span>
@@ -733,21 +828,19 @@ obtenim l'entity manager de Doctrine i persistim l'objecte:</p>
 <span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$movie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Movie</span><span class="p">();</span>
 <span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s2">"Ava"</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setTagline</span><span class="p">(</span><span class="s2">"Kill. Or be killed."</span><span class="p">);</span>
-<span class="linenos" data-linenos="10 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setOverview</span><span class="p">(</span><span class="s2">"A black ops assassin is forced to fight for her </span>
-<span class="linenos" data-linenos="11 "></span><span class="s2">        own survival after a job goes dangerously wrong."</span><span class="p">);</span>
-<span class="linenos" data-linenos="12 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setReleaseDate</span><span class="p">(</span><span class="k">new</span> <span class="nx">DateTime</span><span class="p">(</span><span class="s2">"2020-09-25"</span><span class="p">));</span>
-<span class="linenos" data-linenos="13 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setPoster</span><span class="p">(</span><span class="s2">"noposter.jpg"</span><span class="p">);</span>
-<span class="linenos" data-linenos="14 "></span>    <span class="o">...</span>
-<span class="linenos" data-linenos="15 "></span>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$movie</span><span class="p">);</span>
-<span class="linenos" data-linenos="16 "></span>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
-<span class="linenos" data-linenos="17 "></span>    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"The movie with id "</span> <span class="o">.</span> <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">()</span><span class="o">.</span> 
-<span class="linenos" data-linenos="18 "></span>        <span class="s2">" has been inserted successfully!"</span> <span class="p">);</span>
-<span class="linenos" data-linenos="19 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setOverview</span><span class="p">(</span><span class="s2">"A black ops assassin is forced to fight for her </span>
+<span class="linenos" data-linenos="10 "></span><span class="s2">        own survival after a job goes dangerously wrong."</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setReleaseDate</span><span class="p">(</span><span class="k">new</span> <span class="nx">DateTime</span><span class="p">(</span><span class="s2">"2020-09-25"</span><span class="p">));</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">setPoster</span><span class="p">(</span><span class="s2">"noposter.jpg"</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$movie</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"The movie with id "</span> <span class="o">.</span> <span class="nv">$movie</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">()</span><span class="o">.</span> 
+<span class="linenos" data-linenos="17 "></span>        <span class="s2">" has been inserted successfully!"</span> <span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Si accedim des del navegador a <code>movies-symfony/movies/create</code>
-podrem veure el resultat en la taula
-<code>movie</code> de la nostra base de dades:</p>
+podrem veure el resultat en la taula <code>movie</code> de la nostra base de dades:</p>
 <p>És important recalcar que la cridada <code>persist</code> per si sola no actualitza
 la base de dades, sinó que indica que es vol persistir l'objecte
 indicat. És la crida a <code>flush</code> la que fa efectiva aqueixa persistència.</p>
@@ -795,12 +888,12 @@ que podem emprar. Per exemple:</p>
 <p>Tots aquests mètodes s'obtenen a partir d'un repositori de la classe,
 que ve a ser alguna cosa així com un assistent que ens ajuda a obtenir
 objectes que pertanguen a aqueixa classe.</p>
-<p>Vegem un exemple amb la nostra classe <code>MovieController</code> anem a
-modificar el nostre mètode <code>show</code> perquè, en lloc de cercar en la base de
+<p>Vegem un exemple amb la nostra classe <code>MovieController</code>, modificarem
+el nostre mètode <code>show</code> perquè, en lloc de cercar en la base de
 dades de prova que hem vingut emprant en sessions anteriors, cerque per
-aneu en la base de dades real. Per a açò, obtenim el repositori de la nostra 
+<code>id</code> en la base de dades real. Per a açò, obtenim el repositori de la nostra 
 classe <code>Movie</code> i cerquem (<em>find</em>)
-la pel·lícua amb l'id que hem rebut com a paràmetre:</p>
+la pel·lícua amb l'identificador que hem rebut com a paràmetre:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="sd">/**</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="sd">     * @Route("/movies/{id}", name="movies_show", requirements={"id"="\d+"})</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="sd">     */</span>
@@ -819,21 +912,6 @@ la pel·lícua amb l'id que hem rebut com a paràmetre:</p>
 <span class="linenos" data-linenos="16 "></span>        <span class="p">);</span>
 <span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
 </code></pre></div>
-<div class="alert-activity alert">
-<h3 id="exercici-53">Exercici 5.3</h3>
-<h4 id="movies">Movies</h4>
-<p>Implementa el mètode <code>create</code> vist anteriorment en el projecte <code>Movies</code>.</p>
-<h4 id="projecte-personal">Projecte personal</h4>
-<p>Sobre la base de dades del teu projecte i l'entitat/taula principal que hem creat
-en l'exercici anterior, implementa mitjançant un controlador per a l'entitat:</p>
-<ol>
-<li>Implementa un nou mètode del controlador anomenat <code>create</code>, que cree un element en la base de dades</li>
-<li>Implementa el mètode <code>show</code> que obtindrà un element de la base de dades pel seu id.</li>
-<li>Implementa el mètodo <code>home()</code> en la classe <code>HomeController</code>
-    perquè mostre el llistat de la taula principal de MySQL en lloc de la
-    base de dades de proves.</li>
-</ol>
-</div>
 <h3 id="consultes-mes-avancades">Consultes més avançades</h3>
 <p>Amb els mètodes de consulta anteriors podem realitzar consultes que es
 limiten a comprovar si un o diversos camps d'un objecte són iguals a
@@ -847,7 +925,7 @@ açò, necessitem editar el repositori de l'entitat, que està en
 <code>src/Repository/MovieRepository.php</code>. Aquest arxiu conté comentats un
 parell de mètodes de prova que podríem definir per a ampliar les
 capacitats de l'entitat.</p>
-<p>En el nostre cas, anem a afegir un mètode que s'encarregarà d'obtenir
+<p>En el nostre cas, afegirem un mètode que s'encarregarà d'obtenir
 les pel·lícules el títol o la sinopsi dels quals continga un text determinat que li
 passem com a paràmetre:
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="sd">/**</span>
@@ -913,26 +991,6 @@ base de dades.</p>
 <p>Ací teniu enllaços per a consultar informació addicional tant de <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/query-builder.html">Query
 Builder</a> 
 com del <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html">llenguatge DQL</a>.</p>
-<div class="alert-activity alert">
-<h3 id="exercici-54">Exercici 5.4</h3>
-<p>Modifica el mètode <code>filter</code> anterior de la classe <code>MovieController</code>
- i perquè cerque els elements que continguen una text determinat 
-però enviat pel <em>query string</em>. Anirà associat a la URI <code>/movies/filter</code> i 
-renderizará una vista (pot ser la pàgina principal), 
-passant-li com a paràmetre el llistat filtrat.</p>
-<p>Per a obtenir els paràmetres del query string has d'usar la classe
-<a href="https://symfony.com/doc/current/components/http_foundation.html#request">Request</a> creant 
-l'objecte posant-lo com a paràmetre tipat.</p>
-<p>Per exemple:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">filter</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">getAlnum</span><span class="p">(</span><span class="s2">"text"</span><span class="p">);</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="o">...</span>
-<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
-</code></pre></div>
-<p>Empra per a fer la consulta o bé el <em>Query Builder</em> de Doctrine o bé el
-seu llenguatge DQL, afegint el mètode corresponent en el repositori de
-l'entitat.</p>
-</div>
 <h3 id="actualitzar-i-esborrar-objectes">Actualitzar i esborrar objectes</h3>
 <h4 id="actualitzar-objectes">Actualitzar objectes</h4>
 <p>Per a actualitzar un objecte en una base de dades, hem de seguir tres
@@ -1085,15 +1143,16 @@ entitat perquè la relació siga bidireccional (és a dir, perquè des d'un
 objecte de qualsevol de les dues entitats puguem consultar el/els
 objecte(s) associat(s) de l'altra. En aquest cas indiquem que no per a
 simplificar el codi.</p>
-<div class="alert-warning alert">
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>Cal tenir en compte que si la taula <code>movie</code> ja té pel·lícules, i a l'hora
 de crear la clau aliena decidim que no puga tenir valors nuls tindrem 
 problemes, ja que fallarà la integritat referencial. </p>
 <p>Hi ha diverses solucions com crear un gènere amb id 0 o indicar que 
-la clau aliena <code>genre</code>  sí pot contenir valors nuls. I després, canviar-ho.</p>
+la clau aliena <code>genre</code> sí pot contenir valors nuls. I després, canviar-ho.</p>
 </div>
 <p>Després d'aquests canvis, realitzem de nou la migració, i ja tindrem el
-nou camp afegit en la nostra entitat Movie i a la taula movie de
+nou camp afegit en la nostra entitat <code>Movie</code> i a la taula <code>movie</code> de
 la base de dades:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="sd">/**</span>
 <span class="linenos" data-linenos="2 "></span><span class="sd">* @ORM\ManyToOne(targetEntity="App\Entity\Genre")</span>
@@ -1168,18 +1227,39 @@ es demanen efectivament (és a dir, fins que no preguntem pel nom del genre,
 Doctrine no tracta d'obtenir l'objecte Genre complet). Aquesta estratègia
 de recuperació d'entitats relacionades s'anomena <em>lazy loading</em> o càrrega
 diferida.</p>
-<div class="alert-activity alert">
-<h3 id="exercici-55">Exercici 5.5</h3>
-<p>Implementa la relació de Genre i Movie en el projecte <code>movies-symfony</code>.</p>
-<h4 id="projecte-personal_1">Projecte personal</h4>
-<p>En el projecte personal crea una nova entitat relacionada i
-implementa la inserció amb d'un elementa amb l'entitat relacionada.</p>
-</div>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Injecció de dependències" class="md-footer__link md-footer__link--prev" href="../04-injeccio-dependencies/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Injecció de dependències
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../99-activitats/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
@@ -1202,5 +1282,5 @@ implementa la inserció amb d'un elementa amb l'entitat relacionada.</p>
 <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
 <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</body>
+<script>mermaid.initialize({});</script></body>
 </html>

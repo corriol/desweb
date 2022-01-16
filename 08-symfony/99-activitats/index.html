@@ -315,6 +315,11 @@
         Injecció de dependències
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-doctrine/">
+        Doctrine
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -341,11 +346,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#el-patro-mvc-en-symfony">
-    El patró MVC en Symfony
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#twig">
     Twig
   </a>
@@ -353,6 +353,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#contenidor-de-serveis">
     Contenidor de serveis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#doctrine">
+    Doctrine
   </a>
 </li>
 </ul>
@@ -408,9 +413,6 @@ corresponent (<code>http://movies-symfony</code> o <code>http://00-nom-symfony</
 i la pàgina de benvinguda per defecte de Symfony.</p>
 <p>Guarda les captures com a "movies.png" i "projecte.png".</p>
 </li>
-</ol>
-<h2 id="el-patro-mvc-en-symfony">El patró MVC en Symfony</h2>
-<ol start="803">
 <li>
 <p>Controladors</p>
 <p>Seguint els passos de l'apartat <em>El patró MVC en Symfony</em>, implementa el controlador <code>HomeController</code>.</p>
@@ -442,13 +444,73 @@ que s'accedisca a la pàgina principal quede registrada la data i l'hora d'accé
 <p>El format de la data es podrà configurar globalment.</p>
 </li>
 </ol>
+<h2 id="doctrine">Doctrine</h2>
+<ol start="807">
+<li>
+<p>En l'aplicació de pel·lícules, crea una nova entitat anomenada <code>Movie</code> amb
+els següents atributs:</p>
+<ul>
+<li>title (<em>string</em> de grandària 255)</li>
+<li>poster (<em>string</em> de grandària 255)</li>
+<li>overview (<em>text</em>)</li>
+<li>releaseDate(<em>DateTime</em>)</li>
+</ul>
+<p>Recorda definir prèviament la
+variable <code>DATABASE_URL</code> en les variables d'entorn, crear la base de
+dades, i després migrar aquests canvis a la base de dades, emprant els
+comandos vistos en aquesta sessió.</p>
+<p>El camp <code>id</code> (<em>enter</em>, autonumèric) es crea automàticament.</p>
+</li>
+<li>
+<p>Realitza l'exercici anterior en el teu projecte Symfony, creant la base de dades,
+l'entitat principal i la taula relacionada en la base de dades.</p>
+</li>
+<li>
+<p>Implementa el mètode <code>create</code> vist anteriorment en el projecte <code>Movies</code>.</p>
+</li>
+<li>
+<p>Sobre la base de dades del teu projecte i l'entitat/taula principal que hem creat
+en l'exercici anterior, implementa mitjançant un controlador per a l'entitat:</p>
+<ol>
+<li>Implementa un nou mètode del controlador anomenat <code>create</code>, que cree un element en la base de dades</li>
+<li>Implementa el mètode <code>show</code> que obtindrà un element de la base de dades pel seu id.</li>
+<li>Implementa el mètodo <code>home()</code> en la classe <code>HomeController</code>
+perquè mostre el llistat de la taula principal de MySQL en lloc de la
+base de dades de proves.</li>
+</ol>
+</li>
+<li>
+<p>Modifica el mètode <code>filter</code> anterior de la classe <code>MovieController</code>  i perquè cerque els elements que continguen una text determinat 
+però enviat pel <em>query string</em>. Anirà associat a la URI <code>/movies/filter</code> i  renderizará una vista (pot ser la pàgina principal), 
+passant-li com a paràmetre el llistat filtrat.</p>
+<p>Per a obtenir els paràmetres del query string has d'usar la classe
+<a href="https://symfony.com/doc/current/components/http_foundation.html#request">Request</a> creant 
+l'objecte posant-lo com a paràmetre tipat.</p>
+<p>Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">filter</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">getAlnum</span><span class="p">(</span><span class="s2">"text"</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Empra per a fer la consulta o bé el <em>Query Builder</em> de Doctrine o bé el
+seu llenguatge DQL, afegint el mètode corresponent en el repositori de
+l'entitat.</p>
+</li>
+<li>
+<p>Implementa la relació de Genre i Movie en el projecte <code>movies-symfony</code>.</p>
+</li>
+<li>
+<p>En el projecte personal crea una nova entitat relacionada i
+    implementa la inserció amb d'un element amb l'entitat relacionada.</p>
+</li>
+</ol>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Anterior: Injecció de dependències" class="md-footer__link md-footer__link--prev" href="../04-injeccio-dependencies/" rel="prev">
+<a aria-label="Anterior: Doctrine" class="md-footer__link md-footer__link--prev" href="../05-doctrine/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -457,7 +519,7 @@ que s'accedisca a la pàgina principal quede registrada la data i l'hora d'accé
 <span class="md-footer__direction">
                 Anterior
               </span>
-              Injecció de dependències
+              Doctrine
             </div>
 </div>
 </a>
