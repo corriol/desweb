@@ -765,6 +765,16 @@ treballar amb cadenes de text d'una longitud determinada (<em>string</em>),
 textos il·limitats (<em>text</em>), enters (<em>integer</em>), booleans (<em>boolean</em>), reals
 (<em>float</em>), dates (<em>timestamp</em> o <em>datetime</em>, depenent del que vulguem
 emmagatzemar)...</p>
+<div class="admonition important">
+<p class="admonition-title">Repositori associat a l'entitat</p>
+<p>En crear l'entitat mitjançat l'ordre <code>make:entity</code> és crea també un repositori
+associat, que es vincula mitjançant el paràmetre <code>repositoryClass</code> de la anotació
+<code>@ORM\Entity</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">/**</span>
+<span class="linenos" data-linenos="2 "></span> <span class="o">*</span> <span class="o">@</span><span class="nx">ORM\Entity</span><span class="p">(</span><span class="nx">repositoryClass</span><span class="o">=</span><span class="nx">MovieRepository</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span> <span class="o">*</span> <span class="o">/</span>
+</code></pre></div>
+</div>
 <h3 id="generacio-de-lesquema">Generació de l'esquema</h3>
 <p>Una vegada hem definit l'entitat, podem generar la corresponent taula
 en la base de dades. Per a açò, escrivim aquest comando:</p>
