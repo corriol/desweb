@@ -402,6 +402,26 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/07-seguretat-control-acces/">
+        Seguretat i control d'acciés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/09-altres-funcionalitats/">
+        Altres funcionalitats
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/10-pujada-de-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../08-symfony/99-activitats/">
         Activitats
       </a>
@@ -531,7 +551,7 @@ Podem passar les noves dependències com argument de l'ordre.</p>
 <h3 id="classes-personalitzades">Classes personalitzades</h3>
 <p>Podem emprar l’<em>autoloader</em> de Composer per a carregar les nostres classes. Si el nostre <em>namespace</em> és <code>App</code> i els arxius estan en <code>src</code> afegirem:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nt">"autoload"</span><span class="p">:</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>        <span class="nt">"psr-4"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"App"</span><span class="p">:</span> <span class="s2">"src/"</span> <span class="p">}</span>
+<span class="linenos" data-linenos="2 "></span>        <span class="nt">"psr-4"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"App\\"</span><span class="p">:</span> <span class="s2">"src/"</span> <span class="p">}</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="p">}</span>
 </code></pre></div>
 <p>Després executarem <code>composer dump-autoload</code> perquè és regenere <code>vendor/autoload.php</code>.</p>

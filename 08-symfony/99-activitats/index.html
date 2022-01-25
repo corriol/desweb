@@ -330,6 +330,26 @@
         Formularis i validació
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-seguretat-control-acces/">
+        Seguretat i control d'acciés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09-altres-funcionalitats/">
+        Altres funcionalitats
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../10-pujada-de-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -513,6 +533,44 @@ l'entitat.</p>
 <p>En el projecte personal crea una nova entitat relacionada i
     implementa la inserció amb d'un element amb l'entitat relacionada.</p>
 </li>
+<li>
+<p>En el projecte <code>Movies</code> afig la configuració de seguretat seguint els següent requeriments:</p>
+<ul>
+<li>Crea una entitat <code>User</code> de forma similar a com hem fet per en els exemples, i la corresponent taula. 
+L'entitat tindrà els mateixos camps que en l'exemple.</li>
+<li>Defineix un formulari de <em>login</em> com el de l'exemple, i
+configura l'arxiu <code>config/packages/security.yaml</code> perquè utilitze
+aquest formulari, sota la ruta <code>/login</code> (defineix també el controlador
+associat a aqueixa ruta, com en l'exemple)</li>
+<li>Protegeix l'accés a la creació de pel·licules (ruta <code>/movies/create</code>),
+perquè només usuaris de tipus <code>ROLE_ADMIN</code> puguen accedir. Crea un
+usuari d'aquest tipus en la base de dades manualment, per a
+poder-ho provar.</li>
+<li>Crea la jerarquia de rols de l'exemple i fes que a la ruta <code>/admin</code>
+sols hi puguen accedir els usuaris amb <code>ROLE_ADMIN</code></li>
+<li>Canvia les routes dels CRUD de pel·lícules i gèneres de forma que comencen per
+   <code>/admin</code> així s'aplicarà la restricció anterior.   </li>
+</ul>
+</li>
+<li>
+<p>Sobre l'autenticació anterior, afegirem aquests canvis:</p>
+<ul>
+<li>Codifica els passwords de l'aplicació amb l'algorisme triat per Symfony, i
+Codifica manualment els passwords dels usuaris que hages
+afegit a la base de dades, usant la web que s'ha proporcionat en
+els apunts.</li>
+<li>Afig un enllaç per a "Iniciar sessió" en la plantilla.</li>
+<li>Afig un enllaç "Tancar sessió" en la plantilla <code>base.html.twig</code> perquè
+es puga tancar sessió des de qualsevol vista de la web.</li>
+<li>Els dos enllaços anteriors són incompatible, fes que si l'usuari ha iniciat
+sessió aparega el de tancar i viceversa.    </li>
+<li>Opcionalment, fes que aparega el nom d'usuari al costat de l'enllaç de tancar sessió.     </li>
+</ul>
+</li>
+<li>
+<p>Aplica els mateixos canvis en el projecte personal, respectant la funcionalitat de rols
+que havies previst.</p>
+</li>
 </ol>
 </article>
 </div>
@@ -520,7 +578,7 @@ l'entitat.</p>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Anterior: Formularis i validació" class="md-footer__link md-footer__link--prev" href="../06-formularis-i-validaci%C3%B3/" rel="prev">
+<a aria-label="Anterior: Pujada de fitxers" class="md-footer__link md-footer__link--prev" href="../10-pujada-de-fitxers/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -529,7 +587,7 @@ l'entitat.</p>
 <span class="md-footer__direction">
                 Anterior
               </span>
-              Formularis i validació
+              Pujada de fitxers
             </div>
 </div>
 </a>

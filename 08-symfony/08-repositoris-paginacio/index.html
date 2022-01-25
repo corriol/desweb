@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>Extrendre els repositoris. Paginació - DWES</title>
+<title>Repositoris i paginació - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Extrendre els repositoris. Paginació
+              Repositoris i paginació
             
           </span>
 </div>
@@ -283,8 +283,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_9">
         8.- Symfony
         <span class="md-nav__icon md-icon"></span>
@@ -331,6 +331,97 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../07-seguretat-control-acces/">
+        Seguretat i control d'acciés
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Repositoris i paginació
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Repositoris i paginació
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio">
+    Introducció
+  </a>
+<nav aria-label="Introducció" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#querybuilder">
+    QueryBuilder
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#query">
+    Query
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consultes-sql">
+    Consultes SQL
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemple">
+    Exemple
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paginacio">
+    Paginació
+  </a>
+<nav aria-label="Paginació" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-classe-paginator-de-doctrine">
+    La classe Paginator de Doctrine
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classe-paginator-de-symfonydemo">
+    Classe Paginator de symfony/demo
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#knplabsknp-paginator-bundle">
+    knplabs/knp-paginator-bundle
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">
+    Recursos
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09-altres-funcionalitats/">
+        Altres funcionalitats
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../10-pujada-de-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../99-activitats/">
         Activitats
       </a>
@@ -346,57 +437,51 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="extrendre-els-repositoris-paginacio">Extrendre els repositoris. Paginació</h1>
-<p>{: .no_toc }</p>
-<h2 id="taula-de-continguts">Taula de continguts</h2>
-<p>{: .no_toc .text-delta  .nocount }</p>
-<ol>
-<li toc="toc">TOC</li>
-</ol>
-<h1 id="introduccio">Introducció</h1>
+<h2 id="introduccio">Introducció</h2>
 <p>Com ja has vist, l'objecte <code>Repository</code> permet executar consultes senzilles sense pràcticament cap treball:</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// from inside a controller</span>
-<span class="linenos" data-linenos="2 "></span><span class="nv">$repository</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Link</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-<span class="linenos" data-linenos="3 "></span><span class="nv">$links</span> <span class="o">=</span> <span class="nv">$repository</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$repository</span> <span class="o">=</span> <span class="nv">$em</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Link</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$movies</span> <span class="o">=</span> <span class="nv">$repository</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
 </code></pre></div>
-Els mètodes diponibles són els següents:</p>
+Els mètodes disponibles són els següents:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="sd">/**</span>
-<span class="linenos" data-linenos="2 "></span><span class="sd"> * @method Link|null find($id, $lockMode = null, $lockVersion = null)</span>
-<span class="linenos" data-linenos="3 "></span><span class="sd"> * @method Link|null findOneBy(array $criteria, array $orderBy = null)</span>
-<span class="linenos" data-linenos="4 "></span><span class="sd"> * @method Link[]    findAll()</span>
-<span class="linenos" data-linenos="5 "></span><span class="sd"> * @method Link[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)</span>
+<span class="linenos" data-linenos="2 "></span><span class="sd"> * @method Movie|null find($id, $lockMode = null, $lockVersion = null)</span>
+<span class="linenos" data-linenos="3 "></span><span class="sd"> * @method Movie|null findOneBy(array $criteria, array $orderBy = null)</span>
+<span class="linenos" data-linenos="4 "></span><span class="sd"> * @method Movie[]    findAll()</span>
+<span class="linenos" data-linenos="5 "></span><span class="sd"> * @method Movie[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)</span>
 <span class="linenos" data-linenos="6 "></span><span class="sd"> */</span>
 </code></pre></div>
-<p>Però, i si necessitem una consulta més complexa? Quan generem una entitat amb <code>make:entity</code>, el comandament també genera una classe anomenada ProductRepository.</p>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// src/Repository/LinkRepository.php</span>
+<p>Però, i si necessitem una consulta més complexa? Quan generem una entitat amb <code>make:entity</code>, 
+el comandament també genera una classe anomenada <code>MovieRepository</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/Repository/MovieRepository.php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">App\Repository</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span>
-<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">App\Entity\Link</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">App\Entity\Movie</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="k">use</span> <span class="nx">Doctrine\Common\Persistence\ManagerRegistry</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">use</span> <span class="nx">Doctrine\Persistence\ManagerRegistry</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 7 "></span>
-<span class="linenos" data-linenos=" 8 "></span><span class="k">class</span> <span class="nc">LinkRepository</span> <span class="k">extends</span> <span class="nx">ServiceEntityRepository</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">class</span> <span class="nc">MovieRepository</span> <span class="k">extends</span> <span class="nx">ServiceEntityRepository</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="p">{</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">ManagerRegistry</span> <span class="nv">$registry</span><span class="p">)</span>
 <span class="linenos" data-linenos="11 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos="12 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$registry</span><span class="p">,</span> <span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$registry</span><span class="p">,</span> <span class="nx">Movie</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
 <span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>   <span class="c1">//...</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
 </code></pre></div>
-Quan obtens el repositori (p.e. <code>-&gt;getRepository(Link::class)</code>), estàs obtenint realment una instància d'aquest objecte!</p>
-<p>{:.alert .alert-warning}</p>
-<div>
-<h3 id="anotacions">Anotacions</h3>
-<p>{:.no_toc .nocount }
-Cal assegurar-se que l'entitat té correctament vinculat el repositori mitjançant una anotació. En el nostre exemple l'entitat Link haurà d'incloure:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">@</span><span class="nx">ORM\Entity</span><span class="p">(</span><span class="nx">repositoryClass</span><span class="o">=</span><span class="s2">"App</span><span class="se">\R</span><span class="s2">epository\LinkRepository"</span><span class="p">)</span>
+Quan obtens el repositori (p.e. <code>-&gt;getRepository(Movie::class)</code>), estàs obtenint realment una instància d'aquest objecte!</p>
+<div class="admonition important">
+<p class="admonition-title">Anotacions</p>
+<p>Cal assegurar-se que l'entitat té correctament vinculat el repositori mitjançant una anotació. En el nostre exemple l'entitat <code>Movie</code> haurà d'incloure:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">@</span><span class="nx">ORM\Entity</span><span class="p">(</span><span class="nx">repositoryClass</span><span class="o">=</span><span class="s2">"App</span><span class="se">\R</span><span class="s2">epository\MovieRepository"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<h2 id="querybuilder">QueryBuilder</h2>
+<h3 id="querybuilder">QueryBuilder</h3>
 <p>Suposem que vols fer una consulta que obtinga tots els objectes <code>Link</code> amb data posterior a certa data. Hauries d'afegir un nou mètode dins del repositori:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// src/Repository/LinkRepository.php</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// src/Repository/MovieRepository.php</span>
 <span class="linenos" data-linenos=" 2 "></span>
 <span class="linenos" data-linenos=" 3 "></span><span class="c1">// ...</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="k">class</span> <span class="nc">LinkRepository</span> <span class="k">extends</span> <span class="nx">ServiceEntityRepository</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">class</span> <span class="nc">MovieRepository</span> <span class="k">extends</span> <span class="nx">ServiceEntityRepository</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="p">{</span>
 <span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">ManagerRegistry</span> <span class="nv">$registry</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="p">{</span>
@@ -404,12 +489,12 @@ Cal assegurar-se que l'entitat té correctament vinculat el repositori mitjança
 <span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="10 "></span>
 <span class="linenos" data-linenos="11 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="12 "></span><span class="sd">     * @return Link[]</span>
+<span class="linenos" data-linenos="12 "></span><span class="sd">     * @return Movie[]</span>
 <span class="linenos" data-linenos="13 "></span><span class="sd">     */</span>
 <span class="linenos" data-linenos="14 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">findAllAfterDate</span><span class="p">(</span><span class="nx">DateTime</span> <span class="nv">$date</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span><span class="p">{</span>
-<span class="linenos" data-linenos="15 "></span>        <span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createQueryBuilder</span><span class="p">(</span><span class="s1">'l'</span><span class="p">)</span>
-<span class="linenos" data-linenos="16 "></span>            <span class="o">-&gt;</span><span class="na">andwhere</span><span class="p">(</span><span class="s2">"l.createdAt &gt;= :date"</span><span class="p">)</span>
-<span class="linenos" data-linenos="17 "></span>            <span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">'l.createdAt'</span><span class="p">,</span> <span class="s1">'DESC'</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createQueryBuilder</span><span class="p">(</span><span class="s1">'m'</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="o">-&gt;</span><span class="na">andwhere</span><span class="p">(</span><span class="s2">"m.releaseDate &gt;= :date"</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span>            <span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">'l.releaseDate'</span><span class="p">,</span> <span class="s1">'DESC'</span><span class="p">)</span>
 <span class="linenos" data-linenos="18 "></span>            <span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="nv">$date</span><span class="p">)</span>
 <span class="linenos" data-linenos="19 "></span>            <span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">();</span>
 <span class="linenos" data-linenos="20 "></span>
@@ -421,48 +506,51 @@ Cal assegurar-se que l'entitat té correctament vinculat el repositori mitjança
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">// from inside a controller</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$date</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">(</span><span class="s2">"2020-01-01"</span><span class="p">);</span>
 <span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span><span class="nv">$products</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Link</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$movies</span> <span class="o">=</span> <span class="nv">$em</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Movie</span><span class="o">::</span><span class="na">class</span><span class="p">)</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="o">-&gt;</span><span class="na">findAllAfterDate</span><span class="p">(</span><span class="nv">$date</span><span class="p">);</span>
 <span class="linenos" data-linenos="7 "></span>
 <span class="linenos" data-linenos="8 "></span><span class="c1">// ...</span>
 </code></pre></div>
-<h2 id="query">Query</h2>
-<p>També es possible utilitzar l'objecte Query, així com executar consultes directament amb PDO.</p>
+<h3 id="query">Query</h3>
+<p>També és possible utilitzar l'objecte <code>Query</code>, així com executar consultes directament amb PDO.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>   <span class="sd">/**</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="sd">     * @return Link[]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="sd">     * @return Movie[]</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="sd">     */</span>
 <span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">findAllAfterDate</span><span class="p">(</span><span class="nx">DateTime</span> <span class="nv">$date</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span><span class="p">{</span>
 <span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createQuery</span><span class="p">(</span><span class="s1">'</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="s1">            SELECT l</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="s1">            FROM App\Entity\Link l</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="s1">            WHERE l.createdAt &gt;= :date</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="s1">            ORDER BY l.createdAt DESC'</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="s1">            SELECT m</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="s1">            FROM App\Entity\Movie m</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="s1">            WHERE m.releaseDate &gt;= :date</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="s1">            ORDER BY m.releaseDate DESC'</span><span class="p">)</span>
 <span class="linenos" data-linenos="10 "></span>            <span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="nv">$date</span><span class="p">);</span>
 <span class="linenos" data-linenos="11 "></span>
 <span class="linenos" data-linenos="12 "></span>
 <span class="linenos" data-linenos="13 "></span>        <span class="k">return</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">();</span>
 <span class="linenos" data-linenos="14 "></span>    <span class="p">}</span>
 </code></pre></div>
-<h2 id="consultes-sql">Consultes SQL</h2>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// src/Repository/LinkRepository.php</span>
+<h3 id="consultes-sql">Consultes SQL</h3>
+<p>Aquest tipus de consultes s'executen directament en PDO, fent ús de les
+classes <code>PDO</code>, <code>PDOStatement</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1">// src/Repository/MovieRepository.php</span>
 <span class="linenos" data-linenos=" 2 "></span>
 <span class="linenos" data-linenos=" 3 "></span><span class="c1">// ...</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">findAllAfterDate</span><span class="p">(</span><span class="nx">DateTime</span> <span class="nv">$date</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="p">{</span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$conn</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEntityManager</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getConnection</span><span class="p">();</span>
-<span class="linenos" data-linenos=" 7 "></span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$sql</span> <span class="o">=</span> <span class="s1">'</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="s1">        SELECT * FROM link l</span>
-<span class="linenos" data-linenos="10 "></span><span class="s1">        WHERE l.created_at &gt; :date</span>
-<span class="linenos" data-linenos="11 "></span><span class="s1">        ORDER BY l.created_at DESC</span>
-<span class="linenos" data-linenos="12 "></span><span class="s1">        '</span><span class="p">;</span>
-<span class="linenos" data-linenos="13 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
-<span class="linenos" data-linenos="14 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span><span class="s1">'date'</span> <span class="o">=&gt;</span> <span class="nv">$date</span><span class="p">]);</span>
-<span class="linenos" data-linenos="15 "></span>
-<span class="linenos" data-linenos="16 "></span>    <span class="c1">// returns an array of arrays (i.e. a raw data set)</span>
-<span class="linenos" data-linenos="17 "></span>    <span class="k">return</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
-<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="c1">// TODO: Revisar com accedir a la connexió</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$conn</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEntityManager</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getConnection</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$sql</span> <span class="o">=</span> <span class="s1">'</span>
+<span class="linenos" data-linenos="10 "></span><span class="s1">        SELECT * FROM movie m</span>
+<span class="linenos" data-linenos="11 "></span><span class="s1">        WHERE m.release_date &gt; :date</span>
+<span class="linenos" data-linenos="12 "></span><span class="s1">        ORDER BY m.release_date DESC</span>
+<span class="linenos" data-linenos="13 "></span><span class="s1">        '</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">([</span><span class="s1">'date'</span> <span class="o">=&gt;</span> <span class="nv">$date</span><span class="p">]);</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>    <span class="c1">// returns an array of arrays (i.e. a raw data set)</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="k">return</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
+<span class="linenos" data-linenos="19 "></span><span class="p">}</span>
 </code></pre></div>
 Aquestes consultes SQL tornen arrays, no objectes (a no ser que uses la funcionalitat <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/native-sql.html">NativeQuery</a>).</p>
 <p>Més informació en <a href="https://symfony.com/doc/current/doctrine.html#querying-for-objects-the-repository">Querying for objects the repository</a></p>
@@ -493,15 +581,9 @@ Aquestes consultes SQL tornen arrays, no objectes (a no ser que uses la funciona
 <span class="linenos" data-linenos="23 "></span>
 <span class="linenos" data-linenos="24 "></span>    <span class="p">}</span>
 </code></pre></div>
-<p>{:.alert .alert-activity}</p>
-<div>
-<h3 id="implementa-el-metode-findallafterdate">Implementa el mètode findAllAfterDate</h3>
-<p>{: .no_toc .nocount }
-Implementa el mètode <code>findAllAfterDate()</code> del repositori i modifica la ruta <em>homepage</em> perquè en cas que reba el paràmetre <code>start-date</code> pel <em>querystring</em> mostre sols aquells enllaços amb data d'actualització posterior a la data indicada.</p>
-</div>
-<h1 id="paginacio">Paginació</h1>
+<h2 id="paginacio">Paginació</h2>
 <p>Symfony no inclou un paginador de forma nativa però al incloure <em>Doctrine</em> permet implementar-ho fàcilment sense necessitat d'instal·lar nous components. A continuació presentarem tres possibles opcions d'implementació.</p>
-<h2 id="la-classe-paginator-de-doctrine">La classe Paginator de Doctrine</h2>
+<h3 id="la-classe-paginator-de-doctrine">La classe Paginator de Doctrine</h3>
 <p>En aquest cas crearíem nous mètodes en el repositori. <code>findAllPaginated</code> crea la consulta i la passa al mètode 
 <code>paginate</code> que serà el que farà la paginació.</p>
 <p>El mètode <code>paginate</code> ens tornarà un objecte Paginator que conté en la propietat Paginator::results els resultats.</p>
@@ -535,7 +617,7 @@ interfície <code>Countable</code> i simplement usant el mètode <code>count()</
 </code></pre></div>
 <p>Més informació  en <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/tutorials/pagination.html">Pagination</a> i
  <a href="https://anil.io/blog/symfony/doctrine/symfony-and-doctrine-pagination-with-twig/">Symfony and Doctrine pagination with Twig</a></p>
-<h2 id="classe-paginator-de-symfonydemo">Classe Paginator de symfony/demo</h2>
+<h3 id="classe-paginator-de-symfonydemo">Classe <code>Paginator</code> de symfony/demo</h3>
 <p>Un altra opció és fer ús de la classe <code>Paginator</code> que s'utilitza en el projecte d'exemple de Symfony. Empra la classe
 <code>Paginator</code> de Doctrine i ens proporciona tots els mètodes necessaris per a fer la paginació.</p>
 <ul>
@@ -544,17 +626,11 @@ interfície <code>Countable</code> i simplement usant el mètode <code>count()</
 <li>Mètode <a href="https://github.com/symfony/demo/blob/master/src/Controller/BlogController.php">BlogController::index()</a>.</li>
 <li>Plantilla de Twig <a href="https://github.com/symfony/demo/blob/master/templates/blog/index.html.twig">blog/index.html.twig</a>.</li>
 </ul>
-<h2 id="knplabsknp-paginator-bundle">knplabs/knp-paginator-bundle</h2>
+<h3 id="knplabsknp-paginator-bundle">knplabs/knp-paginator-bundle</h3>
 <p>Paginator per a Symfony automatitza la paginació i simplifica l'ordenació i altres característiques.</p>
 <p>En la descripció del paquet <a href="https://packagist.org/packages/knplabs/knp-paginator-bundle">knplabs/knp-paginator-bundle</a> 
 obtindreu més informació.</p>
-<p>{:.alert .alert-activity}</p>
-<div>
-<h3 id="implementa-el-paginador">Implementa el paginador</h3>
-<p>{:.no_toc .nocount}
-Implementa la paginació de links en la pàgina principal de forma que mostre 10 enllaços ordenats des del més actual al més antic. Pots emprar qualsevol dels mètodes que hem demostrat.</p>
-</div>
-<h1 id="recursos">Recursos</h1>
+<h2 id="recursos">Recursos</h2>
 <ul>
 <li><a href="https://anil.io/blog/symfony/doctrine/symfony-and-doctrine-pagination-with-twig/">https://anil.io/blog/symfony/doctrine/symfony-and-doctrine-pagination-with-twig/</a></li>
 <li><a href="https://www.drauta.com/como-paginar-los-resultados-con-doctrine">https://www.drauta.com/como-paginar-los-resultados-con-doctrine</a></li>
@@ -566,6 +642,34 @@ Implementa la paginació de links en la pàgina principal de forma que mostre 10
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Seguretat i control d'acciés" class="md-footer__link md-footer__link--prev" href="../07-seguretat-control-acces/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Seguretat i control d'acciés
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Altres funcionalitats" class="md-footer__link md-footer__link--next" href="../09-altres-funcionalitats/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Altres funcionalitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

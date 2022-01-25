@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>Seguretat i control d'accés - DWES</title>
+<title>Seguretat i control d'acciés - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Seguretat i control d'accés
+              Seguretat i control d'acciés
             
           </span>
 </div>
@@ -283,8 +283,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_9">
         8.- Symfony
         <span class="md-nav__icon md-icon"></span>
@@ -330,6 +330,92 @@
         Formularis i validació
       </a>
 </li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Seguretat i control d'acciés
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Seguretat i control d'acciés
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracio-de-la-seguretat-en-symfony">
+    Configuració de la seguretat en Symfony
+  </a>
+<nav aria-label="Configuració de la seguretat en Symfony" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#larxiu-securityyaml-el-firewall-de-symfony">
+    L'arxiu "security.yaml". El firewall de Symfony
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#establir-la-manera-dautenticacio-i-origen-de-dades">
+    Establir la manera d'autenticació i origen de dades
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#algunes-opcions-avancades">
+    Algunes opcions avançades
+  </a>
+<nav aria-label="Algunes opcions avançades" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#encriptar-les-contrasenyes">
+    Encriptar les contrasenyes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#treballar-amb-rols">
+    Treballar amb rols
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obtenir-lobjecte-user">
+    Obtenir l'objecte user
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eixint-de-laplicacio-logout">
+    Eixint de l'aplicació (logout)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">
+    Recursos
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09-altres-funcionalitats/">
+        Altres funcionalitats
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../10-pujada-de-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../99-activitats/">
         Activitats
@@ -364,27 +450,40 @@ aquesta sessió aprendrem a establir els elements principals del mateix:</p>
 general del sistema de seguretat de la nostra aplicació Symfony. El seu
 contingut per defecte és aquest:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nt">security</span><span class="p">:</span>
-<span class="linenos" data-linenos=" 2 "></span>    <span class="nt">providers</span><span class="p">:</span>
-<span class="linenos" data-linenos=" 3 "></span>        <span class="nt">users_in_memory</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> memory</span><span class="p">:</span> <span class="nv">null</span> <span class="p p-Indicator">}</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="nt">firewalls</span><span class="p">:</span>
-<span class="linenos" data-linenos=" 5 "></span>        <span class="nt">dev</span><span class="p">:</span>
-<span class="linenos" data-linenos=" 6 "></span>            <span class="nt">pattern</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^/(_(profiler|wdt)|css|images|js)/</span>
-<span class="linenos" data-linenos=" 7 "></span>            <span class="nt">security</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="linenos" data-linenos=" 8 "></span>        <span class="nt">main</span><span class="p">:</span>
-<span class="linenos" data-linenos=" 9 "></span>            <span class="nt">anonymous</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="linenos" data-linenos="10 "></span>            <span class="nt">lazy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="linenos" data-linenos="11 "></span>            <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">users_in_memory</span>
-<span class="linenos" data-linenos="12 "></span>
-<span class="linenos" data-linenos="13 "></span>            <span class="c1"># activate different ways to authenticate</span>
-<span class="linenos" data-linenos="14 "></span>            <span class="c1"># https://symfony.com/doc/current/security.html#firewalls-authentication</span>
-<span class="linenos" data-linenos="15 "></span>
-<span class="linenos" data-linenos="16 "></span>            <span class="c1"># https://symfony.com/doc/current/security/impersonating_user.html</span>
-<span class="linenos" data-linenos="17 "></span>            <span class="c1"># switch_user: true</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nt">enable_authenticator_manager</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="c1"># https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nt">password_hashers</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nt">Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface</span><span class="p">:</span> <span class="s">'auto'</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="c1"># https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nt">providers</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nt">users_in_memory</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> memory</span><span class="p">:</span> <span class="nv">null</span> <span class="p p-Indicator">}</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nt">firewalls</span><span class="p">:</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nt">dev</span><span class="p">:</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="nt">pattern</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^/(_(profiler|wdt)|css|images|js)/</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="nt">security</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nt">main</span><span class="p">:</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="nt">lazy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">users_in_memory</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>            <span class="c1"># activate different ways to authenticate</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="c1"># https://symfony.com/doc/current/security.html#the-firewall</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>            <span class="c1"># https://symfony.com/doc/current/security/impersonating_user.html</span>
+<span class="linenos" data-linenos="21 "></span>            <span class="c1"># switch_user: true</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>    <span class="c1"># Easy way to control access for large sections of your site</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="c1"># Note: Only the *first* access control that matches will be used</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="nt">access_control</span><span class="p">:</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="c1"># - { path: ^/admin, roles: ROLE_ADMIN }</span>
+<span class="linenos" data-linenos="27 "></span>        <span class="c1"># - { path: ^/profile, roles: ROLE_USER }</span>
 </code></pre></div>
+<p>Primerament cal dir que el sistema de seguretat de Symfony va canviar de forma significativa
+en la versió 5.3. La clau <code>enable_authenticator_manager: true</code> indica que estem usant 
+aquest nou sistema.</p>
 <p>La secció <code>firewalls</code> és el nucli principal del nostre sistema de
 seguretat. Dins veiem dos subsecciones: <code>dev</code>, que simplement
-s'assegura que el profiler de Symfony i la barra de depuració (WDT, <em>Web
-Debug Toolbar</em>) no es veuen afectats pel nostre sistema de seguretat, 
+s'assegura que el <em>profiler</em> de Symfony i la barra de depuració (WDT, <em>Web
+Debug Toolbar</em>) no es veguen afectats pel nostre sistema de seguretat, 
 de manera que puguem seguir tenint la informació d'estat en la barra 
 inferior que apareix en provar l'aplicació:</p>
 <p><img alt="Web Debug Toolbar" src="../assets/movies-wdt.png"/></p>
@@ -516,25 +615,25 @@ atributs:</p>
 establit aquest per a aquest usuari de prova.</p>
 <h4 id="implementar-les-interficies-requerides">Implementar les interfícies requerides</h4>
 <p>Per a poder utilitzar una entitat com a font d'usuaris que puguen iniciar sessió, és
-necessari que aquesta entitat implemente la interfície <code>UserInterface</code>, la
+necessari que aquesta entitat implemente la interfície <code>UserInterface</code> i la interfície <code>PasswordAuthenticatedUserInterface</code>, la
 qual cosa obliga a definir els mètodes:</p>
 <ul>
 <li><code>getRoles()</code>, que retornarà un array amb els rols de l'usuari (en
     aquest cas, cada usuari només tindrà un rol, que retornarem en un
     array)</li>
 <li><code>getPassword()</code>, que retornarà el password de l'usuari</li>
-<li><code>getUserName()</code>, que retornarà el login de l'usuari</li>
+<li><code>getUserIdentifier()</code>, que retornarà el login de l'usuari</li>
 <li><code>getSalt()</code>, que en ocasions no és necessari emprar. S'empra en
     mecanismes de codificació de passwords més avançats que els que
-    veurem en el curs. Així que en el nostre exemple retornarem null.</li>
+    veurem en el curs. Així que en el nostre exemple retornarem <code>null</code>.</li>
 <li><code>eraseCredentials()</code>, que s'empra per a eliminar informació sensible
     o privada de l'usuari. Pot ser útil si, per exemple, s'emmagatzema
-    el password de l'usuari sense encriptar. En primera instància ho
+    el <em>password</em> de l'usuari sense encriptar. En primera instància ho
     farem així, però després ho encriptarem, així que aquest mètode ho
-    anem a deixar buit.</li>
+    deixarem buit.</li>
 </ul>
 <p>A més, convé implementar la interfície <code>Serializable</code> per a poder
-serializar objectes de tipus <code>User</code> i enviar-los entre les parts de
+serialitzar objectes de tipus <code>User</code> i enviar-los entre les parts de
 l'aplicació (més endavant veurem com obtenir l'objecte <code>User</code> de
 l'usuari que ha iniciat sessió). Açò implica afegir dos mètodes més: <code>serialize</code> (per
 a convertir l'usuari en text que enviar entre components) i <code>unserialize</code>
@@ -608,7 +707,7 @@ a convertir l'usuari en text que enviar entre components) i <code>unserialize</c
 </code></pre></div>
 <p>En el cas de la funció <code>unserialize</code>, se li passa com a segon paràmetre un
 array d'opcions. L'opció <code>allowed_classes</code> que s'utilitza en aquest
-exemple, posada a <code>false</code>, fa que no es permeta la serialización
+exemple, posada a <code>false</code>, fa que no es permeta la serialització
 d'objectes de cap classe (només els tipus simples que componen els
 atributs de l'entitat <code>User</code>, en aquest cas).</p>
 <h4 id="configurar-lorigen-de-dades-i-la-manera-dautenticacio">Configurar l'origen de dades i la manera d'autenticació</h4>
@@ -647,7 +746,7 @@ indiquem que tant per a mostrar el formulari com per a verificar l'inici de
 sessió, s'acudirà a la mateixa ruta <code>login</code>, emprant com a proveïdor
 d'usuaris l'element <code>user_provider</code> que hem definit abans, basat en
 l'entitat <code>User</code>.</p>
-<p>Podem, a més, definir quins recursos es van a protegir amb aquest
+<p>Podem, a més, definir quins recursos es protegiran amb aquest
 formulari. Convé, almenys, especificar un patró de ruta que excloga al
 propi formulari d'inici de sessió, ja que en cas contrari entraríem en un bucle
 infinit en el qual, per a accedir al formulari d'inici de sessió, hauríem 
@@ -659,8 +758,8 @@ que vulguem (en aquest cas, la resta de l'aplicació):</p>
 <span class="linenos" data-linenos="2 "></span><span class="p p-Indicator">-</span>   <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/login</span><span class="p p-Indicator">,</span><span class="nt"> rols</span><span class="p">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p p-Indicator">}</span>
 <span class="linenos" data-linenos="3 "></span><span class="p p-Indicator">-</span>   <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/</span><span class="p p-Indicator">,</span><span class="nt"> rols</span><span class="p">:</span> <span class="nv">ROLE_USER</span> <span class="p p-Indicator">}</span>
 </code></pre></div>
-<p>Finalment, també podem especificar el sistema de codificat del password.
-Ara com ara no ho anem a codificar, per la qual cosa afegim aquest
+<p>Finalment, també podem especificar el sistema de codificació del password.
+Ara com ara no ho usar cap tipus de codificació, per la qual cosa afegim aquest
 subapartat al final (dins de la secció <code>security</code>):
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">encoders</span><span class="p">:</span> 
 <span class="linenos" data-linenos="2 "></span>    <span class="nt">App\User\Entity</span><span class="p">:</span> 
@@ -702,43 +801,42 @@ N'hi ha prou amb recuperar la dada i passar-li-la a la plantilla:</p>
 </code></pre></div>
 El formulari d'inici de sessió estarà en <code>login.html.twig</code>, pot ser alguna
 cosa així:</p>
-<p _="%" endraw="endraw">{% raw %}
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">{</span><span class="o">%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="o">%</span><span class="p">}</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span><span class="o">%</span> <span class="nx">block</span> <span class="nx">title</span> <span class="o">%</span><span class="p">}</span><span class="nx">Movies</span> <span class="o">-</span> <span class="nx">Login</span><span class="p">{</span><span class="o">%</span> <span class="nx">endblock</span> <span class="o">%</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Movies - Login<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="linenos" data-linenos=" 3 "></span>
-<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span><span class="o">%</span> <span class="nx">block</span> <span class="nx">body</span> <span class="o">%</span><span class="p">}</span>
-<span class="linenos" data-linenos=" 5 "></span><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"container"</span> <span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"row"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 7 "></span>        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"col-sm-12"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 8 "></span>            <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Login</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"container"</span> <span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"row"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"col-sm-12"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 9 "></span>
-<span class="linenos" data-linenos="10 "></span>            <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">method</span><span class="o">=</span><span class="s2">"post"</span> <span class="nx">novalidate</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="11 "></span>                <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="nx">error</span> <span class="o">%</span><span class="p">}</span>
-<span class="linenos" data-linenos="12 "></span>                    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"alert alert-danger"</span> <span class="nx">role</span><span class="o">=</span><span class="s2">"alert"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="13 "></span>                        <span class="p">{{</span> <span class="nx">error</span><span class="o">.</span><span class="nx">messageKey</span> <span class="p">}}</span>
-<span class="linenos" data-linenos="14 "></span>                    <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="15 "></span>                <span class="p">{</span><span class="o">%</span> <span class="k">endif</span> <span class="o">%</span><span class="p">}</span>
-<span class="linenos" data-linenos="16 "></span>                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-group"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="17 "></span>                    <span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"username"</span><span class="o">&gt;</span><span class="nx">Username</span><span class="o">&lt;/</span><span class="nx">label</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="18 "></span>                    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-control"</span>
-<span class="linenos" data-linenos="19 "></span>                           <span class="nx">name</span><span class="o">=</span><span class="s2">"_username"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"username"</span>
-<span class="linenos" data-linenos="20 "></span>                           <span class="nx">value</span><span class="o">=</span><span class="s2">"{{ lastUserName }}"</span>
-<span class="linenos" data-linenos="21 "></span>                    <span class="nx">placeholder</span><span class="o">=</span><span class="s2">"Username:"</span> <span class="nx">required</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="22 "></span>                <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="23 "></span>                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-group"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="24 "></span>                    <span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"password"</span><span class="o">&gt;</span><span class="nx">Contrasenya</span><span class="o">&lt;/</span><span class="nx">label</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="25 "></span>                    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"password"</span> <span class="nx">class</span><span class="o">=</span><span class="s2">"form-control"</span>
-<span class="linenos" data-linenos="26 "></span>                           <span class="nx">name</span><span class="o">=</span><span class="s2">"_password"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"password"</span>
-<span class="linenos" data-linenos="27 "></span>                           <span class="nx">value</span><span class="o">=</span><span class="s2">""</span>
-<span class="linenos" data-linenos="28 "></span>                    <span class="nx">placeholder</span><span class="o">=</span><span class="s2">"Password:"</span> <span class="nx">required</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="29 "></span>                <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="30 "></span>                <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">"Login"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="31 "></span>            <span class="o">&lt;/</span><span class="nx">form</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="32 "></span>        <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="33 "></span>    <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="34 "></span><span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="35 "></span><span class="p">{</span><span class="o">%</span> <span class="nx">endblock</span> <span class="o">%</span><span class="p">}</span>
-</code></pre></div></p>
+<span class="linenos" data-linenos="10 "></span>            <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span> <span class="na">novalidate</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>                <span class="cp">{%</span> <span class="k">if</span> <span class="nv">error</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="12 "></span>                    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"alert alert-danger"</span> <span class="na">role</span><span class="o">=</span><span class="s">"alert"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>                        <span class="cp">{{</span> <span class="nv">error.messageKey</span> <span class="cp">}}</span>
+<span class="linenos" data-linenos="14 "></span>                    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>                <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="linenos" data-linenos="16 "></span>                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-group"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>                    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"username"</span><span class="p">&gt;</span>Username<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="18 "></span>                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-control"</span>
+<span class="linenos" data-linenos="19 "></span>                           <span class="na">name</span><span class="o">=</span><span class="s">"_username"</span> <span class="na">id</span><span class="o">=</span><span class="s">"username"</span>
+<span class="linenos" data-linenos="20 "></span>                           <span class="na">value</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">lastUserName</span> <span class="cp">}}</span><span class="s">"</span>
+<span class="linenos" data-linenos="21 "></span>                    <span class="na">placeholder</span><span class="o">=</span><span class="s">"Username:"</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="22 "></span>                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span>                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-group"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="24 "></span>                    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"password"</span><span class="p">&gt;</span>Contrasenya<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="25 "></span>                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"password"</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-control"</span>
+<span class="linenos" data-linenos="26 "></span>                           <span class="na">name</span><span class="o">=</span><span class="s">"_password"</span> <span class="na">id</span><span class="o">=</span><span class="s">"password"</span>
+<span class="linenos" data-linenos="27 "></span>                           <span class="na">value</span><span class="o">=</span><span class="s">""</span>
+<span class="linenos" data-linenos="28 "></span>                    <span class="na">placeholder</span><span class="o">=</span><span class="s">"Password:"</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="29 "></span>                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="30 "></span>                <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"Login"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="31 "></span>            <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="34 "></span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="35 "></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
 <p>Com veiem, es té un bloc <code>div</code> condicional per a mostrar un error de
 validació si és el cas. A més, el formulari ha de complir unes normes:
 el camp de login ha de cridar-se <code>_username</code> (atribut "name"), i el camp
@@ -752,8 +850,8 @@ dins del controlador <code>login</code> i es renderizará el formulari amb el mi
 d'error. Si tot és correcte, es redirigirà a l'usuari automàticament
 cap a la pàgina que havia sol·licitat.</p>
 <h2 id="algunes-opcions-avancades">Algunes opcions avançades</h2>
-<p>Ara que ja hem après a configurar una forma bàsica d'autenticació amb
-formulari de login, vegem alguns aspectes una mica més avançats de la
+<p>Ara que ja hem aprés a configurar una forma bàsica d'autenticació amb
+formulari d'inici de sessióogin, vegem alguns aspectes una mica més avançats de la
 configuració de la seguretat en Symfony.</p>
 <h3 id="encriptar-les-contrasenyes">Encriptar les contrasenyes</h3>
 <p>És convenient que les contrasenyes dels usuaris registrats no estiguen
@@ -770,11 +868,18 @@ suposa dos passos extra:</p>
     açò, hem d'editar l'arxiu de configuració
     <code>config/packages/security.yaml</code> i indicar que l'entitat Usuari
     utilitzarà el mètode d'encriptació que hàgem escollit: 
-    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">security</span><span class="p">:</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="l l-Scalar l-Scalar-Plain">encoders</span><span class="p p-Indicator">:</span> 
-<span class="linenos" data-linenos="4 "></span>        <span class="nt">App\Entity\User</span><span class="p">:</span> 
-<span class="linenos" data-linenos="5 "></span>            <span class="nt">algorithm</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auto</span>                
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># config/packages/security.yaml</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nt">security</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1"># ...</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nt">password_hashers</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="c1"># auto hasher with default options for the User class (and children)</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nt">App\Entity\User</span><span class="p">:</span> <span class="s">'auto'</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="c1"># auto hasher with custom options for all PasswordAuthenticatedUserInterface instances</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nt">Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface</span><span class="p">:</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="nt">algorithm</span><span class="p">:</span> <span class="s">'auto'</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="nt">cost</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">15</span> 
 </code></pre></div></li>
 <li>Encriptar de forma automàtica els passwords dels usuaris quan es
     registren. Si tinguérem un formulari de registre en la nostra
@@ -782,30 +887,41 @@ suposa dos passos extra:</p>
     usuari, i el password en sí en un objecte <code>password</code>, l'encriptació
     seria com segueix: 
     <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="k">use</span> <span class="nx">Symfony</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 2 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">register</span><span class="p">(</span><span class="nx">UserPasswordEncoderInterface</span> <span class="nv">$encoder</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">register</span><span class="p">(</span><span class="nx">UserPasswordHasherInterface</span> <span class="nv">$encoder</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="p">{</span>
 <span class="linenos" data-linenos=" 4 "></span>        <span class="o">...</span>
 <span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
 <span class="linenos" data-linenos=" 6 "></span>        <span class="o">...</span>
-<span class="linenos" data-linenos=" 7 "></span>        <span class="c1">// Assignem ací la resta d'atributs de l'usuari</span>
-<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$hashedPassword</span> <span class="o">=</span> <span class="nv">$encoder</span><span class="o">-&gt;</span><span class="na">encodePassword</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$password</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 9 "></span>
-<span class="linenos" data-linenos="10 "></span>        <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="nv">$hashedPassord</span><span class="p">);</span>
-<span class="linenos" data-linenos="11 "></span>        <span class="c1">// Guardar en la base de dades, si escau</span>
-<span class="linenos" data-linenos="12 "></span>        <span class="o">...</span>
-<span class="linenos" data-linenos="13 "></span>
-<span class="linenos" data-linenos="14 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$plainTextPassword</span> <span class="o">=</span> <span class="s2">"..."</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="c1">// Assignem ací la resta d'atributs de l'usuari</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$hashedPassword</span> <span class="o">=</span> <span class="nv">$encoder</span><span class="o">-&gt;</span><span class="na">hashPassword</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$plainTextPassword</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="nv">$hashedPassord</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="c1">// Guardar en la base de dades, si escau</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="o">...</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nx">UserPasswordHasherInterface</span> <span class="nv">$passwordHasher</span><span class="p">,</span> <span class="nx">UserInterface</span> <span class="nv">$user</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="c1">// ... e.g. get the password from a "confirm deletion" dialog</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="nv">$plainTextPassword</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$passwordHasher</span><span class="o">-&gt;</span><span class="na">isPasswordValid</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$plaintextPassword</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">AccessDeniedHttpException</span><span class="p">();</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="p">}</span>
 </code></pre></div></li>
 </ul>
 <p>El que fem és acudir a la configuració de l'arxiu <code>security.yaml</code>
 anterior per a veure què codificador s'ha establit, i mitjançant l'objecte de tipus
-<code>UserPasswordEncoderInterface</code> que rep com a paràmetre del mètode, i del seu mètode
-<code>encodePassword</code>, codificar el password amb aqueix mateix algorisme.</p>
+<code>UserPasswordHashInterface</code> que rep com a paràmetre del mètode, i del seu mètode
+<code>hashPassword</code>, codificar el password amb aqueix mateix algorisme.</p>
 <p>Aquest mètode rep com a primer paràmetre l'usuari sobre el qual s'està treballant, i
 com a segon paràmetre el password a codificar. Una vegada codificat, se li
 assigna a l'usuari, i ja es podria guardar en la base de dades.</p>
 <p>Per a provar el nostre exemple de pel·lícules, com no tenim formulari de
-registre, anem a codificar manualment el/els password(s) que tinguem en
+registre, codificarem manualment el/els password(s) que tinguem en
 la base de dades. Podem emprar webs com <a href="https://bcrypt-generator.com/">https://bcrypt-generator.com/</a>. </p>
 <h3 id="treballar-amb-rols">Treballar amb rols</h3>
 <p>En els exemples fets fins ara, ens hem limitat a definir un camp <code>role</code> en
@@ -881,12 +997,11 @@ En qualsevol cas, el mètode <code>denyAccessUnlessGranted</code> provoca que:</
 <p>També és possible comprovar un determinat rol o autenticació des del
 codi d'una plantilla Twig, mitjançant la funció <code>is_granted</code>. Açò pot
 servir per a mostrar o no certs apartats de la vista.</p>
-<p _="%" endraw="endraw">{% raw %}
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">is_granted</span><span class="o">(</span><span class="s1">'ROLE_ADMIN'</span><span class="o">)</span> <span class="cp">%}</span><span class="x"> </span>
-<span class="linenos" data-linenos="2 "></span><span class="x">    ... </span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">is_granted</span><span class="o">(</span><span class="s1">'ROLE_ADMIN'</span><span class="o">)</span> <span class="cp">%}</span> 
+<span class="linenos" data-linenos="2 "></span>    ... 
 <span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
-</code></pre></div></p>
+<span class="linenos" data-linenos="4 "></span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</code></pre></div>
 <h3 id="obtenir-lobjecte-user">Obtenir l'objecte <code>user</code></h3>
 <p>Una vegada autenticats, l'objecte <code>user</code> es pot obtenir a través del
 mètode <code>getUser</code>, normalment des de dins d'un controlador. Així, podríem
@@ -904,9 +1019,8 @@ fer:</p>
 <p>Des d'una plantilla Twig també és possible accedir a l'usuari
 que ha iniciat sessió i obtenir, per exemple, el seu nom d'usuari, amb 
 l'objecte <code>app.user</code>:</p>
-<p _="%" endraw="endraw">{% raw %}
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Benvingut/a, {{ app.user.username }}
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Benvingut/a, <span class="cp">{{</span> <span class="nv">app.user.username</span> <span class="cp">}}</span>
+</code></pre></div>
 <h3 id="eixint-de-laplicacio-logout">Eixint de l'aplicació (logout)</h3>
 <p>Podem configurar el tancament de sessió o <em>logout</em> a través d'arxius YAML
 exclusivament. N'hi ha prou amb seguir aquests dos passos:</p>
@@ -933,54 +1047,45 @@ exclusivament. N'hi ha prou amb seguir aquests dos passos:</p>
 Amb açò, i algun enllaç en les nostres plantilles per a poder tancar
 sessió (per exemple, en la plantilla base)...</li>
 </ul>
-<p>{% raw %}
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"{{ path("</span><span class="nx">logout</span><span class="s2">") }}"</span><span class="o">&gt;</span><span class="nx">Tancar</span> <span class="nx">sessió</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s2">"logout"</span><span class="o">)</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span>Tancar sessió<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </code></pre></div>
-{% endraw %}
-... ja podrem canviar d'usuari o eixir de l'aplicació.</p>
-<h2 id="exercicis">Exercicis</h2>
-<h3 id="exercici-71">Exercici 7.1</h3>
-<h4 id="movies">Movies</h4>
-<p>Afig la configuració de seguretat. Per a açò:</p>
-<ul>
-<li>Crea una entitat <code>User</code> de forma similar a com hem fet per en els exemples, i la corresponent taula. 
-    L'entitat tindrà els mateixos camps que en l'exemple.</li>
-<li>Defineix un formulari de <em>login</em> com el de l'exemple, i
-    configura l'arxiu <code>config/packages/security.yaml</code> perquè utilitze
-    aquest formulari, sota la ruta <code>/login</code> (defineix també el controlador
-    associat a aqueixa ruta, com en l'exemple)</li>
-<li>Protegeix l'accés a la creació de pel·licules (ruta <code>/movies/create</code>),
-    perquè només usuaris de tipus <code>ROLE_ADMIN</code> puguen accedir. Crea un
-    usuari d'aquest tipus en la base de dades manualment, per a
-    poder-ho provar.</li>
-<li>Crea la jerarquia de rols de l'exemple i fes que a la ruta <code>/admin</code>
-    sols hi puguen accedir els usuaris amb <code>ROLE_ADMIN</code></li>
-<li>Canvia les routes dels CRUD de pel·lícules i gèneres de forma que comencen per
-   <code>/admin</code> així s'aplicarà la restricció anterior.   </li>
-</ul>
-<h3 id="exercici-72">Exercici 7.2</h3>
-<h4 id="movies_1">Movies</h4>
-<p>Sobre l'autenticació anterior, anem a afegir aquests canvis:</p>
-<ul>
-<li>Codifica els passwords de l'aplicació amb l'algorisme triat per Symfony, i
-    Codifica manualment els passwords dels usuaris que hages
-    afegit a la base de dades, usant la web que s'ha proporcionat en
-    els apunts.</li>
-<li>Afig un enllaç per a "Iniciar sessió" en la plantilla.</li>
-<li>Afig un enllaç "Tancar sessió" en la plantilla <code>base.html.twig</code> perquè
-    es puga tancar sessió des de qualsevol vista de la web.</li>
-<li>Els dos enllaços anteriors són incompatible, fes que si l'usuari ha iniciat
-    sessió aparega el de tancar i viceversa.    </li>
-<li>Opcionalment, fes que aparega el nom d'usuari al costat de l'enllaç de tancar sessió.     </li>
-</ul>
-<h3 id="exercici-73">Exercici 7.3</h3>
-<p>Aplica els mateixos canvis en el projecte personal, respectant la funcionalitat de rols
-que havies previst.</p>
+<p>... ja podrem canviar d'usuari o eixir de l'aplicació.</p>
+<h2 id="recursos">Recursos</h2>
+<p>El recurs d'informació el trobaràs en el capítol <a href="https://symfony.com/doc/5.4/security.html">Security</a> 
+dins de la documentació oficial de Symfony.</p>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Formularis i validació" class="md-footer__link md-footer__link--prev" href="../06-formularis-i-validaci%C3%B3/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Formularis i validació
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Repositoris i paginació" class="md-footer__link md-footer__link--next" href="../08-repositoris-paginacio/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Repositoris i paginació
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

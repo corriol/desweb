@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>Gestió de la pujada de fitxers - DWES</title>
+<title>Pujada de fitxers - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Gestió de la pujada de fitxers
+              Pujada de fitxers
             
           </span>
 </div>
@@ -283,8 +283,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_9">
         8.- Symfony
         <span class="md-nav__icon md-icon"></span>
@@ -331,6 +331,73 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../07-seguretat-control-acces/">
+        Seguretat i control d'acciés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09-altres-funcionalitats/">
+        Altres funcionalitats
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Pujada de fitxers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Pujada de fitxers
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-classe-filetype">
+    La classe FileType
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#els-controladors">
+    Els controladors
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#missatges-flash">
+    Missatges flash
+  </a>
+<nav aria-label="Missatges flash" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#canvis-en-la-plantilla-base">
+    Canvis en la plantilla base
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parameters-globals">
+    Paràmeters globals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mes-informacio">
+    Més informació
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../99-activitats/">
         Activitats
       </a>
@@ -346,10 +413,6 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="gestio-de-la-pujada-de-fitxers">Gestió de la pujada de fitxers</h1>
-<p>{:no_toc}</p>
-<ol>
-<li toc="toc">Taula de continguts</li>
-</ol>
 <p>En el nostre projecte de pel·lícules tenim definida la propistat pòster que 
 emmagatzema el nom del fitxer del pòster d'una pel·lícula, 
 en la següent sessió anem a implementar la gestió de fitxers sense utilitzar
@@ -514,6 +577,34 @@ per a indicar la ruta pública dels pòsters:</p>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Altres funcionalitats" class="md-footer__link md-footer__link--prev" href="../09-altres-funcionalitats/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Altres funcionalitats
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../99-activitats/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

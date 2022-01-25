@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>Altres funcionalitats. Bundles - DWES</title>
+<title>Altres funcionalitats - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Altres funcionalitats. Bundles
+              Altres funcionalitats
             
           </span>
 </div>
@@ -283,8 +283,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_9">
         8.- Symfony
         <span class="md-nav__icon md-icon"></span>
@@ -331,6 +331,73 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../07-seguretat-control-acces/">
+        Seguretat i control d'acciés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Altres funcionalitats
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Altres funcionalitats
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pujar-arxius">
+    Pujar arxius
+  </a>
+<nav aria-label="Pujar arxius" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#implementacio-carregador-dimatges">
+    Implementació carregador d'imatges
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#redimensionar-imatges">
+    Redimensionar imatges
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enviament-de-correu">
+    Enviament de correu
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frontend-javascript-i-css">
+    Frontend: Javascript i CSS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#internatizonalitzacio">
+    Internatizonalització
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../10-pujada-de-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../99-activitats/">
         Activitats
       </a>
@@ -346,12 +413,6 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="altres-funcionalitats-bundles">Altres funcionalitats. Bundles</h1>
-<p>{: .no_toc }</p>
-<h2 id="taula-de-continguts">Taula de continguts</h2>
-<p>{: .no_toc .text-delta  .nocount }</p>
-<ol>
-<li toc="toc">TOC</li>
-</ol>
 <h2 id="pujar-arxius">Pujar arxius</h2>
 <p>El que recomana Symfony és treballar amb el component <a href="https://github.com/dustin10/VichUploaderBundle">VichUploader</a></p>
 <p>{:.alert .alert-activity}</p>
@@ -368,14 +429,12 @@
 <li>Es crea un un grup de filtres, <code>my_thumb</code>, en l'exemple, on s'indiquen els filtres que s'aplicaran, <code>thumbnail</code> i <code>background</code> en l'exemple.</li>
 <li>Després s'utilitza el filtre en les plantilles de Twig:</li>
 </ol>
-<p _="%" endraw="endraw">{% raw %}  <br/>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">"{{ asset('/relative/path/to/image.jpg') | imagine_filter('my_thumb') }}"</span> <span class="sr">/&gt; </span>
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">'/relative/path/to/image.jpg'</span><span class="o">)</span> <span class="o">|</span> <span class="nf">imagine_filter</span><span class="o">(</span><span class="s1">'my_thumb'</span><span class="o">)</span> <span class="cp">}}</span><span class="s">"</span> <span class="p">/&gt;</span> 
+</code></pre></div>
 <p>Combinant-ho amb VichUploader la plantilla quedaria així:</p>
-<p _="%" endraw="endraw">{% raw %}
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;</span><span class="n">img</span>  <span class="n">src</span><span class="o">=</span><span class="s2">"{{ vich_uploader_asset(link, 'imageFile') | imagine_filter('my_thumb') }}"</span> 
-<span class="linenos" data-linenos="2 "></span>    <span class="n">alt</span><span class="o">=</span><span class="s2">"{{ link.title }}"</span> <span class="sr">/&gt;</span>
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">img</span>  <span class="na">src</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">vich_uploader_asset</span><span class="o">(</span><span class="nv">link</span><span class="o">,</span> <span class="s1">'imageFile'</span><span class="o">)</span> <span class="o">|</span> <span class="nf">imagine_filter</span><span class="o">(</span><span class="s1">'my_thumb'</span><span class="o">)</span> <span class="cp">}}</span><span class="s">"</span> 
+<span class="linenos" data-linenos="2 "></span>    <span class="na">alt</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">link.title</span> <span class="cp">}}</span><span class="s">"</span> <span class="p">/&gt;</span>
+</code></pre></div>
 <p>En els formularis on s'usa VichUploader s'aplica de la següent forma:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'imageFile'</span><span class="p">,</span> <span class="nx">VichImageType</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="p">[</span>
 <span class="linenos" data-linenos="2 "></span>        <span class="s1">'required'</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
@@ -383,27 +442,24 @@
 <span class="linenos" data-linenos="4 "></span>        <span class="s1">'asset_helper'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
 <span class="linenos" data-linenos="5 "></span>        <span class="s1">'imagine_pattern'</span> <span class="o">=&gt;</span> <span class="s1">'my_thumb'</span><span class="p">]);</span>
 </code></pre></div>
-<p>El que fa <code>LiipImagine</code> és crear en un directori cache els resultats d'aplicar els filtres.</p>
+<p>El que fa <code>LiipImagine</code> és crear en un directori temporal els resultats d'aplicar els filtres.</p>
 <h2 id="enviament-de-correu">Enviament de correu</h2>
-<p>Symfony provides a mailer feature based on the popular Swift Mailer library via the SwiftMailerBundle. This mailer supports sending messages with your own mail servers as well as using popular email providers like Mandrill, SendGrid, and Amazon SES.</p>
-<p>Més informació: <a href="https://symfony.com/doc/current/email.html">Swift Mailer</a></p>
-<p>{:.alert .alert-activity}</p>
-<div>
-<h3 id="implementacio-dun-formulari-de-contacte">Implementació d'un formulari de contacte.</h3>
+<p>Symfony proporciona una funció d'enviament de correu electrònic basat en el popular Swift Mailer.</p>
+<p>Més informació: <a href="https://symfony.com/doc/current/email.html">Sending Emails with Mailer</a></p>
+<div class="admonition alert">
+<p class="admonition-title">Implementació d'un formulari de contacte</p>
 <p>Implementa un formuari de contacte amb els camps nom, correu electrònic, assumpte i text que envie la informació per correu electrònic a l'adreça del administrador de la web.</p>
 </div>
 <h2 id="frontend-javascript-i-css">Frontend: Javascript i CSS</h2>
 <p>Symfony incorpora una llibreria Javascript - anomenada Webpack Encore - que fa que treballar amb CSS i JavaScript siga pura joia. Pots usar-la o no. També pots crear CSS static i arxius JS en el directori <code>/public</code> i després incloure'l en les plantilles.</p>
 <p><strong>Webpack Encore</strong> és una forma senzilla d'integrar Webpack en la teua aplicació. Envolta Webpack, que us proporciona una API neta i potent per agrupar mòduls JavaScript, pre-processar CSS i JS i recopilar i minificar actius (<em>assets</em>). Encore us ofereix un sistema d’actius professionals que és una delícia d’utilitzar.</p>
 <p>Encore s’inspira en Webpacker i Mix, però es manté en l’esperit de Webpack: utilitzant les seves característiques, conceptes i convencions de denominació per a una sensació familiar. Té com a objectiu resoldre els casos d’ús de Webpack més comuns.</p>
-<p>{:.alert .alert-info}</p>
-<div>
-<h3 id="webpack">webpack</h3>
+<div class="admonition info">
+<p class="admonition-title">webpack</p>
 <p>webpack és un empaquetador de mòduls. El seu objectiu principal és agrupar fitxers JavaScript per al seu ús en un navegador, però també és capaç de transformar, agrupar o empaquetar gairebé qualsevol recurs o actiu.</p>
 </div>
-<p>{:.alert .alert-warning}</p>
-<div>
-<h3 id="nodejs-i-yarn">Node.js i yarn</h3>
+<div class="admonition important">
+<p class="admonition-title">Node.js i yarn</p>
 <p>Cal instal·lar <code>nodejs</code> i <a href="https://classic.yarnpkg.com/en/docs/install/#debian-stable">yarn</a> per poder usar Webpack Encore.</p>
 <p>Node.js és un entorn de programació dissenyat per escriure aplicacions web escalables basat en javascript i yarn és un gestor de paquets semblant a composer però orientat al frontend.</p>
 </div>
@@ -415,6 +471,34 @@
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Repositoris i paginació" class="md-footer__link md-footer__link--prev" href="../08-repositoris-paginacio/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Repositoris i paginació
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Pujada de fitxers" class="md-footer__link md-footer__link--next" href="../10-pujada-de-fitxers/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Pujada de fitxers
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
