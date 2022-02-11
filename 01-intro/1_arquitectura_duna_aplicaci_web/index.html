@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="ca">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.2.3, mkdocs-material-7.3.3" name="generator"/>
+<title>1. Arquitectura d'una aplicació web - DWES</title>
+<link href="../../assets/stylesheets/main.5143246d.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<meta content="#ff6e42" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="" data-md-color-primary="deep-orange" data-md-color-scheme="" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#arquitectura-duna-aplicacio-web">
+          Salta el contingut
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="DWES" class="md-header__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            DWES
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              1. Arquitectura d'una aplicació web
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DWES" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="DWES">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    DWES
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Inici
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+        1.- Introducció a la programació Web
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02-phpbasics/">
+        2.- El llenguatge PHP
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          3.- PHP Orientat a Objectes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0302-phpoo-advanced/">
+        PHP OO Avançat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0303-errorhandling/">
+        Erros i excepcions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+          4.- Accés a dades amb PHP
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-data-access/04-data-access-php/">
+        Accés a dades amb PHP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          5.- Manteniment de l'estat
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Manteniment de l'estat" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Manteniment de l'estat
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-02-cookies/">
+        Galletes (cookies)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-03-sessions/">
+        Sessions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05-maintain-state/05-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          6.- Composer. Introducció al testing
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="6.- Composer. Introducció al testing" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          6.- Composer. Introducció al testing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+        Composer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-04-namespaces/">
+        Namespaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          7.- Miniframework MVC
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-00-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-01-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-02-classe-router/">
+        Rutes i controladors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07-mvc/07-03-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+          8.- Symfony
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/07-seguretat-control-acces/">
+        Seguretat i control d'acciés
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/08-repositoris-paginacio/">
+        Repositoris i paginació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/09-altres-funcionalitats/">
+        Altres funcionalitats
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/10-pujada-de-fitxers/">
+        Pujada de fitxers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/14-fixtures-bundle/">
+        Doctrine Fixtures Bundle
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/99-activitats/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+          9.- Introducció als serveis web
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="9.- Introducció als serveis web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          9.- Introducció als serveis web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/01-introduccio-als-webservices/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/03-rest-api/">
+        REST API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../09-rest-api/05-rest-api-symfony/">
+        REST API en Symfony
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="arquitectura-duna-aplicacio-web">Arquitectura d'una aplicació web</h1>
+<p>A diferència de les aplicacions d'escriptori, que utilitzen els recursos d'un únic ordinador
+les aplicacions web són distribuïdes,  intervenen com a mínin dos equipos diferents: el client i el servidor.</p>
+<p>La comunicació és du a terme mitjançant un protocol, en el nostre cas el protocol HTTP, base 
+de la WWW.</p>
+<h2 id="elements-navegador-servidor-protocol-http-i-html">Elements: navegador, servidor, protocol HTTP i HTML</h2>
+<p>El protocol de transferència d'hipertext (HTTP) és un protocol
+client-servidor molt senzill que articula els intercanvis d'informació
+entre els clients web (navegadors) i els servidors HTTP.</p>
+<p><strong>HTTP es basa en operacions senzilles de sol·licitud/resposta.</strong> Quan
+un client estableix una connexió amb un servidor i envia un missatge amb
+les dades de la sol·licitud, el servidor respon amb un missatge similar
+que conté l'estat de l'operació i el seu resultat de la sol·licitud.
+Totes les operacions poden adjuntar un objecte o recurs sobre el qual
+actuen; cada objecte web (document HTML, arxiu multimèdia o aplicació
+CGI) és conegut pel seu localitzador uniforme de recursos (URL, <em>Uniform
+Resource Locator</em>). Els recursos poden ser arxius, el resultat de
+l'execució d'un programa, una consulta a una base de dades, la
+traducció automàtica d'un document, etc.</p>
+<p><strong>HTTP és un protocol sense estat</strong>, és a dir, no guarda cap informació
+sobre connexions anteriors. El desenvolupament d'aplicacions web
+freqüentment necessita mantenir estat. Per això s'utilitzen les galetes
+(<em>cookies</em>), és a dir, la informació que un servidor pot emmagatzemar en
+el sistema client. Això permet que les aplicacions web institueixin la
+noció de "sessió", i, alhora, permet rastrejar usuaris, ja que les
+galetes es poden emmagatzemar en el client durant un temps indeterminat.</p>
+<p>Amb la intenció de conèixer amb més profunditat el protocol HTTP podem
+avaluar en què consisteix una transacció HTTP.</p>
+<p>Cada vegada que un client fa una petició a un servidor, s'executen un
+seguit d'accions:</p>
+<ol>
+<li>Un usuari accedeix a una adreça d'Internet (URL) seleccionant un
+    enllaç d'un document HTML o introduint-la directament a la barra de
+    navegació d'un navegador web des de la perspectiva del client web.
+    El client web descodifica l'adreça d'Internet (URL) separant-ne les
+    diferents parts. És així com s'identifiquen el protocol d'accés,
+    el node expressat amb el nom de domini o la seua adreça IP, el
+    possible port opcional (el valor per defecte és el 80) i l'objecte
+    del servidor requerit.</li>
+<li>S'obre una connexió TCP/IP amb el servidor cridant el port TCP
+    corresponent. Es fa la petició. En conseqüència, s'envien l'ordre
+    necessària (GET, POST, HEAD, etc.), l'adreça de l'objecte requerit
+    (el contingut de l'adreça d'Internet del servidor), la versió del
+    protocol HTTP utilitzada (en la major part de les ocasions és
+    HTTP/1.0) i un conjunt variable d'informació que inclou dades sobre
+    les capacitats del navegador web, dades opcionals per al servidor,
+    etc.</li>
+<li>El servidor localitza el recurs sol·licitat i torna la resposta al
+    client.</li>
+<li>Aquesta resposta consisteix en un codi d'estat i el tipus de dada
+    amb extensions multipropòsit de correu d'Internet (MIME,
+    Multipurpose Internet Mail Extension) de la informació de tornada,
+    seguit de la mateixa informació.</li>
+<li>El client formata i mostra el recurs rebut.</li>
+<li>Es tanca la connexió TCP.</li>
+</ol>
+<p>Aquest procés es repeteix en cada accés que es faça al servidor HTTP.
+Per exemple, si es recull un document HTML que conté quatre imatges, el
+procés de transició mostrat amb anterioritat es repeteix cinc vegades,
+és a dir, una pel document HTML i quatre per les imatges.</p>
+<p><img alt="Etapes d'una transacció
+HTTP" src="../assets/HTTP_Steps.png" title="Etapes d'una transacció HTTP"/></p>
+<p>Si el recurs sol·licitat és un programa (CGI, ASP.NET, PHP, etc.) el
+servidor HTTP redirigirà la petició a la llibreria o intèrpret adequat
+que executarà el programa i tornarà el control al servidor web.</p>
+<h3 id="format-de-les-url">Format de les URL</h3>
+<p>La sintaxi general de les URL consisteix en una seqüència jeràrquica de
+5 components:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>URI = scheme:[//authority]path[?query][#fragment]
+</code></pre></div>
+<p>on el component authoriry es deivideix en tres subcomponents:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>authority = [userinfo@]host[:port]
+</code></pre></div>
+<p><img alt="URL
+Syntax" src="../assets/1068px-URI_syntax_diagram.svg.png" title="Sintaxi de les URL"/></p>
+<h2 id="el-model-clientservidor">El model client/servidor</h2>
+<p>El model client-servidor és aquell on tots els clients estan connectats
+a un servidor on es centralitzen els diferents recursos. Aquests
+recursos estan a disposició dels clients cada cop que els sol·liciten.
+Això fa que totes les gestions que es realitzen es concentren en el
+servidor, que disposa dels requeriments dels clients amb prioritat, els
+arxius que són d'ús públic i els restringits, els arxius de només
+lectura, els que poden ser modificats, etc.</p>
+<p>En el model client/servidor, el dispositiu que sol·licita informació es
+denomina client i el dispositiu que respon la sol·licitud es denomina
+servidor. Els processos de client i servidor es consideren una part de
+la capa d'aplicació. El client comença l'intercanvi sol·licitant les
+dades al servidor, que respon enviant un o més blocs de dades al client.
+Els protocols de capa d'aplicació descriuen el format de les
+sol·licituds i respostes entre clients i servidor. A més de la
+transferència real de dades, aquest intercanvi pot requerir informació
+addicional, com l'autentificació de l'usuari i la identificació d'un
+arxiu de dades per transferir.</p>
+<p>Encara que les dades generalment es descriuen com un flux del servidor
+al client, algunes dades sempre flueixen del client al servidor. El flux
+de dades pot ser el mateix en les dues direccions o fins i tot ser major
+en la direcció que va del client al servidor. Per exemple, un client pot
+transferir un arxiu al servidor amb finalitats d'emmagatzemament. La
+transferència de dades d'un client a un servidor es coneix com a pujada
+i la de les dades d'un servidor a un client, baixada.</p>
+<h2 id="pagines-web-estatiques-i-dinamiques">Pàgines web estàtiques i dinàmiques</h2>
+<h3 id="pagines-web-estatiques">Pàgines web estàtiques</h3>
+<p>Les pàgines web estàtiques són aquelles on el seu contingut no varia per
+la qual cosa mostraran la mateixa informació cada vegada que es
+carreguen. Són les pàgines creades en el llenguatge HTML.</p>
+<p>Només canvien si el programador web les modifica.</p>
+<h3 id="pagines-web-dinamiques">Pàgines web dinàmiques</h3>
+<p>Les pàgines web dinàmiques són pàgines el contingut de les quals varia a
+partir d'informació continguda en una BBDD.</p>
+<p>El contingut mostrat pot canviar segons l'usuari connectat, el
+navegador que s'utiltze o accions anteriors dels usuaris, etc.</p>
+<p>Aquest tipus de pàgines s'han de realitzar mitjançat un llenguatge de
+programació.</p>
+<h2 id="execucio-de-codi-en-el-client-i-en-el-servidor">Execució de codi en el client i en el servidor</h2>
+<p>En el següent gràfic es mostra un escenari on podem trobar codi que
+s'executa en el servidor (PHP) i en el client (javascript).</p>
+<p><img alt="" src="../assets/figure_2_client_side_scripting.png"/></p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            2021-2022 Vicent Jordà - Licencia CC BY-NC-SA
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+            Material for MkDocs
+          </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
