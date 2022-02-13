@@ -39,10 +39,13 @@ pel·lícules. En aquest cas, el comando a tractar és POST, i les dades
 arribaran fora de la URI, en el cos de la petició. El mètode podria ser
 alguna cosa així:
 
-/\*\* \* \@Rest("/", name="nova_pelicula") \*/ public function
-nova_pelicula(Request \$request) { \$serializer =
-\$this-\>get('jms_serializer'); \$pelicula = new Pelicula();
-$$pelicul{a -}setTitulo($$request-\>get('titule'));
+/***
+*    @Rest("/", name="nova_pelicula") \
+*/ 
+public function nova_pelicula(Request $request) {
+    $serializer = $this->get('jms_serializer'); 
+    $pelicula = new Pelicula();
+    $pelicula ->setTitulo($$request-\>get('titule'));
 $$pelicul{a -}setAnyo($$request-\>get('anyo')); \$entityManager =
 \$this-\>getDoctrine()-\>getManager();
 $$entityManage{r -}persist($$pelicula); \$entityManager-\>flush();
