@@ -518,7 +518,7 @@ o HTML, però ens centrarem en JSON). Aquest bundle s'anomena
 <span class="linenos" data-linenos="2 "></span>composer require friendsofsymfony/rest-bundle
 </code></pre></div>
 <h2 id="configurant-el-serialitzador">Configurant el serialitzador</h2>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># config/framework.yaml</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># config/packages/framework.yaml</span>
 <span class="linenos" data-linenos="2 "></span><span class="nt">framework</span><span class="p">:</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="linenos" data-linenos="4 "></span>    <span class="l l-Scalar l-Scalar-Plain">serializer</span><span class="p p-Indicator">:</span>
@@ -526,6 +526,7 @@ o HTML, però ens centrarem en JSON). Aquest bundle s'anomena
 <span class="linenos" data-linenos="6 "></span>        <span class="nt">mapping</span><span class="p">:</span>
 <span class="linenos" data-linenos="7 "></span>            <span class="nt">paths</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">'%kernel.project_dir%/config/serializer/'</span><span class="p p-Indicator">]</span>
 </code></pre></div>
+<p>Definim els grups de serialització de les entitats.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># config/serializer/Movie.yaml</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nt">App\Entity\Movie</span><span class="p">:</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="nt">attributes</span><span class="p">:</span>
@@ -542,6 +543,7 @@ o HTML, però ens centrarem en JSON). Aquest bundle s'anomena
 <span class="linenos" data-linenos="14 "></span>        <span class="nt">releaseDate</span><span class="p">:</span>
 <span class="linenos" data-linenos="15 "></span>            <span class="nt">groups</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">'movie'</span><span class="p p-Indicator">]</span>
 </code></pre></div>
+<p>Configurem <em>FOSRestbundle</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># config/packages/fos_rest.yaml</span>
 <span class="linenos" data-linenos=" 2 "></span>
 <span class="linenos" data-linenos=" 3 "></span><span class="c1"># Read the documentation: https://symfony.com/doc/master/bundles/FOSRestBundle/index.html</span>
