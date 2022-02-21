@@ -564,8 +564,8 @@ triem aqueixa per exemple):</p>
 i (2) una pública a partir de la privada.</p>
 <h3 id="configuracio-del-fitxer-env">Configuració del fitxer <code>.env</code></h3>
 <p>Ara hem d'editar també el fitxer <code>.env</code> o <code>.env.local</code> (millor aquest) i afegir aquestes línies:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>JWT_PRIVATE_KEY_PATH=%kernel.project_dir%/config/jwt/private.pem
-<span class="linenos" data-linenos="2 "></span>JWT_PUBLIC_KEY_PATH=%kernel.project_dir%/config/jwt/public.pem
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
+<span class="linenos" data-linenos="2 "></span>JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
 <span class="linenos" data-linenos="3 "></span>JWT_PASSPHRASE=movies
 <span class="linenos" data-linenos="4 "></span>JWT_TOKENTTL=3600 
 </code></pre></div>
