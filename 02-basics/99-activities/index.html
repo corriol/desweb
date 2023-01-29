@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>3. Maneig d'arrays - DWES</title>
+<title>Activitats - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ff6e42" name="theme-color"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#3-maneig-darrays">
+<a class="md-skip" href="#activitats">
           Salta el contingut
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              3. Maneig d'arrays
+              Activitats
             
           </span>
 </div>
@@ -108,10 +108,83 @@
         1.- Introducció a la programació Web
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../02-phpbasics/">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
         2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02-phpbasics/">
+        PHP Bàsic
       </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Activitats
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Activitats
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cadenes">
+    Cadenes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arrays-indexats">
+    Arrays indexats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arrays-multidimensionals">
+    Arrays multidimensionals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcions">
+    Funcions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#formularis">
+    Formularis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inclusio-de-fitxers">
+    Inclusió de fitxers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pujada-de-fitxers">
+    Pujada de fitxers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#credits">
+    Crèdits
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
@@ -356,8 +429,13 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../08-symfony/99-activitats/">
-        Activitats
+<a class="md-nav__link" href="../../08-symfony/13-creacio-api-basica/">
+        Integració de Javascript i accés a API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08-symfony/15-unit-testing/">
+        Testing en Symfony
       </a>
 </li>
 </ul>
@@ -405,167 +483,94 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="3-maneig-darrays">3. Maneig d'arrays</h1>
-<h2 id="introduccio">Introducció</h2>
-<p>Un array és un tipus de dades que ens permet emmagatzemar diversos valors. Per tal d'accedir a un valor utilitzarem una <em>clau</em>. Les claus poden ser nombres o textos (<em>arrays associatius</em>). Si no indiquem cap clau, a cada element se li associarà una clau numèrica correlativa.</p>
-<h2 id="array-indexat">Array indexat</h2>
-<h3 id="crear-array">Crear array</h3>
-<ul>
-<li>Podem crear un array buit de dues formes:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
-<span class="linenos" data-linenos="2 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="p">[];</span>
-</code></pre></div>
-<ul>
-<li>Si volem assignar valors al array en el moment de crear-ho: </li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Sandra'</span><span class="p">,</span> <span class="s1">'Pedro'</span><span class="p">,</span> <span class="s1">'Andrea'</span><span class="p">);</span> 
-<span class="linenos" data-linenos="2 "></span><span class="nv">$noms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Sandra'</span><span class="p">,</span> <span class="s1">'Pedro'</span><span class="p">,</span> <span class="s1">'Andrea'</span><span class="p">];</span>
-</code></pre></div>
-<h3 id="mostrar-el-contingut-dun-array">Mostrar el contingut d'un array</h3>
-<p>Si intentem mostrar el contingut d'un array amb <strong>echo</strong> no obtindrem  les dades que hi ha dins del array. En lloc d'açò podem utilitzar la funció print_r: </p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$noms</span><span class="p">);</span>
-</code></pre></div>
-<p>Però si necessitem donar-li format als continguts del array, haurem de recórrer-ho amb un bucle i anar mostrant element a element.</p>
-<h3 id="afegint-elements-al-array">Afegint elements al array</h3>
-<p>Podem afegir elements al array utilitzant claudàtors buits. La clau d'aquests elements serà el següent índex numèric disponible.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span><span class="p">[]</span><span class="o">=</span><span class="s1">'Raul'</span><span class="p">;</span> <span class="nv">$noms</span><span class="p">[]</span><span class="o">=</span><span class="s1">'Marta'</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="accedir-als-elements-del-array">Accedir als elements del array</h3>
-<p>Accedirem als elements del array indicant la clau de l'element entre claudàtors:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$noms</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-</code></pre></div>
-<p>També podem modificar el seu valor:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$noms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Sara'</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="recorrer-arrays">Recórrer arrays</h3>
-<p><img alt="" src="../../assets/t204.png"/></p>
-<h2 id="arrays-associatius">Arrays associatius</h2>
-<p>Si el array conté dades diverses i/o ens interessa accedir a ells amb claus més específiques que un simple índex numèric podem utilitzar arrays associatius: </p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$alumne</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'nom'</span> <span class="o">=&gt;</span> <span class="s1">'Sara'</span><span class="p">,</span> <span class="s1">'cognom'</span> <span class="o">=&gt;</span> <span class="s1">'García'</span><span class="p">,</span> <span class="s1">'edat'</span> <span class="o">=&gt;</span> <span class="mi">22</span> <span class="p">);</span>
-<span class="linenos" data-linenos="2 "></span><span class="nv">$alumne</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'nom'</span> <span class="o">=&gt;</span> <span class="s1">'Sara'</span><span class="p">,</span> <span class="s1">'cognom'</span> <span class="o">=&gt;</span> <span class="s1">'García'</span><span class="p">,</span> <span class="s1">'edat'</span> <span class="o">=&gt;</span> <span class="mi">22</span> <span class="p">];</span>
-<span class="linenos" data-linenos="3 "></span><span class="nv">$alumne</span><span class="p">[</span><span class="s1">'nom'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Verónica'</span><span class="p">;</span>
-<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="nv">$alumne</span><span class="p">[</span><span class="s1">'nom'</span><span class="p">];</span>
-</code></pre></div>
-<h3 id="recorrer-arrays-associatius">Recórrer arrays associatius</h3>
-<p><img alt="" src="../../assets/t205.png"/></p>
-<h3 id="recorrer-claus-i-valors">Recórrer claus i valors</h3>
-<p><img alt="" src="../../assets/t206.png"/></p>
-<h2 id="arrays-multidimensionals">Arrays multidimensionals</h2>
-<p>Imagina que volem tenir un array els elements del qual són noms d'esports. Volem dividir-los en esports d'hivern i esports d'estiu. Podem crear un array esports que continga dos elements que al seu torn també seran arrays.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$esports</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hivern'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'esquí de fons'</span><span class="p">,</span> <span class="s1">'hoquei sobre gel'</span><span class="p">],</span> <span class="s1">'estiu'</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s1">'natació'</span><span class="p">,</span> <span class="s1">'voley platja'</span><span class="p">]</span> <span class="p">];</span>
-</code></pre></div>
-<p>Per a accedir al primer esport d'hivern:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="nv">$esports</span><span class="p">[</span><span class="s1">'hivern'</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
-</code></pre></div>
-<h2 id="funcions-darrays">Funcions d'arrays</h2>
-<p>Podem obtenir la mida de l'array mitjançant la funció count (array). 
-Per recórrer l'array farem ús d'un bucle <code>for</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$tam = count($fruites); // mida de l'array
-<span class="linenos" data-linenos="2 "></span>for ($i=0; $i<span class="p">&lt;</span><span class="nt">count</span><span class="err">($</span><span class="na">fruites</span><span class="err">);</span> <span class="err">$</span><span class="na">i</span><span class="err">++)</span> <span class="err">{</span>
-<span class="linenos" data-linenos="3 "></span>   <span class="na">echo</span> <span class="err">"</span><span class="na">Element</span> <span class="err">$</span> <span class="na">i:</span> <span class="err">$</span> <span class="na">fruites</span> <span class="err">[$</span> <span class="na">i</span><span class="err">]</span> <span class="err">&lt;</span><span class="na">br</span> <span class="p">/&gt;</span>";
-<span class="linenos" data-linenos="4 "></span>}
-</code></pre></div>
-<p>Les operacions més importants que podem realitzar amb <em>arrays</em> són:</p>
-<ul>
-<li><code>print_r($ array)</code>: mostra el contingut de tot el <code>$array</code></li>
-<li><code>$elem = array_pop($array)</code>: elimina l'últim <code>$element</code></li>
-<li><code>array_push ($ array, $ elem)</code>: afegeix un <code>$element</code> al final.</li>
-<li><code>$bool = in_array($elem, $array)</code>: esbrina si <code>$elem</code> està en el<code>$array</code></li>
-</ul>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><label for="__tabbed_1_1">PHP</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$fruits</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">"orange"</span><span class="p">,</span> <span class="s2">"pear"</span><span class="p">,</span> <span class="s2">"apple"</span><span class="p">];</span>
-<span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span><span class="nb">array_push</span> <span class="p">(</span><span class="nv">$fruites</span><span class="p">,</span> <span class="s2">"pinapple"</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$fruits</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 5 "></span>
-<span class="linenos" data-linenos=" 6 "></span><span class="nv">$lastFruit</span> <span class="o">=</span> <span class="nb">array_pop</span><span class="p">(</span><span class="nv">$fruits</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">"pineapple"</span><span class="p">,</span> <span class="nv">$fruits</span><span class="p">))</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="k">echo</span> <span class="s2">"&lt;p&gt; Pineapple left &lt;/ p&gt;"</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-<span class="linenos" data-linenos="10 "></span>    <span class="k">echo</span> <span class="s2">"&lt;p&gt; No pineapple left &lt;/ p&gt;"</span><span class="p">;</span>
-<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="12 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$fruites</span><span class="p">);</span>
-<span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<h1 id="activitats">Activitats</h1>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 3: Treballar amb dates</p>
+<p>Crea un fitxer anomenat dates.php i realitza les següents tasques:</p>
+<ol>
+<li>Mostra la data i hora actuals amb el format: <code>dd/mm/yyyy hh:mm:ss</code></li>
+<li>Mostra el nom de la zona horària que s'utilitza per defecte.</li>
+<li>Mostra la data de que serà d’ací 45 dies.</li>
+<li>Mostra el nombre de dies que han passat des de l'1 de gener.</li>
+<li>Mostra la data i hora actuals de Nova York.</li>
+<li>Mostra el dia de la setmana que era l'1 de gener d'enguany.</li>
+</ol>
+<p>En acabar penja el document a Aules.</p>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio"><label for="__tabbed_1_2">Consola</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="go">Array</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="go">(</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="go">  [0] =&gt; orange</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="go">  [1] =&gt; pear</span>
-<span class="linenos" data-linenos=" 5 "></span><span class="go">  [2] =&gt; apple</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="go">  [3] =&gt; pinapple</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="go">)</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="go">&lt;p&gt;No pineapple left&lt;/ p&gt;</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="go">Array</span>
-<span class="linenos" data-linenos="10 "></span><span class="go">(</span>
-<span class="linenos" data-linenos="11 "></span><span class="go">  [0] =&gt; orange</span>
-<span class="linenos" data-linenos="12 "></span><span class="go">  [1] =&gt; pear</span>
-<span class="linenos" data-linenos="13 "></span><span class="go">  [2] =&gt; apple</span>
-<span class="linenos" data-linenos="14 "></span><span class="go">)</span>
+<div class="admonition todo">
+<p class="admonition-title">Activitat 4</p>
+<p><code>200dadesPersonals.php</code>: Escriu un programa que emmagatzeme en variables teu nom, primer cognom, segon cognom, email, any de naixement i telèfon. Després mostra'ls per pantalla dins d'una taula.     </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nom</td>
+<td>Bruce</td>
+<td></td>
+</tr>
+<tr>
+<td>Cognoms</td>
+<td>Wayne</td>
+<td></td>
+</tr>
+<tr>
+<td>Email</td>
+<td>batman@dccomics.com</td>
+<td></td>
+</tr>
+<tr>
+<td>Any de naixement</td>
+<td>1939</td>
+<td></td>
+</tr>
+<tr>
+<td>Telèfon</td>
+<td>555666777</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>206anyos.php</code>: Després de llegir l'edat d'una persona, mostrar l'edat que tindrà d'aquí a 10 anys i fa 10 anys. A més, mostra quin any serà en cada un dels casos. Finalment, mostra l'any de jubilació suposant que treballaràs fins als 65 anys.</p>
+<p>Tip: <code>$anyoActual = date("Y")</code>;</p>
+</div>
+<h2 id="cadenes">Cadenes</h2>
+<ol start="221">
+<li>
+<p><code>221Cadenes.php</code>: Copia el contingut de la pàgina <code>index.php</code>, activa la directiva de tipus estricta (<code>declare( strict_types = 1 );</code>) i mostra el següent: </p>
+<ol>
+<li>Elimina els espais del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
+<li>Elimina la lletra a del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
+<li>Mostra la variable nom en majúscules, minúscules i amb la primera lletra en majúscula i les altres en minúscules (<em>strtoupper</em>, <em>strtolower</em>, <em>ucfirst</em>). </li>
+<li>Mostra el codi ascii de la primera lletra del nom (<em>ord</em>). </li>
+<li>Mostra la longitud del nom (<em>strlen</em>). </li>
+<li>Mostra el nombre de vegades que apareix la lletra a (majúscula o minúscula, <em>substr_count</em>). </li>
+<li>Mostra la posició de la primera <code>a</code> existent en el nom, siga majúscula o minúscula (<em>strpos</em>). Si no hi ha cap mostrarà -1. </li>
+<li>El mateix, però amb l''última a. </li>
+<li>Mostra el nom substituint la lletr o pel número zero, siga majúscula o minúscula (<em>str_replace</em>). </li>
+<li>Indica si el nom comença per <code>al</code> o no. </li>
+</ol>
+</li>
+<li>
+<p><code>222Cadenes.php</code>: En el mateix document <code>cadenes.php</code> i a partir d'una variable que continga una url:<br/>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$url</span><span class="o">=</span><span class="s1">'http://username:password@hostname:9090/path?arg=value#anchor'</span><span class="p">;</span>
 </code></pre></div>
-</div>
-</input></input></div>
-<ul>
-<li><code>$claus = array_keys($array)</code>: torna les claus de l'<code>$ array</code> associatiu.</li>
-<li><code>$tam = count ($array)</code>: retorna la mida de <code>$ array</code>.</li>
-<li><code>sort($array)</code>: ordena els elements de l' <code>$ array</code>.</li>
-<li><code>isset($array[element])</code>: indica si existeix / té valor element dins del array.</li>
-<li><code>unset($array[element])</code>: elimina l'element de l'array (deixa un buit).</li>
-</ul>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><label for="__tabbed_2_1">PHP</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$capitals</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span> <span class="s2">"Italy"</span> <span class="o">=&gt;</span> <span class="s2">"Rome"</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="s2">"France"</span> <span class="o">=&gt;</span> <span class="s2">"Paris"</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="s2">"Portugal"</span> <span class="o">=&gt;</span> <span class="s2">"Lisbon"</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 4 "></span>
-<span class="linenos" data-linenos=" 5 "></span><span class="nv">$countries</span> <span class="o">=</span> <span class="nb">array_keys</span> <span class="p">(</span><span class="err">$</span> <span class="nx">capitals</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$countries</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="nb">sort</span><span class="p">(</span><span class="nv">$countries</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$countries</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 9 "></span>
-<span class="linenos" data-linenos="10 "></span><span class="nb">unset</span><span class="p">(</span><span class="nv">$capitals</span><span class="p">[</span><span class="s2">"France"</span><span class="p">]);</span>
-<span class="linenos" data-linenos="11 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$capitals</span><span class="p">);</span>
-<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
-</div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio"><label for="__tabbed_2_2">Consola</label><div class="tabbed-content">
-<p><code>`Console
-Array
-(
-  [0] =&gt; Italy
-  [1] =&gt; France
-  [2] =&gt; Portugal
-)
-Array
-(
-  [0] =&gt; France
-  [1] =&gt; Italy
-  [2] =&gt; Portugal
-)
-Array
-(
-  [Italy] =&gt; Rome
-  [Portugal] =&gt; Lisbon
-)</code> `</p>
-</div>
-</input></input></div>
-<p>Existeixen moltíssimes més funcions per treballar amb arrays. Tota la informació en el <a href="https://www.php.net/manual/es/ref.array.php">documentació oficial</a>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Articles per aprofundir en les operacions amb arrays</p>
-<ul>
-<li>Un article molt complet (en anglès) de <a href="&lt;https://code.tutsplus.com/tutorials/working-with-php-arrays-in-the-right-way-cms-28606">Com treballar amb arrays en PHP de la manera correcta</a>.</li>
-<li>Un altre article recomanable (en anglès) és <a href="https://code.tutsplus.com/tutorials/wow-to-sort-arrays-in-php--cms-32313">Com ordenar arrays en PHP</a>.</li>
-</ul>
-</div>
-<p>Altres recursos: </p>
-<ul>
-<li><a href="https://www.studytonight.com/php/indexed-array">https://www.studytonight.com/php/indexed-array</a></li>
-<li><a href="https://aprende-web.net/php/php6_1.php">https://aprende-web.net/php/php6_1.php</a></li>
-</ul>
-<h2 id="activitats">Activitats</h2>
-<h3 id="activitat-231-arrays-indexats">Activitat 231: Arrays indexats</h3>
-<p>Crea una pàgina anomenada <code>arrays.php</code>, copia el contingut de la pàgina <code>index.php</code> i resol els exercicis següents 
+      Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts:<br/>
+        1. El protocol utilitzat (en l'exemple "http").<br/>
+        2. El nom d'usuari (en l'exemple "username").
+        3. El path de la url (en l'exemple "/path").
+        4. El querystring de la url (en l'exemple "arg=value").</p>
+</li>
+</ol>
+<h2 id="arrays-indexats">Arrays indexats</h2>
+<ol start="231">
+<li>
+<p><code>231Arrays.php</code>: Crea una pàgina, copia el contingut de la pàgina <code>index.php</code> i resol els exercicis següents 
 utilitzant funcions d'arrays:</p>
 <ol>
 <li>Crea un array amb els noms de diversos alumnes de la classe incloent el teu. </li>
@@ -578,33 +583,38 @@ mostra-la (<em>implode</em>).</li>
 <li>Mostra l'array en l'ordre invers al que es va crear (<em>rsort</em>). </li>
 <li>Mostra la posició que té el teu nom en l'array (<em>array_search</em>).</li>
 </ol>
-<h3 id="activitat-232-arrays-associatius">Activitat 232: Arrays associatius</h3>
-<p>Segons l'INE les 7 ciutats més grans d’Espanya (per habitants) el 2018 van ser les següents:</p>
+</li>
+<li>
+<p><code>232Ciutats.php</code>: Segons l'INE les 7 ciutats més grans d’Espanya (per habitants) el 2018 van ser les següents:</p>
 <ul>
-<li>Madrid, MAD,  3.223.334</li>
-<li>Sevilla, AN   , 688.711</li>
-<li>Murcia, MU,   447.182</li>
-<li>Málaga, AN,   571.026</li>
+<li>Madrid, MAD, 3.223.334</li>
+<li>Sevilla, AN  , 688.711</li>
+<li>Murcia, MU,  447.182</li>
+<li>Málaga, AN,  571.026</li>
 <li>Zaragoza, AR, 666.880</li>
-<li>València, CV,  791.413</li>
+<li>València, CV,     791.413</li>
 <li>Barcelona, CAT, 1.620.343</li>
 </ul>
 <p>Copia <code>index.php</code> i crea un nou document <code>cituats.php</code>. Defineix un array que continga aquesta informació sobre ciutats i 
 habitants. Imprimeix una taula d'ubicacions i habitants que incloga la població total de les 7 ciutats.</p>
 <p>Opcional:
 Modifica la solució de l’anterior exercici perquè mostre les ciutats ordenades per habitants. Després mostra-les per ordre alfabètic.</p>
-<h3 id="activitat-233-arrays-multidimensionals">Activitat 233: Arrays multidimensionals</h3>
-<p>Crea una pàgina anomenada <code>arrays2.php</code>, copia el contingut de la pàgina index.php i resol els exercicis següents utilitzant funcions d'arrays: </p>
+</li>
+</ol>
+<h2 id="arrays-multidimensionals">Arrays multidimensionals</h2>
+<ol start="233">
+<li>
+<p><code>233Alumnes.php</code>: Resol els exercicis següents utilitzant funcions d'arrays: </p>
 <ol>
 <li>Crea un array d'alumnes on cada element siga un altre array que continga nom i edat de l'alumne. </li>
 <li>Crea una taula HTML en la qual es mostren totes les dades dels alumnes. </li>
-<li>Utilitza la funció <code>array_column</code> per a obtenir un array indexat que continga únicament els noms dels alumnes i 
-mostra’ls per pantalla. </li>
-<li>Crea un array amb 10 números : 
-   * utilitza la funció <code>array_sum</code> per a obtenir la suma dels 10 nombres. </li>
+<li>Utilitza la funció <code>array_column</code> per a obtenir un array indexat que continga únicament els noms dels alumnes i mostra’ls per pantalla.    </li>
+<li>Crea un array amb 10 números i utilitza la funció <code>array_sum</code> per a obtenir la suma dels 10 nombres. </li>
+<li>Sense usar bucles for calcula la mitjana d'edat de l'alumnat.     </li>
 </ol>
-<h3 id="activitat-234-opcional">Activitat 234: Opcional</h3>
-<p>Modifica la solució del exercici <code>ciutats.php</code> perquè la taula continga també la columna del total d’habitants de la 
+</li>
+<li>
+<p><code>234CiutatsOpcional.php</code>: Modifica la solució del exercici <code>ciutats.php</code> perquè la taula continga també la columna del total d’habitants de la 
 comunitat autònoma de les ciutats de la llista i el percentatge sobre els habitants de la comunitat autònoma que representa.</p>
 <p>Per exemple: </p>
 <table>
@@ -628,11 +638,187 @@ comunitat autònoma de les ciutats de la llista i el percentatge sobre els habit
 <p>Pista: Caldrà modificar l'array  <code>$ciutats</code> i convertir-lo en multidimensional. Les dades de comunitats autònomes hauran
 d'estar en un altre array. </p>
 <p>Dades: <a href="https://es.wikipedia.org/wiki/Anexo:Municipios_de_Espa%C3%B1a_por_poblaci%C3%B3n">Municipis de España</a></p>
+</li>
+</ol>
+<h2 id="funcions">Funcions</h2>
+<ol start="241">
+<li>
+<p><code>241funcions.php</code>: Escriu una funció per retornar una etiqueta HTML <code>&lt;img /&gt;</code>. </p>
+<p>La funció hauria d’acceptar com a argument obligatori l’URL de la imatge i arguments opcionals per a un text 
+  alternatiu, alçada i amplada.</p>
+</li>
+<li>
+<p><code>242funcions.php</code>: Copieu la funció de l’exercici anterior i modifiqueu-la de manera que només es passe el nom de fitxer a la funció en
+lloc de l’URL completa. Dins de la funció, farem ús d’una variable global per fer l’URL completa.</p>
+<p>Per exemple, si passem <code>photo.png</code> a la funció, i la variable global conté <code>/images</code>, llavors l’atribut <code>src</code> de 
+  l'etiqueta <img/> retornada serà <code>/images/photo.png</code>. </p>
+<p>Una funció com aquesta és una forma senzilla de mantenir correctes les vostres etiquetes d’imatges, fins i tot si les
+  imatges es mouen a un nou camí o servidor. Només cal canviar la variable global, per exemple, de <code>/images</code> a 
+  <code>http://images.example.com/.</code></p>
+</li>
+<li>
+<p><code>243funciocolors.php</code>:  Els colors web com <code>#ffffff</code> i <code>#cc3399</code> es realitzen concatenant els valors hexadecimals de color per a vermell, 
+verd i blau. </p>
+<p>Escriu una funció que accepte 3 arguments: roig, verd i blau, i que retorne un string que conté el color adequat per
+  utilitzar-lo en una pàgina web. </p>
+<p>Per exemple, si els arguments són 255, 0, i 255, llavors la cadena retornada hauria de ser #FF00FF.</p>
+<p>Pot resultar útil utilitzeu la funció <code>dechex()</code> integrada, que es troba documentada a <a href="http://www.php.net/">http://www.php.net/</a></p>
+<p>Assegureu-vos que els paràmetres reben valors enters i que són colors vàlids.</p>
+<p>Implementa 3 exemples d’ús.</p>
+</li>
+<li>
+<p><code>244funcionsSQL.php</code>: Crea una funció anomenada <code>insert</code>  que ens genere una sentència INSERT INTO en SQL.  </p>
+<p>Per a açò la funció rebrà dos paràmetres:<br/>
+      1. El nom de la taula<br/>
+      2.   Un array associatiu que contindrà els noms i valors dels camps de la taula.</p>
+<p>La sentència resultant tindrà la següent forma: </p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>“INSERT INTO nom_taula (nom dels camps separats per comes) 
+<span class="linenos" data-linenos="2 "></span>  VALUES (noms dels camps separats per comes amb el caràcter “:” davant)  
+</code></pre></div>
+De moment, no farem res amb els valors dels camps. </p>
+<p>Ajuda: utilitza les funcions <code>sprintf</code>, <code>implode</code> i <code>array_keys</code></p>
+</li>
+<li>
+<p><code>245funcionsSQL2.php</code>: A partir de l'exercici anterior crea una altra funció que reba els mateixos paràmetres més un paràmetre booleà 
+per a indicar si volem generar la query amb els noms dels camps o no. </p>
+<p>El paràmetre tindrà el valor <code>true</code> per defecte.</p>
+<p>Si el seu valor és <code>true</code> generarà la consulta igual que en l'exercici anterior, però si és <code>false</code> la generarà així: </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">nom_taula</span> 
+<span class="linenos" data-linenos="2 "></span>  <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span> <span class="n">dels</span> <span class="n">camps</span> <span class="n">separats</span> <span class="n">per</span> <span class="n">comes</span> <span class="n">amb</span> <span class="n">el</span> <span class="n">caràcter</span> <span class="err">‘</span><span class="p">:</span><span class="err">’</span> <span class="n">davant</span><span class="p">)</span>
+</code></pre></div>
+</li>
+<li>
+<p><code>246funcionsSQLReferencia.php</code>: Repeteix l'exercici anterior amb els següents canvis: </p>
+<p>La cadena resultant es passarà per referència.</p>
+<p>Passarem la cadena de la següent forma: </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">taula</span> <span class="p">(</span><span class="n">camps</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span><span class="p">)</span> 
+</code></pre></div>
+<p>Dins de la funció substituirem el següent: </p>
+<ol>
+<li>El text taula pel nom de la taula. </li>
+<li>El text camps pels noms dels camps separats per comes</li>
+<li>El text valors pels noms dels camps separats per comes i el caràcter ‘:’ davant. </li>
+</ol>
+</li>
+</ol>
+<h2 id="formularis">Formularis</h2>
+<ol start="261">
+<li>
+<p><code>261ExempleGet.php</code>: Crea una pàgina que reba com a paràmetre un nom i mostre el text ‘Benvingut [nom]!!!’ sent [nom] el nom has 
+passat com a paràmetre.</p>
+</li>
+<li>
+<p><code>262Formulari.php</code>: Crea un formulari que tinga els següents camps:</p>
+<ul>
+<li><code>firstname</code></li>
+<li><code>lastname</code></li>
+<li><code>phone</code></li>
+<li><code>email</code></li>
+</ul>
+<p>En l'atribut <code>action</code> del formulari posarem el següent:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"262Formulari.php"</span> <span class="err">...</span><span class="p">/&gt;</span>
+</code></pre></div>
+<p>Açò farà que siga la pròpia pàgina del formulari la que processe les dades del mateix.</p>
+<p>En prémer <code>Enviar</code> han d'aparèixer sota el formulari les dades que s'han introduït en el mateix en format de 
+taula.</p>
+</li>
+<li>
+<p><code>263FormulariReparat.php</code>: Soluciona el problema dels paràmetres no enviats de l'exercici anterior.</p>
+</li>
+<li>
+<p><code>264FormulariValidat.php</code>: Modifica l'exercici anterior realitzant les següents validacions:</p>
+<ul>
+<li>Tots els camps són obligatoris.</li>
+<li><code>firstname</code>, no pot superar els 25 caracters.</li>
+<li><code>lastname</code>, no pot superar els 50 caracters.</li>
+<li><code>phone</code>, ha de contenir 9 digits (expressió regular: <code>^\d{9}$</code>).</li>
+<li><code>email</code>, ha de ser una adreça electrònica correcta.</li>
+</ul>
+<p>S'avaluaran tots els camps i si hi ha error/s caldrà mostrar-lo/s. Si no hi ha errors es mostraran les dades introduïdes per l'usuari.</p>
+</li>
+<li>
+<p><code>265FormulariOpcions.php</code>: Modifica l'exercici anterior afegint els següents camps al formulari:</p>
+<ul>
+<li><code>genre</code>: serà un <em>radio button</em> i podrà ser <em>home</em>, <em>dona</em> i <em>no binari</em>.</li>
+<li><code>hobbies</code>: serà un checkbox amb aficions de la que podràs triar-ne més d'una:<ul>
+<li>Lectura</li>
+<li>Programació</li>
+<li>Ciclisme</li>
+<li>Running</li>
+<li>...</li>
+</ul>
+</li>
+<li><code>contact-time</code>: serà una llista de les millores hores per a contactar: <ul>
+<li>Primera hora (08:00 a 10:00)</li>
+<li>Abans de dinar (12:00 a 13:00)</li>
+<li>Després de dinar (14:00 a 16:00)</li>
+<li>Per la nit (20:00 a 22:00)</li>
+</ul>
+</li>
+</ul>
+<p>En els tres casos són obligatoris, s'ha de mantindre el valor en cas de ser correcte .</p>
+</li>
+<li>
+<p><code>266FormulariArray</code>: Modifica l'exercici anterior de forma que el contingut dels camps de selecció es genere dinàmicament des d'arrays associatius. A més, els valors rebuts s'haurien de validar contra l'<em>array</em> i mostrar-se fent és d'ell.</p>
+</li>
+</ol>
+<h2 id="inclusio-de-fitxers">Inclusió de fitxers</h2>
+<ol>
+<li>
+<p><code>271Formulari.php</code>: Basant-te en l'activitat <code>264FormulariValidat.php</code> modifica les validacions perquè es facen mitjançant funcions. </p>
+<p>Les funcions es guardaran en el fitxer <code>helpers.php</code> i s'hauran d'incloure en fitxer <code>271Formulari.php</code>.</p>
+</li>
+<li>
+<p><code>272Formulari.php</code>: Basant-te en l'activitat <code>271Formulari.php</code> separa la part de codi de la presentació de forma que tota la lògica estiga en un fitxer i la part de presentació en altre fitxer <code>271Formulari.view.php</code>.</p>
+</li>
+</ol>
+<h2 id="pujada-de-fitxers">Pujada de fitxers</h2>
+<ol>
+<li><code>281FormularImatge.php</code>: Modifica l'activitat <code>272Formulari.php</code> afegint un camp de tipus <code>FILE</code> per a pujar una imatge al servidor. Es guardarà en la carpeta <code>uploads</code> i es mostrarà amb la resta de dades. </li>
+<li><code>282FormulariImage.php</code>: Modifica l'activitat anterior de forma que es controle el següent:<ol>
+<li>Les imatges sols podran ser <code>jpg</code>.</li>
+<li>No podran superar 1MB de grandària</li>
+<li>Es guardaran en un nom aleatori únic.</li>
+</ol>
+</li>
+</ol>
+<h2 id="credits">Crèdits</h2>
+<ul>
+<li>Aitor Medrano. (setembre de 2021) <em>Desarrollo Web en Entorno Servidor</em> disponible en: <a href="https://aitor-medrano.github.io/dwes2122/index.html">https://aitor-medrano.github.io/dwes2122/index.html</a></li>
+</ul>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: PHP Bàsic" class="md-footer__link md-footer__link--prev" href="../02-phpbasics/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              PHP Bàsic
+            </div>
+</div>
+</a>
+<a aria-label="Següent: PHP OO Bàsic" class="md-footer__link md-footer__link--next" href="../../03-phpoo/0301-phpoo-basic/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              PHP OO Bàsic
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
